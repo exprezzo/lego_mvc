@@ -7,18 +7,15 @@ class RequestTestcase extends PHPUnit_TestCase{
        $this->PHPUnit_TestCase($name);
     }
 	
-	// called before the test functions will be executed
-    // this function is defined in PHPUnit_TestCase and overwritten
-    // here
+	// override sobre PHPUnit_TestCase 
+	// called before the test functions
     function setUp() {
-        // create a new instance of
         //$this->request = new Request();
     }
 
-    // called after the test functions are executed
-    // this function is defined in PHPUnit_TestCase and overwritten
-    // here
-    function tearDown() {
+    // called after the test functions     
+	// override sobre PHPUnit_TestCase 
+    function tearDown() { 		
         // delete your instance
         //unset($this->request);
     }

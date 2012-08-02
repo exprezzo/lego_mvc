@@ -1,17 +1,22 @@
 <?php
 	require_once 'request.php';
+	require_once 'despachador.php';	
+	require_once 'controlador/controlador.php';
+	
+	//----------------- procesa la URL
 	try{
-		$request = new Request();	
+		$_Peticion = new Request();	
 	}catch(Exception $e){
-		echo $e->getMessage();
-		exit;
+		echo $e->getMessage();	exit;
 	}
 		
-	//-----------------
-	//    dispatch
-	$controlador=$request->controlador;
-	$accion= $request->accion;
-	echo 'Controlador: '.$controlador.'<br>';
-	echo 'Accion: '.$accion;
+	//----------------- despacha
+	$despachador= new Despachador();
+	try{
+		$despachador->despachar( $_Peticion );
+	}catch(Exception $e){
+		echo $e->getMessage();	exit;
+	}
 	
+		
 ?>

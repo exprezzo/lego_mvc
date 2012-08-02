@@ -5,20 +5,21 @@ class Request{
 		//  [PATH_INFO] => /controlador/vista
 		
 		// Ruta Absoluta    http://lego/controlador/vista?foo=bar 
-		//  [PATH_INFO] => /controlador/vista
+		//  [PATH_INFO] => /controlador/vista		
 		
+		if ( !isset($_SERVER['PATH_INFO']) ) $_SERVER['PATH_INFO'] = "/Home/index";
 		$url=$_SERVER['PATH_INFO'];		
 		$xp = explode ( '/', $url);		
 		$size=sizeof($xp);
 		
 		switch($size){
 			case 1:
-				$controlador='default';
-				$accion		='default';
+				$controlador='home';
+				$accion		='index';
 			break;
 			case 2:	// solo escribió el controlador
 				$controlador=$xp[1];
-				$accion		='default';
+				$accion		='index';
 			break;			
 			case 3:	// escribió el controlador y la vista
 				$controlador=$xp[1];
