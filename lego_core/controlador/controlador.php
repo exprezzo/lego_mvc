@@ -4,6 +4,7 @@ class Controlador{
 		global $_Peticion;
 		echo "<H1>Saludos desde el controlador ".$_Peticion->controlador."</H1>";
 	}
+	
 	function index(){
 		
 	}

@@ -1,7 +1,10 @@
 <?php
-require_once '../lego_core/peticion.php';
+require_once '../../lego_core/peticion.php';
+require_once '../../lego_core/despachador.php';
 require_once 'PHPUnit.php';
-class PeticionTestcase extends PHPUnit_TestCase{
+class DespachadorTestcase extends PHPUnit_TestCase{
+	 
+	 //==================================================================================
 	 // constructor of the test suite
     function FCTestcase($name) {
        $this->PHPUnit_TestCase($name);
@@ -10,6 +13,7 @@ class PeticionTestcase extends PHPUnit_TestCase{
 	// override sobre PHPUnit_TestCase 
 	// called before the test functions
     function setUp() {
+		define ("PATH_CONTROLADORES",'../../lego_core/controlador/');
         //$this->request = new Request();
     }
 
@@ -19,16 +23,22 @@ class PeticionTestcase extends PHPUnit_TestCase{
         // delete your instance
         //unset($this->request);
     }
+	//==================================================================================
 	
-	function testPeticionSinAccion(){
-		$controlador="elcontrolador";		
+	function testControlador(){
+		$controlador="Controlador";		
 		$url="/".$controlador;
 		$_SERVER['PATH_INFO'] = $url;
 		$request=new Peticion();
+		$despachador=new Despachador();
+		global $_Peticion;
+		$_Peticion = $request;
+		$despachador->despachar($request);
+		
 		$this->assertTrue($controlador == $request->controlador && $request->accion == 'index');
 	}
 	
-	function testPeticionConAccion(){
+	/*function testPeticionConAccion(){
 		$controlador="elcontrolador";
 		$accion="laaccion";		
 		$url="/".$controlador.'/'.$accion;
@@ -51,12 +61,12 @@ class PeticionTestcase extends PHPUnit_TestCase{
 		$this->assertTrue($error);
 	}
 	
-	function testRaiz(){		
+	function testRaiz(){
 		$url="";
 		$_SERVER['PATH_INFO'] = $url;
 		$request=new Peticion();
 		$this->assertTrue("home" == $request->controlador && "index" == $request->accion);
-	}
+	}*/
 }
 
 ?>

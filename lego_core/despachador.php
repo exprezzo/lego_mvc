@@ -5,10 +5,10 @@ class Despachador{
 		$accion= $_Peticion->accion;
 		//echo 'Controlador: '.$controlador.'<br>';  echo 'Accion: '.$accion;		
 		//echo "<pre>"; print_r($_SERVER); echo "</pre>";
-		//Carga dinámica del controlador
-		include '../mvc/controladores/'.$nombreControlador.'.php';
+		//Carga dinámica del controlador		
+		include PATH_CONTROLADORES.$nombreControlador.'.php';
 		$controller=new $nombreControlador;
-		$controller->$accion();	
+		$controller->$accion();			 
 	}
 }
 ?>

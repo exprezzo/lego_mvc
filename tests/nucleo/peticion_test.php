@@ -1,6 +1,6 @@
 <?php
 
-require_once 'peticion_testcase.php';
+require_once 'testcase_peticion.php';
 require_once 'PHPUnit.php';
 
 $suite  = new PHPUnit_TestSuite("PeticionTestcase");
