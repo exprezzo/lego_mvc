@@ -25,7 +25,7 @@ class RequestTestcase extends PHPUnit_TestCase{
 		$url="/".$controlador;
 		$_SERVER['PATH_INFO'] = $url;
 		$request=new Request();
-		$this->assertTrue($controlador == $request->controlador && $request->accion == 'default');
+		$this->assertTrue($controlador == $request->controlador && $request->accion == 'index');
 	}
 	
 	function testPeticionConAccion(){
@@ -55,7 +55,7 @@ class RequestTestcase extends PHPUnit_TestCase{
 		$url="";
 		$_SERVER['PATH_INFO'] = $url;
 		$request=new Request();
-		$this->assertTrue("default" == $request->controlador && "default" == $request->accion);
+		$this->assertTrue("home" == $request->controlador && "index" == $request->accion);
 	}
 }
 
