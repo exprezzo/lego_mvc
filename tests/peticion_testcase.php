@@ -1,7 +1,7 @@
 <?php
-require_once '../lego_core/request.php';
+require_once '../lego_core/peticion.php';
 require_once 'PHPUnit.php';
-class RequestTestcase extends PHPUnit_TestCase{
+class PeticionTestcase extends PHPUnit_TestCase{
 	 // constructor of the test suite
     function FCTestcase($name) {
        $this->PHPUnit_TestCase($name);
@@ -24,7 +24,7 @@ class RequestTestcase extends PHPUnit_TestCase{
 		$controlador="elcontrolador";		
 		$url="/".$controlador;
 		$_SERVER['PATH_INFO'] = $url;
-		$request=new Request();
+		$request=new Peticion();
 		$this->assertTrue($controlador == $request->controlador && $request->accion == 'index');
 	}
 	
@@ -33,7 +33,7 @@ class RequestTestcase extends PHPUnit_TestCase{
 		$accion="laaccion";		
 		$url="/".$controlador.'/'.$accion;
 		$_SERVER['PATH_INFO'] = $url;
-		$request=new Request();
+		$request=new Peticion();
 		$this->assertTrue($controlador == $request->controlador && $accion == $request->accion);
 	}
 	
@@ -43,7 +43,7 @@ class RequestTestcase extends PHPUnit_TestCase{
 		$url="/".$controlador.'/'.$accion.'/otraCos';
 		$_SERVER['PATH_INFO'] = $url;
 		try{
-			$request=new Request();
+			$request=new Peticion();
 			$error=false;
 		}catch(Exception $e){
 			$error=true;
@@ -54,7 +54,7 @@ class RequestTestcase extends PHPUnit_TestCase{
 	function testRaiz(){		
 		$url="";
 		$_SERVER['PATH_INFO'] = $url;
-		$request=new Request();
+		$request=new Peticion();
 		$this->assertTrue("home" == $request->controlador && "index" == $request->accion);
 	}
 }

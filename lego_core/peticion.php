@@ -1,6 +1,6 @@
 <?php
-class Request{
-	function Request(){
+class Peticion{
+	function Peticion(){
 		// Ruta relativa    http://localhost/lego_mvc/controlador/vista?foo=bar
 		//  [PATH_INFO] => /controlador/vista
 		
