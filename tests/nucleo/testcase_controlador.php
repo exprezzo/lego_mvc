@@ -31,6 +31,8 @@ class ControladorTestcase extends PHPUnit_TestCase{
 		);
 		$this->assertTrue($respuesta['success'] == $esperado['success'] );
 	}	
+	
+	
 }
 
 ?>

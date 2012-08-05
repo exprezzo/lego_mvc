@@ -10,19 +10,26 @@ class Despachador{
 		$msgFalla = 'La petición no puede servirse';
 		
 		$peticion=$this->getPeticion();				
-		
-		//  Carga dinámica del controlador   -------------------------
-		
-		require_once PATH_CONTROLADORES.$peticion->controlador.'.php';
-		$controller=new $peticion->controlador;		
 		$accion=$peticion->accion;
-		//  Aqui se decide entre ejecutar accion o cargar vista
-		if (method_exists($controller, $accion)){				
-			$respuesta = $controller->$accion();						
-		}else{
-			unset($controller);			
-			$vista=new Vista();			
-			$respuesta = $vista->render($peticion->controlador, $accion);		
+		//  Carga dinámica del controlador   -------------------------
+		$ejecutar=false;
+		
+		//Se analiza si el controlador puede ejecutar la accion
+		if ( file_exists(PATH_CONTROLADORES.$peticion->controlador.'.php') ){
+			require_once (PATH_CONTROLADORES.$peticion->controlador.'.php');
+			$controller=new $peticion->controlador;		
+			
+			//  Aqui se decide entre ejecutar accion o cargar vista
+			if (method_exists($controller, $accion)){				
+				$ejecutar=true;
+			}
+		}
+				
+		//  
+		if ( $ejecutar ){				
+			$respuesta = $controller->$accion();				
+		}else{			
+			$respuesta = $controller->procesarPeticion($peticion);			
 		}	
 		//------------------------------------
 		if ( $respuesta['success'] == true ){

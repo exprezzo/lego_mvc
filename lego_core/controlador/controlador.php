@@ -13,11 +13,33 @@ class Controlador{
 		}
 		return $this->vistaObj;
 	}
-	function inicio(){
+	
+	function mostrarVista(){
 		$vista= $this->getVista();
 		
 		return $vista->render('','inicio');		
 	}
+	
+	private function cambiarContenido($plantillaContenido){
+		$vista= $this->getVista();
+		$vista->plantillaContenido=$plantillaContenido;
+		return $vista->render('','inicio');	
+	}
+		
+	function procesarPeticion($peticion){
+		$vista= $this->getVista();
+		$vista->plantillaContenido='contenido/'.$peticion->accion;
+		return $vista->mostrar('inicio');	
+		
+		
+	}		
+	
+	/* */
+	/*function inicio(){
+		$vista= $this->getVista();
+		$vista->plantillaContenido = '/contenido/home/';
+		return $vista->mostrar('inicio');		
+	}*/
 	//comportamiento crud 
 	
 	function listar(){}

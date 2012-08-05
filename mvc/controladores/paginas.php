@@ -6,9 +6,7 @@ class Paginas extends Controlador{ //extends Controlador
 		echo 'Bienvenidos a planktom';
 	}
 	
-	function inicio(){
-		return $this->cambiarContenido('contenido');
-	}
+	
 	
 	function cambiarContenido($plantillaContenido){
 		$vista= $this->getVista();
@@ -16,13 +14,36 @@ class Paginas extends Controlador{ //extends Controlador
 		return parent::inicio();
 	}
 	
+	
+	/*
 	function caracteristicas(){
-		$this->cambiarContenido('caracteristicas');		
+		return $this->cambiarContenido('contenido/caracteristicas');		
 	}
 	
 	function ejemplos(){
-		$this->cambiarContenido('caracteristicas');		
+		return $this->cambiarContenido('contenido/ejemplos');		
 	}
+	
+	function home(){
+		return $this->cambiarContenido('contenido/home');		
+	}
+	
+	function docs(){
+		return $this->cambiarContenido('contenido/docs');		
+	}
+	
+	function noticias(){
+		return $this->cambiarContenido('contenido/home');		
+	}
+	
+	function foro(){
+		return $this->cambiarContenido('contenido/home');		
+	}
+	
+	function inicio(){
+		return $this->cambiarContenido('contenido/home');		
+	}
+	*/
 	
 	
 	

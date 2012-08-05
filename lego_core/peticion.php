@@ -7,6 +7,19 @@ class Peticion{
 		// Ruta Absoluta    http://lego/controlador/vista?foo=bar 
 		//  [PATH_INFO] => /controlador/vista		
 		
+		//-------------------------------------------------------------------------------
+		$arrAppPath = explode('/',$_SERVER['SCRIPT_NAME']) ;		
+		//no nos interesa el primero ni los ultimos dos
+		$app_path='/';		
+		
+		$arrCount=sizeof($arrAppPath);
+		for( $i=1;  $i<$arrCount-2; $i++ ){		
+			$app_path.=''.$arrAppPath[$i].'/';
+			
+		}
+		
+		define('APP_PATH',$app_path);				
+		//-------------------------------------------------------------------------------
 		if ( !isset($_SERVER['PATH_INFO']) ) $_SERVER['PATH_INFO'] = "/paginas/inicio";
 		$url=$_SERVER['PATH_INFO'];		
 		$xp = explode ( '/', $url);		
@@ -33,6 +46,8 @@ class Peticion{
 		
 		$this->controlador = $controlador;
 		$this->accion 	   = $accion;
+		
+		
 		
 	}
 }

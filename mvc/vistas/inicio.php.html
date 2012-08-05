@@ -1,28 +1,29 @@
 <html>
 <head>
-<link rel="stylesheet" type="text/css"  href="<?php echo VISTAS_PATH; ?>styles.css" />
+<link rel="stylesheet" type="text/css"  href="<?php echo APP_PATH; ?>css/styles.css" />
 <style type="text/css" src="styles.css" ></style>
 
 </head>
 <body class="body">
 		
 	<!-- HEADER -->			
-	<?php $this->mostrar('header'); ?>
+	<?php $this->mostrar('secciones/header'); ?>
 	
 	
 	<div class="menu">
 		<!-- MENU -->	
-		<?php $this->mostrar('menu'); ?>
+		<?php $this->mostrar('secciones/menu'); ?>
 	</div>
 	
 	
 	<!-- CONTENINDO -->			
-	<?php $this->mostrar($this->plantillaContenido); ?>
+	
+	<?php $this->mostrar("secciones/".$this->plantillaContenido); ?>
 	
 	
 	<div class="footer">
 		<!-- FOOTER -->	
-		<?php $this->mostrar('footer'); ?>
+		<?php $this->mostrar('secciones/footer'); ?>
 	</div>
 	
 </body>

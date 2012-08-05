@@ -1,8 +1,10 @@
 <?php
-class  Vista{
+class  Vista{		
+	
 	function mostrar($accion){
+		
 		$rutaVista=VISTAS_PATH.$accion.'.php.html';
-				
+		
 		$vista_existe = ( file_exists($rutaVista) ) ? true : false;
 		
 		if ($vista_existe) {
@@ -13,7 +15,7 @@ class  Vista{
 			$msg='accion render ejecutada con éxito';			
 		}else{		
 			$success=false;
-			$msg='No existe la vista: '.$rutaVista;						
+			$msg='No existe la vista: '.$rutaVista;					
 		}
 				
 		return array(
@@ -21,7 +23,7 @@ class  Vista{
 			'msg'=>$msg
 		);
 	}
-	
+			
 	function antesdeMostrar($accion){
 	
 	}
@@ -29,6 +31,7 @@ class  Vista{
 	function despuesdeMostrar($accion){
 		
 	}
+	
 	function render($controlador = '', $accion = ''){	
 		return $this->mostrar($accion);
 	}

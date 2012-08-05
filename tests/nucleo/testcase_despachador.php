@@ -71,7 +71,12 @@ class DespachadorTestcase extends PHPUnit_TestCase{
 		$this->assertTrue($resultado['success'] == $esperado['success'] && $resultado['msg'] == $esperado['msg']);		
 	}
 	
-	function testNoDespachar(){
+	function testControladorNoEncontrado(){
+		$this->assetTrue(false);
+	}
+	
+	function testAccionNoEncontrada(){
+		$this->assetTrue(false);
 		//---------------------------------------
 		//	Construyo una URL de prueba		
 		$_SERVER['PATH_INFO'] = '/'.$controlador="Controlador".'/noexiste';

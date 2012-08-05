@@ -26,7 +26,7 @@
 	top:5px;
 }
 .session_widget .imagen{
-	background-image:url('login.png');
+	background-image:url('../media/imagenes/login.png');
 	width:26px;
 	height:26px;
 }
