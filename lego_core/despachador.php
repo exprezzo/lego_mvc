@@ -12,6 +12,7 @@ class Despachador{
 		$peticion=$this->getPeticion();				
 		
 		//  Carga dinámica del controlador   -------------------------
+		
 		require_once PATH_CONTROLADORES.$peticion->controlador.'.php';
 		$controller=new $peticion->controlador;		
 		$accion=$peticion->accion;

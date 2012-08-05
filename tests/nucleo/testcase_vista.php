@@ -8,8 +8,7 @@ class VistaTestcase extends PHPUnit_TestCase{
 		define ('VISTAS_PATH',PATH_NUCLEO.'/vista/');
     }
 	
-	function testRender(){
-		
+	function testRender(){		
 		ob_start();
 		$vista= new Vista();
 		

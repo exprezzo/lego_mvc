@@ -57,7 +57,7 @@ class DespachadorTestcase extends PHPUnit_TestCase{
 	function testDespacharVista(){
 		//---------------------------------------
 		//	Construyo una URL de prueba		
-		$_SERVER['PATH_INFO'] = '/'.$controlador="Controlador".'/otra';
+		$_SERVER['PATH_INFO'] = '/'.$controlador="Controlador".'/inicio';
 		//---------------------------------------
 		$despachador=new Despachador();		
 		ob_start();
