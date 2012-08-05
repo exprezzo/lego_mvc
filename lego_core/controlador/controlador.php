@@ -1,12 +1,15 @@
 <?php
 class Controlador{
 	function __construct(){
-		global $_Peticion;
-		echo "<H1>Saludos desde el controlador ".$_Peticion->controlador."</H1>";
+		
+		//echo "<H1>Saludos desde el controlador principal</H1>";
 	}
 	
 	function index(){
-		
+		return array(
+			'success'=>true,
+			'msg'=>'accion index ejecutada con éxito'
+		);
 	}
 	//comportamiento crud 
 	

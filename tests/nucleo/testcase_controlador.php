@@ -1,7 +1,7 @@
 <?php
-require_once '../lego_core/despachador.php';
+require_once '../lego_core/controlador/controlador.php';
 require_once 'PHPUnit.php';
-class DespachadorTestcase extends PHPUnit_TestCase{
+class ControladorTestcase extends PHPUnit_TestCase{
 	 
 	 //==================================================================================
 	 // constructor of the test suite
@@ -12,7 +12,7 @@ class DespachadorTestcase extends PHPUnit_TestCase{
 	// override sobre PHPUnit_TestCase 
 	// called before the test functions
     function setUp() {
-		define ("PATH_CONTROLADORES",'../lego_core/controlador/');       
+		
     }
 
     // called after the test functions     
@@ -23,19 +23,14 @@ class DespachadorTestcase extends PHPUnit_TestCase{
     }
 	//==================================================================================
 	
-	function testDespachar(){
-		//---------------------------------------
-		//	Construyo una URL de prueba		
-		$_SERVER['PATH_INFO'] = '/'.$controlador="Controlador";
-		//---------------------------------------
-		$despachador=new Despachador();		
-		$resultado = $despachador->despacharPeticion();		
+	function testIndex(){
+		$controlador= new Controlador();
+		$respuesta = $controlador->index();
 		$esperado=array(
 			'success'=>true,
-			'msg'=>'petición servida con éxito'
+			'msg'=>'accion index ejecutada con éxito'
 		);
-		
-		$this->assertTrue($resultado['success'] == $esperado['success'] && $resultado['msg'] == $esperado['msg']);
+		$this->assertTrue($respuesta['success'] == $esperado['success'] && $respuesta['msg'] == $esperado['msg']);
 	}	
 }
 

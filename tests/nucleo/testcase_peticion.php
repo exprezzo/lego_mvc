@@ -1,5 +1,5 @@
 <?php
-require_once '../../lego_core/peticion.php';
+require_once '../lego_core/peticion.php';
 require_once 'PHPUnit.php';
 class PeticionTestcase extends PHPUnit_TestCase{
 	 
@@ -29,6 +29,7 @@ class PeticionTestcase extends PHPUnit_TestCase{
 		$_SERVER['PATH_INFO'] = $url;
 		$request=new Peticion();
 		$this->assertTrue($controlador == $request->controlador && $request->accion == 'index');
+		
 	}
 	
 	function testPeticionConAccion(){

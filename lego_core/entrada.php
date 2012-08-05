@@ -1,21 +1,15 @@
 <?php
-	require_once 'peticion.php';
-	require_once 'despachador.php';	
-	require_once 'controlador/controlador.php';
-	
-	//----------------- procesa la URL
-	try{
-		$_Peticion = new Peticion();	
-	}catch(Exception $e){
-		echo $e->getMessage();	exit;
-	}
-		
+	//  Planktom 		
+	require_once '../config.php';		
+	require_once 'despachador.php';		
 	//----------------- despacha
 	$despachador= new Despachador();
 	try{
-		$despachador->despachar( $_Peticion );
+		$despachador->despacharPeticion();
 	}catch(Exception $e){
-		echo $e->getMessage();	exit;
+		echo "El sistema ha sufrido un fallo, consulte con el administrador del sistema";
+		//-------
+		//TODO: Logear el error
 	}
 	
 		
