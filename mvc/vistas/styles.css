@@ -1,0 +1,97 @@
+/* http://www.colorcombos.com/color-schemes/408/ColorCombo408.html */
+/*  SECCION HEADER	*/
+/*  	*/
+.body{
+	background-color:white;
+	margin:0;
+}
+
+.header{
+	width:100%;
+	height: auto;
+	background-color:#9CC7F2;	
+	color:white;
+	position:relative;
+}
+.header h1{
+	display:inline-block;
+}
+
+.session_widget{
+	/* background-color:black;
+	 */
+	color:black;
+	position:absolute;
+	right:5px;
+	top:5px;
+}
+.session_widget .imagen{
+	background-image:url('login.png');
+	width:26px;
+	height:26px;
+}
+.busqueda_widget{
+	position:absolute;	
+	bottom:10px;
+	right:10px;
+	display:inline-block;
+	
+}
+
+.breadcumb{
+	position:absolute;	
+	bottom:10px;
+	left:120px;
+	display:inline-block;
+}
+
+/*  MENU	*/
+/*  */
+
+.toogle_img{
+	/* background-image:url("super_mono/navigation_left_frame.png"); */
+	width:64px;
+	height:64px;
+	position:absolute;
+	top:0;
+	right:0;
+}
+.menu{
+	width:30%;
+	position:relative;
+	height: 70%;
+	background-color:#CCCCCC;
+	color:white;
+	float:left;
+	
+}
+.menu li{
+	font-size:20px;
+	font-weight:bold;
+}
+.menu h1{
+	text-align:center;
+}
+
+.menu a:link {color:#FF0000; text-decoration:none; }      /* unvisited link */
+.menu a:visited {color:black; text-decoration:none;}  /* visited link */
+.menu a:hover {color:#661166; }  /* mouse over link */
+.menu a:active {color:white;}  /* selected link */
+/*  	*/
+.contenido{
+	width:70%;
+	height: auto;
+	height: auto;
+	min-height:70%;
+	/*background-color: whte;
+	color:white;*/
+	float:left;
+}
+
+.footer{
+	width:100%;
+	height: 20%;
+	background-color:#FF6600;
+	color:white;
+	clear:both;
+}

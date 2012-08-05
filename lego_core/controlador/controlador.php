@@ -6,9 +6,15 @@ class Controlador{
 		//echo "<H1>Saludos desde el controlador principal</H1>";
 	}
 	
+	function getVista(){
+		if ( !isset($this->vistaObj) ){
+			require_once PATH_NUCLEO.'vista/vista.php';
+			$this->vistaObj = new Vista();
+		}
+		return $this->vistaObj;
+	}
 	function inicio(){
-		require_once PATH_NUCLEO.'vista/vista.php';
-		$vista = new Vista();
+		$vista= $this->getVista();
 		
 		return $vista->render('','inicio');		
 	}

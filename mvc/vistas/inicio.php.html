@@ -1,31 +1,28 @@
 <html>
 <head>
+<link rel="stylesheet" type="text/css"  href="<?php echo VISTAS_PATH; ?>styles.css" />
+<style type="text/css" src="styles.css" ></style>
+
 </head>
-<body>
+<body class="body">
+		
+	<!-- HEADER -->			
+	<?php $this->mostrar('header'); ?>
 	
-	<div class="header">
-		<!-- HEADER -->	
-		HEADER
-	</div>
 	
 	<div class="menu">
 		<!-- MENU -->	
-		MENU
+		<?php $this->mostrar('menu'); ?>
 	</div>
 	
-	<div class="contenido">
-		<!-- CONTENINDO -->	
-		CONTENINDO
-
-		<?php
-		echo "SALUDOS DESDE PHP";
-		?>
-
-	</div>
+	
+	<!-- CONTENINDO -->			
+	<?php $this->mostrar($this->plantillaContenido); ?>
+	
 	
 	<div class="footer">
 		<!-- FOOTER -->	
-		FOOTER
+		<?php $this->mostrar('footer'); ?>
 	</div>
 	
 </body>
