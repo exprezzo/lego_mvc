@@ -7,19 +7,19 @@ class Peticion{
 		// Ruta Absoluta    http://lego/controlador/vista?foo=bar 
 		//  [PATH_INFO] => /controlador/vista		
 		
-		if ( !isset($_SERVER['PATH_INFO']) ) $_SERVER['PATH_INFO'] = "/Home/index";
+		if ( !isset($_SERVER['PATH_INFO']) ) $_SERVER['PATH_INFO'] = "/paginas/inicio";
 		$url=$_SERVER['PATH_INFO'];		
 		$xp = explode ( '/', $url);		
 		$size=sizeof($xp);
 		
 		switch($size){
 			case 1:
-				$controlador='home';
-				$accion		='index';
+				$controlador='paginas';
+				$accion		='inicio';
 			break;
 			case 2:	// solo escribió el controlador
 				$controlador=$xp[1];
-				$accion		='index';
+				$accion		='inicio';
 			break;			
 			case 3:	// escribió el controlador y la vista
 				$controlador=$xp[1];

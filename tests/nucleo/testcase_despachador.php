@@ -4,15 +4,15 @@ require_once 'PHPUnit.php';
 class DespachadorTestcase extends PHPUnit_TestCase{
 	 
 	 //==================================================================================
-	 // constructor of the test suite
-    function FCTestcase($name) {
-       $this->PHPUnit_TestCase($name);
-    }
+	 
 	
 	// override sobre PHPUnit_TestCase 
 	// called before the test functions
     function setUp() {
-		define ("PATH_CONTROLADORES",'../lego_core/controlador/');       
+		if ( !defined('PATH_CONTROLADORES') ) define ("PATH_CONTROLADORES",'../lego_core/controlador/');       
+		if ( !defined('PATH_NUCLEO') )        define ("PATH_NUCLEO",'../lego_core/');
+		if ( !defined('VISTAS_PATH') )   define ("VISTAS_PATH",PATH_NUCLEO.'vista/');
+		
     }
 
     // called after the test functions     
@@ -23,13 +23,29 @@ class DespachadorTestcase extends PHPUnit_TestCase{
     }
 	//==================================================================================
 	
-	function testDespachar(){
+	function testGetPeticion(){
 		//---------------------------------------
 		//	Construyo una URL de prueba		
 		$_SERVER['PATH_INFO'] = '/'.$controlador="Controlador";
 		//---------------------------------------
 		$despachador=new Despachador();		
+		$resultado = $despachador->getPeticion();		
+		$esperado=array(
+			'controlador'=>$controlador,
+			'accion'=>'inicio'
+		);
+		
+		$this->assertTrue($resultado->controlador == $esperado['controlador'] && $resultado->accion == $esperado['accion']);
+	}
+	function testDespacharAccion(){
+		//---------------------------------------
+		//	Construyo una URL de prueba		
+		$_SERVER['PATH_INFO'] = '/'.$controlador="Controlador";
+		//---------------------------------------
+		$despachador=new Despachador();		
+		ob_start();
 		$resultado = $despachador->despacharPeticion();		
+		ob_end_clean();
 		$esperado=array(
 			'success'=>true,
 			'msg'=>'petición servida con éxito'
@@ -37,6 +53,38 @@ class DespachadorTestcase extends PHPUnit_TestCase{
 		
 		$this->assertTrue($resultado['success'] == $esperado['success'] && $resultado['msg'] == $esperado['msg']);
 	}	
+	
+	function testDespacharVista(){
+		//---------------------------------------
+		//	Construyo una URL de prueba		
+		$_SERVER['PATH_INFO'] = '/'.$controlador="Controlador".'/otra';
+		//---------------------------------------
+		$despachador=new Despachador();		
+		ob_start();
+		$resultado = $despachador->despacharPeticion();		
+		ob_end_clean();
+		$esperado=array(
+			'success'=>true,
+			'msg'=>'petición servida con éxito'
+		);
+		
+		$this->assertTrue($resultado['success'] == $esperado['success'] && $resultado['msg'] == $esperado['msg']);		
+	}
+	
+	function testNoDespachar(){
+		//---------------------------------------
+		//	Construyo una URL de prueba		
+		$_SERVER['PATH_INFO'] = '/'.$controlador="Controlador".'/noexiste';
+		//---------------------------------------
+		$despachador=new Despachador();		
+		ob_start();
+		$resultado = $despachador->despacharPeticion();		
+		ob_end_clean();
+		$esperado=array(
+			'success'=>false,
+			'msg'=>'La petición no puede servirse'
+		);
+		$this->assertTrue( $resultado['success'] == $esperado['success'] );
+	}
 }
-
 ?>

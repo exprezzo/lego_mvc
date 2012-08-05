@@ -5,32 +5,31 @@ class ControladorTestcase extends PHPUnit_TestCase{
 	 
 	 //==================================================================================
 	 // constructor of the test suite
-    function FCTestcase($name) {
+    /*function FCTestcase($name) {
        $this->PHPUnit_TestCase($name);
-    }
+    }*/
 	
 	// override sobre PHPUnit_TestCase 
 	// called before the test functions
     function setUp() {
-		
+		define ("PATH_NUCLEO",'../lego_core/');
+		define ('VISTAS_PATH',PATH_NUCLEO.'/vista/');
     }
-
-    // called after the test functions     
-	// override sobre PHPUnit_TestCase 
-    function tearDown() { 		
-        // delete your instance
-        //unset($this->request);
-    }
+   
 	//==================================================================================
 	
 	function testIndex(){
+		
+		
 		$controlador= new Controlador();
-		$respuesta = $controlador->index();
+		ob_start();
+		$respuesta = $controlador->inicio();		
+		ob_end_clean();
 		$esperado=array(
 			'success'=>true,
-			'msg'=>'accion index ejecutada con éxito'
+			'msg'=>'accion inicio ejecutada con éxito'
 		);
-		$this->assertTrue($respuesta['success'] == $esperado['success'] && $respuesta['msg'] == $esperado['msg']);
+		$this->assertTrue($respuesta['success'] == $esperado['success'] );
 	}	
 }
 
