@@ -7,8 +7,7 @@ class Paginas extends Controlador{ //extends Controlador
 		$modelo = new DoctrineModel();
 		$vista= $this->getVista();		
 		$vista->plantillaContenido='contenido/'.$peticion->accion;	
-		return $vista->mostrar('inicio');
-		
+		return $vista->mostrar('inicio');		
 	}
 }
 ?>

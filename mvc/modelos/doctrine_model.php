@@ -25,7 +25,7 @@ class DoctrineModel{
 		while ($row = $stmt->fetch()) {
 			echo $row['nombre'];
 		}
-//		echo "Hola desde DoctrineModel";
+		//echo "Hola desde DoctrineModel";
 	}
 }
 ?>
