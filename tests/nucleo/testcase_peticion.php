@@ -7,20 +7,7 @@ class PeticionTestcase extends PHPUnit_TestCase{
 	 // constructor of the test suite
     function FCTestcase($name) {
        $this->PHPUnit_TestCase($name);
-    }
-	
-	// override sobre PHPUnit_TestCase 
-	// called before the test functions
-    function setUp() {
-        //$this->request = new Request();
-    }
-
-    // called after the test functions     
-	// override sobre PHPUnit_TestCase 
-    function tearDown() { 		
-        // delete your instance
-        //unset($this->request);
-    }
+    }	
 	//==================================================================================
 	
 	function testPeticionSinAccion(){
@@ -60,6 +47,10 @@ class PeticionTestcase extends PHPUnit_TestCase{
 		$_SERVER['PATH_INFO'] = $url;
 		$request=new Peticion();
 		$this->assertTrue('paginas' == $request->controlador && 'inicio' == $request->accion);
+	}
+	
+	function testRutas(){
+		$this->assertTrue(false);
 	}
 }
 

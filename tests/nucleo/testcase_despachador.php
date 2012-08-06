@@ -3,9 +3,7 @@ require_once '../lego_core/despachador.php';
 require_once 'PHPUnit.php';
 class DespachadorTestcase extends PHPUnit_TestCase{
 	 
-	 //==================================================================================
-	 
-	
+	 //==================================================================================	 
 	// override sobre PHPUnit_TestCase 
 	// called before the test functions
     function setUp() {
@@ -37,6 +35,7 @@ class DespachadorTestcase extends PHPUnit_TestCase{
 		
 		$this->assertTrue($resultado->controlador == $esperado['controlador'] && $resultado->accion == $esperado['accion']);
 	}
+	
 	function testDespacharAccion(){
 		//---------------------------------------
 		//	Construyo una URL de prueba		
@@ -72,11 +71,23 @@ class DespachadorTestcase extends PHPUnit_TestCase{
 	}
 	
 	function testControladorNoEncontrado(){
-		$this->assetTrue(false);
+		//---------------------------------------
+		//	Construyo una URL de prueba		
+		$_SERVER['PATH_INFO'] = '/'.$controlador="ControladorX".'/inicio';
+		//---------------------------------------
+		$despachador=new Despachador();		
+		ob_start();
+		$resultado = $despachador->despacharPeticion();		
+		ob_end_clean();
+		$esperado=array(
+			'success'=>false,
+			'msg'=>'petición servida con éxito'
+		);		
+		$this->assertTrue($resultado['success'] == $esperado['success'] );	
 	}
 	
 	function testAccionNoEncontrada(){
-		$this->assetTrue(false);
+		
 		//---------------------------------------
 		//	Construyo una URL de prueba		
 		$_SERVER['PATH_INFO'] = '/'.$controlador="Controlador".'/noexiste';
@@ -89,6 +100,7 @@ class DespachadorTestcase extends PHPUnit_TestCase{
 			'success'=>false,
 			'msg'=>'La petición no puede servirse'
 		);
+				
 		$this->assertTrue( $resultado['success'] == $esperado['success'] );
 	}
 }

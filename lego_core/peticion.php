@@ -14,11 +14,10 @@ class Peticion{
 		
 		$arrCount=sizeof($arrAppPath);
 		for( $i=1;  $i<$arrCount-2; $i++ ){		
-			$app_path.=''.$arrAppPath[$i].'/';
-			
+			$app_path.=''.$arrAppPath[$i].'/';			
 		}
 		
-		define('APP_PATH',$app_path);				
+		if (!defined('APP_PATH') ) define('APP_PATH',$app_path);				
 		//-------------------------------------------------------------------------------
 		if ( !isset($_SERVER['PATH_INFO']) ) $_SERVER['PATH_INFO'] = "/paginas/inicio";
 		$url=$_SERVER['PATH_INFO'];		
@@ -45,10 +44,7 @@ class Peticion{
 		}
 		
 		$this->controlador = $controlador;
-		$this->accion 	   = $accion;
-		
-		
-		
+		$this->accion 	   = $accion;		
 	}
 }
 ?>

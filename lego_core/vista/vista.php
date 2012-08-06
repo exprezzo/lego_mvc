@@ -16,6 +16,7 @@ class  Vista{
 		}else{		
 			$success=false;
 			$msg='No existe la vista: '.$rutaVista;					
+			echo $msg;
 		}
 				
 		return array(

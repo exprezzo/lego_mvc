@@ -2,8 +2,8 @@
 
 
 class Controlador{
-	function __construct(){		
-		//echo "<H1>Saludos desde el controlador principal</H1>";
+
+	function __construct(){				
 	}
 	
 	function getVista(){
@@ -13,33 +13,19 @@ class Controlador{
 		}
 		return $this->vistaObj;
 	}
-	
-	function mostrarVista(){
-		$vista= $this->getVista();
-		
-		return $vista->render('','inicio');		
-	}
-	
-	private function cambiarContenido($plantillaContenido){
-		$vista= $this->getVista();
-		$vista->plantillaContenido=$plantillaContenido;
-		return $vista->render('','inicio');	
-	}
 		
 	function procesarPeticion($peticion){
-		$vista= $this->getVista();
-		$vista->plantillaContenido='contenido/'.$peticion->accion;
-		return $vista->mostrar('inicio');	
-		
-		
-	}		
+		$vista= $this->getVista();		
+		return $vista->mostrar($peticion->accion);			
+	}
 	
-	/* */
-	/*function inicio(){
-		$vista= $this->getVista();
-		$vista->plantillaContenido = '/contenido/home/';
-		return $vista->mostrar('inicio');		
-	}*/
+	/*function antesdeProcesarPeticion($peticion){
+		// return false;  //false para detener la peticion
+	}
+	
+	function despuesdeProcesarPeticion($peticion){
+		// return false;  //false para detener la peticion
+	}	*/
 	//comportamiento crud 
 	
 	function listar(){}

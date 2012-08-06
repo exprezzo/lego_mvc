@@ -12,26 +12,43 @@ class ControladorTestcase extends PHPUnit_TestCase{
 	// override sobre PHPUnit_TestCase 
 	// called before the test functions
     function setUp() {
-		define ("PATH_NUCLEO",'../lego_core/');
-		define ('VISTAS_PATH',PATH_NUCLEO.'/vista/');
+		if (!defined("PATH_NUCLEO") ) define ("PATH_NUCLEO",'../lego_core/');
+		if (!defined('VISTAS_PATH') ) define ('VISTAS_PATH',PATH_NUCLEO.'/vista/');
     }
    
 	//==================================================================================
-	
-	function testIndex(){
-		
-		
-		$controlador= new Controlador();
-		ob_start();
-		$respuesta = $controlador->inicio();		
-		ob_end_clean();
-		$esperado=array(
-			'success'=>true,
-			'msg'=>'accion inicio ejecutada con éxito'
-		);
-		$this->assertTrue($respuesta['success'] == $esperado['success'] );
+	function testGetVista(){
+		$controlador = new Controlador();
+		$vista=$controlador->getVista();		
+		$this->assertTrue($vista instanceof Vista);
 	}	
 	
+	function testProcesarPeticion(){
+		require_once(PATH_NUCLEO.'peticion.php');
+		$peticion=new Peticion();
+		$peticion->controlador='Controlador';
+		$peticion->accion='inicio';
+		$controlador = new Controlador();
+		ob_start();
+		$resp=$controlador->procesarPeticion($peticion);
+		ob_end_clean();
+		$this->assertTrue($resp['success']);
+	}
+	
+	/*function testAntesdeProcesarPeticion(){
+		$controlador = new Controlador();
+		require_once(PATH_NUCLEO.'peticion.php');
+		$peticion=new Peticion();
+		$controlador->antesdeProcesarPeticion($peticion);
+		$this->assertTrue(true);
+	}
+	function testDespuesdeProcesarPeticion(){
+		$controlador = new Controlador();
+		require_once(PATH_NUCLEO.'peticion.php');
+		$peticion=new Peticion();
+		$controlador->despuesdeProcesarPeticion($peticion);
+		$this->assertTrue(true);
+	}*/		
 	
 }
 

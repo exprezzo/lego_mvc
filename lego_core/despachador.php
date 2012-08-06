@@ -14,27 +14,30 @@ class Despachador{
 		//  Carga dinámica del controlador   -------------------------
 		$ejecutar=false;
 		
-		//Se analiza si el controlador puede ejecutar la accion
+		//Si existe el controlador y tiene el metodo, se ejecuta el metodo
+		//si el metodo no existe, se ejecuta 'procesarPeticion'
+		
 		if ( file_exists(PATH_CONTROLADORES.$peticion->controlador.'.php') ){
 			require_once (PATH_CONTROLADORES.$peticion->controlador.'.php');
 			$controller=new $peticion->controlador;		
 			
 			//  Aqui se decide entre ejecutar accion o cargar vista
 			if (method_exists($controller, $accion)){				
-				$ejecutar=true;
+				$respuesta = $controller->$accion();				
+			}else{				
+				$respuesta = $controller->procesarPeticion($peticion);											
 			}
+		}else{
+			$respuesta=array(
+				'success'=>false
+			);
 		}
-				
-		//  
-		if ( $ejecutar ){				
-			$respuesta = $controller->$accion();				
-		}else{			
-			$respuesta = $controller->procesarPeticion($peticion);			
-		}	
+		
 		//------------------------------------
 		if ( $respuesta['success'] == true ){
 			$respuesta['msg'] = $msgExito;
 		}else{
+			print_r($respuesta);
 			$respuesta['msg'] = $msgFalla;
 		}
 		return $respuesta;						
