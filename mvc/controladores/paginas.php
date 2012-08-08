@@ -2,7 +2,7 @@
 class Paginas extends Controlador{ //extends Controlador
 	//TODO: pasar a Controlador	
 		
-	function procesarPeticion($peticion){
+	function ProcesarPeticion($peticion){
 		
 		$vista= $this->getVista();		
 		$vista->plantillaContenido='contenido/'.$peticion->accion;	
