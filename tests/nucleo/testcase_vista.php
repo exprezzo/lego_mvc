@@ -4,8 +4,8 @@ require_once 'PHPUnit.php';
 class VistaTestcase extends PHPUnit_TestCase{
 
 	function setUp() {
-		define ('PATH_NUCLEO','../lego_core/');
-		define ('VISTAS_PATH',PATH_NUCLEO.'/vista/');
+		if (!defined('PATH_NUCLEO') ) define ('PATH_NUCLEO','../lego_core/');
+		if (!defined('VISTAS_PATH') ) define ('VISTAS_PATH',PATH_NUCLEO.'/vista/');
     }
 	
 	function testRender(){
