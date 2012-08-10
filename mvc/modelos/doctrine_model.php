@@ -6,7 +6,14 @@ require '../terceros/DoctrineDBAL/Doctrine/Common/ClassLoader.php';
 
 
 class DoctrineModel{
-	function DoctrineModel(){
+	function listar(){
+	}
+	
+	function obtener(){
+		$conn = $this->getConexion();
+	}
+	
+	function getConexion(){
 		$classLoader = new ClassLoader('Doctrine', '../terceros/DoctrineDBAL/');
 		$classLoader->register();
 		$config = new \Doctrine\DBAL\Configuration();
@@ -19,6 +26,11 @@ class DoctrineModel{
 			'driver' => 'pdo_mysql',
 		);
 		$conn = DriverManager::getConnection($connectionParams, $config);		
+		return $conn;
+	}
+	
+	function DoctrineModel(){
+		$conn = $this->getConexion();
 
 		$sql = "SELECT * FROM blog";
 		$stmt = $conn->query($sql); // Simple, but has several drawbacks
