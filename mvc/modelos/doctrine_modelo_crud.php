@@ -5,7 +5,7 @@ use Doctrine\DBAL\DriverManager;
 require '../terceros/DoctrineDBAL/Doctrine/Common/ClassLoader.php';
 
 
-class DoctrineModel{
+class DoctrineModel implements ICrud{
 	function DoctrineModel(){
 		$classLoader = new ClassLoader('Doctrine', '../terceros/DoctrineDBAL/');
 		$classLoader->register();

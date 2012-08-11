@@ -1,16 +1,11 @@
 <?php
-use Doctrine\Common\ClassLoader;
-use Doctrine\DBAL\DriverManager;
-
-require '../terceros/DoctrineDBAL/Doctrine/Common/ClassLoader.php';
-class CrudModel{
-
-
-	function obtener(){
+class PropelCrud implements ICrud{
+	
+	function obtener($id){
 	}
 	
 	//crear y actualizar
-	function guardar(){	
+	function guardar(){
 	}
 	
 	
@@ -41,5 +36,6 @@ class CrudModel{
 		}
 		//echo "Hola desde DoctrineModel";
 	}
+	
 }
 ?>

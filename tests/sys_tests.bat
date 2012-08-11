@@ -1,3 +1,3 @@
-php sistema/paginas_test.php
-php sistema/modelodecatalogo_test.php
+php sistema_test/pdo_modelo_test.php
+php sistema_test/paginas_test.php
 
