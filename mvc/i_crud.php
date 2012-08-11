@@ -1,9 +1,9 @@
 <?php
 interface ICrud{
 
-	function obtener();
+	function obtener($params);
 	
-	function guardar(); //crear y actualizar
+	function guardar( $params ); //crear y actualizar
 	
 	function crear(); 
 	
