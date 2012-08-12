@@ -3,15 +3,11 @@ interface ICrud{
 
 	function obtener($params);
 	
-	function guardar( $params ); //crear y actualizar
-	
-	function crear(); 
-	
-	function actualizar(); 
+	function guardar( $params ); //crear y actualizar		
 		
-	function borrar();
+	function borrar($params);
 	
-	function listar();
+	function listar($params);
 
 }
 ?>

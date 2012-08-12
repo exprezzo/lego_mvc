@@ -43,9 +43,7 @@ class Modelo_PDO implements ICrud{
 			throw new Exception("El identificador está duplicado"); //TODO: agregar numero de error, crear una exception MiEscepcion
 		}
 		
-		return $modelos[0];		
-	
-		
+		return $modelos[0];			
 	}
 	
 	function guardar( $params ){
@@ -76,15 +74,53 @@ class Modelo_PDO implements ICrud{
 		
 		//$this->obtener($id);
 		return $exito;
+	}	
+		
+	function borrar( $params ){
+		if ( empty($params['id']) ){
+			throw new Exeption("Es necesario el parámetro 'id'");
+		};		
+		$id=$params['id'];
+		$sql = 'DELETE FROM modelo_test WHERE id=:id';		
+		$con = $this->getConexion();
+		$sth = $con->prepare($sql);		
+		$sth->bindValue(':id',$id,PDO::PARAM_INT);
+		
+		$exito = $sth->execute();					
+		
+		return $exito;	
 	}
 	
-	function crear(){}
-	
-	function actualizar(){}
+	function listar($params){
+		$con = $this->getConexion();
 		
-	function borrar(){}
-	
-	function listar(){}
+		$sql = 'SELECT COUNT(*) as total FROM modelo_test';
+		$sth = $con->query($sql); // Simple, but has several drawbacks
+		//$sth = $con->prepare($sql);
+		//$exito = $sth->execute();
+		$tot = $sth->fetchAll(PDO::FETCH_ASSOC);
+		$total = $tot[0]['total'];
+		
+		$limit=$params['limit'];
+		$start=$params['start'];		
+		$sql = 'SELECT * FROM modelo_test limit 0,:limit';
+		
+		$sth = $con->prepare($sql);
+		$sth->bindValue(':limit',$limit,PDO::PARAM_INT);
+		//$sth->bindValue(':start',$start,PDO::PARAM_STR);
+		$exito = $sth->execute();
+
+		$modelos = $sth->fetchAll(PDO::FETCH_ASSOC);				
+		if ( !$exito ){
+			throw new Exception("Error listando: ".$sql); //TODO: agregar numero de error, crear una exception MiEscepcion
+		}
+							
+		return array(
+			'success'=>true,
+			'total'=>$total,
+			'datos'=>$modelos
+		);
+	}
 /*  ===============================================================================
 		fin de ICrud
 	=============================================================================== */
