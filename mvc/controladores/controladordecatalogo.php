@@ -4,7 +4,7 @@ include '../mvc/modelos/ModeloControladorDeCatalogo.php';
 
 class ControladorDeCatalogo extends Controlador{ //extends Controlador
 	//TODO: pasar a Controlador	
-	
+		
 	function listar(){
 		$params = $this->getPostParams();
 		$crudModel = new ModeloControladorDeCatalogo();

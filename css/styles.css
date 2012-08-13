@@ -57,17 +57,18 @@
 	right:0;
 }
 .menu{
-	width:30%;
+	/*width:30%;
 	position:relative;
-	height: 70%;
+	height: 70%;*/
 	background-color:#CCCCCC;
 	color:white;
-	float:left;
+/*	float:left;*/
 	
 }
 .menu li{
 	font-size:20px;
 	font-weight:bold;
+	display:inline;
 }
 .menu h1{
 	text-align:center;
@@ -79,13 +80,13 @@
 .menu a:active {color:white;}  /* selected link */
 /*  	*/
 .contenido{
-	width:70%;
-	height: auto;
+	/*width:70%;*/
+	
 	height: auto;
 	min-height:70%;
 	/*background-color: whte;
 	color:white;*/
-	float:left;
+	/*float:left;*/
 }
 
 .footer{

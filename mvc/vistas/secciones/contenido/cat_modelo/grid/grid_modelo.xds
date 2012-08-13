@@ -1,0 +1,193 @@
+{
+    "name": "grid_modelo.xds",
+    "projectId": "0169E5F6-F2C2-4D80-8DB4-4AE47E8ABC16",
+    "settings": {
+        "urlPrefix": "http://localhost/",
+        "spacesToIndent": 4,
+        "codeGenFormat": "Class",
+        "extPath": "http://extjs.cachefly.net/ext-3.3.1/",
+        "exportPath": ".",
+        "lineEnding": "CRLF",
+        "instantiateStore": true,
+        "exportXDSFiles": true,
+        "genTimestamps": true
+    },
+    "xdsVersion": "1.1.2",
+    "components": [
+        {
+            "id": "MyGrid",
+            "cid": "grid",
+            "jsClass": "gridModelo",
+            "snapToGrid": 10,
+            "userConfig": {
+                "title": "Listado",
+                "store": "stoModelo",
+                "width": 449,
+                "height": 254,
+                "autoExpandColumn": "colNombre"
+            },
+            "userXType": "gridModelo",
+            "cn": [
+                {
+                    "id": "MyToolbar",
+                    "cid": "toolbar",
+                    "jsClass": "MyToolbar",
+                    "dock": "tbar",
+                    "snapToGrid": 10,
+                    "cn": [
+                        {
+                            "id": "MyButton",
+                            "cid": "button",
+                            "jsClass": "MyButton",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Nuevo",
+                                "cls": "-ext-undefined-",
+                                "iconCls": "btnNuevo",
+                                "itemId": "btnNuevo"
+                            }
+                        },
+                        {
+                            "id": "MyButton1",
+                            "cid": "button",
+                            "jsClass": "MyButton1",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Eliminar",
+                                "iconCls": "btnEliminar",
+                                "autoRef": "btnEliminar"
+                            }
+                        },
+                        {
+                            "id": "MyButton2",
+                            "cid": "button",
+                            "jsClass": "MyButton2",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Editar",
+                                "iconCls": "btnEditar",
+                                "autoRef": "btnEditar"
+                            }
+                        },
+                        {
+                            "id": "MySeparator",
+                            "cid": "tbseparator",
+                            "jsClass": "MySeparator",
+                            "snapToGrid": 10
+                        },
+                        {
+                            "id": "MyFill",
+                            "cid": "tbfill",
+                            "jsClass": "MyFill",
+                            "snapToGrid": 10
+                        },
+                        {
+                            "id": "MyButton3",
+                            "cid": "button",
+                            "jsClass": "MyButton3",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Switch",
+                                "iconCls": "btnSwitch",
+                                "autoRef": "btnSwitch"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "MyPagingToolbar",
+                    "cid": "pagingtoolbar",
+                    "jsClass": "MyPagingToolbar",
+                    "dock": "bbar",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "store": "stoModelo"
+                    }
+                },
+                {
+                    "id": "MyColumn",
+                    "cid": "gridcolumn",
+                    "jsClass": "MyColumn",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "header": "uuid",
+                        "dataIndex": "uuid",
+                        "sortable": true,
+                        "resizable": "-ext-undefined-",
+                        "width": 100
+                    }
+                },
+                {
+                    "id": "MyColumn1",
+                    "cid": "gridcolumn",
+                    "jsClass": "MyColumn1",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "header": "id",
+                        "dataIndex": "id",
+                        "sortable": true,
+                        "resizable": "-ext-undefined-",
+                        "width": 100
+                    }
+                },
+                {
+                    "id": "MyColumn2",
+                    "cid": "gridcolumn",
+                    "jsClass": "MyColumn2",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "header": "nombre",
+                        "dataIndex": "nombre",
+                        "sortable": true,
+                        "resizable": "-ext-undefined-",
+                        "width": 100,
+                        "id": "colNombre"
+                    }
+                }
+            ]
+        }
+    ],
+    "stores": [
+        {
+            "id": "MyStore",
+            "cid": "jsonstore",
+            "jsClass": "stoModelo",
+            "snapToGrid": 10,
+            "userConfig": {
+                "storeId": "stoModelo",
+                "root": "datos",
+                "messageProperty": "msg"
+            },
+            "userXType": "stoModelo",
+            "cn": [
+                {
+                    "id": "MyField",
+                    "cid": "datafield",
+                    "jsClass": "MyField",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "uuid"
+                    }
+                },
+                {
+                    "id": "MyField1",
+                    "cid": "datafield",
+                    "jsClass": "MyField1",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "id"
+                    }
+                },
+                {
+                    "id": "MyField2",
+                    "cid": "datafield",
+                    "jsClass": "MyField2",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "nombre"
+                    }
+                }
+            ]
+        }
+    ]
+}

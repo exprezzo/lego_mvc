@@ -9,5 +9,13 @@ class Paginas extends Controlador{ //extends Controlador
 		
 		return $vista->mostrar($layout = 'inicio');		
 	}
+	
+	function crud(){
+		
+		$vista= $this->getVista();		
+		$vista->plantillaContenido='contenido/crud';	
+		
+		return $vista->mostrar($layout = 'crud');		
+	}
 }
 ?>

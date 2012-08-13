@@ -1,0 +1,148 @@
+{
+    "name": "edicion_modelo.xds",
+    "projectId": "808E731D-3132-4C50-95D4-7AAECDBD3A1D",
+    "settings": {
+        "urlPrefix": "http://localhost/",
+        "spacesToIndent": 4,
+        "codeGenFormat": "Class",
+        "extPath": "http://extjs.cachefly.net/ext-3.3.1/",
+        "exportPath": ".",
+        "lineEnding": "CRLF",
+        "instantiateStore": true,
+        "exportXDSFiles": true,
+        "genTimestamps": true
+    },
+    "xdsVersion": "1.1.2",
+    "components": [
+        {
+            "id": "MyForm",
+            "cid": "form",
+            "jsClass": "frmModelo",
+            "snapToGrid": 10,
+            "userConfig": {
+                "title": "Edicion",
+                "width": 400,
+                "height": 250,
+                "padding": 10
+            },
+            "userXType": "frmModelo",
+            "cn": [
+                {
+                    "id": "MyToolbar",
+                    "cid": "toolbar",
+                    "jsClass": "MyToolbar",
+                    "dock": "tbar",
+                    "snapToGrid": 10,
+                    "cn": [
+                        {
+                            "id": "MyButton",
+                            "cid": "button",
+                            "jsClass": "MyButton",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Guardar",
+                                "iconCls": "btnGuardarIcon",
+                                "itemId": "btnGuardar",
+                                "autoRef": "btnGuardar"
+                            }
+                        },
+                        {
+                            "id": "MyButton1",
+                            "cid": "button",
+                            "jsClass": "MyButton1",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Eliminar",
+                                "iconCls": "btnEliminarIcon",
+                                "itemId": "btnEliminar",
+                                "autoRef": "btnEliminar"
+                            }
+                        },
+                        {
+                            "id": "MyButton2",
+                            "cid": "button",
+                            "jsClass": "MyButton2",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Nuevo",
+                                "iconCls": "btnNuevoIcon",
+                                "itemId": "btnNuevo",
+                                "autoRef": "btnNuevo"
+                            }
+                        },
+                        {
+                            "id": "MyButton3",
+                            "cid": "button",
+                            "jsClass": "MyButton3",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Recargar",
+                                "iconCls": "btnRecargarIcon",
+                                "itemId": "btnRecargar",
+                                "autoRef": "btnRecargar"
+                            }
+                        },
+                        {
+                            "id": "MySeparator",
+                            "cid": "tbseparator",
+                            "jsClass": "MySeparator",
+                            "snapToGrid": 10
+                        },
+                        {
+                            "id": "MyFill",
+                            "cid": "tbfill",
+                            "jsClass": "MyFill",
+                            "snapToGrid": 10
+                        },
+                        {
+                            "id": "MyButton4",
+                            "cid": "button",
+                            "jsClass": "MyButton4",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Switch",
+                                "iconCls": "btnSwitchIcon",
+                                "itemId": "btnSwitch",
+                                "autoRef": "btnSwitch"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "MyTextArea",
+                    "cid": "textarea",
+                    "jsClass": "MyTextArea",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "anchor": "100%",
+                        "fieldLabel": "UUID",
+                        "name": "uuid"
+                    }
+                },
+                {
+                    "id": "MyTextField",
+                    "cid": "textfield",
+                    "jsClass": "MyTextField",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "fieldLabel": "ID",
+                        "anchor": "100%",
+                        "name": "id"
+                    }
+                },
+                {
+                    "id": "MyTextField1",
+                    "cid": "textfield",
+                    "jsClass": "MyTextField1",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "fieldLabel": "nombre",
+                        "anchor": "100%",
+                        "name": "nombre"
+                    }
+                }
+            ]
+        }
+    ],
+    "stores": []
+}

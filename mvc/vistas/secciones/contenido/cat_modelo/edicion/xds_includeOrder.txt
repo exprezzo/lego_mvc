@@ -1,0 +1,2 @@
+<script type="text/javascript" src="frmModelo.ui.js"></script>
+<script type="text/javascript" src="frmModelo.js"></script>
