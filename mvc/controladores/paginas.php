@@ -7,7 +7,8 @@ class Paginas extends Controlador{ //extends Controlador
 		$vista= $this->getVista();		
 		$vista->plantillaContenido='contenido/'.$peticion->accion;	
 		
-		return $vista->mostrar($layout = 'inicio');		
+		//return $vista->mostrar($layout = 'inicio');		
+		return $vista->mostrar($layout = 'crud');		
 	}
 	
 	function crud(){

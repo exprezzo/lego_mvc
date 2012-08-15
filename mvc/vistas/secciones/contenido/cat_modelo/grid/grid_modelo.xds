@@ -43,8 +43,10 @@
                             "userConfig": {
                                 "text": "Nuevo",
                                 "cls": "-ext-undefined-",
-                                "iconCls": "btnNuevo",
-                                "itemId": "btnNuevo"
+                                "iconCls": "btnNuevoIcon",
+                                "itemId": "btnNuevo",
+                                "scale": "medium",
+                                "iconAlign": "top"
                             }
                         },
                         {
@@ -54,8 +56,10 @@
                             "snapToGrid": 10,
                             "userConfig": {
                                 "text": "Eliminar",
-                                "iconCls": "btnEliminar",
-                                "autoRef": "btnEliminar"
+                                "iconCls": "btnEliminarIcon",
+                                "autoRef": "btnEliminar",
+                                "scale": "medium",
+                                "iconAlign": "top"
                             }
                         },
                         {
@@ -65,8 +69,10 @@
                             "snapToGrid": 10,
                             "userConfig": {
                                 "text": "Editar",
-                                "iconCls": "btnEditar",
-                                "autoRef": "btnEditar"
+                                "iconCls": "btnEditarIcon",
+                                "autoRef": "btnEditar",
+                                "scale": "medium",
+                                "iconAlign": "top"
                             }
                         },
                         {
@@ -82,14 +88,26 @@
                             "snapToGrid": 10
                         },
                         {
+                            "id": "MyTextField",
+                            "cid": "textfield",
+                            "jsClass": "MyTextField",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "height": 30,
+                                "boxMinHeight": "-ext-undefined-"
+                            }
+                        },
+                        {
                             "id": "MyButton3",
                             "cid": "button",
                             "jsClass": "MyButton3",
                             "snapToGrid": 10,
                             "userConfig": {
                                 "text": "Switch",
-                                "iconCls": "btnSwitch",
-                                "autoRef": "btnSwitch"
+                                "iconCls": "btnSwitchIcon",
+                                "autoRef": "btnSwitch",
+                                "scale": "medium",
+                                "iconAlign": "top"
                             }
                         }
                     ]

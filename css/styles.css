@@ -82,8 +82,8 @@
 .contenido{
 	/*width:70%;*/
 	
-	height: auto;
-	min-height:70%;
+	/*height: auto;*/
+	min-height:350px;
 	/*background-color: whte;
 	color:white;*/
 	/*float:left;*/

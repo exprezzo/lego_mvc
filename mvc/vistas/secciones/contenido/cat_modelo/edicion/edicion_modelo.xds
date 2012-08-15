@@ -43,7 +43,10 @@
                                 "text": "Guardar",
                                 "iconCls": "btnGuardarIcon",
                                 "itemId": "btnGuardar",
-                                "autoRef": "btnGuardar"
+                                "autoRef": "btnGuardar",
+                                "scale": "medium",
+                                "arrowAlign": "bottom",
+                                "iconAlign": "top"
                             }
                         },
                         {
@@ -55,7 +58,9 @@
                                 "text": "Eliminar",
                                 "iconCls": "btnEliminarIcon",
                                 "itemId": "btnEliminar",
-                                "autoRef": "btnEliminar"
+                                "autoRef": "btnEliminar",
+                                "scale": "medium",
+                                "iconAlign": "top"
                             }
                         },
                         {
@@ -67,7 +72,9 @@
                                 "text": "Nuevo",
                                 "iconCls": "btnNuevoIcon",
                                 "itemId": "btnNuevo",
-                                "autoRef": "btnNuevo"
+                                "autoRef": "btnNuevo",
+                                "scale": "medium",
+                                "iconAlign": "top"
                             }
                         },
                         {
@@ -79,7 +86,9 @@
                                 "text": "Recargar",
                                 "iconCls": "btnRecargarIcon",
                                 "itemId": "btnRecargar",
-                                "autoRef": "btnRecargar"
+                                "autoRef": "btnRecargar",
+                                "scale": "medium",
+                                "iconAlign": "top"
                             }
                         },
                         {
@@ -103,7 +112,9 @@
                                 "text": "Switch",
                                 "iconCls": "btnSwitchIcon",
                                 "itemId": "btnSwitch",
-                                "autoRef": "btnSwitch"
+                                "autoRef": "btnSwitch",
+                                "scale": "medium",
+                                "iconAlign": "top"
                             }
                         }
                     ]

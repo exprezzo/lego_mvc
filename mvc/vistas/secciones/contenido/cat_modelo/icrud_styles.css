@@ -1,0 +1,18 @@
+.btnGuardarIcon{	
+	background-image:url('document_save.png');
+}
+.btnEliminarIcon{
+	background-image:url('deletered.png');
+}
+.btnNuevoIcon{
+	background-image:url('new.png');
+}
+.btnRecargarIcon{
+	background-image:url('old_view_refresh.png');
+}
+.btnSwitchIcon{
+	background-image:url('gnome_session_switch.png');
+}
+.btnEditarIcon{
+	background-image:url('pencil3.png');
+}
