@@ -1,2 +1,0 @@
-<script type="text/javascript" src="tabPanel.ui.js"></script>
-<script type="text/javascript" src="tabPanel.js"></script>

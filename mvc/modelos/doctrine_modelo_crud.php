@@ -22,7 +22,12 @@ class DoctrineModel{
 		$mod = new Modelo;
 		$mod->nombre=$params['nombre'];
 		$mod->id=$params['id'];
+		
 		$em=$this->getEm();
+		
+		if (empty($mod->id) ){
+			
+		}
 		$em->persist($mod);
 		$em->flush();
 		return true;
@@ -78,8 +83,12 @@ class DoctrineModel{
 		return $conn;
 	}
 	
+	function getQueryBusqueda(){
+		return "SELECT m FROM Modelo m"; 
+	}
+	
 	function listar($params){
-		$dql = "SELECT m FROM Modelo m";
+		$dql = $this->getQueryBusqueda();
 		$start=$params['start'];
 		$limit=$params['limit'];
 		$entityManager=$this->getEM();

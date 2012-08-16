@@ -14,6 +14,12 @@
 frmModelo = Ext.extend(frmModeloUi, {
     initComponent: function() {
         frmModelo.superclass.initComponent.call(this);
+		
+		Ext.apply(this,comportamiento_formulario);
+		this.controlador='ctrl_modelo';
+		
+		this.activarComportamiento();		
+		
     }
 });
 Ext.reg('frmModelo', frmModelo);

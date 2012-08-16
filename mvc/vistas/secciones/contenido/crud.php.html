@@ -3,21 +3,21 @@
     <script type="text/javascript" src="http://localhost/ext-3.4.0/ext-all-debug.js"></script>
 	
 	<!-- Cargador de catálogos -->
-    <script type="text/javascript" src="<?php echo APP_PATH; ?>mvc/vistas/secciones/contenido/cat_modelo/tabPanel.ui.js"></script>
-    <script type="text/javascript" src="<?php echo APP_PATH; ?>mvc/vistas/secciones/contenido/cat_modelo/tabPanel.js"></script>
+    <script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_modelo/tabPanel.ui.js"></script>
+    <script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_modelo/tabPanel.js"></script>
 	<!-- Comportamientos 	  -->	
-	<link rel="stylesheet" type="text/css" href="<?php echo APP_PATH; ?>mvc/vistas/secciones/contenido/cat_modelo/icrud_styles.css"/>
-	<script type="text/javascript" src="<?php echo APP_PATH; ?>mvc/vistas/secciones/contenido/cat_modelo/comportamiento_grid.js"></script>
-    <script type="text/javascript" src="<?php echo APP_PATH; ?>mvc/vistas/secciones/contenido/cat_modelo/comportamiento_formulario.js"></script>
+	<link rel="stylesheet" type="text/css" href="<?php echo APP_PATH; ?>css/icrud_styles.css"/>
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_modelo/comportamiento_grid.js"></script>
+    <script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_modelo/comportamiento_formulario.js"></script>
 	<!-- Para el modo de desarrollo, generar un comprimido por catalogo -->
 	
 	<!-- Paginacion  -->
-	<script type="text/javascript" src="<?php echo APP_PATH; ?>mvc/vistas/secciones/contenido/cat_modelo/grid/stoModelo.js"></script>
-	<script type="text/javascript" src="<?php echo APP_PATH; ?>mvc/vistas/secciones/contenido/cat_modelo/grid/gridModelo.ui.js"></script>
-    <script type="text/javascript" src="<?php echo APP_PATH; ?>mvc/vistas/secciones/contenido/cat_modelo/grid/gridModelo.js"></script>
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_modelo/grid/stoModelo.js"></script>
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_modelo/grid/gridModelo.ui.js"></script>
+    <script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_modelo/grid/gridModelo.js"></script>
 	<!-- Formulario  -->
-	<script type="text/javascript" src="<?php echo APP_PATH; ?>mvc/vistas/secciones/contenido/cat_modelo/edicion/frmModelo.ui.js"></script>
-    <script type="text/javascript" src="<?php echo APP_PATH; ?>mvc/vistas/secciones/contenido/cat_modelo/edicion/frmModelo.js"></script>
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_modelo/edicion/frmModelo.ui.js"></script>
+    <script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_modelo/edicion/frmModelo.js"></script>
     
 	
 	
@@ -30,43 +30,9 @@
 }
 </style>
 <script type="text/javascript" >			
-		//Implementar ICrud
-		GridCrud={
-		}
+		//Implementar ICrud		
 		
-		CatCrud={			
-			
-			guardar:function( params ){
-				alert("guardar");
-			},
-			listar:function( params ){
-				alert("listar");
-			},
-			eliminar:function( params ){
-				alert("eliminar");
-			},
-			obtener:function( params ){
-				alert("obtener");
-			},
-			nuevo:function( params ){
-				alert("preparar");
-			},
-			init:function( params ){
-				catCrud= CatCrud;
-				
-				
-				console.log(catCrud);
-				
-				var pagEdicion = params.form;
-							
-				pagEdicion.btnGuardar.on('click',catCrud.guardar, pagEdicion );
-				pagEdicion.btnEliminar.on('click',catCrud.eliminar, pagEdicion );
-				pagEdicion.btnRecargar.on('click',catCrud.obtener, pagEdicion );
-				pagEdicion.btnNuevo.on('click',catCrud.nuevo, pagEdicion );								
-				pagEdicion.btnSwitch.on('click',catCrud.listar, pagEdicion );
-			}
-		};
-		
+
 		Ext.onReady(function() {
 			Ext.QuickTips.init();
 			var cmp1 = new tabPanel({
@@ -76,12 +42,9 @@
 			});
 			cmp1.show();
 			
-			cmp1.add({xtype:'gridModelo'});
+			cmp1.add({xtype:'gridModelo'}).show();						
 			
-			form=cmp1.add({xtype:'frmModelo'});
-			form.show();
-			CatCrud.init({form:form});
-			
+					
 		});
 		
 </script>	

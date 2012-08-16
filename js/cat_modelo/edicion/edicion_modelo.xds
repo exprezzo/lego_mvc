@@ -23,7 +23,8 @@
                 "title": "Edicion",
                 "width": 400,
                 "height": 250,
-                "padding": 10
+                "padding": 10,
+                "url": "/ctrl_modelo/obtener"
             },
             "userXType": "frmModelo",
             "cn": [

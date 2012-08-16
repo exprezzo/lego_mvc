@@ -13,8 +13,17 @@
 
 gridModelo = Ext.extend(gridModeloUi, {
     initComponent: function() {
-        gridModelo.superclass.initComponent.call(this);
-		
+		//--------------------------------------------		
+		this.bubbleEvents.push("abrir_tab");		
+		//--------------------------------------------
+        gridModelo.superclass.initComponent.call(this);	
+	//----------------------------------		
+		Ext.apply(this,comportamiento_grid);
+		//		sobre-escribo valores del comportamiento, para personalizarlos
+		this.xtype_del_form="frmModelo";
+		//
+		this.activarComportamiento();
+	//----------------------------------
 		this.store=new stoModelo({url: '/Ctrl_Modelo/listar'});
 		this.bottomToolbar.bind(this.store);
 		this.bottomToolbar.doRefresh();

@@ -46,7 +46,8 @@
                                 "iconCls": "btnNuevoIcon",
                                 "itemId": "btnNuevo",
                                 "scale": "medium",
-                                "iconAlign": "top"
+                                "iconAlign": "top",
+                                "autoRef": "btnNuevo"
                             }
                         },
                         {
@@ -93,7 +94,7 @@
                             "jsClass": "MyTextField",
                             "snapToGrid": 10,
                             "userConfig": {
-                                "height": 30,
+                                "height": "-ext-undefined-",
                                 "boxMinHeight": "-ext-undefined-"
                             }
                         },
@@ -119,7 +120,8 @@
                     "dock": "bbar",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "store": "stoModelo"
+                        "store": "stoModelo",
+                        "displayInfo": true
                     }
                 },
                 {

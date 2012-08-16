@@ -3,14 +3,15 @@
     "projectId": "085D5C93-E892-4C0F-A67D-7F2AB52DF610",
     "settings": {
         "urlPrefix": "http://localhost/",
-        "spacesToIndent": 4,
+        "directAPI": "",
+        "spacesToIndent": "4",
         "codeGenFormat": "Class",
         "extPath": "http://extjs.cachefly.net/ext-3.3.1/",
         "exportPath": ".",
         "lineEnding": "CRLF",
-        "instantiateStore": true,
-        "exportXDSFiles": true,
-        "genTimestamps": true
+        "instantiateStore": false,
+        "exportXDSFiles": false,
+        "genTimestamps": false
     },
     "xdsVersion": "1.1.2",
     "components": [
