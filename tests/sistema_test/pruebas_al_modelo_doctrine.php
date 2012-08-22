@@ -51,6 +51,18 @@ class Pruebas_Al_Modelo_Doctrine extends PHPUnit_TestCase{
 		
 		$this->assertTrue( $exito && $comparacion );	
 	}
+	
+	function test_FechasDeCreacion(){
+		$this->assertTrue( false );	
+	}
+	
+	function test_identificar(){
+		$this->assertTrue( false );	
+	}
+	
+	function test_SeleccionarCorrporativo(){
+		$this->assertTrue( false );	
+	}
 				
 	function test_listar(){		
 		$modObj= new DoctrineModel();						

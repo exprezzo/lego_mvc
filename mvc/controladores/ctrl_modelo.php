@@ -14,10 +14,11 @@ class Ctrl_Modelo extends Controlador{ //extends Controlador
 	private function getFindParams(){
 		$limit=(empty($_REQUEST['limit']))?100 : $_REQUEST['limit'];
 		$start=(empty($_REQUEST['start']))?0 : $_REQUEST['start'];
-		
+		$query=(empty($_REQUEST['query']))? "" : $_REQUEST['query'];
 		$params=array(
 			'limit'=>$limit,
-			'start'=>$start
+			'start'=>$start,
+			'query'=>$query
 		);		
 		return $params;
 	}
@@ -74,6 +75,21 @@ class Ctrl_Modelo extends Controlador{ //extends Controlador
 		);
 		echo json_encode($respuesta);
 		return $respuesta;		
+	}
+	
+	function eliminar(){
+		$modObj= $this->getModelObject();				
+		$params=array(
+			'id'=>$_POST['datos']
+		);
+		$res=$modObj->borrar($params);
+		$respuesta = array(
+			'success'=>$res
+		);
+		
+		echo json_encode($respuesta);
+		
+		return $respuesta;
 	}
 	
 }

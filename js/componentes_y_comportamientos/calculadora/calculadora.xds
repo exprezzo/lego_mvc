@@ -1,0 +1,270 @@
+{
+    "name": "calculadora.xds",
+    "projectId": "4F98AF6D-E555-48FD-AD96-F3CC49C7A4F3",
+    "settings": {
+        "urlPrefix": "http://localhost/",
+        "spacesToIndent": 4,
+        "codeGenFormat": "Class",
+        "extPath": "http://extjs.cachefly.net/ext-3.3.1/",
+        "exportPath": ".",
+        "lineEnding": "CRLF",
+        "instantiateStore": true,
+        "exportXDSFiles": true,
+        "genTimestamps": true
+    },
+    "xdsVersion": "1.1.2",
+    "components": [
+        {
+            "id": "MyForm",
+            "cid": "form",
+            "jsClass": "MyForm",
+            "snapToGrid": 10,
+            "userConfig": {
+                "title": "My Form",
+                "width": 649,
+                "height": 547,
+                "padding": 10,
+                "layout": "auto"
+            },
+            "cn": [
+                {
+                    "id": "MyTextField",
+                    "cid": "textfield",
+                    "jsClass": "MyTextField",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "height": 50,
+                        "width": 350
+                    }
+                },
+                {
+                    "id": "MyContainer",
+                    "cid": "container",
+                    "jsClass": "MyContainer",
+                    "snapToGrid": 10,
+                    "layoutConfig": {
+                        "columns": 3
+                    },
+                    "userConfig": {
+                        "autoRef": "contTecladoNumerico",
+                        "defaults": "{width:80,\nheight:80,\nstyle:'margin-left:10px; margin-bottom:10px;'\n}",
+                        "layout": "table",
+                        "itemId": "contTecladoNumerico",
+                        "height": "-ext-undefined-",
+                        "width": 315,
+                        "style": "margin-top:10px;float:left;"
+                    },
+                    "cn": [
+                        {
+                            "id": "MyButton",
+                            "cid": "button",
+                            "jsClass": "MyButton",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": 1,
+                                "width": "-ext-undefined-",
+                                "height": "-ext-undefined-"
+                            }
+                        },
+                        {
+                            "id": "MyButton1",
+                            "cid": "button",
+                            "jsClass": "MyButton",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": 2,
+                                "width": "-ext-undefined-",
+                                "height": "-ext-undefined-"
+                            }
+                        },
+                        {
+                            "id": "MyButton2",
+                            "cid": "button",
+                            "jsClass": "MyButton2",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": 3
+                            }
+                        },
+                        {
+                            "id": "MyButton3",
+                            "cid": "button",
+                            "jsClass": "MyButton3",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": 4
+                            }
+                        },
+                        {
+                            "id": "MyButton4",
+                            "cid": "button",
+                            "jsClass": "MyButton4",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": 5
+                            }
+                        },
+                        {
+                            "id": "MyButton5",
+                            "cid": "button",
+                            "jsClass": "MyButton5",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": 6
+                            }
+                        },
+                        {
+                            "id": "MyButton6",
+                            "cid": "button",
+                            "jsClass": "MyButton6",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": 7
+                            }
+                        },
+                        {
+                            "id": "MyButton7",
+                            "cid": "button",
+                            "jsClass": "MyButton7",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": 8
+                            }
+                        },
+                        {
+                            "id": "MyButton8",
+                            "cid": "button",
+                            "jsClass": "MyButton8",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": 9
+                            }
+                        },
+                        {
+                            "id": "MyButton18",
+                            "cid": "button",
+                            "jsClass": "MyButton18",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "O",
+                                "colspan": 2,
+                                "width": 170
+                            }
+                        },
+                        {
+                            "id": "MyButton19",
+                            "cid": "button",
+                            "jsClass": "MyButton19",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": ".",
+                                "style": "-ext-undefined-",
+                                "scale": "large",
+                                "cls": "boton_punto"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "MyContainer1",
+                    "cid": "container",
+                    "jsClass": "MyContainer1",
+                    "snapToGrid": 10,
+                    "layoutConfig": {
+                        "columns": 3
+                    },
+                    "userConfig": {
+                        "width": 200,
+                        "style": "float:left;margin-top:10px;",
+                        "defaults": "{width:40,\nheight:40,\nstyle:'margin-left:10px; margin-bottom:10px;'\n}",
+                        "layout": "table"
+                    },
+                    "cn": [
+                        {
+                            "id": "MyButton9",
+                            "cid": "button",
+                            "jsClass": "MyButton9",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "+"
+                            }
+                        },
+                        {
+                            "id": "MyButton10",
+                            "cid": "button",
+                            "jsClass": "MyButton10",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "-"
+                            }
+                        },
+                        {
+                            "id": "MyButton11",
+                            "cid": "button",
+                            "jsClass": "MyButton11",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "MyButton"
+                            }
+                        },
+                        {
+                            "id": "MyButton12",
+                            "cid": "button",
+                            "jsClass": "MyButton12",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "*"
+                            }
+                        },
+                        {
+                            "id": "MyButton13",
+                            "cid": "button",
+                            "jsClass": "MyButton13",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "/"
+                            }
+                        },
+                        {
+                            "id": "MyButton14",
+                            "cid": "button",
+                            "jsClass": "MyButton14",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "MyButton"
+                            }
+                        },
+                        {
+                            "id": "MyButton15",
+                            "cid": "button",
+                            "jsClass": "MyButton15",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "%"
+                            }
+                        },
+                        {
+                            "id": "MyButton16",
+                            "cid": "button",
+                            "jsClass": "MyButton16",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "MyButton"
+                            }
+                        },
+                        {
+                            "id": "MyButton17",
+                            "cid": "button",
+                            "jsClass": "MyButton17",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "MyButton"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "stores": []
+}

@@ -12,19 +12,26 @@
  */
 
 gridModelo = Ext.extend(gridModeloUi, {
-    initComponent: function() {
-		//--------------------------------------------		
-		this.bubbleEvents.push("abrir_tab");		
-		//--------------------------------------------
+    initComponent: function() {	
         gridModelo.superclass.initComponent.call(this);	
-	//----------------------------------		
-		Ext.apply(this,comportamiento_grid);
-		//		sobre-escribo valores del comportamiento, para personalizarlos
-		this.xtype_del_form="frmModelo";
-		//
+		this.store=new stoModelo({
+			url: '/Ctrl_Modelo/listar',
+			writer:new Ext.data.JsonWriter({
+				encode: true,
+				writeAllFields: true // write all fields, not just those that changed
+			})
+		});
+	//----------------------------------
+	//  para que este grid se comporte como un grid del catalogo crud, ejecutamos la siguiente linea
+	
+		Ext.apply(this,comportamiento_grid,{
+			xtype_del_form:"frmModelo"
+		});	
+		
+	//  y asi se activa el comportamiento
 		this.activarComportamiento();
 	//----------------------------------
-		this.store=new stoModelo({url: '/Ctrl_Modelo/listar'});
+				
 		this.bottomToolbar.bind(this.store);
 		this.bottomToolbar.doRefresh();
     }

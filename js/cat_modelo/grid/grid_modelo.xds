@@ -95,7 +95,10 @@
                             "snapToGrid": 10,
                             "userConfig": {
                                 "height": "-ext-undefined-",
-                                "boxMinHeight": "-ext-undefined-"
+                                "boxMinHeight": "-ext-undefined-",
+                                "autoRef": "txtSearch",
+                                "itemId": "txtSearch",
+                                "enableKeyEvents": "-ext-undefined-"
                             }
                         },
                         {
@@ -176,7 +179,8 @@
             "userConfig": {
                 "storeId": "stoModelo",
                 "root": "datos",
-                "messageProperty": "msg"
+                "messageProperty": "msg",
+                "api": "{\n\tread: '/Ctrl_Modelo/listar',\n\tcreate: '/Ctrl_Modelo/crear',\n\tupdate: '/Ctrl_Modelo/guardar',\n\tdestroy: '/Ctrl_Modelo/eliminar'\n}"
             },
             "userXType": "stoModelo",
             "cn": [

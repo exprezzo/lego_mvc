@@ -14,18 +14,10 @@
 tabPanel = Ext.extend(tabPanelUi, {
     initComponent: function() {
         tabPanel.superclass.initComponent.call(this);		
-    },
-	listeners:{
-		abrir_tab:function(params){
+		Ext.apply(this, comportamiento_tab_manager);
 		
-			var config={
-				closable:true
-			};
-			
-			Ext.apply( config, params );
-			
-			this.add(config).show();
-		}
-	}
+		this.activarComportamiento();
+		
+    }
 });
 Ext.reg('tabPanel', tabPanel);

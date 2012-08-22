@@ -84,20 +84,30 @@ class DoctrineModel{
 	}
 	
 	function getQueryBusqueda(){
-		return "SELECT m FROM Modelo m"; 
+		return "SELECT m FROM Modelo m WHErE m.nombre LIKE :query"; 
 	}
 	
 	function listar($params){
+		
 		$dql = $this->getQueryBusqueda();
+		//echo $dql;
 		$start=$params['start'];
 		$limit=$params['limit'];
+		$query=$params['query'];
 		$entityManager=$this->getEM();
-		$query = $entityManager->createQuery($dql)
+		try{
+		$query = $entityManager->createQuery($dql)								
+							   ->setParameter(':query','%'.$query.'%')
 							   ->setFirstResult($start)
-							   ->setMaxResults($limit);
-
+							   ->setMaxResults($limit);		
+		
 		$paginator = new Paginator($query, $fetchJoinCollection = true);		
+		
 		$total = count($paginator);
+		}catch(Exception $e){
+			echo $e->getMessage();
+			exit;
+		}
 		$modelos=array();
 		foreach ($paginator as $post) {			
 			$modelos[]=$post;

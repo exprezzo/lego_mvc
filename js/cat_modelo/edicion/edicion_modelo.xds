@@ -29,11 +29,45 @@
             "userXType": "frmModelo",
             "cn": [
                 {
+                    "id": "MyTextArea",
+                    "cid": "textarea",
+                    "jsClass": "MyTextArea",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "anchor": "100%",
+                        "fieldLabel": "UUID",
+                        "name": "uuid"
+                    }
+                },
+                {
+                    "id": "MyTextField",
+                    "cid": "textfield",
+                    "jsClass": "MyTextField",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "fieldLabel": "ID",
+                        "anchor": "100%",
+                        "name": "id"
+                    }
+                },
+                {
+                    "id": "MyTextField1",
+                    "cid": "textfield",
+                    "jsClass": "MyTextField1",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "fieldLabel": "nombre",
+                        "anchor": "100%",
+                        "name": "nombre"
+                    }
+                },
+                {
                     "id": "MyToolbar",
                     "cid": "toolbar",
                     "jsClass": "MyToolbar",
                     "dock": "tbar",
                     "snapToGrid": 10,
+                    "userXType": "mytoolbar",
                     "cn": [
                         {
                             "id": "MyButton",
@@ -47,7 +81,8 @@
                                 "autoRef": "btnGuardar",
                                 "scale": "medium",
                                 "arrowAlign": "bottom",
-                                "iconAlign": "top"
+                                "iconAlign": "top",
+                                "icon": "localhost:"
                             }
                         },
                         {
@@ -119,39 +154,6 @@
                             }
                         }
                     ]
-                },
-                {
-                    "id": "MyTextArea",
-                    "cid": "textarea",
-                    "jsClass": "MyTextArea",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "anchor": "100%",
-                        "fieldLabel": "UUID",
-                        "name": "uuid"
-                    }
-                },
-                {
-                    "id": "MyTextField",
-                    "cid": "textfield",
-                    "jsClass": "MyTextField",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "fieldLabel": "ID",
-                        "anchor": "100%",
-                        "name": "id"
-                    }
-                },
-                {
-                    "id": "MyTextField1",
-                    "cid": "textfield",
-                    "jsClass": "MyTextField1",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "fieldLabel": "nombre",
-                        "anchor": "100%",
-                        "name": "nombre"
-                    }
                 }
             ]
         }
