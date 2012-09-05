@@ -32,10 +32,30 @@ comportamiento_grid={
 		var selected= selMod.getSelected();		
 		var selected=selMod.getSelected();
 		if (selected == undefined) return false;		
-		this.store.remove(selected);
+		// Show a dialog using config options:
+		Ext.Msg.show({
+		   title:'Eliminar?',
+		   msg: 'Al eliminar este registro ya no podr&aacute; recuperar',
+		   buttons: Ext.Msg.YESNO,
+		   scope:this,
+		   fn: function(btn){
+				if (btn=='yes'){
+					this.store.remove(selected);
+				}
+				//TODO: Devolver el foco al grid a la columna seleccionada en caso de NO eliminar, y a la siguiente columna en caso de eliminar
+		   },
+		   
+		   icon: Ext.MessageBox.QUESTION
+		});
+		
 	},
 	activarComportamiento:function(){
-	
+		
+		
+		if (this.xtype_del_form == undefined){
+			throw new Error("Debe establecer un valor para xtype_del_form");
+		}
+		
 		if (this.tituloDelForm==undefined){
 			this.tituloDelForm='Formulario de creacion / edicion';
 		}
@@ -48,12 +68,32 @@ comportamiento_grid={
 		
 		if (this.btnEditar != undefined) {			
 			this.btnEditar.on('click', this.editar,this);
+			this.btnEditar.setDisabled(true);
 		}
 		
 		if (this.btnEliminar != undefined) {			
 			this.btnEliminar.on('click', this.eliminar, this);
+			this.btnEliminar.setDisabled(true);
 		}
 		
+		this.on('rowclick',function(e){
+			var sel=this.getSelectionModel();
+			
+			if(sel.getCount()==0){
+				this.btnEditar.setDisabled(true);				
+				if (this.btnVer != undefined) {			
+					this.btnVer.setDisabled(true);
+				}
+				this.btnEliminar.setDisabled(true);
+				
+			}else{
+				this.btnEditar.setDisabled(false);				
+				if (this.btnVer != undefined) {			
+					this.btnVer.setDisabled(false);
+				}
+				this.btnEliminar.setDisabled(false);
+			}
+		},this);
 		this.on('keypress',function(e){
 			if(e.getKey() == e.DELETE){
 				this.eliminar();
@@ -82,17 +122,6 @@ comportamiento_grid={
 		},this);					
 		
 		this.on("rowdblclick",this.editar,this);
-		/*this.btnEliminar.on('click',function(){
-				this.eliminar();
-			},this);
-			
-			this.btnEditar.on('click',function(){
-				this.editar();
-			},this);
-			
-			this.btnBuscar.on('click',function(){
-				this.buscar();
-			},this);*/
 	}
 	
 }
