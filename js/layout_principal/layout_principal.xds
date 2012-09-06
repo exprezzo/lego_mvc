@@ -1,0 +1,259 @@
+{
+    "name": "layout_principal.xds",
+    "projectId": "AF9D306F-DBAC-485D-99C0-94052EAA0D98",
+    "settings": {
+        "urlPrefix": "http://localhost/",
+        "spacesToIndent": 4,
+        "codeGenFormat": "Class",
+        "extPath": "http://extjs.cachefly.net/ext-3.3.1/",
+        "exportPath": ".",
+        "lineEnding": "CRLF",
+        "instantiateStore": true,
+        "exportXDSFiles": true,
+        "genTimestamps": true
+    },
+    "xdsVersion": "1.1.2",
+    "components": [
+        {
+            "id": "MyPanel",
+            "cid": "panel",
+            "jsClass": "main_layout",
+            "snapToGrid": 10,
+            "userConfig": {
+                "title": "-ext-undefined-",
+                "width": 718,
+                "height": 250,
+                "layout": "border"
+            },
+            "userXType": "main_layout",
+            "cn": [
+                {
+                    "id": "MyTabPanel",
+                    "cid": "tabpanel",
+                    "jsClass": "MyTabPanel",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "activeTab": 0,
+                        "region": "center",
+                        "autoRef": "tabPanel",
+                        "border": false,
+                        "style": "",
+                        "bodyStyle": "border-style:solid;border-width:0 0 0 1px;"
+                    },
+                    "cn": [
+                        {
+                            "id": "MyPanel1",
+                            "cid": "panel",
+                            "jsClass": "MyPanel1",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "title": "Home"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "MyPanel4",
+                    "cid": "panel",
+                    "jsClass": "MyPanel4",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "title": "-ext-undefined-",
+                        "region": "west",
+                        "width": 217,
+                        "layout": "accordion",
+                        "activeItem": 2,
+                        "split": true,
+                        "collapsible": true,
+                        "collapseMode": "mini",
+                        "hideCollapseTool": true,
+                        "itemId": "pnlAcordeon",
+                        "autoRef": "pnlAcordeon",
+                        "hideBorders": true,
+                        "border": false,
+                        "style": "border-style: sodli;border-width:0 1px 0 0;"
+                    },
+                    "cn": [
+                        {
+                            "id": "MyPanel5",
+                            "cid": "panel",
+                            "jsClass": "MyPanel5",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "title": "Clientes",
+                                "border": "-ext-undefined-",
+                                "bodyStyle": "border-style:solid;border-width:0 0 1px 0;"
+                            },
+                            "cn": [
+                                {
+                                    "id": "MyTreePanel",
+                                    "cid": "treepanel",
+                                    "jsClass": "MyTreePanel2",
+                                    "snapToGrid": 10,
+                                    "userConfig": {
+                                        "title": "-ext-undefined-",
+                                        "border": false
+                                    },
+                                    "cn": [
+                                        {
+                                            "id": "MyAsyncTreeNode",
+                                            "cid": "asynctreenode",
+                                            "jsClass": "MyAsyncTreeNode2",
+                                            "dock": "root",
+                                            "snapToGrid": 10,
+                                            "userConfig": {
+                                                "text": "Tree Node"
+                                            }
+                                        },
+                                        {
+                                            "id": "MyTreeLoader",
+                                            "cid": "treeloader",
+                                            "jsClass": "MyTreeLoader2",
+                                            "dock": "loader",
+                                            "snapToGrid": 10
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "MyPanel6",
+                            "cid": "panel",
+                            "jsClass": "MyPanel6",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "title": "Productos",
+                                "border": "-ext-undefined-",
+                                "bodyStyle": "border-style:solid;border-width:0 0 1px 0;"
+                            },
+                            "cn": [
+                                {
+                                    "id": "MyTreePanel1",
+                                    "cid": "treepanel",
+                                    "jsClass": "MyTreePanel1",
+                                    "snapToGrid": 10,
+                                    "userConfig": {
+                                        "title": "-ext-undefined-",
+                                        "border": false
+                                    },
+                                    "cn": [
+                                        {
+                                            "id": "MyAsyncTreeNode1",
+                                            "cid": "asynctreenode",
+                                            "jsClass": "MyAsyncTreeNode1",
+                                            "dock": "root",
+                                            "snapToGrid": 10,
+                                            "userConfig": {
+                                                "text": "Tree Node"
+                                            }
+                                        },
+                                        {
+                                            "id": "MyTreeLoader1",
+                                            "cid": "treeloader",
+                                            "jsClass": "MyTreeLoader1",
+                                            "dock": "loader",
+                                            "snapToGrid": 10
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "MyPanel7",
+                            "cid": "panel",
+                            "jsClass": "MyPanel7",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "title": "Facturacion",
+                                "border": false,
+                                "hideBorders": "-ext-undefined-",
+                                "style": "border-width: 0;",
+                                "bodyStyle": "border-style:solid;border-width:0 0 1px 0;"
+                            },
+                            "cn": [
+                                {
+                                    "id": "MyTreePanel2",
+                                    "cid": "treepanel",
+                                    "jsClass": "MyTreePanel",
+                                    "snapToGrid": 10,
+                                    "userConfig": {
+                                        "title": "-ext-undefined-",
+                                        "border": false
+                                    },
+                                    "cn": [
+                                        {
+                                            "id": "MyAsyncTreeNode2",
+                                            "cid": "asynctreenode",
+                                            "jsClass": "MyAsyncTreeNode",
+                                            "dock": "root",
+                                            "snapToGrid": 10,
+                                            "userConfig": {
+                                                "text": "Tree Node"
+                                            }
+                                        },
+                                        {
+                                            "id": "MyTreeLoader2",
+                                            "cid": "treeloader",
+                                            "jsClass": "MyTreeLoader",
+                                            "dock": "loader",
+                                            "snapToGrid": 10,
+                                            "userConfig": {
+                                                "url": "/menus/getMenus",
+                                                "baseParams": "{padreId:0}"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "MyPanel8",
+                            "cid": "panel",
+                            "jsClass": "MyPanel8",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "title": "Sistema",
+                                "style": "border-width:0;",
+                                "border": false,
+                                "bodyStyle": "border-width:0;",
+                                "hideBorders": true
+                            },
+                            "cn": [
+                                {
+                                    "id": "MyTreePanel3",
+                                    "cid": "treepanel",
+                                    "jsClass": "MyTreePanel3",
+                                    "snapToGrid": 10,
+                                    "userConfig": {
+                                        "title": "-ext-undefined-",
+                                        "border": false
+                                    },
+                                    "cn": [
+                                        {
+                                            "id": "MyAsyncTreeNode3",
+                                            "cid": "asynctreenode",
+                                            "jsClass": "MyAsyncTreeNode3",
+                                            "dock": "root",
+                                            "snapToGrid": 10,
+                                            "userConfig": {
+                                                "text": "Tree Node"
+                                            }
+                                        },
+                                        {
+                                            "id": "MyTreeLoader3",
+                                            "cid": "treeloader",
+                                            "jsClass": "MyTreeLoader3",
+                                            "dock": "loader",
+                                            "snapToGrid": 10
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "stores": []
+}
