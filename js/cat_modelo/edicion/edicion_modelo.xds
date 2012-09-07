@@ -21,10 +21,11 @@
             "snapToGrid": 10,
             "userConfig": {
                 "title": "Edicion",
-                "width": 400,
-                "height": 250,
+                "width": 526,
+                "height": 425,
                 "padding": 10,
-                "url": "/ctrl_modelo/obtener"
+                "url": "/ctrl_modelo/obtener",
+                "autoScroll": true
             },
             "userXType": "frmModelo",
             "cn": [
@@ -154,6 +155,18 @@
                             }
                         }
                     ]
+                },
+                {
+                    "id": "MyTextArea1",
+                    "cid": "htmleditor",
+                    "jsClass": "MyTextArea1",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "anchor": "100%",
+                        "fieldLabel": "Label",
+                        "name": "descripcion",
+                        "height": 197
+                    }
                 }
             ]
         }

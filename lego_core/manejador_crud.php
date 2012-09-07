@@ -26,10 +26,10 @@ class ManejadorCrud {
 		$query=$params['query'];
 		$entityManager=$this->getEM();
 		try{
-		$query = $entityManager->createQuery($dql)								
-							   ->setParameter(':query','%'.$query.'%')
-							   ->setFirstResult($start)
-							   ->setMaxResults($limit);		
+			$query = $entityManager->createQuery($dql)								
+				->setParameter(':query','%'.$query.'%')
+				->setFirstResult($start)
+				->setMaxResults($limit);		
 		
 		$paginator = new Paginator($query, $fetchJoinCollection = true);		
 		
@@ -60,23 +60,19 @@ class ManejadorCrud {
 		return new $this->modelo();
 	}
 	
-	function ligarParametros($parametros){
+	function ligarParametros($mod, $parametros){
 		foreach($this->campos as $campo ){
-			if (isset( $parametros[$campo] )){
-				echo $campo;
-			}
-			
+			if (isset( $parametros[$campo] )){				
+				$mod->$campo = $parametros[$campo];				
+			}			
 		}
+		return $mod;
 	}
 	
 	function guardar($params){
 		$mod = $this->getModelObject();
-		$this->ligarParametros(array());
+		$mod = $this->ligarParametros($mod, $params);
 		//Todo, sacarlas del esquema y validarlas de manera automaticaa
-		$mod->nombre=$params['nombre'];
-		//$mod->nombre=$params['descripcion'];
-		
-		$mod->id=$params['id'];
 		
 		$em=$this->getEm();
 		
@@ -107,7 +103,7 @@ class ManejadorCrud {
 		$config = new \Doctrine\DBAL\Configuration();
 		
 		$connectionParams = array(
-			'dbname' => 'coral_mvc',
+			'dbname' => 'experimentos',
 			'user' => 'root',
 			'password' => '',
 			'host' => 'localhost',
@@ -127,7 +123,7 @@ class ManejadorCrud {
 		$config = new \Doctrine\DBAL\Configuration();
 		
 		$connectionParams = array(
-			'dbname' => 'coral_mvc',
+			'dbname' => 'experimentos',
 			'user' => 'root',
 			'password' => '',
 			'host' => 'localhost',
@@ -137,8 +133,6 @@ class ManejadorCrud {
 		$conn = DriverManager::getConnection($connectionParams, $config);		
 		return $conn;
 	}
-	
-	
 	
 }
 ?>

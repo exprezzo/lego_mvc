@@ -1,8 +1,5 @@
 <?php
-use Doctrine\Common\ClassLoader;
-use Doctrine\DBAL\DriverManager;
-
-require '../terceros/DoctrineDBAL/Doctrine/Common/ClassLoader.php';
+require_once '../mvc/i_crud.php';
 
 
 class Modelo_PDO implements ICrud{								
@@ -10,7 +7,7 @@ class Modelo_PDO implements ICrud{
 	function getConexion(){		
 		if ( !isset($this->db) ){
 			try {
-				$db = new PDO('mysql:host=localhost;dbname=coral_mvc;charset=UTF-8', 'root', '',array(
+				$db = new PDO('mysql:host=localhost;dbname=experimentos;charset=UTF-8', 'root', '',array(
 					PDO::ATTR_PERSISTENT => true
 				));				
 				$this->db=$db;

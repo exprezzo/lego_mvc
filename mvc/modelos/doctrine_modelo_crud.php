@@ -11,11 +11,8 @@ require '../mvc/doctrine/entities/modelo.php';*/
 require '../lego_core/manejador_crud.php';
 
 class DoctrineModel extends ManejadorCrud{
-	
 	var $modelo="Pendientes";
-	var $campos=array("nombre", "descripcion");
-
-	
+	var $campos=array("id","nombre", "descripcion");
 	
 }
 ?>

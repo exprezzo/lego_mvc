@@ -1,12 +1,13 @@
 <?php
-require_once '../mvc/modelos/pdo_modelo_crud.php';
+
+require_once '../mvc/modelos/menu_pdo_model.php';
 
 class Menus extends Controlador{ //extends Controlador
 	//TODO: pasar a Controlador	
 	function getModelObject(){
 		
 		if ( !isset($this->modObj) ){
-			$this->modObj = new Modelo_PDO();
+			$this->modObj = new Menu_PDO_Model();
 		}
 		
 		return $this->modObj;
@@ -23,13 +24,21 @@ class Menus extends Controlador{ //extends Controlador
 		return $params;
 	}
 	
-	function listar(){
+	function getMenus(){
 		$modObj= $this->getModelObject();
 		
-		$params=$this->getFindParams();		
+		if ( !is_numeric($_POST['node']) ){
+			$padre=$_POST['padreId'];
+		}else{
+			$padre=$_POST['node'];
+		}
 		
-		$res = $modObj->listar( $params );
-		echo json_encode($res);
+		$params=array(
+			'padreId'=>$padre
+		);		
+		
+		$res = $modObj->getMenus( $params );
+		echo json_encode($res['data']);
 		return $res;		
 	}		
 	

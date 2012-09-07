@@ -31,7 +31,7 @@ class ManejadorDePendientes{
 		$this->ligarParametros();exit;
 		//Todo, sacarlas del esquema y validarlas de manera automaticaa
 		$mod->nombre=$params['nombre'];
-		$mod->nombre=$params['descripcion'];
+		$mod->descripcion=$params['descripcion'];
 		
 		$mod->id=$params['id'];
 		
@@ -84,7 +84,7 @@ class ManejadorDePendientes{
 		$config = new \Doctrine\DBAL\Configuration();
 		
 		$connectionParams = array(
-			'dbname' => 'coral_mvc',
+			'dbname' => 'experimentos',
 			'user' => 'root',
 			'password' => '',
 			'host' => 'localhost',

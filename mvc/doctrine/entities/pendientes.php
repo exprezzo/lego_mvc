@@ -10,5 +10,7 @@ class Pendientes
     public $id;
 	/** @Column(type="string") **/
     public $nombre;
+	/** @Column(type="string") **/
+    public $descripcion;
 }
 ?>

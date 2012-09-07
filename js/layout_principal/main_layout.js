@@ -14,6 +14,36 @@
 main_layout = Ext.extend(main_layoutUi, {
     initComponent: function() {
         main_layout.superclass.initComponent.call(this);
-    }
+		
+		this.configurarComportamientoMenu();
+		
+		Ext.apply(this.tabPanel, comportamiento_tab_manager);
+		this.tabPanel.activarComportamiento();		
+    },
+	configurarComportamientoMenu:function(){
+		/*
+		Ext.apply(this.tabPanel, comportamiento_tree_menu);
+		this.tabPanel.activarComportamientoTreeMenu();
+		*/
+		this.treeFacturacion.getRootNode().expand();		
+		this.treeSistema.getRootNode().expand();
+		
+		this.on('click',function(node, e){
+			if (node.attributes != undefined){
+				this.procesarClick(node.attributes);
+			}			
+		},this);
+	},
+	procesarClick:function(nodo){
+		//console.log(nodo);		
+		if (nodo.xtype != undefined){
+			var tab=this.tabPanel.add({
+				xtype:nodo.xtype,
+				closable:true,
+				
+			});			
+			tab.show();
+		}
+	}
 });
 Ext.reg('main_layout', main_layout);

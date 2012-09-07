@@ -53,11 +53,13 @@ class Ctrl_Modelo extends Controlador{ //extends Controlador
 		$id=(empty($_REQUEST['id']))? 0 : $_REQUEST['id'];
 		$uuid=(empty($_REQUEST['uuid']))? '' : $_REQUEST['uuid'];
 		$nombre=(empty($_REQUEST['nombre']))? '' : $_REQUEST['nombre'];
+		$descripcion=(empty($_REQUEST['descripcion']))? '' : $_REQUEST['descripcion'];
 		
 		$params=array(
-			'id'=>$id,
-			'uuid'=>$uuid,
-			'nombre'=>$nombre,
+			'id'		 =>$id,
+			'uuid'		 =>$uuid,
+			'nombre'	 =>$nombre,
+			'descripcion'=>$descripcion
 		);				
 		return $params;		
 	}
