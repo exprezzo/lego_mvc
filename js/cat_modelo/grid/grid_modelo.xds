@@ -128,43 +128,30 @@
                     }
                 },
                 {
-                    "id": "MyColumn",
-                    "cid": "gridcolumn",
-                    "jsClass": "MyColumn",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "header": "uuid",
-                        "dataIndex": "uuid",
-                        "sortable": true,
-                        "resizable": "-ext-undefined-",
-                        "width": 100
-                    }
-                },
-                {
-                    "id": "MyColumn1",
-                    "cid": "gridcolumn",
-                    "jsClass": "MyColumn1",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "header": "id",
-                        "dataIndex": "id",
-                        "sortable": true,
-                        "resizable": "-ext-undefined-",
-                        "width": 100
-                    }
-                },
-                {
                     "id": "MyColumn2",
                     "cid": "gridcolumn",
                     "jsClass": "MyColumn2",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "header": "nombre",
+                        "header": "Nombre",
                         "dataIndex": "nombre",
                         "sortable": true,
                         "resizable": "-ext-undefined-",
                         "width": 100,
                         "id": "colNombre"
+                    }
+                },
+                {
+                    "id": "MyColumn",
+                    "cid": "gridcolumn",
+                    "jsClass": "MyColumn",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "header": "Prioridad",
+                        "dataIndex": "prioridad",
+                        "sortable": true,
+                        "resizable": "-ext-undefined-",
+                        "width": 100
                     }
                 }
             ]
@@ -209,6 +196,15 @@
                     "snapToGrid": 10,
                     "userConfig": {
                         "name": "nombre"
+                    }
+                },
+                {
+                    "id": "MyField3",
+                    "cid": "datafield",
+                    "jsClass": "MyField3",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "prioridad"
                     }
                 }
             ]

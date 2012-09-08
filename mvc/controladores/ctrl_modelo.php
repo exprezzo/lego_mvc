@@ -61,7 +61,7 @@ class Ctrl_Modelo extends Controlador{ //extends Controlador
 			'nombre'	 =>$nombre,
 			'descripcion'=>$descripcion
 		);				
-		return $params;		
+		return $_REQUEST;		
 	}
 	
 	function guardar(){
@@ -69,14 +69,15 @@ class Ctrl_Modelo extends Controlador{ //extends Controlador
 		$params = $this->bindParams();
 		
 		$res = $modObj->guardar( $params );		
-				
-		$success=true;		
+
+		$success=true;				
 		$respuesta= array(
 			'success'=>$success,
-			'data'=>$res
+			'data'=> $res
 		);
+				
 		echo json_encode($respuesta);
-		return $respuesta;		
+		return $respuesta;
 	}
 	
 	function eliminar(){

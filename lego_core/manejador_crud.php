@@ -78,10 +78,15 @@ class ManejadorCrud {
 		
 		if (!empty($mod->id) ){
 			$mod = $em->merge($mod);
+			$nuevo=true;
+		}else{
+			$nuevo=true;
 		}
 		$em->persist($mod);
 		$em->flush();
-		return true;
+		
+		
+		return $mod;
 	}
 	
 	function borrar( $params ){

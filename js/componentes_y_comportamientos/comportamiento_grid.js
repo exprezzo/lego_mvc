@@ -7,7 +7,8 @@ comportamiento_grid={
 	nuevo:function(){	
 		var params={
 			xtype:this.xtype_del_form,
-			title:this.tituloDelForm
+			title:this.tituloDelForm,
+			idReg:  0,
 		};
 		this.fireEvent('mostrarTab',params);
 		
@@ -19,11 +20,15 @@ comportamiento_grid={
 		var selected= selMod.getSelected();		
 		var selected=selMod.getSelected();
 		if (selected == undefined) return false;
+		
+		
 		var params={
 			xtype:	this.xtype_del_form,
 			title:	this.tituloDelForm,
-			datos:	selected.data
+			datos:	selected.data,
+			idReg:  selected.id,
 		};
+				
 		this.fireEvent('mostrarTab',params);
 	},
 	eliminar:function(){	//TODO: considerar todos los modelos de seleccion del extjs

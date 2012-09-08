@@ -1,12 +1,26 @@
 comportamiento_formulario={		
 	controlador:'modelo',
+	getTabId:function(){
+		var id= this.txtId.getValue(); 
+		if ( id==''){
+			id=0;
+		}
+		var id=this.xtype + '_' + id;
+		
+		return id;
+	},
 	guardar:function( params ){
 		this.el.mask();
 		this.form.submit({
 			clientValidation: true,
 			scope:this,
 			url: '/'+ this.controlador + '/guardar',
-			success:function(){
+			success:function(form, action){
+				
+				
+				if (action.result.success == true){
+					this.getForm().setValues(action.result.data);
+				}
 				this.el.unmask();
 			},
 			failure:function(){

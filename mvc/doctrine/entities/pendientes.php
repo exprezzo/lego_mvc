@@ -11,6 +11,8 @@ class Pendientes
 	/** @Column(type="string") **/
     public $nombre;
 	/** @Column(type="string") **/
-    public $descripcion;
+    public $descripcion;	
+	/** @Column(type="integer") **/
+    public $prioridad;
 }
 ?>

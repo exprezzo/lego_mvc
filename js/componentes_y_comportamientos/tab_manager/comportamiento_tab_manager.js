@@ -14,7 +14,7 @@ comportamiento_tab_manager={
 	activarComportamiento:function(){
 			
 		this.on('mostrarTab', function(params){
-			console.log("params");console.log(params);
+			
 			this.mostrarTab(params);
 		}, this);
 		this.on('crearTab', this.mostrarTab, this);
@@ -36,8 +36,17 @@ comportamiento_tab_manager={
 		return this.add(config).show();
 	},
 	
-	encontrarTab:function(){
+	encontrarTab:function(params){
 		
+		for(item in this.items.items){
+			item=this.items.items[item];			
+			if ( item.getTabId != undefined && params.idReg != undefined){				
+				
+				if ( item.getTabId() == params.xtype + '_' + params.idReg ){
+					return item;
+				}
+			}
+		}
 		return false;
 	}
 

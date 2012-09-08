@@ -13,7 +13,7 @@
 
 main_layout = Ext.extend(main_layoutUi, {
     initComponent: function() {
-        main_layout.superclass.initComponent.call(this);
+        main_layout.superclass.initComponent.call(this);		
 		
 		this.configurarComportamientoMenu();
 		
@@ -35,7 +35,7 @@ main_layout = Ext.extend(main_layoutUi, {
 		},this);
 	},
 	procesarClick:function(nodo){
-		//console.log(nodo);		
+		
 		if (nodo.xtype != undefined){
 			var tab=this.tabPanel.add({
 				xtype:nodo.xtype,

@@ -12,7 +12,9 @@ require '../lego_core/manejador_crud.php';
 
 class DoctrineModel extends ManejadorCrud{
 	var $modelo="Pendientes";
-	var $campos=array("id","nombre", "descripcion");
-	
+	var $campos=array("id","nombre", "descripcion",'prioridad');
+	function getQueryBusqueda(){
+		return "SELECT m FROM ".$this->modelo." m WHErE m.nombre LIKE :query order BY m.prioridad ASC"; 
+	}
 }
 ?>
