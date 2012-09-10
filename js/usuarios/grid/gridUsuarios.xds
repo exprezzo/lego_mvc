@@ -260,19 +260,6 @@
                     ]
                 }
             ]
-        },
-        {
-            "id": "MyColumn1",
-            "cid": "gridcolumn",
-            "jsClass": "MyColumn1",
-            "snapToGrid": 10,
-            "userConfig": {
-                "header": "nombre",
-                "dataIndex": "nombre",
-                "sortable": true,
-                "resizable": "-ext-undefined-",
-                "width": 100
-            }
         }
     ],
     "stores": [
