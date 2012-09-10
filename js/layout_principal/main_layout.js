@@ -25,8 +25,8 @@ main_layout = Ext.extend(main_layoutUi, {
 		Ext.apply(this.tabPanel, comportamiento_tree_menu);
 		this.tabPanel.activarComportamientoTreeMenu();
 		*/
-		this.treeFacturacion.getRootNode().expand();		
-		this.treeSistema.getRootNode().expand();
+		this.treeMenus.getRootNode().expand();		
+		//this.treeSistema.getRootNode().expand();
 		
 		this.on('click',function(node, e){
 			if (node.attributes != undefined){
@@ -34,9 +34,8 @@ main_layout = Ext.extend(main_layoutUi, {
 			}			
 		},this);
 	},
-	procesarClick:function(nodo){
-		
-		if (nodo.xtype != undefined){
+	procesarClick:function(nodo){	
+		if ( !Ext.isEmpty(nodo.xtype) ){
 			var tab=this.tabPanel.add({
 				xtype:nodo.xtype,
 				closable:true,

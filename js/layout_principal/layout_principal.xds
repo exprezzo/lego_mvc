@@ -34,12 +34,24 @@
                         "region": "north",
                         "width": "-ext-undefined-",
                         "height": 100
-                    }
+                    },
+                    "cn": [
+                        {
+                            "id": "MyLabel1",
+                            "cid": "label",
+                            "jsClass": "MyLabel1",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Configuracion y acciones",
+                                "style": "position:absolute;right:0;bottom:0;"
+                            }
+                        }
+                    ]
                 },
                 {
                     "id": "MyPanel",
                     "cid": "panel",
-                    "jsClass": "main_layout",
+                    "jsClass": "MyPanel",
                     "snapToGrid": 10,
                     "userConfig": {
                         "title": "-ext-undefined-",
@@ -93,126 +105,38 @@
                             },
                             "cn": [
                                 {
-                                    "id": "MyPanel4",
-                                    "cid": "panel",
-                                    "jsClass": "MyPanel4",
+                                    "id": "MyTreePanel3",
+                                    "cid": "treepanel",
+                                    "jsClass": "MyTreePanel3",
                                     "snapToGrid": 10,
                                     "userConfig": {
                                         "title": "-ext-undefined-",
-                                        "width": "-ext-undefined-",
-                                        "layout": "accordion",
-                                        "activeItem": 1,
-                                        "collapsible": true,
-                                        "hideCollapseTool": true,
-                                        "itemId": "pnlAcordeon",
-                                        "autoRef": "pnlAcordeon",
-                                        "hideBorders": true,
                                         "border": false,
-                                        "style": ""
+                                        "rootVisible": false,
+                                        "autoRef": "treeMenus",
+                                        "bubbleEvents": "['click']"
                                     },
                                     "cn": [
                                         {
-                                            "id": "MyPanel7",
-                                            "cid": "panel",
-                                            "jsClass": "MyPanel7",
+                                            "id": "MyAsyncTreeNode3",
+                                            "cid": "asynctreenode",
+                                            "jsClass": "MyAsyncTreeNode3",
+                                            "dock": "root",
                                             "snapToGrid": 10,
                                             "userConfig": {
-                                                "title": "Facturacion",
-                                                "border": false,
-                                                "hideBorders": "-ext-undefined-",
-                                                "style": "border-width: 0;",
-                                                "bodyStyle": "border-style:solid;border-width:0 0 1px 0;"
-                                            },
-                                            "cn": [
-                                                {
-                                                    "id": "MyTreePanel2",
-                                                    "cid": "treepanel",
-                                                    "jsClass": "MyTreePanel",
-                                                    "snapToGrid": 10,
-                                                    "userConfig": {
-                                                        "title": "-ext-undefined-",
-                                                        "border": false,
-                                                        "autoLoad": "-ext-undefined-",
-                                                        "autoRef": "treeFacturacion",
-                                                        "rootVisible": false,
-                                                        "bubbleEvents": "['click']"
-                                                    },
-                                                    "cn": [
-                                                        {
-                                                            "id": "MyAsyncTreeNode2",
-                                                            "cid": "asynctreenode",
-                                                            "jsClass": "MyAsyncTreeNode",
-                                                            "dock": "root",
-                                                            "snapToGrid": 10,
-                                                            "userConfig": {
-                                                                "text": "Tree Node"
-                                                            }
-                                                        },
-                                                        {
-                                                            "id": "MyTreeLoader2",
-                                                            "cid": "treeloader",
-                                                            "jsClass": "MyTreeLoader",
-                                                            "dock": "loader",
-                                                            "snapToGrid": 10,
-                                                            "userConfig": {
-                                                                "url": "/menus/getMenus",
-                                                                "baseParams": "{padreId:3}"
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            ]
+                                                "text": "Tree Node"
+                                            }
                                         },
                                         {
-                                            "id": "MyPanel8",
-                                            "cid": "panel",
-                                            "jsClass": "MyPanel8",
+                                            "id": "MyTreeLoader3",
+                                            "cid": "treeloader",
+                                            "jsClass": "MyTreeLoader3",
+                                            "dock": "loader",
                                             "snapToGrid": 10,
                                             "userConfig": {
-                                                "title": "Sistema",
-                                                "style": "border-width:0;",
-                                                "border": false,
-                                                "bodyStyle": "border-width:0;",
-                                                "hideBorders": true
-                                            },
-                                            "cn": [
-                                                {
-                                                    "id": "MyTreePanel3",
-                                                    "cid": "treepanel",
-                                                    "jsClass": "MyTreePanel3",
-                                                    "snapToGrid": 10,
-                                                    "userConfig": {
-                                                        "title": "-ext-undefined-",
-                                                        "border": false,
-                                                        "rootVisible": false,
-                                                        "autoRef": "treeSistema",
-                                                        "bubbleEvents": "['click']"
-                                                    },
-                                                    "cn": [
-                                                        {
-                                                            "id": "MyAsyncTreeNode3",
-                                                            "cid": "asynctreenode",
-                                                            "jsClass": "MyAsyncTreeNode3",
-                                                            "dock": "root",
-                                                            "snapToGrid": 10,
-                                                            "userConfig": {
-                                                                "text": "Tree Node"
-                                                            }
-                                                        },
-                                                        {
-                                                            "id": "MyTreeLoader3",
-                                                            "cid": "treeloader",
-                                                            "jsClass": "MyTreeLoader3",
-                                                            "dock": "loader",
-                                                            "snapToGrid": 10,
-                                                            "userConfig": {
-                                                                "url": "/menus/getMenus",
-                                                                "baseParams": "{padreId:7}"
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            ]
+                                                "url": "/menus/listar",
+                                                "baseParams": "{padreId:0}"
+                                            }
                                         }
                                     ]
                                 },
@@ -271,8 +195,19 @@
                     "userConfig": {
                         "region": "south",
                         "width": 100,
-                        "height": 50
-                    }
+                        "height": 25
+                    },
+                    "cn": [
+                        {
+                            "id": "MyLabel",
+                            "cid": "label",
+                            "jsClass": "MyLabel",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Status Var"
+                            }
+                        }
+                    ]
                 }
             ]
         }

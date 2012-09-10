@@ -1,0 +1,279 @@
+{
+    "name": "cat_menus.xds",
+    "projectId": "CDD20C93-A7F6-4989-B785-D9CF3049B96F",
+    "settings": {
+        "urlPrefix": "http://localhost/",
+        "directAPI": "",
+        "spacesToIndent": "4",
+        "codeGenFormat": "Class",
+        "extPath": "http://extjs.cachefly.net/ext-3.3.1/",
+        "exportPath": ".",
+        "lineEnding": "CRLF",
+        "instantiateStore": false,
+        "exportXDSFiles": false,
+        "genTimestamps": false
+    },
+    "xdsVersion": "1.1.2",
+    "components": [
+        {
+            "id": "MyPanel",
+            "cid": "panel",
+            "jsClass": "catMenus",
+            "snapToGrid": 10,
+            "userConfig": {
+                "title": "Catalogo de Menus",
+                "width": "-ext-undefined-",
+                "height": 250,
+                "layout": "border",
+                "bodyStyle": ""
+            },
+            "userXType": "catMenus",
+            "cn": [
+                {
+                    "id": "MyPanel2",
+                    "cid": "panel",
+                    "jsClass": "MyPanel2",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "title": "-ext-undefined-",
+                        "region": "west",
+                        "width": 500,
+                        "split": true,
+                        "collapseMode": "mini",
+                        "layout": "fit",
+                        "border": "-ext-undefined-",
+                        "style": "-ext-undefined-",
+                        "bodyStyle": "border-width:0 1px 1px 0;"
+                    },
+                    "cn": [
+                        {
+                            "id": "MyUserComponent",
+                            "cid": "usercomponent",
+                            "jsClass": "TreeGridMenu",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "jsClass": "TreeGridMenu",
+                                "userXType": "TreeGridMenu",
+                                "autoRef": "treeMenus"
+                            },
+                            "userComponent": "MyPanel1"
+                        },
+                        {
+                            "id": "MyToolbar1",
+                            "cid": "toolbar",
+                            "jsClass": "MyToolbar1",
+                            "dock": "bbar",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "style": "border-width:1px 1px 0 0;"
+                            },
+                            "cn": [
+                                {
+                                    "id": "MyFill1",
+                                    "cid": "tbfill",
+                                    "jsClass": "MyFill1",
+                                    "snapToGrid": 10
+                                },
+                                {
+                                    "id": "MyButton5",
+                                    "cid": "button",
+                                    "jsClass": "MyButton5",
+                                    "snapToGrid": 10,
+                                    "userConfig": {
+                                        "text": "-ext-undefined-",
+                                        "cls": "-ext-undefined-",
+                                        "iconCls": "x-tbar-loading",
+                                        "autoRef": "btnRefresh"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "MyForm",
+                    "cid": "form",
+                    "jsClass": "frmMenu",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "title": "Edicion",
+                        "frame": "-ext-undefined-",
+                        "bodyStyle": "padding:8px;border-width:0 0px 0px 0px;",
+                        "region": "center",
+                        "autoRef": "frmEdicion",
+                        "style": "border-width:0 0px 0px 1px;",
+                        "border": false
+                    },
+                    "userXType": "frmMenu",
+                    "cn": [
+                        {
+                            "id": "MyTextField",
+                            "cid": "textfield",
+                            "jsClass": "MyTextField2",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "fieldLabel": "Id",
+                                "anchor": "100%",
+                                "autoRef": "txtId",
+                                "name": "id",
+                                "hidden": "-ext-undefined-"
+                            }
+                        },
+                        {
+                            "id": "MyTextField1",
+                            "cid": "textfield",
+                            "jsClass": "MyTextField",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "fieldLabel": "Nombre",
+                                "anchor": "100%",
+                                "name": "nombre"
+                            }
+                        },
+                        {
+                            "id": "MyTextField2",
+                            "cid": "textfield",
+                            "jsClass": "MyTextField1",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "fieldLabel": "xtype",
+                                "anchor": "100%",
+                                "name": "xtype"
+                            }
+                        },
+                        {
+                            "id": "MyTextField3",
+                            "cid": "textfield",
+                            "jsClass": "MyTextField3",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "fieldLabel": "Icon",
+                                "anchor": "100%",
+                                "name": "icon"
+                            }
+                        },
+                        {
+                            "id": "MyTextField4",
+                            "cid": "textfield",
+                            "jsClass": "MyTextField4",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "fieldLabel": "Padre",
+                                "anchor": "100%",
+                                "name": "padre",
+                                "autoRef": "txtPadre"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "MyToolbar",
+                    "cid": "toolbar",
+                    "jsClass": "MyToolbar",
+                    "dock": "tbar",
+                    "snapToGrid": 10,
+                    "userXType": "mytoolbar",
+                    "cn": [
+                        {
+                            "id": "MyButton",
+                            "cid": "button",
+                            "jsClass": "MyButton",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Guardar",
+                                "iconCls": "btnGuardarIcon",
+                                "itemId": "btnGuardar",
+                                "autoRef": "btnGuardar",
+                                "scale": "medium",
+                                "arrowAlign": "bottom",
+                                "iconAlign": "top",
+                                "icon": "-ext-undefined-"
+                            }
+                        },
+                        {
+                            "id": "MyButton1",
+                            "cid": "button",
+                            "jsClass": "MyButton1",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Eliminar",
+                                "iconCls": "btnEliminarIcon",
+                                "itemId": "btnEliminar",
+                                "autoRef": "btnEliminar",
+                                "scale": "medium",
+                                "iconAlign": "top"
+                            }
+                        },
+                        {
+                            "id": "MyButton2",
+                            "cid": "button",
+                            "jsClass": "MyButton2",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Nuevo",
+                                "iconCls": "btnNuevoIcon",
+                                "itemId": "btnNuevo",
+                                "autoRef": "btnNuevo",
+                                "scale": "medium",
+                                "iconAlign": "top"
+                            }
+                        },
+                        {
+                            "id": "MyButton3",
+                            "cid": "button",
+                            "jsClass": "MyButton3",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Recargar",
+                                "iconCls": "btnRecargarIcon",
+                                "itemId": "btnRecargar",
+                                "autoRef": "btnRecargar",
+                                "scale": "medium",
+                                "iconAlign": "top"
+                            }
+                        },
+                        {
+                            "id": "MySeparator",
+                            "cid": "tbseparator",
+                            "jsClass": "MySeparator",
+                            "snapToGrid": 10
+                        },
+                        {
+                            "id": "MyFill",
+                            "cid": "tbfill",
+                            "jsClass": "MyFill",
+                            "snapToGrid": 10
+                        },
+                        {
+                            "id": "MyButton4",
+                            "cid": "button",
+                            "jsClass": "MyButton4",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Switch",
+                                "iconCls": "btnSwitchIcon",
+                                "itemId": "btnSwitch",
+                                "autoRef": "btnSwitch",
+                                "scale": "medium",
+                                "iconAlign": "top"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "MyPanel1",
+            "cid": "panel",
+            "jsClass": "TreeGridMenu",
+            "snapToGrid": 10,
+            "userConfig": {
+                "title": "-ext-undefined-",
+                "width": 100,
+                "border": false
+            },
+            "userXType": "TreeGridMenu"
+        }
+    ],
+    "stores": []
+}

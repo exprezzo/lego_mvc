@@ -1,0 +1,124 @@
+{
+    "name": "crud16_toolbar.xds",
+    "projectId": "B8A1EA47-B595-4C4A-B0B9-9508E47A9DCF",
+    "settings": {
+        "urlPrefix": "http://localhost/",
+        "directAPI": "",
+        "spacesToIndent": "4",
+        "codeGenFormat": "Class",
+        "extPath": "http://extjs.cachefly.net/ext-3.3.1/",
+        "exportPath": ".",
+        "lineEnding": "CRLF",
+        "instantiateStore": false,
+        "exportXDSFiles": false,
+        "genTimestamps": false
+    },
+    "xdsVersion": "1.1.2",
+    "components": [
+        {
+            "id": "MyToolbar",
+            "cid": "toolbar",
+            "jsClass": "crud16_toolbar",
+            "dock": "tbar",
+            "snapToGrid": 10,
+            "userXType": "crud16_toolbar",
+            "cn": [
+                {
+                    "id": "MyButton",
+                    "cid": "button",
+                    "jsClass": "MyButton",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "text": "Guardar",
+                        "iconCls": "btnGuardarIcon_16",
+                        "itemId": "btnGuardar",
+                        "autoRef": "btnGuardar",
+                        "scale": "-ext-undefined-",
+                        "arrowAlign": "bottom",
+                        "iconAlign": "-ext-undefined-",
+                        "icon": "-ext-undefined-"
+                    }
+                },
+                {
+                    "id": "MyButton5",
+                    "cid": "button",
+                    "jsClass": "MyButton5",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "text": "Editar",
+                        "autoRef": "btnEditar"
+                    }
+                },
+                {
+                    "id": "MyButton1",
+                    "cid": "button",
+                    "jsClass": "MyButton1",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "text": "Eliminar",
+                        "iconCls": "btnEliminarIcon_16",
+                        "itemId": "btnEliminar",
+                        "autoRef": "btnEliminar",
+                        "scale": "-ext-undefined-",
+                        "iconAlign": "-ext-undefined-"
+                    }
+                },
+                {
+                    "id": "MyButton2",
+                    "cid": "button",
+                    "jsClass": "MyButton2",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "text": "Nuevo",
+                        "iconCls": "btnNuevoIcon_16",
+                        "itemId": "btnNuevo",
+                        "autoRef": "btnNuevo",
+                        "scale": "-ext-undefined-",
+                        "iconAlign": "-ext-undefined-"
+                    }
+                },
+                {
+                    "id": "MyButton3",
+                    "cid": "button",
+                    "jsClass": "MyButton3",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "text": "Recargar",
+                        "iconCls": "x-tbar-loading",
+                        "itemId": "btnRecargar",
+                        "autoRef": "btnRecargar",
+                        "scale": "-ext-undefined-",
+                        "iconAlign": "-ext-undefined-"
+                    }
+                },
+                {
+                    "id": "MySeparator",
+                    "cid": "tbseparator",
+                    "jsClass": "MySeparator",
+                    "snapToGrid": 10
+                },
+                {
+                    "id": "MyFill",
+                    "cid": "tbfill",
+                    "jsClass": "MyFill",
+                    "snapToGrid": 10
+                },
+                {
+                    "id": "MyButton4",
+                    "cid": "button",
+                    "jsClass": "MyButton4",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "text": "Switch",
+                        "iconCls": "btnSwitchIcon_16",
+                        "itemId": "btnSwitch",
+                        "autoRef": "btnSwitch",
+                        "scale": "-ext-undefined-",
+                        "iconAlign": "-ext-undefined-"
+                    }
+                }
+            ]
+        }
+    ],
+    "stores": []
+}

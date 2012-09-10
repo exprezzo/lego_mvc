@@ -2,31 +2,58 @@
     <script type="text/javascript" src="http://localhost/ext-3.4.0/adapter/ext/ext-base.js"></script>
     <script type="text/javascript" src="http://localhost/ext-3.4.0/ext-all-debug.js"></script>
 	
-	<!-- Comportamientos 	  -->	
+	<!-- =============================================================================================================================================== 
+														Comportamientos 
+		 ===============================================================================================================================================  -->	
+	
 	<link rel="stylesheet" type="text/css" href="<?php echo APP_PATH; ?>css/icrud_styles.css"/>
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/tab_manager/comportamiento_tab_manager.js"></script>
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/comportamiento_grid.js"></script>
     <script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/comportamiento_formulario.js"></script>
-	<!-- Main Layout -->	
+						<!-- **** CRUD 16 TOOLBAR **** -->							
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/crud16_toolbar/crud16_toolbar.ui.js"></script>
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/crud16_toolbar/crud16_toolbar.js"></script>
+	
+						<!-- *** TREE GRID *** -->
+	<link rel="stylesheet" type="text/css" href="http://localhost/ext-3.4.0/examples/ux/treegrid/treegrid.css" rel="stylesheet" />
+	<script type="text/javascript" src="http://localhost/ext-3.4.0/examples/ux/treegrid/TreeGridSorter.js"></script>
+	<script type="text/javascript" src="http://localhost/ext-3.4.0/examples/ux/treegrid/TreeGridColumnResizer.js"></script>
+	<script type="text/javascript" src="http://localhost/ext-3.4.0/examples/ux/treegrid/TreeGridNodeUI.js"></script>
+	<script type="text/javascript" src="http://localhost/ext-3.4.0/examples/ux/treegrid/TreeGridLoader.js"></script>
+	<script type="text/javascript" src="http://localhost/ext-3.4.0/examples/ux/treegrid/TreeGridColumns.js"></script>
+	<script type="text/javascript" src="http://localhost/ext-3.4.0/examples/ux/treegrid/TreeGrid.js"></script>
+	
+						<!-- **** NOTIFICACIONES **** -->							
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/notificaciones.js"></script>					
+						<!-- **** MAIN LAYOUT **** -->							
     <script type="text/javascript" src="<?php echo APP_PATH; ?>js/layout_principal/main_layout.ui.js"></script>
     <script type="text/javascript" src="<?php echo APP_PATH; ?>js/layout_principal/main_layout.js"></script>
-	<!-- Cargador de catálogos -->	
-    <!--<script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/tab_manager/tabPanel.ui.js"></script>
-    <script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/tab_manager/tabPanel.js"></script>-->
-	
+						    
 	<!-- Para el modo de desarrollo, generar un comprimido por catalogo -->
-	
+						<!-- **** PENDIENTES *** -->
 	<!-- Paginacion  -->
-	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_modelo/grid/stoModelo.js"></script>
-	
-	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_modelo/grid/gridModelo.ui.js"></script>
-    <script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_modelo/grid/gridModelo.js"></script>
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_pendientes/grid/stoPendientes.js"></script>	
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_pendientes/grid/gridPendientes.ui.js"></script>
+    <script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_pendientes/grid/gridPendientes.js"></script>
 	<!-- Formulario  -->	
-	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_modelo/edicion/stoTareas.js"></script>
-	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_modelo/edicion/frmModelo.ui.js"></script>
-    <script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_modelo/edicion/frmModelo.js"></script>
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_pendientes/edicion/stoTareas.js"></script>
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_pendientes/edicion/frmPendientes.ui.js"></script>
+    <script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_pendientes/edicion/frmPendientes.js"></script>
     
+						<!-- ***** MENUS **** -->
+	<!-- Edicion  -->
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_menus/treegrid_menu.js"></script>		
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_menus/catMenus.ui.js"></script>	
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_menus/catMenus.js"></script>	
 	
+						<!-- ***** USUARIOS **** -->
+	<!-- Edicion  -->	
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/usuarios/edicion/usuarios_edicion.ui.js"></script>		
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/usuarios/edicion/usuarios_edicion.js"></script>		
+	<!-- Paginacion  -->
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/usuarios/grid/stoUsuarios.js"></script>	
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/usuarios/grid/gridUsuarios.ui.js"></script>
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/usuarios/grid/gridUsuarios.js"></script>
 	
 <style type="text/css">
 .frm_modelo{
@@ -49,7 +76,7 @@
 				height:560
 			});
 			cmp1.show();
-			
+			topMsg = new Ext.Notificaciones();			
 			//cmp1.add({xtype:'gridModelo'}).show();										
 		});
 		

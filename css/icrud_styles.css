@@ -16,3 +16,28 @@
 .btnEditarIcon{
 	background-image:url('../imagenes/pencil3.png');
 }
+
+/*
+
+btnGuardarIcon
+
+*/
+
+.btnGuardarIcon_16{
+	background-image:url('../imagenes/fatcow/16x16/disk.png');
+}
+.btnEliminarIcon_16{
+	background-image:url('../imagenes/fatcow/16x16/cross.png');
+}
+.btnNuevoIcon_16{
+	background-image:url('../imagenes/fatcow/16x16/page_white.png');
+}
+.btnRecargarIcon_16{
+	background-image:url('../imagenes/fatcow/16x16/old_view_refresh.png');
+}
+.btnSwitchIcon_16{
+	background-image:url('../imagenes/fatcow/16x16/gnome_session_switch.png');
+}
+.btnEditarIcon_16{
+	background-image:url('../imagenes/fatcow/16x16/pencil3.png');
+}

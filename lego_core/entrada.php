@@ -13,7 +13,8 @@
 			echo $result['msg'];
 		}
 	}catch(Exception $e){
-		echo "El sistema ha sufrido un fallo, consulte con el administrador del sistema";
+		echo $e->getMessage();
+		//echo "El sistema ha sufrido un fallo, consulte con el administrador del sistema";
 		//TODO: Logear el error   -------
 	}
 	

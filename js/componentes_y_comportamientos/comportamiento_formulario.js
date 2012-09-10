@@ -1,5 +1,5 @@
 comportamiento_formulario={		
-	controlador:'modelo',
+	//controlador:'modelo',
 	getTabId:function(){
 		var id= this.txtId.getValue(); 
 		if ( id==''){
@@ -11,14 +11,13 @@ comportamiento_formulario={
 	},
 	guardar:function( params ){
 		this.el.mask();
-		this.form.submit({
+		this.getForm().submit({
 			clientValidation: true,
 			scope:this,
 			url: '/'+ this.controlador + '/guardar',
-			success:function(form, action){
-				
-				
+			success:function(form, action){				
 				if (action.result.success == true){
+					topMsg.setAlert(this.controlador,"La informaci&oacute;n ha sido almacenada");
 					this.getForm().setValues(action.result.data);
 				}
 				this.el.unmask();
@@ -31,19 +30,63 @@ comportamiento_formulario={
 	listar:function( params ){
 		alert("listar");
 	},
+	eliminarRegistro:function(){
+		
+		Ext.Ajax.request({
+		   url: '/'+this.controlador+'/eliminar',
+		   params:{id:this.txtId.getValue()},
+		   scope:this,
+		   success: function(res, params){
+				var respuesta=Ext.decode(res.responseText);
+				if (respuesta.success==true){
+					topMsg.setAlert(this.controlador,"Informaci&oacute;n eliminada");
+				}
+				console.log("con");console.log(con);
+				console.log("res");console.log(res);
+				console.log("opt");console.log(opt);
+				
+		   },
+		   failure: function(){
+				Ext.Msg.show({
+				   title:'ERROR AL ELIMINAR',
+				   msg: 'ERROR AL INTENTAR ELIMINAR',
+				   buttons: Ext.Msg.OK,
+				   scope:this,				   
+				   icon: Ext.MessageBox.ERROR
+				});
+		   },
+		   headers: {
+			   'my-header': 'foo'
+		   }
+		});
+	},
 	eliminar:function( params ){
-		alert("eliminar");
+		Ext.Msg.show({
+		   title:'Eliminar?',
+		   msg: 'Al eliminar este registro ya no podr&aacute; recuperar',
+		   buttons: Ext.Msg.YESNO,
+		   scope:this,
+		   fn: function(btn){
+				if (btn=='yes'){					
+					this.eliminarRegistro();
+				}				
+		   },		   
+		   icon: Ext.MessageBox.QUESTION
+		});
 	},
 	obtener:function( params ){
 		this.recargar();
 	},
 	nuevo:function( params ){
-		alert("preparar");
+		this.getForm().reset();
+		this.onNuevo();
+	},
+	onNuevo:function(){
 	},
 	recargar:function(){
 		var params=this.getDatos();
 		this.el.mask();
-		this.form.load({
+		this.getForm().load({
 			params:params,			
 			url: '/'+ this.controlador + '/obtener',
 			scope:this,
@@ -56,13 +99,31 @@ comportamiento_formulario={
 		});
 	},
 	getDatos:function(){
-		return this.datos || {};
+		return this.datos  || this.getForm().getValues();
 	},
 	activarComportamiento:function( params ){							
+		if ( this.topToolbar != undefined){			
+			if (this.topToolbar.btnGuardar)
+				this.btnGuardar = this.topToolbar.btnGuardar;
+			if (this.topToolbar.btnEliminar)
+				this.btnEliminar = this.topToolbar.btnEliminar;
+			if (this.topToolbar.btnRecargar)
+				this.btnRecargar = this.topToolbar.btnRecargar;
+			if (this.topToolbar.btnNuevo)
+				this.btnNuevo = this.topToolbar.btnNuevo;
+			if (this.topToolbar.btnSwitch)
+				this.btnSwitch = this.topToolbar.btnSwitch;			
+		}
+		
+		if ( this.btnGuardar )
 		this.btnGuardar.on('click',this.guardar, this);
+		if ( this.btnEliminar )
 		this.btnEliminar.on('click',this.eliminar, this);
+		if ( this.btnRecargar )
 		this.btnRecargar.on('click',this.obtener, this );
+		if ( this.btnNuevo )
 		this.btnNuevo.on('click',this.nuevo, this);								
+		if ( this.btnSwitch )
 		this.btnSwitch.on('click',this.listar, this);
 		
 		this.on('activate',function(){

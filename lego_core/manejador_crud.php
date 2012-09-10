@@ -70,7 +70,10 @@ class ManejadorCrud {
 	}
 	
 	function guardar($params){
+	
 		$mod = $this->getModelObject();
+		
+	
 		$mod = $this->ligarParametros($mod, $params);
 		//Todo, sacarlas del esquema y validarlas de manera automaticaa
 		
@@ -83,14 +86,19 @@ class ManejadorCrud {
 			$nuevo=true;
 		}
 		$em->persist($mod);
-		$em->flush();
+		$exito = $em->flush();
 		
-		
+		if (!$exito){
+			return $exito;
+		}
 		return $mod;
 	}
 	
 	function borrar( $params ){
+		
 		$id=$params['id'];
+		
+		
 		$modelo=$this->getModelObject();
 		$modelo->id=$id;
 		
