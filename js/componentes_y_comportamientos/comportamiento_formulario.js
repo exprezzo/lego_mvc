@@ -19,6 +19,7 @@ comportamiento_formulario={
 				if (action.result.success == true){
 					topMsg.setAlert(this.controlador,"La informaci&oacute;n ha sido almacenada");
 					this.getForm().setValues(action.result.data);
+					this.actualizarTitulo('guardado');
 				}
 				this.el.unmask();
 			},
@@ -40,10 +41,10 @@ comportamiento_formulario={
 				var respuesta=Ext.decode(res.responseText);
 				if (respuesta.success==true){
 					topMsg.setAlert(this.controlador,"Informaci&oacute;n eliminada");
+					this.fireEvent("eliminado");
+					this.actualizarTitulo('eliminado');
 				}
-				console.log("con");console.log(con);
-				console.log("res");console.log(res);
-				console.log("opt");console.log(opt);
+				
 				
 		   },
 		   failure: function(){
@@ -77,9 +78,14 @@ comportamiento_formulario={
 	obtener:function( params ){
 		this.recargar();
 	},
+	actualizarTitulo:function(	action ){				
+		this.setTitle(action);
+	},
 	nuevo:function( params ){
 		this.getForm().reset();
+		this.actualizarTitulo('Nuevo');
 		this.onNuevo();
+		/**/
 	},
 	onNuevo:function(){
 	},
@@ -92,6 +98,7 @@ comportamiento_formulario={
 			scope:this,
 			success:function(){
 				this.el.unmask();
+				this.actualizarTitulo('edicion');				
 			},
 			failure:function(){
 				this.el.unmask();

@@ -46,7 +46,8 @@
                     "snapToGrid": 10,
                     "userConfig": {
                         "text": "Editar",
-                        "autoRef": "btnEditar"
+                        "autoRef": "btnEditar",
+                        "iconCls": "btnEditarIcon_16"
                     }
                 },
                 {

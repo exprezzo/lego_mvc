@@ -62,7 +62,8 @@
                         "anchor": "-ext-undefined-",
                         "name": "nombre",
                         "height": "-ext-undefined-",
-                        "width": 300
+                        "width": 300,
+                        "autoRef": "txtNombre"
                     }
                 },
                 {
@@ -88,80 +89,9 @@
                         "anchor": "-ext-undefined-",
                         "fieldLabel": "Descripción",
                         "name": "descripcion",
-                        "height": 197,
+                        "height": 370,
                         "width": 600
                     }
-                },
-                {
-                    "id": "MyGrid",
-                    "cid": "grid",
-                    "jsClass": "MyGrid",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "title": "-ext-undefined-",
-                        "store": "stoTareas",
-                        "height": 210,
-                        "width": 500,
-                        "autoExpandColumn": "colDesc",
-                        "fieldLabel": "Tareas",
-                        "style": "margin-top:20px;"
-                    },
-                    "cn": [
-                        {
-                            "id": "MyColumn",
-                            "cid": "numbercolumn",
-                            "jsClass": "MyColumn",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "dataIndex": "string",
-                                "header": "Prioridad",
-                                "sortable": true,
-                                "resizable": "-ext-undefined-",
-                                "width": 100,
-                                "align": "right"
-                            }
-                        },
-                        {
-                            "id": "MyColumn1",
-                            "cid": "gridcolumn",
-                            "jsClass": "MyColumn1",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "dataIndex": "number",
-                                "header": "Nombre",
-                                "sortable": true,
-                                "resizable": "-ext-undefined-",
-                                "width": 100,
-                                "align": "right",
-                                "id": "colNombre"
-                            }
-                        },
-                        {
-                            "id": "MyColumn2",
-                            "cid": "gridcolumn",
-                            "jsClass": "MyColumn2",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "dataIndex": "date",
-                                "header": "Descripcion",
-                                "sortable": true,
-                                "resizable": "-ext-undefined-",
-                                "width": 100,
-                                "id": "colDesc"
-                            }
-                        },
-                        {
-                            "id": "MyPagingToolbar",
-                            "cid": "pagingtoolbar",
-                            "jsClass": "MyPagingToolbar",
-                            "dock": "bbar",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "store": "(none)",
-                                "displayInfo": true
-                            }
-                        }
-                    ]
                 },
                 {
                     "id": "MyToolbar",

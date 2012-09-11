@@ -10,6 +10,9 @@ comportamiento_grid={
 			title:this.tituloDelForm,
 			idReg:  0,
 		};
+		if ( !Ext.isEmpty(this.iconCls) ){
+			params.iconCls=this.iconCls;
+		}
 		this.fireEvent('mostrarTab',params);
 		
 		return false;	
@@ -28,7 +31,9 @@ comportamiento_grid={
 			datos:	selected.data,
 			idReg:  selected.id,
 		};
-				
+		if ( !Ext.isEmpty(this.iconCls) ){
+			params.iconCls=this.iconCls;
+		}		
 		this.fireEvent('mostrarTab',params);
 	},
 	eliminar:function(){	//TODO: considerar todos los modelos de seleccion del extjs

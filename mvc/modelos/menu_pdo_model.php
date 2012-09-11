@@ -51,7 +51,7 @@ class Menu_PDO_Model extends Modelo_PDO{
 	
 	function getHijos($padreId){
 		$con = $this->getConexion();	
-		$sql = 'SELECT id,nombre as text,xtype FROM sistema_menus where padre =:padre ';		
+		//$sql = 'SELECT id,nombre as text,xtype FROM sistema_menus where padre =:padre ';		
 		$sth = $con->prepare($sql);
 		$sth->bindValue(':padre',$padreId,PDO::PARAM_INT);
 		

@@ -63,6 +63,7 @@ main_layoutUi = Ext.extend(Ext.Viewport, {
                                 bubbleEvents: [
                                     'click'
                                 ],
+                                cls: 'custom_tree',
                                 ref: '../../treeMenus',
                                 root: {
                                     text: 'Tree Node'
@@ -84,14 +85,16 @@ main_layoutUi = Ext.extend(Ext.Viewport, {
                                 },
                                 {
                                     xtype: 'trigger',
-                                    triggerClass: 'x-form-search-trigger'
+                                    triggerClass: 'x-form-search-trigger',
+                                    disabled: true
                                 },
                                 {
                                     xtype: 'tbfill'
                                 },
                                 {
                                     xtype: 'button',
-                                    iconCls: 'x-tbar-loading'
+                                    iconCls: 'x-tbar-loading',
+                                    ref: '../../../btnRefresh'
                                 }
                             ]
                         }

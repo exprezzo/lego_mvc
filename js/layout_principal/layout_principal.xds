@@ -114,7 +114,8 @@
                                         "border": false,
                                         "rootVisible": false,
                                         "autoRef": "treeMenus",
-                                        "bubbleEvents": "['click']"
+                                        "bubbleEvents": "['click']",
+                                        "cls": "custom_tree"
                                     },
                                     "cn": [
                                         {
@@ -162,7 +163,8 @@
                                             "jsClass": "MyTriggerField",
                                             "snapToGrid": 10,
                                             "userConfig": {
-                                                "triggerClass": "x-form-search-trigger"
+                                                "triggerClass": "x-form-search-trigger",
+                                                "disabled": true
                                             }
                                         },
                                         {
@@ -178,7 +180,8 @@
                                             "snapToGrid": 10,
                                             "userConfig": {
                                                 "text": "-ext-undefined-",
-                                                "iconCls": "x-tbar-loading"
+                                                "iconCls": "x-tbar-loading",
+                                                "autoRef": "btnRefresh"
                                             }
                                         }
                                     ]

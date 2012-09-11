@@ -81,9 +81,9 @@ class ManejadorCrud {
 		
 		if (!empty($mod->id) ){
 			$mod = $em->merge($mod);
-			$nuevo=true;
+			
 		}else{
-			$nuevo=true;
+			
 		}
 		$em->persist($mod);
 		$exito = $em->flush();

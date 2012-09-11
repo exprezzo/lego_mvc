@@ -12,14 +12,23 @@
  */
 
 frmPendientes = Ext.extend(frmPendientesUi, {
+	
+	
     initComponent: function() {
         frmPendientes.superclass.initComponent.call(this);
 		this.txtId.setVisible(false);
 		
-		Ext.apply(this,comportamiento_formulario);
-		this.controlador='ctrl_pendientes';
 		
-		this.activarComportamiento();		
-    }
+			Ext.applyIf(this,comportamiento_formulario);
+			this.controlador='ctrl_pendientes';
+			this.activarComportamiento();		
+		
+		
+		
+    },
+	actualizarTitulo:function(	action ){			
+		if (action=="guardado" || action=="edicion")
+			this.setTitle( this.txtNombre.getValue() );
+	}
 });
 Ext.reg('frmPendientes', frmPendientes);

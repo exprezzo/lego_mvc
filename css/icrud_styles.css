@@ -22,15 +22,26 @@
 btnGuardarIcon
 
 */
+/*
+.custom_tree .x-tree-node-icon {
+	width:auto !important;
+	height:auto !important;
+}
 
+.x-tab-strip-inner .x-tab-strip-text{
+	background-size:16px !important;	
+}
+*/
 .btnGuardarIcon_16{
-	background-image:url('../imagenes/fatcow/16x16/disk.png');
+	background-image:url('../imagenes/Human-O2/16x16/actions/document-save.png');
 }
 .btnEliminarIcon_16{
 	background-image:url('../imagenes/fatcow/16x16/cross.png');
 }
 .btnNuevoIcon_16{
-	background-image:url('../imagenes/fatcow/16x16/page_white.png');
+	/*background-image:url('../imagenes/fatcow/16x16/page_white.png');*/
+	background-image:url('../imagenes/Human-O2/16x16/stock/stock_new-template.png');
+	
 }
 .btnRecargarIcon_16{
 	background-image:url('../imagenes/fatcow/16x16/old_view_refresh.png');
@@ -39,5 +50,5 @@ btnGuardarIcon
 	background-image:url('../imagenes/fatcow/16x16/gnome_session_switch.png');
 }
 .btnEditarIcon_16{
-	background-image:url('../imagenes/fatcow/16x16/pencil3.png');
+	background-image:url('../imagenes/Human-O2/16x16/actions/document-edit.png');
 }

@@ -18,10 +18,13 @@ usuarios_edicion = Ext.extend(usuarios_edicionUi, {
 		
 		this.on("afterrender",function(){
 			Ext.applyIf(this,comportamiento_formulario);		
-		this.activarComportamiento();
-		console.log(this.topToolbar);
+			this.activarComportamiento();			
 		},this);
 		
-    }
+    },
+	actualizarTitulo:function(	action ){		
+		if (action=="guardado" || action=="edicion")
+			this.setTitle(this.txtEmail.getValue() );
+	}
 });
 Ext.reg('usuarios_edicion', usuarios_edicion);

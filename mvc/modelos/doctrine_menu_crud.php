@@ -43,7 +43,7 @@ class DoctrineMenu extends ManejadorCrud{
 	
 	function getHijos($padreId){
 		$con = $this->getConexion();	
-		$sql = 'SELECT id,nombre as text,xtype,icon as iconCls FROM sistema_menus where padre =:padre ';		
+		$sql = 'SELECT id,nombre as text,xtype,icon FROM sistema_menus where padre =:padre ';		
 		$sth = $con->prepare($sql);
 		$sth->bindValue(':padre',$padreId,PDO::PARAM_INT);
 		

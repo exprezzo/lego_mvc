@@ -18,8 +18,24 @@ main_layout = Ext.extend(main_layoutUi, {
 		this.configurarComportamientoMenu();
 		
 		Ext.apply(this.tabPanel, comportamiento_tab_manager);
-		this.tabPanel.activarComportamiento();		
+		this.tabPanel.activarComportamiento();	
+
+		if (this.btnRefresh!=undefined){			
+			this.btnRefresh.on('click',function(){
+				this.recargarArbol(this.treeMenus);
+			},this);
+		}
+		
+		this.treeMenus.loader.on('load',function(){
+			var root=this.treeMenus.getRootNode();
+			root.expand(true);
+		},this);
     },
+	recargarArbol:function(arbol){		
+		var root=arbol.getRootNode();
+		var loader=arbol.loader;
+		loader.load(root);	
+	},
 	configurarComportamientoMenu:function(){
 		/*
 		Ext.apply(this.tabPanel, comportamiento_tree_menu);
@@ -34,13 +50,18 @@ main_layout = Ext.extend(main_layoutUi, {
 			}			
 		},this);
 	},
-	procesarClick:function(nodo){	
-		if ( !Ext.isEmpty(nodo.xtype) ){
-			var tab=this.tabPanel.add({
-				xtype:nodo.xtype,
+	procesarClick:function(attribs){	
+		if ( !Ext.isEmpty(attribs.xtype) ){		
+			var params={
 				closable:true,
-				
-			});			
+			};
+			
+			if ( !Ext.isEmpty(attribs.icon) ){
+				params.iconCls=Ext.ux.TDGi.iconMgr.getIcon(attribs.icon);
+			}
+			Ext.applyIf(params,attribs);
+						
+			var tab=this.tabPanel.add(params);			
 			tab.show();
 		}
 	}

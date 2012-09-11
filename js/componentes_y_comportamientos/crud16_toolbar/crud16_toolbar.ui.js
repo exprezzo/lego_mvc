@@ -23,6 +23,7 @@ crud16_toolbarUi = Ext.extend(Ext.Toolbar, {
             {
                 xtype: 'button',
                 text: 'Editar',
+                iconCls: 'btnEditarIcon_16',
                 ref: 'btnEditar'
             },
             {
