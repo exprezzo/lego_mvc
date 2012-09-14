@@ -35,11 +35,7 @@ gridPendientes = Ext.extend(gridPendientesUi, {
 		
 	//  y asi se activa el comportamiento
 		this.activarComportamiento();
-	//----------------------------------
-				
-		this.bottomToolbar.bind(this.store);
-		this.bottomToolbar.doRefresh();
-				
+	//----------------------------------				
     }
 });
 Ext.reg('gridPendientes', gridPendientes);

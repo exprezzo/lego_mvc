@@ -1,0 +1,110 @@
+{
+    "name": "grid_catalogo_32.xds",
+    "projectId": "57BD8A38-A6C1-4E4E-BA16-F1F1FE877464",
+    "settings": {
+        "urlPrefix": "http://localhost/",
+        "directAPI": "",
+        "spacesToIndent": "4",
+        "codeGenFormat": "Class",
+        "extPath": "http://extjs.cachefly.net/ext-3.3.1/",
+        "exportPath": ".",
+        "lineEnding": "CRLF",
+        "instantiateStore": false,
+        "exportXDSFiles": false,
+        "genTimestamps": false
+    },
+    "xdsVersion": "1.1.2",
+    "components": [
+        {
+            "id": "MyToolbar",
+            "cid": "toolbar",
+            "jsClass": "grid_catalogo_32",
+            "dock": "tbar",
+            "snapToGrid": 10,
+            "userXType": "grid_catalogo_32",
+            "cn": [
+                {
+                    "id": "MyButton",
+                    "cid": "button",
+                    "jsClass": "MyButton",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "text": "Nuevo",
+                        "cls": "-ext-undefined-",
+                        "iconCls": "btnNuevoIcon",
+                        "itemId": "btnNuevo",
+                        "scale": "medium",
+                        "iconAlign": "top",
+                        "autoRef": "btnNuevo"
+                    }
+                },
+                {
+                    "id": "MyButton1",
+                    "cid": "button",
+                    "jsClass": "MyButton1",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "text": "Eliminar",
+                        "iconCls": "btnEliminarIcon",
+                        "autoRef": "btnEliminar",
+                        "scale": "medium",
+                        "iconAlign": "top"
+                    }
+                },
+                {
+                    "id": "MyButton2",
+                    "cid": "button",
+                    "jsClass": "MyButton2",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "text": "Editar",
+                        "iconCls": "btnEditarIcon",
+                        "autoRef": "btnEditar",
+                        "scale": "medium",
+                        "iconAlign": "top"
+                    }
+                },
+                {
+                    "id": "MySeparator",
+                    "cid": "tbseparator",
+                    "jsClass": "MySeparator",
+                    "snapToGrid": 10
+                },
+                {
+                    "id": "MyFill",
+                    "cid": "tbfill",
+                    "jsClass": "MyFill",
+                    "snapToGrid": 10
+                },
+                {
+                    "id": "MyTextField",
+                    "cid": "textfield",
+                    "jsClass": "MyTextField",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "height": 32,
+                        "boxMinHeight": "-ext-undefined-",
+                        "autoRef": "txtSearch",
+                        "itemId": "txtSearch",
+                        "enableKeyEvents": "-ext-undefined-",
+                        "boxMinWidth": 32
+                    }
+                },
+                {
+                    "id": "MyButton3",
+                    "cid": "button",
+                    "jsClass": "MyButton3",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "text": "Switch",
+                        "iconCls": "btnSwitchIcon",
+                        "autoRef": "btnSwitch",
+                        "scale": "medium",
+                        "iconAlign": "top"
+                    }
+                }
+            ]
+        }
+    ],
+    "stores": []
+}

@@ -16,6 +16,7 @@ comportamiento_tab_manager={
 		this.on('mostrarTab', function(params){
 			
 			this.mostrarTab(params);
+			return false;
 		}, this);
 		this.on('crearTab', this.mostrarTab, this);
 		this.on('recargarTab', this.recargarTab, this);

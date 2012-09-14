@@ -11,11 +11,12 @@ comportamiento_formulario={
 	},
 	guardar:function( params ){
 		this.el.mask();
+		
 		this.getForm().submit({
 			clientValidation: true,
 			scope:this,
 			url: '/'+ this.controlador + '/guardar',
-			success:function(form, action){				
+			success:function(form, action){								
 				if (action.result.success == true){
 					topMsg.setAlert(this.controlador,"La informaci&oacute;n ha sido almacenada");
 					this.getForm().setValues(action.result.data);
@@ -87,6 +88,7 @@ comportamiento_formulario={
 		this.b4Nuevo();
 		this.getForm().reset();								
 		this.actualizarTitulo('Nuevo');
+		this.datos=false;
 		this.recargar();		
 		this.fireEvent('nuevo');
 		this.onNuevo();
@@ -99,11 +101,16 @@ comportamiento_formulario={
 		this.el.mask();
 		this.getForm().load({
 			params:params,			
-			url: '/'+ this.controlador + '/obtener',
+			url: '/'+ this.controlador + '/obtener',			
 			scope:this,
-			success:function(){
-				this.el.unmask();
-				this.actualizarTitulo('edicion');				
+			success:function(form, action){				
+				this.el.unmask();					
+				if (action.result.success == true){				
+					
+					var msg= ( Ext.isEmpty(action.result.msg) )? "Informaci&oacuten obtenida" : action.result.msg;
+					topMsg.setAlert(this.controlador, msg);
+					this.actualizarTitulo('edicion');				
+				}
 			},
 			failure:function(){
 				this.el.unmask();
@@ -114,7 +121,7 @@ comportamiento_formulario={
 		return this.datos  || this.getForm().getValues();
 	},
 	activarComportamiento:function( params ){							
-		if ( this.topToolbar != undefined){			
+		if ( this.topToolbar != undefined){
 			if (this.topToolbar.btnGuardar)
 				this.btnGuardar = this.topToolbar.btnGuardar;
 			if (this.topToolbar.btnEliminar)

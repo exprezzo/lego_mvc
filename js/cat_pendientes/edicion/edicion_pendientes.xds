@@ -26,7 +26,8 @@
                 "padding": 10,
                 "url": "/ctrl_pendientes/obtener",
                 "autoScroll": true,
-                "method": "POST"
+                "method": "POST",
+                "labelAlign": "top"
             },
             "userXType": "frmPendientes",
             "cn": [
@@ -59,8 +60,8 @@
                     "jsClass": "MyTextField1",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "fieldLabel": "nombre",
-                        "anchor": "-ext-undefined-",
+                        "fieldLabel": "Historia / Actividad",
+                        "anchor": "80%",
                         "name": "nombre",
                         "height": "-ext-undefined-",
                         "width": 300,
@@ -82,17 +83,73 @@
                     }
                 },
                 {
-                    "id": "MyHtmlEditor",
-                    "cid": "htmleditor",
-                    "jsClass": "MyTextArea1",
+                    "id": "MyFieldSet",
+                    "cid": "fieldset",
+                    "jsClass": "MyFieldSet",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "anchor": "-ext-undefined-",
-                        "fieldLabel": "Descripción",
-                        "name": "descripcion",
-                        "height": 370,
-                        "width": 600
-                    }
+                        "title": "Descripcion",
+                        "layout": "fit",
+                        "collapsible": true,
+                        "style": "",
+                        "collapsed": true,
+                        "animCollapse": true
+                    },
+                    "cn": [
+                        {
+                            "id": "MyHtmlEditor",
+                            "cid": "htmleditor",
+                            "jsClass": "MyTextArea1",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "anchor": "-ext-undefined-",
+                                "fieldLabel": "-ext-undefined-",
+                                "name": "descripcion",
+                                "height": 370,
+                                "width": 600
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "MyFieldSet1",
+                    "cid": "fieldset",
+                    "jsClass": "MyFieldSet1",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "title": "Tareas",
+                        "collapsible": true,
+                        "animCollapse": true,
+                        "height": 400,
+                        "layout": "fit"
+                    },
+                    "cn": [
+                        {
+                            "id": "MyTabPanel",
+                            "cid": "tabpanel",
+                            "jsClass": "MyTabPanel",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "activeTab": 0,
+                                "autoRef": "tabTareas"
+                            },
+                            "cn": [
+                                {
+                                    "id": "MyUserComponent1",
+                                    "cid": "usercomponent",
+                                    "jsClass": "MyGrid",
+                                    "snapToGrid": 10,
+                                    "userConfig": {
+                                        "jsClass": "gridTareas",
+                                        "userXType": "gridTareas",
+                                        "autoRef": "gridTareas",
+                                        "title": "Lista de Tareas"
+                                    },
+                                    "userComponent": "MyGrid"
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
                     "id": "MyToolbar",
@@ -202,6 +259,107 @@
                     }
                 }
             ]
+        },
+        {
+            "id": "MyGrid",
+            "cid": "grid",
+            "jsClass": "gridTareas",
+            "snapToGrid": 10,
+            "userConfig": {
+                "title": "-ext-undefined-",
+                "store": "(none)"
+            },
+            "userXType": "gridTareas",
+            "cn": [
+                {
+                    "id": "MyPagingToolbar",
+                    "cid": "pagingtoolbar",
+                    "jsClass": "MyPagingToolbar",
+                    "dock": "bbar",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "store": "(none)"
+                    }
+                },
+                {
+                    "id": "MyColumn",
+                    "cid": "gridcolumn",
+                    "jsClass": "MyColumn",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "header": "id",
+                        "dataIndex": "id",
+                        "sortable": true,
+                        "resizable": "-ext-undefined-",
+                        "width": 100
+                    }
+                },
+                {
+                    "id": "MyColumn1",
+                    "cid": "gridcolumn",
+                    "jsClass": "MyColumn1",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "header": "descripcion",
+                        "dataIndex": "descripcion",
+                        "sortable": true,
+                        "resizable": "-ext-undefined-",
+                        "width": 100
+                    }
+                },
+                {
+                    "id": "MyColumn2",
+                    "cid": "gridcolumn",
+                    "jsClass": "MyColumn2",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "header": "dificultad",
+                        "dataIndex": "dificultad",
+                        "sortable": true,
+                        "resizable": "-ext-undefined-",
+                        "width": 100
+                    }
+                },
+                {
+                    "id": "MyColumn3",
+                    "cid": "gridcolumn",
+                    "jsClass": "MyColumn3",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "header": "tiempo_estimado",
+                        "dataIndex": "tiempo_estimado",
+                        "sortable": true,
+                        "resizable": "-ext-undefined-",
+                        "width": 100
+                    }
+                },
+                {
+                    "id": "MyColumn4",
+                    "cid": "gridcolumn",
+                    "jsClass": "MyColumn4",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "header": "estado",
+                        "dataIndex": "estado",
+                        "sortable": true,
+                        "resizable": "-ext-undefined-",
+                        "width": 100
+                    }
+                },
+                {
+                    "id": "MyColumn5",
+                    "cid": "gridcolumn",
+                    "jsClass": "MyColumn5",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "header": "usuarioAsignado",
+                        "dataIndex": "usuarioAsignado",
+                        "sortable": true,
+                        "resizable": "-ext-undefined-",
+                        "width": 100
+                    }
+                }
+            ]
         }
     ],
     "stores": [
@@ -212,9 +370,66 @@
             "snapToGrid": 10,
             "userConfig": {
                 "storeId": "stoTareas",
-                "root": "data"
+                "root": "datos",
+                "messageProperty": "msg"
             },
-            "userXType": "stoTareas"
+            "userXType": "stoTareas",
+            "cn": [
+                {
+                    "id": "MyField",
+                    "cid": "datafield",
+                    "jsClass": "MyField",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "id"
+                    }
+                },
+                {
+                    "id": "MyField1",
+                    "cid": "datafield",
+                    "jsClass": "MyField1",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "descripcion"
+                    }
+                },
+                {
+                    "id": "MyField2",
+                    "cid": "datafield",
+                    "jsClass": "MyField2",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "dificultad"
+                    }
+                },
+                {
+                    "id": "MyField3",
+                    "cid": "datafield",
+                    "jsClass": "MyField3",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "tiempo_estimado"
+                    }
+                },
+                {
+                    "id": "MyField4",
+                    "cid": "datafield",
+                    "jsClass": "MyField4",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "estado"
+                    }
+                },
+                {
+                    "id": "MyField5",
+                    "cid": "datafield",
+                    "jsClass": "MyField5",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "usuarioAsignado"
+                    }
+                }
+            ]
         }
     ]
 }

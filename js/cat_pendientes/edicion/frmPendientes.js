@@ -12,8 +12,8 @@
  */
 
 frmPendientes = Ext.extend(frmPendientesUi, {	
-    initComponent: function() {
-        frmPendientes.superclass.initComponent.call(this);		
+    initComponent: function() {		
+        frmPendientes.superclass.initComponent.call(this);				
 		//--------------------------------------
 		this.txtId.setVisible(false);	
 		this.txtGrupo.setVisible(false);			
@@ -26,8 +26,19 @@ frmPendientes = Ext.extend(frmPendientesUi, {
 		
 		Ext.applyIf(this,comportamiento_formulario);
 		this.controlador='ctrl_pendientes';
-		this.activarComportamiento();						
-    },		
+		this.activarComportamiento();				
+		
+		//this.configurarGrid();
+		
+		Ext.applyIf(this.tabTareas,comportamiento_tab_manager);
+		this.tabTareas.activarComportamiento();
+		
+		this.on('afterrender',function(){
+			this.gridTareas.idReg=this.idReg;		
+			this.gridTareas.bottomToolbar.doRefresh();
+		},this);		
+		
+    },			
 	onNuevo:function(){
 		this.txtGrupo.setValue( this.initialConfig.masConfig.id );
 	},

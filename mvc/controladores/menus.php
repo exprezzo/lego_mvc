@@ -61,7 +61,7 @@ class Menus extends Controlador{ //extends Controlador
 		echo json_encode($res['data']);
 		return $res;		
 	}		
-	
+	/*
 	function obtener(){
 		
 		$modObj= new DoctrineMenu();		
@@ -76,7 +76,7 @@ class Menus extends Controlador{ //extends Controlador
 		);
 		echo json_encode($respuesta);
 		return $respuesta;		
-	}	
+	}	*/
 	
 	function listar(){
 		if ( !is_numeric($_POST['node']) ){

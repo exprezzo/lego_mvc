@@ -62,8 +62,19 @@ comportamiento_grid={
 		});
 		
 	},
-	activarComportamiento:function(){
-		
+	activarComportamiento:function(){		
+		if ( this.topToolbar != undefined){
+			if (this.topToolbar.btnGuardar)
+				this.btnGuardar = this.topToolbar.btnGuardar;
+			if (this.topToolbar.btnEliminar)
+				this.btnEliminar = this.topToolbar.btnEliminar;
+			if (this.topToolbar.btnRecargar)
+				this.btnRecargar = this.topToolbar.btnRecargar;
+			if (this.topToolbar.btnNuevo)
+				this.btnNuevo = this.topToolbar.btnNuevo;
+			if (this.topToolbar.btnSwitch)
+				this.btnSwitch = this.topToolbar.btnSwitch;			
+		}
 		
 		if (this.xtype_del_form == undefined){
 			throw new Error("Debe establecer un valor para xtype_del_form");
@@ -93,29 +104,35 @@ comportamiento_grid={
 			var sel=this.getSelectionModel();
 			
 			if(sel.getCount()==0){
+				if (this.btnEditar) //<---TODO: Separa al comportamiento toolbar
 				this.btnEditar.setDisabled(true);				
 				if (this.btnVer != undefined) {			
 					this.btnVer.setDisabled(true);
 				}
+				if (this.btnEliminar) //<---TODO: Separa al comportamiento toolbar
 				this.btnEliminar.setDisabled(true);
 				
 			}else{
+				if (this.btnEditar) //<---TODO: Separa al comportamiento toolbar
 				this.btnEditar.setDisabled(false);				
 				if (this.btnVer != undefined) {			
 					this.btnVer.setDisabled(false);
 				}
+				if (this.btnEliminar) //<---TODO: Separa al comportamiento toolbar
 				this.btnEliminar.setDisabled(false);
 			}
 		},this);
+		
 		this.on('keypress',function(e){
-			if(e.getKey() == e.DELETE){
+			if(e.getKey() == e.DELETE){				
 				this.eliminar();
-			}else if(e.getKey() == e.ENTER){
+			}else if(e.getKey() == e.ENTER){				
 				this.editar();
 			}
 			
-		},this)
+		},this);
 	
+		if (this.txtSearch)
 		this.txtSearch.on("render",function(){
 			this.mon(this.el, {
                 scope: this,                
@@ -129,12 +146,16 @@ comportamiento_grid={
 		},this);
 		
 		this.store.on('beforeload',function(){			
+			if (this.txtSearch)
 			this.store.baseParams={
 				query:this.txtSearch.getValue()
 			};			
 		},this);					
 		
 		this.on("rowdblclick",this.editar,this);
+		
+		this.bottomToolbar.bind(this.store);
+		this.bottomToolbar.doRefresh();
 	}
 	
 }

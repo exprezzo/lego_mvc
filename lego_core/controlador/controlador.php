@@ -28,7 +28,8 @@ class Controlador{
 		$success=true;		
 		$respuesta= array(
 			'success'=>$success,
-			'data'=>$res
+			'data'=>$res,
+			'msg'=>'Información recibida'
 		);
 		echo json_encode($respuesta);
 		return $respuesta;		

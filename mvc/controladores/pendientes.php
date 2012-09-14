@@ -1,6 +1,6 @@
 <?php
 class Pendientes extends Controlador{ //extends Controlador
-	//TODO: pasar a Controlador	
+	 //TODO: pasar a Controlador	
 		
 	//=======================================================
 	// Procesamiento de las vistas
@@ -16,7 +16,7 @@ class Pendientes extends Controlador{ //extends Controlador
 	
 	function crud(){
 		
-		$vista= $this->getVista();		
+		$vista= $this->getVista();	
 		$vista->plantillaContenido='contenido/crud';	
 		
 		return $vista->mostrar($layout = 'crud');		
@@ -33,21 +33,5 @@ class Pendientes extends Controlador{ //extends Controlador
 		return $this->modObj;
 	}
 	
-	/*
-	private function bindParams(){
-		
-		$id=(empty($_REQUEST['id']))? 0 : $_REQUEST['id'];
-		$uuid=(empty($_REQUEST['uuid']))? '' : $_REQUEST['uuid'];
-		$nombre=(empty($_REQUEST['nombre']))? '' : $_REQUEST['nombre'];
-		$descripcion=(empty($_REQUEST['descripcion']))? '' : $_REQUEST['descripcion'];
-		
-		$params=array(
-			'id'		 =>$id,
-			'uuid'		 =>$uuid,
-			'nombre'	 =>$nombre,
-			'descripcion'=>$descripcion
-		);				
-		return $_REQUEST;		
-	}*/
 }
 ?>

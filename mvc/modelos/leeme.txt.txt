@@ -1,0 +1,1 @@
+Los modelos son Manejadores de entidades de doctrine, implementan la interfaz I_Crud

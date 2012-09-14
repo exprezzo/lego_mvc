@@ -1,11 +1,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" type="text/css"  href="<?php echo APP_PATH; ?>css/styles.css" />
-<style type="text/css" src="styles.css" ></style>
-	
-	
-		<link rel="stylesheet" type="text/css" href="http://localhost/ext-3.4.0/resources/css/ext-all.css"/>
+	<link rel="stylesheet" type="text/css"  href="<?php echo APP_PATH; ?>css/styles.css" />	
+	<!-- =============================================================================================================================================== 
+														Ext Js
+		 ===============================================================================================================================================  -->	
+	<link rel="stylesheet" type="text/css" href="http://localhost/ext-3.4.0/resources/css/ext-all.css"/>
     <script type="text/javascript" src="http://localhost/ext-3.4.0/adapter/ext/ext-base.js"></script>
     <script type="text/javascript" src="http://localhost/ext-3.4.0/ext-all-debug.js"></script>
 	
@@ -15,11 +15,14 @@
 	
 	<link rel="stylesheet" type="text/css" href="<?php echo APP_PATH; ?>css/icrud_styles.css"/>
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/tab_manager/comportamiento_tab_manager.js"></script>
-	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/comportamiento_grid.js"></script>
-    <script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/comportamiento_formulario.js"></script>
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/grid_catalogo/comportamiento_grid.js"></script>
+    <script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/form_crud/comportamiento_formulario.js"></script>
 						<!-- **** CRUD 16 TOOLBAR **** -->							
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/crud16_toolbar/crud16_toolbar.ui.js"></script>
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/crud16_toolbar/crud16_toolbar.js"></script>
+	<!-- **** CRUD 16 TOOLBAR **** -->							
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/grid16_toolbar/grid16_toolbar.ui.js"></script>
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/grid16_toolbar/grid16_toolbar.js"></script>
 	
 						<!-- *** TREE GRID *** -->
 	<link rel="stylesheet" type="text/css" href="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/treegrid/treegrid.css" rel="stylesheet" />
@@ -30,6 +33,9 @@
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/treegrid/TreeGridColumns.js"></script>
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/treegrid/TreeGrid.js"></script>
 	
+	<!-- =============================================================================================================================================== 
+														Nucleo
+		 ===============================================================================================================================================  -->	
 						<!-- **** NOTIFICACIONES **** -->							
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/notificaciones.js"></script>					
 						<!-- **** ICONOS: ESTILOS AL VUELO **** -->							
@@ -39,22 +45,36 @@
     <script type="text/javascript" src="<?php echo APP_PATH; ?>js/layout_principal/main_layout.ui.js"></script>
     <script type="text/javascript" src="<?php echo APP_PATH; ?>js/layout_principal/main_layout.js"></script>
 						    
-	<!-- Para el modo de desarrollo, generar un comprimido por catalogo -->
-						<!-- **** PENDIENTES *** -->
-	<!-- Paginacion  -->
-	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_pendientes/grid/stoPendientes.js"></script>	
-	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_pendientes/grid/gridPendientes.ui.js"></script>
-    <script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_pendientes/grid/gridPendientes.js"></script>
-	<!-- Formulario  -->	
-	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_pendientes/edicion/stoTareas.js"></script>
-	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_pendientes/edicion/frmPendientes.ui.js"></script>
-    <script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_pendientes/edicion/frmPendientes.js"></script>
-    
-						<!-- ***** MENUS **** -->
+												<!-- ***** MENUS **** -->
 	<!-- Edicion  -->
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_menus/treegrid_menu.js"></script>		
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_menus/catMenus.ui.js"></script>	
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_menus/catMenus.js"></script>	
+	<!-- Para el modo de desarrollo, generar un comprimido por catalogo -->
+	<!-- =============================================================================================================================================== 
+														Catalogos y Modulos
+		 ===============================================================================================================================================  -->	
+		<!-- **** TAREAS** -->
+	<!-- Paginacion  -->
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_tareas/grid/stoTareas.js"></script>	
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_tareas/grid/gridTareas.ui.js"></script>
+    <script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_tareas/grid/gridTareas.js"></script>
+			
+	<!-- Formulario  	-->	
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_tareas/edicion/frmTarea.ui.js"></script>
+    <script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_tareas/edicion/frmTarea.js"></script>	
+	
+		
+						<!-- **** PENDIENTES *** -->
+	<!-- Paginacion  -->
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_pendientes/grid/stoPendientes.js"></script>	
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_pendientes/grid/gridPendientes.ui.js"></script>
+    <script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_pendientes/grid/gridPendientes.js"></script>			
+	<!-- Formulario  -->		
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_pendientes/edicion/frmPendientes.ui.js"></script>
+    <script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_pendientes/edicion/frmPendientes.js"></script>
+    
+	
 	
 						<!-- ***** USUARIOS **** -->
 	<!-- Edicion  -->	

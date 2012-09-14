@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50508
 File Encoding         : 65001
 
-Date: 2012-09-13 07:27:59
+Date: 2012-09-13 23:08:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -40,7 +40,7 @@ CREATE TABLE `colab_historias` (
   `prioridad` char(255) DEFAULT NULL,
   `grupo` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of colab_historias
@@ -57,14 +57,42 @@ INSERT INTO `colab_historias` VALUES ('15', null, null, null, '15');
 INSERT INTO `colab_historias` VALUES ('22', 'Crear Comportamiento para el Manejador Crud (Nucleo)', '<br><ul><li>Crear Pruebas Unitarias</li></ul><p><br></p><p>Listo:</p><ul><li>Al guardar, devolver los datos guardados de manera que el form del extjss pueda recargar los datos de manera natural.</li></ul>', '0', '15');
 INSERT INTO `colab_historias` VALUES ('23', 'Administrador', 'Crear un objeto respuesta que tenga los siguientes atributos:<br>&nbsp;success, titulo, mensaje, icono.<br><br><ul><li>â€‹Mensajes del sistema: info, error, notificaciones temporales.</li><li>Numberfields con con alineacion a la derecha, comas y redondeo a decimales o libre.<br></li></ul>', '0', '15');
 INSERT INTO `colab_historias` VALUES ('24', 'catalogo usuarios', '<br><ul><li>generar contraseÃ±as.</li><li>Enviar&nbsp; correo al generar contraseÃ±a.</li><li>suspender usuarios.<br></li></ul>', '0', '15');
-INSERT INTO `colab_historias` VALUES ('26', 'comportamiento catalogo', '<br><ul><li>Permitir manejar icono para grid y otro para formulario.<br></li></ul>', '0', '15');
-INSERT INTO `colab_historias` VALUES ('34', 'Crear catalogo de productos', '', '0', '25');
+INSERT INTO `colab_historias` VALUES ('26', 'comportamiento catalogo', '<div align=\"left\"><br></div><ul><li>Permitir manejar icono para grid y otro para formulario.<br></li></ul>', '0', '15');
+INSERT INTO `colab_historias` VALUES ('34', 'Crear catalogo de productos', '<span style=\"font-weight: bold;\">La </span><font size=\"6\">descripcion</font> <font style=\"color: rgb(51, 153, 102);\" size=\"3\">gffhfj</font><br><div align=\"left\">â€‹fjhgfjhg</div>', '0', '25');
 INSERT INTO `colab_historias` VALUES ('35', 'Catalogo', '<br><div style=\"text-align: left;\"><ul><li>Manejar estados (pendiente, en proceso, esperando aprovacion, rechazado, listo).</li><li>Agrear propiedad dificultad<br></li></ul></div><br>', '0', '26');
 INSERT INTO `colab_historias` VALUES ('41', 'Primer Historia', '', '0', '29');
 INSERT INTO `colab_historias` VALUES ('42', 'Historias del Sprint  1', '', '0', '30');
 INSERT INTO `colab_historias` VALUES ('43', 'Historias del sprint 2', '', '0', '31');
 INSERT INTO `colab_historias` VALUES ('55', 'sadfsdf', '', '0', '29');
 INSERT INTO `colab_historias` VALUES ('56', 're', '', '0', '29');
+INSERT INTO `colab_historias` VALUES ('57', 'Crear un Catalogo Base', '<br><ul><li> un grid en ext designer con la configuracion basica ya establecida. </li><li>&nbsp;formulario en ext designer con la configuracion basica ya establecida.<br></li></ul>', '0', '15');
+INSERT INTO `colab_historias` VALUES ('58', 'crear comportamiento maestro detalle', null, '0', '15');
+
+-- ----------------------------
+-- Table structure for `colab_tareas_de_historia`
+-- ----------------------------
+DROP TABLE IF EXISTS `colab_tareas_de_historia`;
+CREATE TABLE `colab_tareas_de_historia` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` text NOT NULL,
+  `prioridad` char(255) DEFAULT NULL,
+  `fk_historia` int(11) DEFAULT NULL,
+  `dificultad` int(11) DEFAULT NULL,
+  `tiempo_estimado` time DEFAULT NULL,
+  `estado` int(11) DEFAULT NULL,
+  `usuario_asignado` char(255) DEFAULT NULL,
+  `fk_usuario` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of colab_tareas_de_historia
+-- ----------------------------
+INSERT INTO `colab_tareas_de_historia` VALUES ('1', 'asdf', null, '7', null, null, null, null, null);
+INSERT INTO `colab_tareas_de_historia` VALUES ('2', 'Una Tarea', null, '7', null, null, null, null, null);
+INSERT INTO `colab_tareas_de_historia` VALUES ('3', 'asdf', null, '10', null, null, null, null, null);
+INSERT INTO `colab_tareas_de_historia` VALUES ('4', 'asdf', null, '10', null, null, null, null, null);
+INSERT INTO `colab_tareas_de_historia` VALUES ('5', 'Otra Tarea', null, '7', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `fak_concepto`
@@ -204,7 +232,7 @@ CREATE TABLE `sistema_menus` (
   `icon` char(255) DEFAULT NULL,
   `orden` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sistema_menus
@@ -224,6 +252,7 @@ INSERT INTO `sistema_menus` VALUES ('27', 'Proyecto', '1', '', '', null);
 INSERT INTO `sistema_menus` VALUES ('29', 'Backlog', '27', 'gridPendientes', '', null);
 INSERT INTO `sistema_menus` VALUES ('30', 'Sprint 1', '29', 'gridPendientes', '', null);
 INSERT INTO `sistema_menus` VALUES ('31', 'Sprint 2', '29', 'gridPendientes', '', null);
+INSERT INTO `sistema_menus` VALUES ('32', 'Tareas', '23', 'gridTareas', '', null);
 
 -- ----------------------------
 -- Table structure for `sistema_usuarios`
@@ -235,7 +264,7 @@ CREATE TABLE `sistema_usuarios` (
   `email` char(255) NOT NULL,
   `pass` char(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sistema_usuarios
