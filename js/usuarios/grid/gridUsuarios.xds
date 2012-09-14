@@ -30,109 +30,6 @@
             "userXType": "gridUsuarios",
             "cn": [
                 {
-                    "id": "MyToolbar2",
-                    "cid": "toolbar",
-                    "jsClass": "MyToolbar",
-                    "dock": "tbar",
-                    "snapToGrid": 10,
-                    "userXType": "mytoolbar",
-                    "cn": [
-                        {
-                            "id": "MyButton10",
-                            "cid": "button",
-                            "jsClass": "MyButton",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "text": "Guardar",
-                                "iconCls": "btnGuardarIcon",
-                                "itemId": "btnGuardar",
-                                "autoRef": "btnGuardar",
-                                "scale": "medium",
-                                "arrowAlign": "bottom",
-                                "iconAlign": "top",
-                                "icon": "-ext-undefined-"
-                            }
-                        },
-                        {
-                            "id": "MyButton11",
-                            "cid": "button",
-                            "jsClass": "MyButton1",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "text": "Eliminar",
-                                "iconCls": "btnEliminarIcon",
-                                "itemId": "btnEliminar",
-                                "autoRef": "btnEliminar",
-                                "scale": "medium",
-                                "iconAlign": "top"
-                            }
-                        },
-                        {
-                            "id": "MyButton12",
-                            "cid": "button",
-                            "jsClass": "MyButton2",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "text": "Nuevo",
-                                "iconCls": "btnNuevoIcon",
-                                "itemId": "btnNuevo",
-                                "autoRef": "btnNuevo",
-                                "scale": "medium",
-                                "iconAlign": "top"
-                            }
-                        },
-                        {
-                            "id": "MyButton13",
-                            "cid": "button",
-                            "jsClass": "MyButton3",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "text": "Recargar",
-                                "iconCls": "btnRecargarIcon",
-                                "itemId": "btnRecargar",
-                                "autoRef": "btnRecargar",
-                                "scale": "medium",
-                                "iconAlign": "top"
-                            }
-                        },
-                        {
-                            "id": "MySeparator2",
-                            "cid": "tbseparator",
-                            "jsClass": "MySeparator",
-                            "snapToGrid": 10
-                        },
-                        {
-                            "id": "MyFill2",
-                            "cid": "tbfill",
-                            "jsClass": "MyFill",
-                            "snapToGrid": 10
-                        },
-                        {
-                            "id": "MyTextField",
-                            "cid": "textfield",
-                            "jsClass": "MyTextField",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "autoRef": "txtSearch"
-                            }
-                        },
-                        {
-                            "id": "MyButton14",
-                            "cid": "button",
-                            "jsClass": "MyButton4",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "text": "Switch",
-                                "iconCls": "btnSwitchIcon",
-                                "itemId": "btnSwitch",
-                                "autoRef": "btnSwitch",
-                                "scale": "medium",
-                                "iconAlign": "top"
-                            }
-                        }
-                    ]
-                },
-                {
                     "id": "MyColumn",
                     "cid": "gridcolumn",
                     "jsClass": "MyColumn",
@@ -171,90 +68,77 @@
                     }
                 },
                 {
-                    "id": "MyToolbar3",
+                    "id": "MyToolbar",
                     "cid": "toolbar",
-                    "jsClass": "MyToolbar",
+                    "jsClass": "grid16_toolbar",
                     "dock": "tbar",
                     "snapToGrid": 10,
-                    "userXType": "mytoolbar",
+                    "userXType": "grid16_toolbar",
                     "cn": [
                         {
-                            "id": "MyButton15",
+                            "id": "MyButton",
                             "cid": "button",
                             "jsClass": "MyButton",
                             "snapToGrid": 10,
                             "userConfig": {
-                                "text": "Nuevo",
-                                "cls": "-ext-undefined-",
-                                "iconCls": "btnNuevoIcon",
-                                "itemId": "btnNuevo",
-                                "scale": "medium",
-                                "iconAlign": "top",
-                                "autoRef": "btnNuevo"
+                                "text": "Editar",
+                                "iconCls": "btnEditarIcon_16",
+                                "itemId": "btnEditar",
+                                "autoRef": "btnEditar",
+                                "scale": "-ext-undefined-",
+                                "arrowAlign": "bottom",
+                                "iconAlign": "-ext-undefined-",
+                                "icon": "-ext-undefined-"
                             }
                         },
                         {
-                            "id": "MyButton16",
+                            "id": "MyButton1",
                             "cid": "button",
                             "jsClass": "MyButton1",
                             "snapToGrid": 10,
                             "userConfig": {
                                 "text": "Eliminar",
-                                "iconCls": "btnEliminarIcon",
+                                "iconCls": "btnEliminarIcon_16",
+                                "itemId": "btnEliminar",
                                 "autoRef": "btnEliminar",
-                                "scale": "medium",
-                                "iconAlign": "top"
+                                "scale": "-ext-undefined-",
+                                "iconAlign": "-ext-undefined-"
                             }
                         },
                         {
-                            "id": "MyButton17",
+                            "id": "MyButton2",
                             "cid": "button",
                             "jsClass": "MyButton2",
                             "snapToGrid": 10,
                             "userConfig": {
-                                "text": "Editar",
-                                "iconCls": "btnEditarIcon",
-                                "autoRef": "btnEditar",
-                                "scale": "medium",
-                                "iconAlign": "top"
+                                "text": "Nuevo",
+                                "iconCls": "btnNuevoIcon_16",
+                                "itemId": "btnNuevo",
+                                "autoRef": "btnNuevo",
+                                "scale": "-ext-undefined-",
+                                "iconAlign": "-ext-undefined-"
                             }
                         },
                         {
-                            "id": "MySeparator3",
+                            "id": "MySeparator",
                             "cid": "tbseparator",
                             "jsClass": "MySeparator",
                             "snapToGrid": 10
                         },
                         {
-                            "id": "MyFill3",
+                            "id": "MyFill",
                             "cid": "tbfill",
                             "jsClass": "MyFill",
                             "snapToGrid": 10
                         },
                         {
-                            "id": "MyTextField1",
-                            "cid": "textfield",
-                            "jsClass": "MyTextField",
+                            "id": "MyTriggerField",
+                            "cid": "trigger",
+                            "jsClass": "MyTriggerField",
                             "snapToGrid": 10,
                             "userConfig": {
-                                "height": "-ext-undefined-",
-                                "boxMinHeight": "-ext-undefined-",
-                                "autoRef": "txtSearch",
-                                "itemId": "txtSearch",
-                                "enableKeyEvents": "-ext-undefined-"
-                            }
-                        },
-                        {
-                            "id": "MyButton18",
-                            "cid": "button",
-                            "jsClass": "MyButton3",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "text": "Switch",
-                                "iconCls": "btnSwitchIcon",
-                                "autoRef": "btnSwitch",
-                                "scale": "medium",
-                                "iconAlign": "top"
+                                "triggerClass": "x-form-search-trigger",
+                                "autoRef": "txtSearch"
                             }
                         }
                     ]

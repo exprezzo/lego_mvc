@@ -17,6 +17,10 @@ class ManejadorCrud {
 		return "SELECT m FROM ".$this->modelo." m WHErE m.nombre LIKE :query"; 
 	}
 	
+	function moditicarQuery($query){
+		return $query;
+	}
+	
 	function listar($params){
 		
 		$dql = $this->getQueryBusqueda();
@@ -30,6 +34,8 @@ class ManejadorCrud {
 				->setParameter(':query','%'.$query.'%')
 				->setFirstResult($start)
 				->setMaxResults($limit);		
+		
+		$query=$this->moditicarQuery($query);
 		
 		$paginator = new Paginator($query, $fetchJoinCollection = true);		
 		
@@ -85,13 +91,23 @@ class ManejadorCrud {
 		}else{
 			
 		}
-		$em->persist($mod);
-		$exito = $em->flush();
+		 $exito=$em->persist($mod);		  
+		$exito= $em->flush();
 		
+		$exito=true;
 		if (!$exito){
 			return $exito;
 		}
+		
 		return $mod;
+		/*
+		return array(
+			'exito'=>$exito,
+			'data'=>$mod,
+			'errores'=>$em->getErrors();
+		)		
+		*/
+		
 	}
 	
 	function borrar( $params ){

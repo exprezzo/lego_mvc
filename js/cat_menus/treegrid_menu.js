@@ -4,7 +4,6 @@ TreeGridMenu =Ext.extend(Ext.ux.tree.TreeGrid, {
 	height: 300,	
 	enableDD: true,
 	border:false,
-	
 	columns:[{
 		header: 'Menu',
 		dataIndex: 'text',
@@ -19,11 +18,7 @@ TreeGridMenu =Ext.extend(Ext.ux.tree.TreeGrid, {
 		dataIndex: 'icon'
 	}],	
 	loader: {		
-		url: '/menus/listar',
-		expanded:true,
-		baseParams: {
-			padreId: 0
-		}
+		url: '/menus/listar'		
 	}
 });
 Ext.reg('TreeGridMenu', TreeGridMenu);

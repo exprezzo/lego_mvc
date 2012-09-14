@@ -11,12 +11,15 @@
 	background-image:url('../imagenes/old_view_refresh.png');
 }
 .btnSwitchIcon{
-	background-image:url('../imagenes/gnome_session_switch.png');
+	background-image:url('../imagenes/fatcow/32x32/application_view_list.png');
 }
 .btnEditarIcon{
 	background-image:url('../imagenes/pencil3.png');
 }
 
+.btnVerLista_32_icon{
+	background-image:url('../imagenes/woofunction-icons/window_app_list_32.png');
+}
 /*
 
 btnGuardarIcon

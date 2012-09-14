@@ -1,0 +1,95 @@
+{
+    "name": "grid16_toolbar.xds",
+    "projectId": "77A3751B-54B3-4838-B56B-AEDE1BB6166A",
+    "settings": {
+        "urlPrefix": "http://localhost/",
+        "spacesToIndent": 4,
+        "codeGenFormat": "Class",
+        "extPath": "http://extjs.cachefly.net/ext-3.3.1/",
+        "exportPath": ".",
+        "lineEnding": "CRLF",
+        "instantiateStore": true,
+        "exportXDSFiles": true,
+        "genTimestamps": true
+    },
+    "xdsVersion": "1.1.2",
+    "components": [
+        {
+            "id": "MyToolbar",
+            "cid": "toolbar",
+            "jsClass": "grid16_toolbar",
+            "dock": "tbar",
+            "snapToGrid": 10,
+            "userXType": "grid16_toolbar",
+            "cn": [
+                {
+                    "id": "MyButton",
+                    "cid": "button",
+                    "jsClass": "MyButton",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "text": "Editar",
+                        "iconCls": "btnEditarIcon_16",
+                        "itemId": "btnEditar",
+                        "autoRef": "btnEditar",
+                        "scale": "-ext-undefined-",
+                        "arrowAlign": "bottom",
+                        "iconAlign": "-ext-undefined-",
+                        "icon": "-ext-undefined-"
+                    }
+                },
+                {
+                    "id": "MyButton1",
+                    "cid": "button",
+                    "jsClass": "MyButton1",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "text": "Eliminar",
+                        "iconCls": "btnEliminarIcon_16",
+                        "itemId": "btnEliminar",
+                        "autoRef": "btnEliminar",
+                        "scale": "-ext-undefined-",
+                        "iconAlign": "-ext-undefined-"
+                    }
+                },
+                {
+                    "id": "MyButton2",
+                    "cid": "button",
+                    "jsClass": "MyButton2",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "text": "Nuevo",
+                        "iconCls": "btnNuevoIcon_16",
+                        "itemId": "btnNuevo",
+                        "autoRef": "btnNuevo",
+                        "scale": "-ext-undefined-",
+                        "iconAlign": "-ext-undefined-"
+                    }
+                },
+                {
+                    "id": "MySeparator",
+                    "cid": "tbseparator",
+                    "jsClass": "MySeparator",
+                    "snapToGrid": 10
+                },
+                {
+                    "id": "MyFill",
+                    "cid": "tbfill",
+                    "jsClass": "MyFill",
+                    "snapToGrid": 10
+                },
+                {
+                    "id": "MyTriggerField",
+                    "cid": "trigger",
+                    "jsClass": "MyTriggerField",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "triggerClass": "x-form-search-trigger",
+                        "autoRef": "txtSearch"
+                    }
+                }
+            ]
+        }
+    ],
+    "stores": []
+}

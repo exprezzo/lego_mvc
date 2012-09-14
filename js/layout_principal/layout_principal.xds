@@ -125,7 +125,8 @@
                                             "dock": "root",
                                             "snapToGrid": 10,
                                             "userConfig": {
-                                                "text": "Tree Node"
+                                                "text": "Tree Node",
+                                                "id": 1
                                             }
                                         },
                                         {
@@ -136,7 +137,7 @@
                                             "snapToGrid": 10,
                                             "userConfig": {
                                                 "url": "/menus/listar",
-                                                "baseParams": "{padreId:0}"
+                                                "baseParams": "-ext-undefined-"
                                             }
                                         }
                                     ]

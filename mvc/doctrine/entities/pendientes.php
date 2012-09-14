@@ -2,7 +2,7 @@
 //namespace Entities;
 /** 
 @Entity 
-@Table(name="pendientes")
+@Table(name="colab_historias")
 **/
 class Pendientes
 {
@@ -14,5 +14,9 @@ class Pendientes
     public $descripcion;	
 	/** @Column(type="integer") **/
     public $prioridad;
+	/** @Column(type="integer") **/
+    public $grupo;
+	
+	//Crear getters y setters 
 }
 ?>

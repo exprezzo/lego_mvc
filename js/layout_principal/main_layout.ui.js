@@ -66,13 +66,11 @@ main_layoutUi = Ext.extend(Ext.Viewport, {
                                 cls: 'custom_tree',
                                 ref: '../../treeMenus',
                                 root: {
-                                    text: 'Tree Node'
+                                    text: 'Tree Node',
+                                    id: 1
                                 },
                                 loader: {
-                                    url: '/menus/listar',
-                                    baseParams: {
-                                        padreId: 0
-                                    }
+                                    url: '/menus/listar'
                                 }
                             }
                         ],

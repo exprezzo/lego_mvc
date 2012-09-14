@@ -54,7 +54,7 @@ catMenus = Ext.extend(catMenusUi, {
 		if (this.btnRefresh!=undefined){			
 			this.btnRefresh.on('click',this.recargarArbol,this);
 		}
-		
+		this.recargarArbol();
 		
     },
 	recargarArbol:function(){

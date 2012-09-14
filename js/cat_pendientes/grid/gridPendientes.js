@@ -21,6 +21,11 @@ gridPendientes = Ext.extend(gridPendientesUi, {
 				writeAllFields: true // write all fields, not just those that changed
 			})
 		});
+		this.store.on('beforeload',function(store, options){			
+			options.params={base:this.initialConfig.id};			
+		},this);
+		
+		this.setTitle(this.initialConfig.text);
 	//----------------------------------
 	//  para que este grid se comporte como un grid del catalogo crud, ejecutamos la siguiente linea
 	
@@ -34,6 +39,7 @@ gridPendientes = Ext.extend(gridPendientesUi, {
 				
 		this.bottomToolbar.bind(this.store);
 		this.bottomToolbar.doRefresh();
+				
     }
 });
 Ext.reg('gridPendientes', gridPendientes);

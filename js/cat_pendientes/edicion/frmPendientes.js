@@ -11,21 +11,26 @@
  * class.
  */
 
-frmPendientes = Ext.extend(frmPendientesUi, {
-	
-	
+frmPendientes = Ext.extend(frmPendientesUi, {	
     initComponent: function() {
-        frmPendientes.superclass.initComponent.call(this);
-		this.txtId.setVisible(false);
+        frmPendientes.superclass.initComponent.call(this);		
+		//--------------------------------------
+		this.txtId.setVisible(false);	
+		this.txtGrupo.setVisible(false);			
+		//--------------------------------------
+		this.on('activate',function(){
+			if (this.cargado==undefined){
+				this.txtGrupo.setValue( this.initialConfig.masConfig.id );
+			}		
+		},this);
 		
-		
-			Ext.applyIf(this,comportamiento_formulario);
-			this.controlador='ctrl_pendientes';
-			this.activarComportamiento();		
-		
-		
-		
-    },
+		Ext.applyIf(this,comportamiento_formulario);
+		this.controlador='ctrl_pendientes';
+		this.activarComportamiento();						
+    },		
+	onNuevo:function(){
+		this.txtGrupo.setValue( this.initialConfig.masConfig.id );
+	},
 	actualizarTitulo:function(	action ){			
 		if (action=="guardado" || action=="edicion")
 			this.setTitle( this.txtNombre.getValue() );

@@ -81,9 +81,14 @@ comportamiento_formulario={
 	actualizarTitulo:function(	action ){				
 		this.setTitle(action);
 	},
-	nuevo:function( params ){
-		this.getForm().reset();
+	b4Nuevo:function(){
+	},
+	nuevo:function( params ){		
+		this.b4Nuevo();
+		this.getForm().reset();								
 		this.actualizarTitulo('Nuevo');
+		this.recargar();		
+		this.fireEvent('nuevo');
 		this.onNuevo();
 		/**/
 	},
@@ -136,10 +141,9 @@ comportamiento_formulario={
 		this.on('activate',function(){
 			if (this.cargado==undefined){
 				this.cargado=true;
-				if (this.datos != undefined){
-					this.recargar();
-					
-				}
+				//if (this.datos != undefined){
+					this.recargar();					
+				//}
 			}
 		},this);
 	}

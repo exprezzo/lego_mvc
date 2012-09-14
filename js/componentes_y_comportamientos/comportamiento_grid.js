@@ -9,10 +9,12 @@ comportamiento_grid={
 			xtype:this.xtype_del_form,
 			title:this.tituloDelForm,
 			idReg:  0,
+			masConfig:this.initialConfig
 		};
 		if ( !Ext.isEmpty(this.iconCls) ){
 			params.iconCls=this.iconCls;
 		}
+		
 		this.fireEvent('mostrarTab',params);
 		
 		return false;	
@@ -30,6 +32,7 @@ comportamiento_grid={
 			title:	this.tituloDelForm,
 			datos:	selected.data,
 			idReg:  selected.id,
+			masConfig:this.initialConfig
 		};
 		if ( !Ext.isEmpty(this.iconCls) ){
 			params.iconCls=this.iconCls;

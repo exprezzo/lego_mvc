@@ -26,6 +26,8 @@ main_layout = Ext.extend(main_layoutUi, {
 			},this);
 		}
 		
+		
+		
 		this.treeMenus.loader.on('load',function(){
 			var root=this.treeMenus.getRootNode();
 			root.expand(true);

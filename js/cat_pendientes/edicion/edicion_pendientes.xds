@@ -49,7 +49,8 @@
                         "anchor": "-ext-undefined-",
                         "name": "id",
                         "autoRef": "txtId",
-                        "readOnly": true
+                        "readOnly": true,
+                        "value": 0
                     }
                 },
                 {
@@ -177,15 +178,28 @@
                             "jsClass": "MyButton4",
                             "snapToGrid": 10,
                             "userConfig": {
-                                "text": "Switch",
-                                "iconCls": "btnSwitchIcon",
-                                "itemId": "btnSwitch",
-                                "autoRef": "btnSwitch",
+                                "text": "Ver Lista",
+                                "iconCls": "btnVerLista_32_icon",
+                                "itemId": "btnSVerLista",
+                                "autoRef": "btnSVerLista",
                                 "scale": "medium",
                                 "iconAlign": "top"
                             }
                         }
                     ]
+                },
+                {
+                    "id": "MyTextField2",
+                    "cid": "textfield",
+                    "jsClass": "MyTextField2",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "anchor": "100%",
+                        "name": "grupo",
+                        "autoRef": "txtGrupo",
+                        "hidden": "-ext-undefined-"
+                    }
                 }
             ]
         }

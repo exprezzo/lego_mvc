@@ -15,55 +15,6 @@ gridUsuariosUi = Ext.extend(Ext.grid.GridPanel, {
     height: 250,
     autoExpandColumn: 'colEmail',
     initComponent: function() {
-        this.tbar = {
-            xtype: 'toolbar',
-            items: [
-                {
-                    xtype: 'button',
-                    text: 'Nuevo',
-                    iconCls: 'btnNuevoIcon',
-                    itemId: 'btnNuevo',
-                    scale: 'medium',
-                    iconAlign: 'top',
-                    ref: '../btnNuevo'
-                },
-                {
-                    xtype: 'button',
-                    text: 'Eliminar',
-                    iconCls: 'btnEliminarIcon',
-                    scale: 'medium',
-                    iconAlign: 'top',
-                    ref: '../btnEliminar'
-                },
-                {
-                    xtype: 'button',
-                    text: 'Editar',
-                    iconCls: 'btnEditarIcon',
-                    scale: 'medium',
-                    iconAlign: 'top',
-                    ref: '../btnEditar'
-                },
-                {
-                    xtype: 'tbseparator'
-                },
-                {
-                    xtype: 'tbfill'
-                },
-                {
-                    xtype: 'textfield',
-                    itemId: 'txtSearch',
-                    ref: '../txtSearch'
-                },
-                {
-                    xtype: 'button',
-                    text: 'Switch',
-                    iconCls: 'btnSwitchIcon',
-                    scale: 'medium',
-                    iconAlign: 'top',
-                    ref: '../btnSwitch'
-                }
-            ]
-        };
         this.columns = [
             {
                 xtype: 'gridcolumn',
@@ -84,6 +35,44 @@ gridUsuariosUi = Ext.extend(Ext.grid.GridPanel, {
         this.bbar = {
             xtype: 'paging',
             displayInfo: true
+        };
+        this.tbar = {
+            xtype: 'toolbar',
+            items: [
+                {
+                    xtype: 'button',
+                    text: 'Editar',
+                    iconCls: 'btnEditarIcon_16',
+                    itemId: 'btnEditar',
+                    arrowAlign: 'bottom',
+                    ref: '../btnEditar'
+                },
+                {
+                    xtype: 'button',
+                    text: 'Eliminar',
+                    iconCls: 'btnEliminarIcon_16',
+                    itemId: 'btnEliminar',
+                    ref: '../btnEliminar'
+                },
+                {
+                    xtype: 'button',
+                    text: 'Nuevo',
+                    iconCls: 'btnNuevoIcon_16',
+                    itemId: 'btnNuevo',
+                    ref: '../btnNuevo'
+                },
+                {
+                    xtype: 'tbseparator'
+                },
+                {
+                    xtype: 'tbfill'
+                },
+                {
+                    xtype: 'trigger',
+                    triggerClass: 'x-form-search-trigger',
+                    ref: '../txtSearch'
+                }
+            ]
         };
         gridUsuariosUi.superclass.initComponent.call(this);
     }

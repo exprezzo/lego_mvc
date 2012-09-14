@@ -13,11 +13,12 @@ require '../lego_core/manejador_crud.php';
 class DoctrineUsuario extends ManejadorCrud{
 	var $modelo="Usuario";
 	var $campos=array("id","nombre", "email",'pass');
+	/*
+	var $campos_de_mapeo=array("id","nombre", "email",'pass');
+	*/
 	/*function getQueryBusqueda(){
 		return "SELECT m FROM ".$this->modelo." m WHErE m.nombre LIKE :query order BY m.prioridad ASC"; 
 	}*/
 	
-}
-	
-	
+}	
 ?>
