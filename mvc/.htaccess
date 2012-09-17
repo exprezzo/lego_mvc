@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>	
+	# Enrutamiento mediante htacces de apache		
+    RewriteEngine On
+	
+    RewriteRule ^(.*)$ /lego_core/entrada.php/$1 [L]
+	ErrorDocument 500 error500.html
+</IfModule>

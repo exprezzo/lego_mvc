@@ -1,0 +1,178 @@
+{
+    "name": "grid.xds",
+    "projectId": "DFEFEEEF-7E33-4D58-9F72-CE7A3B7177D1",
+    "settings": {
+        "urlPrefix": "http://localhost/",
+        "directAPI": "",
+        "spacesToIndent": "4",
+        "codeGenFormat": "Class",
+        "extPath": "http://extjs.cachefly.net/ext-3.3.1/",
+        "exportPath": ".",
+        "lineEnding": "CRLF",
+        "instantiateStore": false,
+        "exportXDSFiles": false,
+        "genTimestamps": false
+    },
+    "xdsVersion": "1.1.2",
+    "components": [
+        {
+            "id": "MyGrid",
+            "cid": "grid",
+            "jsClass": "RENOMBRAR_grid",
+            "snapToGrid": 10,
+            "userConfig": {
+                "title": "Renombrar Lista",
+                "store": "-ext-undefined-",
+                "width": 400,
+                "height": 250,
+                "autoExpandColumn": "-ext-undefined-"
+            },
+            "userXType": "RENOMBRAR_xtype",
+            "cn": [
+                {
+                    "id": "MyColumn",
+                    "cid": "gridcolumn",
+                    "jsClass": "MyColumn",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "header": "nombre",
+                        "dataIndex": "nombre",
+                        "sortable": true,
+                        "resizable": "-ext-undefined-",
+                        "width": 300
+                    }
+                },
+                {
+                    "id": "MyPagingToolbar",
+                    "cid": "pagingtoolbar",
+                    "jsClass": "MyPagingToolbar",
+                    "dock": "bbar",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "store": "(none)",
+                        "displayInfo": true
+                    }
+                },
+                {
+                    "id": "MyUserComponent",
+                    "cid": "usercomponent",
+                    "jsClass": "grid16_toolbar",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "jsClass": "BORRAR_grid16_toolbar",
+                        "userXType": "grid16_toolbar"
+                    },
+                    "userComponent": "MyToolbar"
+                }
+            ]
+        },
+        {
+            "id": "MyToolbar",
+            "cid": "toolbar",
+            "jsClass": "BORRAR_grid16_toolbar",
+            "dock": "tbar",
+            "snapToGrid": 10,
+            "userXType": "grid16_toolbar",
+            "cn": [
+                {
+                    "id": "MyButton",
+                    "cid": "button",
+                    "jsClass": "MyButton",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "text": "Editar",
+                        "iconCls": "btnEditarIcon_16",
+                        "itemId": "btnEditar",
+                        "autoRef": "btnEditar",
+                        "scale": "-ext-undefined-",
+                        "arrowAlign": "bottom",
+                        "iconAlign": "-ext-undefined-",
+                        "icon": "-ext-undefined-"
+                    }
+                },
+                {
+                    "id": "MyButton1",
+                    "cid": "button",
+                    "jsClass": "MyButton1",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "text": "Eliminar",
+                        "iconCls": "btnEliminarIcon_16",
+                        "itemId": "btnEliminar",
+                        "autoRef": "btnEliminar",
+                        "scale": "-ext-undefined-",
+                        "iconAlign": "-ext-undefined-"
+                    }
+                },
+                {
+                    "id": "MyButton2",
+                    "cid": "button",
+                    "jsClass": "MyButton2",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "text": "Nuevo",
+                        "iconCls": "btnNuevoIcon_16",
+                        "itemId": "btnNuevo",
+                        "autoRef": "btnNuevo",
+                        "scale": "-ext-undefined-",
+                        "iconAlign": "-ext-undefined-"
+                    }
+                },
+                {
+                    "id": "MySeparator",
+                    "cid": "tbseparator",
+                    "jsClass": "MySeparator",
+                    "snapToGrid": 10
+                },
+                {
+                    "id": "MyFill",
+                    "cid": "tbfill",
+                    "jsClass": "MyFill",
+                    "snapToGrid": 10
+                },
+                {
+                    "id": "MyTriggerField",
+                    "cid": "trigger",
+                    "jsClass": "MyTriggerField",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "triggerClass": "x-form-search-trigger",
+                        "autoRef": "txtSearch"
+                    }
+                }
+            ]
+        }
+    ],
+    "stores": [
+        {
+            "id": "MyStore",
+            "cid": "jsonstore",
+            "jsClass": "stoRenombrar",
+            "snapToGrid": 10,
+            "userConfig": {
+                "storeId": "MyStore",
+                "root": "datos"
+            },
+            "cn": [
+                {
+                    "id": "MyField",
+                    "cid": "datafield",
+                    "jsClass": "MyField",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "id"
+                    }
+                },
+                {
+                    "id": "MyField1",
+                    "cid": "datafield",
+                    "jsClass": "MyField1",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "nombre"
+                    }
+                }
+            ]
+        }
+    ]
+}

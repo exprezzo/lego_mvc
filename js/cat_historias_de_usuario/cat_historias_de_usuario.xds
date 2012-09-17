@@ -1,0 +1,385 @@
+{
+    "name": "cat_historias_de_usuario.xds",
+    "projectId": "CDD20C93-A7F6-4989-B785-D9CF3049B96F",
+    "settings": {
+        "urlPrefix": "http://localhost/",
+        "directAPI": "",
+        "spacesToIndent": "4",
+        "codeGenFormat": "Class",
+        "extPath": "http://extjs.cachefly.net/ext-3.3.1/",
+        "exportPath": ".",
+        "lineEnding": "CRLF",
+        "instantiateStore": false,
+        "exportXDSFiles": false,
+        "genTimestamps": false
+    },
+    "xdsVersion": "1.1.2",
+    "components": [
+        {
+            "id": "MyPanel",
+            "cid": "panel",
+            "jsClass": "catHistoria",
+            "snapToGrid": 10,
+            "userConfig": {
+                "title": "Historias de usuario y tareas",
+                "width": "-ext-undefined-",
+                "height": 250,
+                "layout": "border",
+                "bodyStyle": ""
+            },
+            "userXType": "catHistoria",
+            "cn": [
+                {
+                    "id": "MyTreePanel",
+                    "cid": "treepanel",
+                    "jsClass": "MyTreePanel",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "title": "My Tree",
+                        "autoRef": "arbolGrid",
+                        "region": "west",
+                        "width": 300
+                    },
+                    "cn": [
+                        {
+                            "id": "MyAsyncTreeNode",
+                            "cid": "asynctreenode",
+                            "jsClass": "MyAsyncTreeNode",
+                            "dock": "root",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Tree Node",
+                                "id": 1
+                            }
+                        },
+                        {
+                            "id": "MyTreeLoader",
+                            "cid": "treeloader",
+                            "jsClass": "MyTreeLoader",
+                            "dock": "loader",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "url": "/historias/listar"
+                            }
+                        },
+                        {
+                            "id": "MyToolbar1",
+                            "cid": "toolbar",
+                            "jsClass": "MyToolbar1",
+                            "dock": "bbar",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "style": "border-width:1px 1px 0 0;"
+                            },
+                            "cn": [
+                                {
+                                    "id": "MyFill1",
+                                    "cid": "tbfill",
+                                    "jsClass": "MyFill1",
+                                    "snapToGrid": 10
+                                },
+                                {
+                                    "id": "MyButton5",
+                                    "cid": "button",
+                                    "jsClass": "MyButton5",
+                                    "snapToGrid": 10,
+                                    "userConfig": {
+                                        "text": "-ext-undefined-",
+                                        "cls": "-ext-undefined-",
+                                        "iconCls": "x-tbar-loading",
+                                        "autoRef": "btnRefresh"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "MyToolbar2",
+                            "cid": "toolbar",
+                            "jsClass": "MyToolbar2",
+                            "dock": "tbar",
+                            "snapToGrid": 10,
+                            "cn": [
+                                {
+                                    "id": "MyDisplayField",
+                                    "cid": "displayfield",
+                                    "jsClass": "MyDisplayField",
+                                    "snapToGrid": 10,
+                                    "userConfig": {
+                                        "value": "Proyecto"
+                                    }
+                                },
+                                {
+                                    "id": "MyCombo",
+                                    "cid": "combobox",
+                                    "jsClass": "MyCombo",
+                                    "snapToGrid": 10,
+                                    "userConfig": {
+                                        "valueField": "id",
+                                        "displayField": "nombre",
+                                        "autoRef": "cmbProyectos",
+                                        "minChars": 0,
+                                        "triggerAction": "all"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "MyForm",
+                    "cid": "form",
+                    "jsClass": "frmMenu",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "title": "Edicion",
+                        "frame": "-ext-undefined-",
+                        "bodyStyle": "padding:8px;border-width:0 0px 0px 0px;",
+                        "region": "center",
+                        "autoRef": "frmEdicion",
+                        "style": "border-width:0 0px 0px 1px;",
+                        "border": false
+                    },
+                    "userXType": "frmMenu",
+                    "cn": [
+                        {
+                            "id": "MyTextField",
+                            "cid": "textfield",
+                            "jsClass": "MyTextField2",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "fieldLabel": "Id",
+                                "anchor": "100%",
+                                "autoRef": "txtId",
+                                "name": "id",
+                                "hidden": "-ext-undefined-"
+                            }
+                        },
+                        {
+                            "id": "MyTextField5",
+                            "cid": "textfield",
+                            "jsClass": "MyTextField4",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "fieldLabel": "Padre",
+                                "anchor": "100%",
+                                "name": "fk_historia",
+                                "autoRef": "txtPadre"
+                            }
+                        },
+                        {
+                            "id": "MyTextField4",
+                            "cid": "textfield",
+                            "jsClass": "MyTextField4",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "fieldLabel": "Proyecto",
+                                "anchor": "100%",
+                                "name": "fk_proyecto",
+                                "autoRef": "txtProyecto"
+                            }
+                        },
+                        {
+                            "id": "MyTextField1",
+                            "cid": "textfield",
+                            "jsClass": "MyTextField",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "fieldLabel": "Descripcion",
+                                "anchor": "100%",
+                                "name": "descripcion",
+                                "allowBlank": false,
+                                "style": "",
+                                "labelStyle": "font-weight:bold;"
+                            }
+                        },
+                        {
+                            "id": "MyTextField2",
+                            "cid": "textfield",
+                            "jsClass": "MyTextField2",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "fieldLabel": "Prioridad",
+                                "anchor": "-ext-undefined-",
+                                "width": 50,
+                                "name": "prioridad",
+                                "autoRef": "txtPrioridad"
+                            }
+                        },
+                        {
+                            "id": "MyTextField3",
+                            "cid": "combobox",
+                            "jsClass": "MyTextField3",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "fieldLabel": "Estado",
+                                "anchor": "-ext-undefined-",
+                                "name": "estado",
+                                "autoRef": "txtEstado",
+                                "width": "-ext-undefined-"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "MyToolbar",
+                    "cid": "toolbar",
+                    "jsClass": "MyToolbar",
+                    "dock": "tbar",
+                    "snapToGrid": 10,
+                    "userXType": "mytoolbar",
+                    "cn": [
+                        {
+                            "id": "MyButton",
+                            "cid": "button",
+                            "jsClass": "MyButton",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Guardar",
+                                "iconCls": "btnGuardarIcon",
+                                "itemId": "btnGuardar",
+                                "autoRef": "btnGuardar",
+                                "scale": "medium",
+                                "arrowAlign": "bottom",
+                                "iconAlign": "top",
+                                "icon": "-ext-undefined-"
+                            }
+                        },
+                        {
+                            "id": "MyButton1",
+                            "cid": "button",
+                            "jsClass": "MyButton1",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Eliminar",
+                                "iconCls": "btnEliminarIcon",
+                                "itemId": "btnEliminar",
+                                "autoRef": "btnEliminar",
+                                "scale": "medium",
+                                "iconAlign": "top"
+                            }
+                        },
+                        {
+                            "id": "MyButton2",
+                            "cid": "button",
+                            "jsClass": "MyButton2",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Nuevo",
+                                "iconCls": "btnNuevoIcon",
+                                "itemId": "btnNuevo",
+                                "autoRef": "btnNuevo",
+                                "scale": "medium",
+                                "iconAlign": "top"
+                            }
+                        },
+                        {
+                            "id": "MyButton3",
+                            "cid": "button",
+                            "jsClass": "MyButton3",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Recargar",
+                                "iconCls": "btnRecargarIcon",
+                                "itemId": "btnRecargar",
+                                "autoRef": "btnRecargar",
+                                "scale": "medium",
+                                "iconAlign": "top"
+                            }
+                        },
+                        {
+                            "id": "MySeparator",
+                            "cid": "tbseparator",
+                            "jsClass": "MySeparator",
+                            "snapToGrid": 10
+                        },
+                        {
+                            "id": "MyFill",
+                            "cid": "tbfill",
+                            "jsClass": "MyFill",
+                            "snapToGrid": 10
+                        },
+                        {
+                            "id": "MyButton4",
+                            "cid": "button",
+                            "jsClass": "MyButton4",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Switch",
+                                "iconCls": "btnSwitchIcon",
+                                "itemId": "btnSwitch",
+                                "autoRef": "btnSwitch",
+                                "scale": "medium",
+                                "iconAlign": "top"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "stores": [
+        {
+            "id": "MyStore",
+            "cid": "jsonstore",
+            "jsClass": "stoProyectos",
+            "snapToGrid": 10,
+            "userConfig": {
+                "storeId": "-ext-undefined-",
+                "root": "datos",
+                "url": "/proyectos/listar"
+            },
+            "cn": [
+                {
+                    "id": "MyField2",
+                    "cid": "datafield",
+                    "jsClass": "MyField2",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "id"
+                    }
+                },
+                {
+                    "id": "MyField3",
+                    "cid": "datafield",
+                    "jsClass": "MyField3",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "nombre"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "MyStore1",
+            "cid": "jsonstore",
+            "jsClass": "stoEstados",
+            "snapToGrid": 10,
+            "userConfig": {
+                "storeId": "-ext-undefined-",
+                "root": "datos",
+                "url": "/historias/paginarEstados",
+                "messageProperty": "msg"
+            },
+            "cn": [
+                {
+                    "id": "MyField",
+                    "cid": "datafield",
+                    "jsClass": "MyField",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "id"
+                    }
+                },
+                {
+                    "id": "MyField1",
+                    "cid": "datafield",
+                    "jsClass": "MyField1",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "nombre"
+                    }
+                }
+            ]
+        }
+    ]
+}
