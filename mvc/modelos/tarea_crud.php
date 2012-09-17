@@ -14,7 +14,7 @@ require '../lego_core/manejador_crud.php';
 
 class TareaCrud extends ManejadorCrud{
 	var $modelo="Tarea";
-	var $campos=array("id","descripcion", "dificutad",'tiempo_estimado','estado','usuarioAsignado');
+	var $campos=array("id","descripcion", "dificutad",'tiempo_estimado','estado','usuarioAsignado','fk_historia');
 	/*
 	var $campos_de_mapeo=array("id","nombre", "email",'pass');
 	*/

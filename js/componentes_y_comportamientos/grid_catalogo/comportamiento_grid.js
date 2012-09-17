@@ -3,7 +3,9 @@ comportamiento_grid={
 	
 	//xtype_del_form:'panel',
 	//tituloDelForm:'Formulario de creacion / edicion',
-	
+	editParams:function(params){
+		return params;
+	},
 	nuevo:function(){	
 		var params={
 			xtype:this.xtype_del_form,
@@ -11,6 +13,7 @@ comportamiento_grid={
 			idReg:  0,
 			masConfig:this.initialConfig
 		};
+		params=this.editParams(params);
 		if ( !Ext.isEmpty(this.iconCls) ){
 			params.iconCls=this.iconCls;
 		}
@@ -19,13 +22,21 @@ comportamiento_grid={
 		
 		return false;	
 	},
-	editar:function(){	//TODO: considerar todos los modelos de seleccion del extjs
-		grid=this;
-		var selMod = this.getSelectionModel();
+	getGrid:function(){
+		return this;
+	},
+	getSelected: function(){
+		grid=this.getGrid();
+		var selMod = grid.getSelectionModel();
 		var selected= selMod.getSelected();		
 		var selected=selMod.getSelected();
 		if (selected == undefined) return false;
 		
+		return selected;
+	},
+	editar:function(){	//TODO: considerar todos los modelos de seleccion del extjs
+		selected = this.getSelected();
+		if ( !selected ) return false;
 		
 		var params={
 			xtype:	this.xtype_del_form,

@@ -23,7 +23,8 @@
                 "title": "My Form",
                 "width": 400,
                 "height": 250,
-                "padding": 10
+                "padding": 10,
+                "labelAlign": "top"
             },
             "userXType": "frmTarea",
             "cn": [
@@ -44,22 +45,10 @@
                     "jsClass": "MyTextField",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "fieldLabel": "Label",
+                        "fieldLabel": "id",
                         "anchor": "100%",
                         "name": "id",
                         "autoRef": "txtId"
-                    }
-                },
-                {
-                    "id": "MyTextField1",
-                    "cid": "textfield",
-                    "jsClass": "MyTextField1",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "fieldLabel": "Label",
-                        "anchor": "100%",
-                        "name": "descripcion",
-                        "autoRef": "txtDescripcion"
                     }
                 },
                 {
@@ -68,10 +57,22 @@
                     "jsClass": "MyTextField2",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "fieldLabel": "Label",
+                        "fieldLabel": "fk_historia",
                         "anchor": "100%",
                         "autoRef": "txtFK_historia",
                         "name": "fk_historia"
+                    }
+                },
+                {
+                    "id": "MyTextField1",
+                    "cid": "textfield",
+                    "jsClass": "MyTextField1",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "fieldLabel": "Descripcion",
+                        "anchor": "80%",
+                        "name": "descripcion",
+                        "autoRef": "txtDescripcion"
                     }
                 },
                 {
@@ -80,8 +81,11 @@
                     "jsClass": "MyTextField3",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "fieldLabel": "Label",
-                        "anchor": "100%"
+                        "fieldLabel": "dificultad",
+                        "anchor": "-ext-undefined-",
+                        "name": "dificultad",
+                        "autoRef": "txtDificultad",
+                        "width": 50
                     }
                 },
                 {

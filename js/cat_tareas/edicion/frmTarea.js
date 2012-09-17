@@ -16,7 +16,7 @@ frmTarea = Ext.extend(frmTareaUi, {
         frmTarea.superclass.initComponent.call(this);
 		//--------------------------------------
 		this.txtId.setVisible(false);	
-		//this.txtGrupo.setVisible(false);			
+		this.txtFK_historia.setVisible(false);			
 		//--------------------------------------
 		this.on('activate',function(){
 			if (this.cargado==undefined){

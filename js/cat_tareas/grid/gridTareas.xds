@@ -212,9 +212,10 @@
             "jsClass": "stoTareas",
             "snapToGrid": 10,
             "userConfig": {
-                "storeId": "MyStore",
+                "storeId": "-ext-undefined-",
                 "root": "datos",
-                "messageProperty": "msg"
+                "messageProperty": "msg",
+                "api": "{\tread: '/tareas/listar',\n\tcreate: '/tareas/crear',\n\tupdate: '/tareas/guardar',\n\tdestroy: '/tareas/eliminar'\n}"
             },
             "cn": [
                 {

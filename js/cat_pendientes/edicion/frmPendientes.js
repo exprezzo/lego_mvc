@@ -38,6 +38,10 @@ frmPendientes = Ext.extend(frmPendientesUi, {
 			this.gridTareas.bottomToolbar.doRefresh();
 		},this);		
 		
+		this.on('cargado',function(){
+			this.gridTareas.MasterId=this.txtId.getValue();
+		},this);
+		
     },			
 	onNuevo:function(){
 		this.txtGrupo.setValue( this.initialConfig.masConfig.id );

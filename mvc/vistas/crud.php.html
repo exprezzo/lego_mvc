@@ -20,9 +20,14 @@
 						<!-- **** CRUD 16 TOOLBAR **** -->							
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/crud16_toolbar/crud16_toolbar.ui.js"></script>
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/crud16_toolbar/crud16_toolbar.js"></script>
-	<!-- **** CRUD 16 TOOLBAR **** -->							
+	<!-- **** TOOLBAR GRID 16 **** -->							
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/grid16_toolbar/grid16_toolbar.ui.js"></script>
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/grid16_toolbar/grid16_toolbar.js"></script>
+	
+	<!-- **** TOOLBAR GRID 32 **** -->							
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/gridToolbar/grid_catalogo_32.ui.js"></script>
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/gridToolbar/grid_catalogo_32.js"></script>
+	
 	
 						<!-- *** TREE GRID *** -->
 	<link rel="stylesheet" type="text/css" href="<?php echo APP_PATH; ?>js/componentes_y_comportamientos/treegrid/treegrid.css" rel="stylesheet" />
@@ -85,7 +90,34 @@
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/usuarios/grid/gridUsuarios.ui.js"></script>
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/usuarios/grid/gridUsuarios.js"></script>
 	
-<style type="text/css">
+			<!-- **** HISTORIAS DE USUARIO Y TAREAS ** -->	
+	<!-- Edicion  -->
+	
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_historias_de_usuario/stoProyectos.js"></script>
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_historias_de_usuario/treegrid_historia.js"></script>
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_historias_de_usuario/catHistoria.ui.js"></script>
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/cat_historias_de_usuario/catHistoria.js"></script>
+	
+
+							<!-- ***** Proyectos **** -->
+	<!-- Edicion  -->
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/catalogo_proyectos/edicion/frmProyecto.ui.js"></script>		
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/catalogo_proyectos/edicion/frmProyecto.js"></script>		
+	<!-- Paginacion  -->
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/catalogo_proyectos/grid/stoProyecto.js"></script>	
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/catalogo_proyectos/grid/gridProyectos.ui.js"></script>
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/catalogo_proyectos/grid/gridProyectos.js"></script>
+	
+	<!-- ***** Sprints **** -->
+	<!-- Edicion  -->
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/catalogo_sprints/edicion/edicionSprint.ui.js"></script>		
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/catalogo_sprints/edicion/edicionSprint.js"></script>		
+	<!-- Paginacion  -->
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/catalogo_sprints/grid/stoSprints.js"></script>	
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/catalogo_sprints/grid/gridSprints.ui.js"></script>
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/catalogo_sprints/grid/gridSprints.js"></script>
+	
+	<style type="text/css">
 .frm_modelo{
 	
 }
@@ -100,12 +132,12 @@
 
 		Ext.onReady(function() {
 			Ext.QuickTips.init();
-			var cmp1 = new main_layout({
+			mainLayout = new main_layout({
 				renderTo: Ext.getBody(),
 				width:'100%',
 				height:560
 			});
-			cmp1.show();
+			mainLayout.show();
 			topMsg = new Ext.Notificaciones();			
 			//cmp1.add({xtype:'gridModelo'}).show();										
 		});

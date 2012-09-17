@@ -78,29 +78,21 @@
                 },
                 {
                     "id": "MyTextField",
-                    "cid": "textfield",
+                    "cid": "trigger",
                     "jsClass": "MyTextField",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "height": 32,
+                        "height": "-ext-undefined-",
                         "boxMinHeight": "-ext-undefined-",
                         "autoRef": "txtSearch",
                         "itemId": "txtSearch",
                         "enableKeyEvents": "-ext-undefined-",
-                        "boxMinWidth": 32
-                    }
-                },
-                {
-                    "id": "MyButton3",
-                    "cid": "button",
-                    "jsClass": "MyButton3",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "text": "Switch",
-                        "iconCls": "btnSwitchIcon",
-                        "autoRef": "btnSwitch",
-                        "scale": "medium",
-                        "iconAlign": "top"
+                        "boxMinWidth": 32,
+                        "cls": "x-form-text-search-32",
+                        "emptyText": "escribe para buscar...",
+                        "ctCls": "x-form-filtro-busqueda-32",
+                        "triggerClass": "x-form-icono-trigger-32",
+                        "width": 250
                     }
                 }
             ]

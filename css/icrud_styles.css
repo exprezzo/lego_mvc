@@ -16,9 +16,8 @@
 .btnEditarIcon{
 	background-image:url('../imagenes/pencil3.png');
 }
-
 .btnVerLista_32_icon{
-	background-image:url('../imagenes/woofunction-icons/window_app_list_32.png');
+	background-image:url('../imagenes/woofunction-icons/window_app_list_32.png');	
 }
 /*
 
@@ -54,4 +53,30 @@ btnGuardarIcon
 }
 .btnEditarIcon_16{
 	background-image:url('../imagenes/Human-O2/16x16/actions/document-edit.png');
+}
+
+/*	32	*/
+.x-form-icono-trigger-32{
+	background-image:url('../imagenes/Human-O2/32x32/actions/gnome-searchtool.png') !important;
+	/* position:relative !important; */
+	height:30px !important;
+	width:32px !important;
+	top: -1px !important;
+}
+
+.x-form-filtro-busqueda-32 .x-form-field-trigger-wrap{
+	margin-right:10px;
+}
+
+.x-form-filtro-busqueda-32 img{
+	background-position:0 0 !important;
+
+}
+
+.x-small-editor .x-form-text-search-32{
+	height: 31px;
+	/* Estos estilos tambien estan en el designer */
+	position:relative;
+	font-family: arial;
+    font-size: 15px;
 }

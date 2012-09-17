@@ -24,9 +24,7 @@ main_layout = Ext.extend(main_layoutUi, {
 			this.btnRefresh.on('click',function(){
 				this.recargarArbol(this.treeMenus);
 			},this);
-		}
-		
-		
+		}				
 		
 		this.treeMenus.loader.on('load',function(){
 			var root=this.treeMenus.getRootNode();

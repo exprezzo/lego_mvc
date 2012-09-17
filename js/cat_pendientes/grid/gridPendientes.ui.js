@@ -16,53 +16,7 @@ gridPendientesUi = Ext.extend(Ext.grid.GridPanel, {
     autoExpandColumn: 'colNombre',
     initComponent: function() {
         this.tbar = {
-            xtype: 'toolbar',
-            items: [
-                {
-                    xtype: 'button',
-                    text: 'Nuevo',
-                    iconCls: 'btnNuevoIcon',
-                    itemId: 'btnNuevo',
-                    scale: 'medium',
-                    iconAlign: 'top',
-                    ref: '../btnNuevo'
-                },
-                {
-                    xtype: 'button',
-                    text: 'Eliminar',
-                    iconCls: 'btnEliminarIcon',
-                    scale: 'medium',
-                    iconAlign: 'top',
-                    ref: '../btnEliminar'
-                },
-                {
-                    xtype: 'button',
-                    text: 'Editar',
-                    iconCls: 'btnEditarIcon',
-                    scale: 'medium',
-                    iconAlign: 'top',
-                    ref: '../btnEditar'
-                },
-                {
-                    xtype: 'tbseparator'
-                },
-                {
-                    xtype: 'tbfill'
-                },
-                {
-                    xtype: 'textfield',
-                    itemId: 'txtSearch',
-                    ref: '../txtSearch'
-                },
-                {
-                    xtype: 'button',
-                    text: 'Switch',
-                    iconCls: 'btnSwitchIcon',
-                    scale: 'medium',
-                    iconAlign: 'top',
-                    ref: '../btnSwitch'
-                }
-            ]
+            xtype: 'grid_catalogo_32'
         };
         this.bbar = {
             xtype: 'paging',

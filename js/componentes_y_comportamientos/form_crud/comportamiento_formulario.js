@@ -109,7 +109,9 @@ comportamiento_formulario={
 					
 					var msg= ( Ext.isEmpty(action.result.msg) )? "Informaci&oacuten obtenida" : action.result.msg;
 					topMsg.setAlert(this.controlador, msg);
-					this.actualizarTitulo('edicion');				
+					this.actualizarTitulo('edicion');		
+
+					this.fireEvent('cargado');
 				}
 			},
 			failure:function(){

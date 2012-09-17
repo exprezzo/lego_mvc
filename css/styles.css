@@ -1,4 +1,6 @@
 /* http://www.colorcombos.com/color-schemes/408/ColorCombo408.html */
+
+
 /*  SECCION HEADER	*/
 /*  	*/
 .body{
@@ -81,8 +83,7 @@
 .menu a:active {color:white;}  /* selected link */
 /*  	*/
 .contenido{
-	/*width:70%;*/
-	
+	/*width:70%;*/	
 	/*height: auto;*/
 	min-height:350px;
 	/*background-color: whte;

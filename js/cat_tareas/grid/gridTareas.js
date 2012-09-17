@@ -11,6 +11,14 @@
  */
 
 gridTareas = Ext.extend(gridTareasUi, {
+	/*Sobre escribe la function editParams */
+	editParams:function(params){		
+		params.MasterId=this.MasterId;		
+		return params;
+		
+	},
+	xtype_del_form:"frmTarea",	
+	
     initComponent: function() {
         gridTareas.superclass.initComponent.call(this);
 		this.store=new stoTareas({
@@ -20,9 +28,7 @@ gridTareas = Ext.extend(gridTareasUi, {
 				writeAllFields: true // write all fields, not just those that changed
 			})
 		});
-		Ext.apply(this,comportamiento_grid,{
-			xtype_del_form:"frmTarea"
-		});	
+		Ext.applyIf(this,comportamiento_grid);	
 		//-------------------------------------------------------------		
 		// Comportamiento Detalle del Maestro
 		//-------------------------------------------------------------

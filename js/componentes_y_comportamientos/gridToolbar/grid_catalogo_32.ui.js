@@ -44,19 +44,15 @@ grid_catalogo_32Ui = Ext.extend(Ext.Toolbar, {
                 xtype: 'tbfill'
             },
             {
-                xtype: 'textfield',
-                height: 32,
+                xtype: 'trigger',
                 itemId: 'txtSearch',
                 boxMinWidth: 32,
+                cls: 'x-form-text-search-32',
+                emptyText: 'escribe para buscar...',
+                ctCls: 'x-form-filtro-busqueda-32',
+                triggerClass: 'x-form-icono-trigger-32',
+                width: 250,
                 ref: 'txtSearch'
-            },
-            {
-                xtype: 'button',
-                text: 'Switch',
-                iconCls: 'btnSwitchIcon',
-                scale: 'medium',
-                iconAlign: 'top',
-                ref: 'btnSwitch'
             }
         ];
         grid_catalogo_32Ui.superclass.initComponent.call(this);

@@ -36,7 +36,7 @@
                     "snapToGrid": 10,
                     "userConfig": {
                         "jsClass": "MyToolbar",
-                        "userXType": "mytoolbar"
+                        "userXType": "grid_catalogo_32"
                     },
                     "userComponent": "MyToolbar"
                 },
@@ -86,7 +86,7 @@
             "jsClass": "MyToolbar",
             "dock": "tbar",
             "snapToGrid": 10,
-            "userXType": "mytoolbar",
+            "userXType": "grid_catalogo_32",
             "cn": [
                 {
                     "id": "MyButton",

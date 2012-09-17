@@ -13,9 +13,14 @@ stoTareas = Ext.extend(Ext.data.JsonStore, {
     constructor: function(cfg) {
         cfg = cfg || {};
         stoTareas.superclass.constructor.call(this, Ext.apply({
-            storeId: 'MyStore',
             root: 'datos',
             messageProperty: 'msg',
+            api: {
+                read: '/tareas/listar',
+                create: '/tareas/crear',
+                update: '/tareas/guardar',
+                destroy: '/tareas/eliminar'
+            },
             fields: [
                 {
                     name: 'id'

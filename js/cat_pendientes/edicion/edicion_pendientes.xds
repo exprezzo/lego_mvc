@@ -3,14 +3,15 @@
     "projectId": "808E731D-3132-4C50-95D4-7AAECDBD3A1D",
     "settings": {
         "urlPrefix": "http://localhost/",
-        "spacesToIndent": 4,
+        "directAPI": "",
+        "spacesToIndent": "4",
         "codeGenFormat": "Class",
         "extPath": "http://extjs.cachefly.net/ext-3.3.1/",
         "exportPath": ".",
         "lineEnding": "CRLF",
-        "instantiateStore": true,
-        "exportXDSFiles": true,
-        "genTimestamps": true
+        "instantiateStore": false,
+        "exportXDSFiles": false,
+        "genTimestamps": false
     },
     "xdsVersion": "1.1.2",
     "components": [
@@ -137,10 +138,10 @@
                                 {
                                     "id": "MyUserComponent1",
                                     "cid": "usercomponent",
-                                    "jsClass": "MyGrid",
+                                    "jsClass": "gridTareas",
                                     "snapToGrid": 10,
                                     "userConfig": {
-                                        "jsClass": "gridTareas",
+                                        "jsClass": "BORRAR_gridTareas",
                                         "userXType": "gridTareas",
                                         "autoRef": "gridTareas",
                                         "title": "Lista de Tareas"
@@ -263,7 +264,7 @@
         {
             "id": "MyGrid",
             "cid": "grid",
-            "jsClass": "gridTareas",
+            "jsClass": "BORRAR_gridTareas",
             "snapToGrid": 10,
             "userConfig": {
                 "title": "-ext-undefined-",
@@ -362,74 +363,5 @@
             ]
         }
     ],
-    "stores": [
-        {
-            "id": "MyStore",
-            "cid": "jsonstore",
-            "jsClass": "stoTareas",
-            "snapToGrid": 10,
-            "userConfig": {
-                "storeId": "stoTareas",
-                "root": "datos",
-                "messageProperty": "msg"
-            },
-            "userXType": "stoTareas",
-            "cn": [
-                {
-                    "id": "MyField",
-                    "cid": "datafield",
-                    "jsClass": "MyField",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "name": "id"
-                    }
-                },
-                {
-                    "id": "MyField1",
-                    "cid": "datafield",
-                    "jsClass": "MyField1",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "name": "descripcion"
-                    }
-                },
-                {
-                    "id": "MyField2",
-                    "cid": "datafield",
-                    "jsClass": "MyField2",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "name": "dificultad"
-                    }
-                },
-                {
-                    "id": "MyField3",
-                    "cid": "datafield",
-                    "jsClass": "MyField3",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "name": "tiempo_estimado"
-                    }
-                },
-                {
-                    "id": "MyField4",
-                    "cid": "datafield",
-                    "jsClass": "MyField4",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "name": "estado"
-                    }
-                },
-                {
-                    "id": "MyField5",
-                    "cid": "datafield",
-                    "jsClass": "MyField5",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "name": "usuarioAsignado"
-                    }
-                }
-            ]
-        }
-    ]
+    "stores": []
 }

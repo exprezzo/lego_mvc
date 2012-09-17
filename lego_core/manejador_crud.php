@@ -17,7 +17,7 @@ class ManejadorCrud {
 		return "SELECT m FROM ".$this->modelo." m WHErE m.nombre LIKE :query"; 
 	}
 	
-	function moditicarQuery($query){
+	public function moditicarQuery($query){	
 		return $query;
 	}
 	
