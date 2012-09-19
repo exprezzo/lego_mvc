@@ -40,7 +40,10 @@
                         "region": "west",
                         "width": 300,
                         "border": false,
-                        "enableDD": true
+                        "enableDD": true,
+                        "split": true,
+                        "collapsible": "-ext-undefined-",
+                        "collapseMode": "mini"
                     },
                     "cn": [
                         {
@@ -50,9 +53,34 @@
                             "dock": "root",
                             "snapToGrid": 10,
                             "userConfig": {
-                                "text": "Tree Node",
-                                "id": 1
-                            }
+                                "text": "Proyecto",
+                                "id": "proyecto",
+                                "expanded": true
+                            },
+                            "cn": [
+                                {
+                                    "id": "MyTreeNode",
+                                    "cid": "treenode",
+                                    "jsClass": "MyTreeNode",
+                                    "snapToGrid": 10,
+                                    "userConfig": {
+                                        "text": "Backlog",
+                                        "id": "backlog",
+                                        "draggable": true
+                                    }
+                                },
+                                {
+                                    "id": "MyTreeNode1",
+                                    "cid": "treenode",
+                                    "jsClass": "MyTreeNode1",
+                                    "snapToGrid": 10,
+                                    "userConfig": {
+                                        "text": "Sprints",
+                                        "id": "sprints",
+                                        "draggable": true
+                                    }
+                                }
+                            ]
                         },
                         {
                             "id": "MyTreeLoader",
@@ -225,100 +253,6 @@
                                 "name": "estado",
                                 "autoRef": "txtEstado",
                                 "width": "-ext-undefined-"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "id": "MyToolbar2",
-                    "cid": "toolbar",
-                    "jsClass": "MyToolbar",
-                    "dock": "tbar",
-                    "snapToGrid": 10,
-                    "userXType": "mytoolbar",
-                    "cn": [
-                        {
-                            "id": "MyButton1",
-                            "cid": "button",
-                            "jsClass": "MyButton",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "text": "Guardar",
-                                "iconCls": "btnGuardarIcon",
-                                "itemId": "btnGuardar",
-                                "autoRef": "btnGuardar",
-                                "scale": "medium",
-                                "arrowAlign": "bottom",
-                                "iconAlign": "top",
-                                "icon": "-ext-undefined-"
-                            }
-                        },
-                        {
-                            "id": "MyButton2",
-                            "cid": "button",
-                            "jsClass": "MyButton1",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "text": "Eliminar",
-                                "iconCls": "btnEliminarIcon",
-                                "itemId": "btnEliminar",
-                                "autoRef": "btnEliminar",
-                                "scale": "medium",
-                                "iconAlign": "top"
-                            }
-                        },
-                        {
-                            "id": "MyButton3",
-                            "cid": "button",
-                            "jsClass": "MyButton2",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "text": "Nuevo",
-                                "iconCls": "btnNuevoIcon",
-                                "itemId": "btnNuevo",
-                                "autoRef": "btnNuevo",
-                                "scale": "medium",
-                                "iconAlign": "top"
-                            }
-                        },
-                        {
-                            "id": "MyButton4",
-                            "cid": "button",
-                            "jsClass": "MyButton3",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "text": "Recargar",
-                                "iconCls": "btnRecargarIcon",
-                                "itemId": "btnRecargar",
-                                "autoRef": "btnRecargar",
-                                "scale": "medium",
-                                "iconAlign": "top"
-                            }
-                        },
-                        {
-                            "id": "MySeparator",
-                            "cid": "tbseparator",
-                            "jsClass": "MySeparator",
-                            "snapToGrid": 10
-                        },
-                        {
-                            "id": "MyFill1",
-                            "cid": "tbfill",
-                            "jsClass": "MyFill",
-                            "snapToGrid": 10
-                        },
-                        {
-                            "id": "MyButton5",
-                            "cid": "button",
-                            "jsClass": "MyButton4",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "text": "Switch",
-                                "iconCls": "btnSwitchIcon",
-                                "itemId": "btnSwitch",
-                                "autoRef": "btnSwitch",
-                                "scale": "medium",
-                                "iconAlign": "top"
                             }
                         }
                     ]

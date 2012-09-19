@@ -16,6 +16,22 @@ catHistoria = Ext.extend(catHistoriaUi, {
 	focusItem:function(){
 		this.txtDescripcion.focus( true );
 	},
+	observarReorden:function(node){
+		
+		if ( Ext.isEmpty(node.attributes.tipo)  ){
+			console.log(node);
+			
+			node.on('move',function(){
+				alert("movido");
+			},this);
+			
+			if (node.id=='backlog'){				
+				node.attributes.tipo="BACKLOG";
+			}else if (node.id=='sprints'){				
+				node.attributes.tipo="SPRINTS";				
+			}						
+		}
+	},
     initComponent: function() {
         catHistoria.superclass.initComponent.call(this);
 		
@@ -29,6 +45,13 @@ catHistoria = Ext.extend(catHistoriaUi, {
 				this.recargar();
 			}
 		},this);
+		
+		
+		var root=this.arbolGrid.getRootNode();
+		console.log(root.childNodes);			
+		root.on('append',function ( tree, node, node, index ) {
+			this.observarReorden(node);			
+		},this);				
 		
 		this.arbolGrid.loader.on('load',function(){
 			var root=this.arbolGrid.getRootNode();
@@ -58,14 +81,13 @@ catHistoria = Ext.extend(catHistoriaUi, {
 		this.cmbProyectos.store= new  stoProyectos();
 		this.cmbProyectos.store.on('load',function(store , records, options){
 			var id_proyecto=this.cmbProyectos.getValue();
-			if ( !Ext.isEmpty(id_proyecto) || id_proyecto=="(an empty string)" || id_proyecto==""){
-				console.log("records[0]");console.log(records[0]);
+			if ( !Ext.isEmpty(id_proyecto) || id_proyecto=="(an empty string)" || id_proyecto==""){				
 				this.cmbProyectos.setValue( records[0].id );
 				this.cmbProyectos.focus();
 				this.recargarArbol();
 			}
 		},this);
-		this.cmbProyectos.store.load();
+		
 		
 		var loader=this.arbolGrid.loader;
 		loader.on("beforeload", function(treeLoader, node) {
@@ -86,6 +108,7 @@ catHistoria = Ext.extend(catHistoriaUi, {
 			
 		},this);
 		
+		this.cmbProyectos.store.load();
 		//this.recargarArbol();
 		
     },
@@ -97,7 +120,9 @@ catHistoria = Ext.extend(catHistoriaUi, {
 		var arbol=this.arbolGrid;
 		var root=arbol.getRootNode();
 		var loader=arbol.loader;
-		loader.load(root);		
+		loader.load(root);
+		root.expand(true);
+				
 		
 		root.setText( this.cmbProyectos.getRawValue() );
 	},	

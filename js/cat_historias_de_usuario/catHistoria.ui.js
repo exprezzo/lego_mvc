@@ -22,10 +22,25 @@ catHistoriaUi = Ext.extend(Ext.Panel, {
                 width: 300,
                 border: false,
                 enableDD: true,
+                split: true,
+                collapseMode: 'mini',
                 ref: 'arbolGrid',
                 root: {
-                    text: 'Tree Node',
-                    id: 1
+                    text: 'Proyecto',
+                    expanded: true,
+                    id: 'proyecto',
+                    children: [
+                        {
+                            text: 'Backlog',
+                            draggable: true,
+                            id: 'backlog'
+                        },
+                        {
+                            text: 'Sprints',
+                            draggable: true,
+                            id: 'sprints'
+                        }
+                    ]
                 },
                 loader: {
                     url: '/historias/listar'
@@ -125,63 +140,6 @@ catHistoriaUi = Ext.extend(Ext.Panel, {
                 ]
             }
         ];
-        this.tbar = {
-            xtype: 'toolbar',
-            items: [
-                {
-                    xtype: 'button',
-                    text: 'Guardar',
-                    iconCls: 'btnGuardarIcon',
-                    itemId: 'btnGuardar',
-                    scale: 'medium',
-                    arrowAlign: 'bottom',
-                    iconAlign: 'top',
-                    ref: '../btnGuardar'
-                },
-                {
-                    xtype: 'button',
-                    text: 'Eliminar',
-                    iconCls: 'btnEliminarIcon',
-                    itemId: 'btnEliminar',
-                    scale: 'medium',
-                    iconAlign: 'top',
-                    ref: '../btnEliminar'
-                },
-                {
-                    xtype: 'button',
-                    text: 'Nuevo',
-                    iconCls: 'btnNuevoIcon',
-                    itemId: 'btnNuevo',
-                    scale: 'medium',
-                    iconAlign: 'top',
-                    ref: '../btnNuevo'
-                },
-                {
-                    xtype: 'button',
-                    text: 'Recargar',
-                    iconCls: 'btnRecargarIcon',
-                    itemId: 'btnRecargar',
-                    scale: 'medium',
-                    iconAlign: 'top',
-                    ref: '../btnRecargar'
-                },
-                {
-                    xtype: 'tbseparator'
-                },
-                {
-                    xtype: 'tbfill'
-                },
-                {
-                    xtype: 'button',
-                    text: 'Switch',
-                    iconCls: 'btnSwitchIcon',
-                    itemId: 'btnSwitch',
-                    scale: 'medium',
-                    iconAlign: 'top',
-                    ref: '../btnSwitch'
-                }
-            ]
-        };
         catHistoriaUi.superclass.initComponent.call(this);
     }
 });
