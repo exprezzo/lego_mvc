@@ -32,6 +32,10 @@ catMenus = Ext.extend(catMenusUi, {
 			root.expand(true);
 		},this);
 		
+		this.treeMenus.on('dragdrop',function ( treePanel this, node, dd, e ) {
+			console.log("node");console.log(node);
+		},this);
+		
 		this.controlador='menus';
 		Ext.applyIf(this,comportamiento_formulario);
 		this.activarComportamiento();
@@ -57,6 +61,9 @@ catMenus = Ext.extend(catMenusUi, {
 		this.recargarArbol();
 		
     },
+	focusItem:function(){
+		this.txtId.focus();
+	},
 	recargarArbol:function(){
 		var arbol=this.treeMenus;
 		var root=arbol.getRootNode();

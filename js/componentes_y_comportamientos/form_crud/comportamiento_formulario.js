@@ -9,6 +9,9 @@ comportamiento_formulario={
 		
 		return id;
 	},
+	focusItem:function(){		
+		this.txtId.focus(true);
+	},
 	guardar:function( params ){
 		this.el.mask();
 		
@@ -21,6 +24,7 @@ comportamiento_formulario={
 					topMsg.setAlert(this.controlador,"La informaci&oacute;n ha sido almacenada");
 					this.getForm().setValues(action.result.data);
 					this.actualizarTitulo('guardado');
+					this.focusItem();
 				}
 				this.el.unmask();
 			},
@@ -112,6 +116,7 @@ comportamiento_formulario={
 					this.actualizarTitulo('edicion');		
 
 					this.fireEvent('cargado');
+					this.focusItem();
 				}
 			},
 			failure:function(){

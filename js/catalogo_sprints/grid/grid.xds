@@ -21,7 +21,7 @@
             "jsClass": "gridSprints",
             "snapToGrid": 10,
             "userConfig": {
-                "title": "Lista  de proyectos",
+                "title": "Lista  de Sprints",
                 "store": "-ext-undefined-",
                 "width": 400,
                 "height": 250,

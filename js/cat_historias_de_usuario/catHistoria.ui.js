@@ -18,9 +18,10 @@ catHistoriaUi = Ext.extend(Ext.Panel, {
         this.items = [
             {
                 xtype: 'treepanel',
-                title: 'My Tree',
                 region: 'west',
                 width: 300,
+                border: false,
+                enableDD: true,
                 ref: 'arbolGrid',
                 root: {
                     text: 'Tree Node',
@@ -56,6 +57,8 @@ catHistoriaUi = Ext.extend(Ext.Panel, {
                             displayField: 'nombre',
                             minChars: 0,
                             triggerAction: 'all',
+                            itemId: 'cmbProyectos',
+                            emptyText: 'cargando proyectos...',
                             ref: '../../cmbProyectos'
                         }
                     ]
@@ -63,7 +66,6 @@ catHistoriaUi = Ext.extend(Ext.Panel, {
             },
             {
                 xtype: 'form',
-                title: 'Edicion',
                 bodyStyle: 'padding:8px;border-width:0 0px 0px 0px;',
                 region: 'center',
                 style: 'border-width:0 0px 0px 1px;',
@@ -92,13 +94,20 @@ catHistoriaUi = Ext.extend(Ext.Panel, {
                         ref: '../txtProyecto'
                     },
                     {
-                        xtype: 'textfield',
+                        xtype: 'textarea',
                         fieldLabel: 'Descripcion',
                         anchor: '100%',
                         name: 'descripcion',
                         allowBlank: false,
                         style: '',
-                        labelStyle: 'font-weight:bold;'
+                        labelStyle: 'font-weight:bold;',
+                        maxLength: 255,
+                        growMax: 255,
+                        autoCreate: {
+                            tag: 'textarea',
+                            maxlength: 250
+                        },
+                        ref: '../txtDescripcion'
                     },
                     {
                         xtype: 'textfield',

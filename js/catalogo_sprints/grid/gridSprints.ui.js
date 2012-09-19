@@ -10,7 +10,7 @@
  */
 
 gridSprintsUi = Ext.extend(Ext.grid.GridPanel, {
-    title: 'Lista  de proyectos',
+    title: 'Lista  de Sprints',
     width: 400,
     height: 250,
     initComponent: function() {
