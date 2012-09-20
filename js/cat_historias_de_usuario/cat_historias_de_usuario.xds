@@ -43,7 +43,8 @@
                         "enableDD": true,
                         "split": true,
                         "collapsible": "-ext-undefined-",
-                        "collapseMode": "mini"
+                        "collapseMode": "mini",
+                        "rootVisible": false
                     },
                     "cn": [
                         {
@@ -118,40 +119,6 @@
                                         "cls": "-ext-undefined-",
                                         "iconCls": "x-tbar-loading",
                                         "autoRef": "btnRefresh"
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "id": "MyToolbar1",
-                            "cid": "toolbar",
-                            "jsClass": "MyToolbar2",
-                            "dock": "tbar",
-                            "snapToGrid": 10,
-                            "cn": [
-                                {
-                                    "id": "MyDisplayField",
-                                    "cid": "displayfield",
-                                    "jsClass": "MyDisplayField",
-                                    "snapToGrid": 10,
-                                    "userConfig": {
-                                        "value": "Proyecto"
-                                    }
-                                },
-                                {
-                                    "id": "MyCombo",
-                                    "cid": "combobox",
-                                    "jsClass": "MyCombo",
-                                    "snapToGrid": 10,
-                                    "userConfig": {
-                                        "valueField": "id",
-                                        "displayField": "nombre",
-                                        "autoRef": "cmbProyectos",
-                                        "minChars": 0,
-                                        "triggerAction": "all",
-                                        "itemId": "cmbProyectos",
-                                        "value": "-ext-undefined-",
-                                        "emptyText": "cargando proyectos..."
                                     }
                                 }
                             ]
@@ -256,8 +223,118 @@
                             }
                         }
                     ]
+                },
+                {
+                    "id": "MyToolbar1",
+                    "cid": "toolbar",
+                    "jsClass": "crud16_toolbar",
+                    "dock": "tbar",
+                    "snapToGrid": 10,
+                    "userXType": "mytoolbar",
+                    "cn": [
+                        {
+                            "id": "MyButton1",
+                            "cid": "button",
+                            "jsClass": "MyButton",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Guardar",
+                                "iconCls": "btnGuardarIcon_16",
+                                "itemId": "btnGuardar",
+                                "autoRef": "btnGuardar",
+                                "scale": "-ext-undefined-",
+                                "arrowAlign": "bottom",
+                                "iconAlign": "-ext-undefined-",
+                                "icon": "-ext-undefined-"
+                            }
+                        },
+                        {
+                            "id": "MyButton2",
+                            "cid": "button",
+                            "jsClass": "MyButton1",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Eliminar",
+                                "iconCls": "btnEliminarIcon_16",
+                                "itemId": "btnEliminar",
+                                "autoRef": "btnEliminar",
+                                "scale": "-ext-undefined-",
+                                "iconAlign": "-ext-undefined-"
+                            }
+                        },
+                        {
+                            "id": "MyButton3",
+                            "cid": "button",
+                            "jsClass": "MyButton2",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Nuevo",
+                                "iconCls": "btnNuevoIcon_16",
+                                "itemId": "btnNuevo",
+                                "autoRef": "btnNuevo",
+                                "scale": "-ext-undefined-",
+                                "iconAlign": "-ext-undefined-"
+                            }
+                        },
+                        {
+                            "id": "MyButton4",
+                            "cid": "button",
+                            "jsClass": "MyButton3",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Recargar",
+                                "iconCls": "btnRecargarIcon_16",
+                                "itemId": "btnRecargar",
+                                "autoRef": "btnRecargar",
+                                "scale": "-ext-undefined-",
+                                "iconAlign": "-ext-undefined-"
+                            }
+                        },
+                        {
+                            "id": "MySeparator",
+                            "cid": "tbseparator",
+                            "jsClass": "MySeparator",
+                            "snapToGrid": 10
+                        },
+                        {
+                            "id": "MyFill1",
+                            "cid": "tbfill",
+                            "jsClass": "MyFill",
+                            "snapToGrid": 10
+                        },
+                        {
+                            "id": "MyButton5",
+                            "cid": "button",
+                            "jsClass": "MyButton4",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Switch",
+                                "iconCls": "btnSwitchIcon_16",
+                                "itemId": "btnSwitch",
+                                "autoRef": "btnSwitch",
+                                "scale": "-ext-undefined-",
+                                "iconAlign": "-ext-undefined-"
+                            }
+                        }
+                    ]
                 }
             ]
+        },
+        {
+            "id": "MyCombo",
+            "cid": "combobox",
+            "jsClass": "MyCombo",
+            "snapToGrid": 10,
+            "userConfig": {
+                "valueField": "id",
+                "displayField": "nombre",
+                "minChars": 0,
+                "triggerAction": "all",
+                "itemId": "cmbProyectos",
+                "value": "-ext-undefined-",
+                "emptyText": "cargando proyectos..."
+            },
+            "userXType": "mycombo"
         }
     ],
     "stores": [

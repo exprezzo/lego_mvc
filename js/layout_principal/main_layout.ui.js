@@ -41,7 +41,13 @@ main_layoutUi = Ext.extend(Ext.Viewport, {
                         items: [
                             {
                                 xtype: 'panel',
-                                title: 'Home'
+                                title: 'Home',
+                                bodyStyle: 'padding:10px;',
+                                items: [
+                                    {
+                                        xtype: 'Scrum'
+                                    }
+                                ]
                             }
                         ]
                     },

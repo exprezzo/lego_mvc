@@ -10,6 +10,10 @@ class Sprint
     public $id;
 	/** @Column(type="string") **/
     public $nombre;	
+	
+	/** @Column(type="integer") **/
+	
+	public $fk_proyecto;
     
 }
 ?>

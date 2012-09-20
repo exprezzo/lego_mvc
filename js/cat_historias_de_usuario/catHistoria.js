@@ -16,21 +16,32 @@ catHistoria = Ext.extend(catHistoriaUi, {
 	focusItem:function(){
 		this.txtDescripcion.focus( true );
 	},
-	observarReorden:function(node){
+	observarNodo:function(node){
 		
-		if ( Ext.isEmpty(node.attributes.tipo)  ){
-			console.log(node);
-			
-			node.on('move',function(){
-				alert("movido");
+		if ( !Ext.isObject(node.events.move) )
+			node.on('move',function( tree, elMovido, oldParent, newParent, index ) {
+				return false;
 			},this);
-			
-			if (node.id=='backlog'){				
-				node.attributes.tipo="BACKLOG";
-			}else if (node.id=='sprints'){				
-				node.attributes.tipo="SPRINTS";				
-			}						
-		}
+		
+		if ( !Ext.isObject(node.events.click) )
+			node.on('click',function( elNodo, e ) {
+				//alert(elNodo.attributes.text);
+			},this);
+		
+		if ( !Ext.isObject(node.events.expand) )
+			node.on('expand',function( elNodo, e ) {
+				//alert("expand: "+elNodo.attributes.text);
+				
+			},this);
+		
+		
+		node.on('append',function ( tree, nodoPadre, nodoHijo, index ) {				
+			//Los nodos hijo pierden los eventos al cuando se recarga el root, pero no pierden sus atributos				
+			 this.observarNodo(nodoHijo);
+		},this);
+		
+		node.attributes.tipo=node.id;
+		console.log('tipo establecido node.attributes.tipo =  ' + node.id);						
 	},
     initComponent: function() {
         catHistoria.superclass.initComponent.call(this);
@@ -46,12 +57,24 @@ catHistoria = Ext.extend(catHistoriaUi, {
 			}
 		},this);
 		
+		// this.ejecutarFuncion=function(){
+			
+			// var params = args;
+		// }		
+		// this.observar('accion',this.ejecutarFuncion,var scope=this);
 		
+		// Para observar el movimiento de los nodos
 		var root=this.arbolGrid.getRootNode();
-		console.log(root.childNodes);			
-		root.on('append',function ( tree, node, node, index ) {
-			this.observarReorden(node);			
-		},this);				
+		this.observarNodo(root);			
+		
+			
+		// root.on('append',function ( tree, node, node, index ) {
+			// console.log("append"); console.log(node);
+			// node.on('click',function( node, e ) {
+				// alert(node.attributes.text);
+			// },this);			
+			// this.observarNodo(node);			
+		// },this);				
 		
 		this.arbolGrid.loader.on('load',function(){
 			var root=this.arbolGrid.getRootNode();
@@ -64,8 +87,7 @@ catHistoria = Ext.extend(catHistoriaUi, {
 		
 		var form=this.getForm();
 		form.on("actioncomplete",function(form, action){
-			if (action.type!='load'){
-				console.log(action.type);
+			if (action.type!='load'){				
 				this.recargarArbol();
 			}
 		},this);
@@ -78,52 +100,49 @@ catHistoria = Ext.extend(catHistoriaUi, {
 			this.btnRefresh.on('click',this.recargarArbol,this);
 		}
 		
-		this.cmbProyectos.store= new  stoProyectos();
-		this.cmbProyectos.store.on('load',function(store , records, options){
-			var id_proyecto=this.cmbProyectos.getValue();
-			if ( !Ext.isEmpty(id_proyecto) || id_proyecto=="(an empty string)" || id_proyecto==""){				
-				this.cmbProyectos.setValue( records[0].id );
-				this.cmbProyectos.focus();
-				this.recargarArbol();
-			}
-		},this);
+		// this.cmbProyectos.store= new  stoProyectos();
+		// this.cmbProyectos.store.on('load',function(store , records, options){
+			// var id_proyecto=this.cmbProyectos.getValue();
+			// if ( !Ext.isEmpty(id_proyecto) || id_proyecto=="(an empty string)" || id_proyecto==""){				
+				// this.cmbProyectos.setValue( records[0].id );
+				// this.cmbProyectos.focus();
+				// this.recargarArbol();
+			// }
+		// },this);
 		
 		
-		var loader=this.arbolGrid.loader;
-		loader.on("beforeload", function(treeLoader, node) {
-			if (this.baseParams == undefined) this.baseParams={};
-			loader.baseParams.proyecto_id = this.cmbProyectos.getValue();			
-		}, this);
+		// var loader=this.arbolGrid.loader;
+		// loader.on("beforeload", function(treeLoader, node) {
+			// if (this.baseParams == undefined) this.baseParams={};
+			// loader.baseParams.proyecto_id = this.cmbProyectos.getValue();			
+		// }, this);
 		
 		 
 		 
-		this.cmbProyectos.on('select',function(combo, record, index){
+		// this.cmbProyectos.on('select',function(combo, record, index){
 						
-			var root = this.arbolGrid.getRootNode();
-			root.setText( record.data.nombre );
+			// var root = this.arbolGrid.getRootNode();
+			// root.setText( record.data.nombre );
 									
-			this.recargarArbol();
+			// this.recargarArbol();
 			
-			this.arbolGrid.proyectoId = record.data.id;
+			// this.arbolGrid.proyectoId = record.data.id;
 			
-		},this);
+		// },this);
 		
-		this.cmbProyectos.store.load();
+		//this.cmbProyectos.store.load();
 		//this.recargarArbol();
 		
     },
 	recargarArbol:function(){
-		var id = this.cmbProyectos.getValue();
-		
-		//if ( id == this.arbolGrid.proyectoId) 	return;			
-		
+		var id = this.cmbProyectos.getValue();		
+		//if ( id == this.arbolGrid.proyectoId) 	return;					
 		var arbol=this.arbolGrid;
 		var root=arbol.getRootNode();
 		var loader=arbol.loader;
 		loader.load(root);
 		root.expand(true);
-				
-		
+						
 		root.setText( this.cmbProyectos.getRawValue() );
 	},	
 	onNuevo:function(){
