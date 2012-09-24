@@ -8,6 +8,7 @@
 	
 	try{
 		$_Peticion=$despachador->getPeticion();
+		$_PETICION=$_Peticion;
 		$result=$despachador->despacharPeticion();
 		
 		if ( $result['success']==false ) {

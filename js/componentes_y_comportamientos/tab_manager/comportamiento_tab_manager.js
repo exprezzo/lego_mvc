@@ -1,6 +1,9 @@
 comportamiento_tab_manager={
 	
-	
+	/* Params
+	xtype: El xtype del tab por abrir
+	id: opcional, identificador de la identidad.
+	*/
 	mostrarTab:function(params){
 		
 		var tab=this.encontrarTab(params);

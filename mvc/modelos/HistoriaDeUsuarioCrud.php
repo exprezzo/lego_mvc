@@ -10,55 +10,32 @@ require_once 'entidades_de_doctrine/Historia_de_usuario.php';
 require '../lego_core/manejador_crud.php';
 class HistoriaDeUsuarioCrud extends ManejadorCrud{
 	var $modelo="Historia_de_usuario";
-	var $campos=array("id","descripcion", "fk_historia", "fk_proyecto",'prioridad','dificultad','tiempo_estimado','tiempo_real','estado');	
+	var $campos=array("id","descripcion", "fk_sprint", "fk_proyecto",'es_backlog');	
 	
-	/*
-		Comportamiento Arbol
-		listarArbol
-		obtenerTodosLosHijos
-		getHijos
-	*/
-
-	function listarMenus($padre, $proyecto){				
-		$nodosPadre=$this->getHijos($padre,$proyecto);
-		
-		$nodos=$this->obtenerTodosLosHijos($nodosPadre, $proyecto); 
-		return $nodos;
+	function getQueryBusqueda(){
+	
+		if ($_POST['tipo']=='sprint'){
+			return "SELECT m FROM ".$this->modelo." m WHErE m.descripcion LIKE :query AND  m.fk_proyecto=:fk_proyecto AND m.es_backlog=0 AND m.fk_sprint=:fk_sprint"; 
+		}else if ($_POST['tipo']=='backlog'){
+			return "SELECT m FROM ".$this->modelo." m WHErE m.descripcion LIKE :query AND  m.fk_proyecto=:fk_proyecto AND m.es_backlog=1"; 
+		}
 		
 	}
-	
-	function obtenerTodosLosHijos($nodos, $proyecto){
-		for($i=0; $i < sizeof($nodos); $i++ ){
-			$nodos[$i]['text'] = $nodos[$i]['descripcion'];
-			$nodo=$nodos[$i];
-			$hijos=$this->getHijos($nodo['id'], $proyecto);
-			
-			
-			if ( empty($hijos) ){
-				$nodos[$i]['leaf']=1;				
-			}else{
-				$hijos=$this->obtenerTodosLosHijos($hijos, $proyecto);
-				$nodos[$i]['children'] = $hijos;
-			}			
-		}
-		return $nodos;		
+	function beforeNew($mod) {
+		$mod->fk_proyecto=$_SESSION['MODS']['SCRUM']['PROYECTO_ID'];
+		
+		return $mod;
 	}
 	
-	function getHijos($padreId, $proyecto){
-		$con = $this->getConexion();	
-		$sql = 'SELECT id, descripcion, fk_proyecto, fk_historia FROM scrum_historias_de_usuario where fk_historia=:padre AND fk_proyecto=:fk_proyecto ';		
-		$sth = $con->prepare($sql);
-		$sth->bindValue(':padre',$padreId,PDO::PARAM_INT);
-		$sth->bindValue(':fk_proyecto',$proyecto,PDO::PARAM_INT);
-		
-		$exito = $sth->execute();
-
-		$menus = $sth->fetchAll(PDO::FETCH_ASSOC);				
-		if ( !$exito ){
-			throw new Exception("Error listando: ".$sql); //TODO: agregar numero de error, crear una exception MiEscepcion
+	public function moditicarQuery($query){
+		if ($_POST['tipo']=='sprint'){			
+			$query=$query->setParameter(':fk_proyecto',$_SESSION['MODS']['SCRUM']['PROYECTO_ID']);		
+			$query=$query->setParameter(':fk_sprint',$_POST['sprintId']);		
+		}else if ($_POST['tipo']=='backlog'){			
+			$query=$query->setParameter(':fk_proyecto',$_SESSION['MODS']['SCRUM']['PROYECTO_ID']);		
 		}
-							
-		return $menus;
+		
+		return $query;
 	}
 }
 ?>

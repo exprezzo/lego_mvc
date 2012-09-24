@@ -1,54 +1,43 @@
 {
-    "name": "frmTarea.xds",
-    "projectId": "AF467ED2-93C4-4F9B-8A4C-7D9980DC019F",
+    "name": "edicion.xds",
+    "projectId": "D99FE0F1-50F2-4105-AC10-38934D71A2E2",
     "settings": {
         "urlPrefix": "http://localhost/",
-        "spacesToIndent": 4,
+        "directAPI": "",
+        "spacesToIndent": "4",
         "codeGenFormat": "Class",
         "extPath": "http://extjs.cachefly.net/ext-3.3.1/",
         "exportPath": ".",
         "lineEnding": "CRLF",
-        "instantiateStore": true,
-        "exportXDSFiles": true,
-        "genTimestamps": true
+        "instantiateStore": false,
+        "exportXDSFiles": false,
+        "genTimestamps": false
     },
     "xdsVersion": "1.1.2",
     "components": [
         {
             "id": "MyForm",
             "cid": "form",
-            "jsClass": "frmTarea",
+            "jsClass": "edicionHistoria",
             "snapToGrid": 10,
             "userConfig": {
-                "title": "My Form",
+                "title": "Edicion",
                 "width": 400,
-                "height": "-ext-undefined-",
-                "padding": 10,
-                "labelAlign": "top"
+                "height": 250,
+                "padding": 10
             },
-            "userXType": "frmTarea",
+            "userXType": "edicionHistoria",
             "cn": [
-                {
-                    "id": "MyUserComponent",
-                    "cid": "usercomponent",
-                    "jsClass": "crud16_toolbar",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "jsClass": "crud16_toolbar",
-                        "userXType": "crud16_toolbar"
-                    },
-                    "userComponent": "MyToolbar"
-                },
                 {
                     "id": "MyTextField",
                     "cid": "textfield",
                     "jsClass": "MyTextField",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "fieldLabel": "id",
+                        "fieldLabel": "Id",
                         "anchor": "100%",
-                        "name": "id",
-                        "autoRef": "txtId"
+                        "autoRef": "txtId",
+                        "name": "id"
                     }
                 },
                 {
@@ -57,11 +46,23 @@
                     "jsClass": "MyTextField2",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "fieldLabel": "fk_historia",
+                        "fieldLabel": "Nombre",
                         "anchor": "100%",
-                        "autoRef": "txtFK_historia",
-                        "name": "fk_historia"
+                        "autoRef": "txtDescripcion",
+                        "name": "descripcion"
                     }
+                },
+                {
+                    "id": "MyUserComponent",
+                    "cid": "usercomponent",
+                    "jsClass": "BORRAR_crud16_toolbar",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "jsClass": "BORRAR_crud16_toolbar",
+                        "userXType": "crud16_toolbar",
+                        "autoRef": "tbCrud"
+                    },
+                    "userComponent": "MyToolbar2"
                 },
                 {
                     "id": "MyTextField1",
@@ -69,10 +70,10 @@
                     "jsClass": "MyTextField1",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "fieldLabel": "Descripcion",
-                        "anchor": "80%",
-                        "name": "descripcion",
-                        "autoRef": "txtDescripcion"
+                        "fieldLabel": "sprint",
+                        "anchor": "100%",
+                        "name": "fk_sprint",
+                        "autoRef": "txtSprint"
                     }
                 },
                 {
@@ -81,11 +82,9 @@
                     "jsClass": "MyTextField3",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "fieldLabel": "dificultad",
-                        "anchor": "-ext-undefined-",
-                        "name": "dificultad",
-                        "autoRef": "txtDificultad",
-                        "width": 50
+                        "fieldLabel": "Dificultad",
+                        "anchor": "100%",
+                        "name": "dificultad"
                     }
                 },
                 {
@@ -94,32 +93,24 @@
                     "jsClass": "MyTextField4",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "fieldLabel": "Label",
-                        "anchor": "100%"
-                    }
-                },
-                {
-                    "id": "MyTextField5",
-                    "cid": "textfield",
-                    "jsClass": "MyTextField5",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "fieldLabel": "Label",
-                        "anchor": "100%"
+                        "fieldLabel": "Backlog?",
+                        "anchor": "100%",
+                        "name": "es_backlog",
+                        "autoRef": "txtBacklog"
                     }
                 }
             ]
         },
         {
-            "id": "MyToolbar",
+            "id": "MyToolbar2",
             "cid": "toolbar",
-            "jsClass": "crud16_toolbar",
+            "jsClass": "BORRAR_crud16_toolbar",
             "dock": "tbar",
             "snapToGrid": 10,
             "userXType": "crud16_toolbar",
             "cn": [
                 {
-                    "id": "MyButton",
+                    "id": "MyButton6",
                     "cid": "button",
                     "jsClass": "MyButton",
                     "snapToGrid": 10,
@@ -135,7 +126,7 @@
                     }
                 },
                 {
-                    "id": "MyButton1",
+                    "id": "MyButton7",
                     "cid": "button",
                     "jsClass": "MyButton1",
                     "snapToGrid": 10,
@@ -149,7 +140,7 @@
                     }
                 },
                 {
-                    "id": "MyButton2",
+                    "id": "MyButton8",
                     "cid": "button",
                     "jsClass": "MyButton2",
                     "snapToGrid": 10,
@@ -163,7 +154,7 @@
                     }
                 },
                 {
-                    "id": "MyButton3",
+                    "id": "MyButton9",
                     "cid": "button",
                     "jsClass": "MyButton3",
                     "snapToGrid": 10,
@@ -177,25 +168,25 @@
                     }
                 },
                 {
-                    "id": "MySeparator",
+                    "id": "MySeparator1",
                     "cid": "tbseparator",
                     "jsClass": "MySeparator",
                     "snapToGrid": 10
                 },
                 {
-                    "id": "MyFill",
+                    "id": "MyFill1",
                     "cid": "tbfill",
                     "jsClass": "MyFill",
                     "snapToGrid": 10
                 },
                 {
-                    "id": "MyButton4",
+                    "id": "MyButton10",
                     "cid": "button",
                     "jsClass": "MyButton4",
                     "snapToGrid": 10,
                     "userConfig": {
                         "text": "Switch",
-                        "iconCls": "btnSwitchIcon_16",
+                        "iconCls": "btnSwitchIcon",
                         "itemId": "btnSwitch",
                         "autoRef": "btnSwitch",
                         "scale": "-ext-undefined-",

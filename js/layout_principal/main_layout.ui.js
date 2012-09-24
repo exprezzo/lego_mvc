@@ -14,16 +14,15 @@ main_layoutUi = Ext.extend(Ext.Viewport, {
     initComponent: function() {
         this.items = [
             {
-                xtype: 'container',
+                xtype: 'panel',
                 region: 'north',
+                width: 100,
                 height: 100,
-                items: [
-                    {
-                        xtype: 'label',
-                        text: 'Configuracion y acciones',
-                        style: 'position:absolute;right:0;bottom:0;'
-                    }
-                ]
+                frame: true,
+                collapsible: true,
+                collapseMode: 'mini',
+                split: true,
+                hideCollapseTool: true
             },
             {
                 xtype: 'panel',
@@ -43,11 +42,7 @@ main_layoutUi = Ext.extend(Ext.Viewport, {
                                 xtype: 'panel',
                                 title: 'Home',
                                 bodyStyle: 'padding:10px;',
-                                items: [
-                                    {
-                                        xtype: 'Scrum'
-                                    }
-                                ]
+                                ref: '../../pnlHome'
                             }
                         ]
                     },

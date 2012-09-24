@@ -13,8 +13,10 @@ stoProyectos = Ext.extend(Ext.data.JsonStore, {
     constructor: function(cfg) {
         cfg = cfg || {};
         stoProyectos.superclass.constructor.call(this, Ext.apply({
+            storeId: 'stoProyectos',
             root: 'datos',
             url: '/proyectos/listar',
+            idProperty: 'stoProyectos',
             fields: [
                 {
                     name: 'id'

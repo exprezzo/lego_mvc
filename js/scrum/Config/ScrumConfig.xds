@@ -18,7 +18,7 @@
         {
             "id": "MyForm",
             "cid": "form",
-            "jsClass": "Scrum",
+            "jsClass": "ScrumMod",
             "snapToGrid": 10,
             "userConfig": {
                 "title": "Scrum",
@@ -26,29 +26,7 @@
                 "height": 250,
                 "padding": 10
             },
-            "userXType": "Scrum",
-            "cn": [
-                {
-                    "id": "MyCombo",
-                    "cid": "combobox",
-                    "jsClass": "MyCombo",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "valueField": "id",
-                        "displayField": "nombre",
-                        "minChars": 0,
-                        "triggerAction": "all",
-                        "itemId": "cmbProyectos",
-                        "value": "-ext-undefined-",
-                        "emptyText": "cargando proyectos...",
-                        "fieldLabel": "Seleccione",
-                        "anchor": "-ext-undefined-",
-                        "autoRef": "cmbProyectos",
-                        "autoSelect": false
-                    },
-                    "userXType": "mycombo"
-                }
-            ]
+            "userXType": "ScrumMod"
         }
     ],
     "stores": [

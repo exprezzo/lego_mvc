@@ -26,27 +26,21 @@
             "userXType": "main_layout",
             "cn": [
                 {
-                    "id": "MyContainer",
-                    "cid": "container",
-                    "jsClass": "MyContainer",
+                    "id": "MyPanel2",
+                    "cid": "panel",
+                    "jsClass": "MyPanel2",
                     "snapToGrid": 10,
                     "userConfig": {
+                        "title": "-ext-undefined-",
                         "region": "north",
-                        "width": "-ext-undefined-",
-                        "height": 100
-                    },
-                    "cn": [
-                        {
-                            "id": "MyLabel1",
-                            "cid": "label",
-                            "jsClass": "MyLabel1",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "text": "Configuracion y acciones",
-                                "style": "position:absolute;right:0;bottom:0;"
-                            }
-                        }
-                    ]
+                        "width": 100,
+                        "height": 100,
+                        "frame": true,
+                        "collapsible": true,
+                        "collapseMode": "mini",
+                        "split": true,
+                        "hideCollapseTool": true
+                    }
                 },
                 {
                     "id": "MyPanel",
@@ -83,21 +77,9 @@
                                     "snapToGrid": 10,
                                     "userConfig": {
                                         "title": "Home",
-                                        "bodyStyle": "padding:10px;"
-                                    },
-                                    "cn": [
-                                        {
-                                            "id": "MyUserComponent",
-                                            "cid": "usercomponent",
-                                            "jsClass": "Scrum",
-                                            "snapToGrid": 10,
-                                            "userConfig": {
-                                                "jsClass": "Borrar_Scrum",
-                                                "userXType": "Scrum"
-                                            },
-                                            "userComponent": "MyForm"
-                                        }
-                                    ]
+                                        "bodyStyle": "padding:10px;",
+                                        "autoRef": "pnlHome"
+                                    }
                                 }
                             ]
                         },
@@ -228,53 +210,7 @@
                     ]
                 }
             ]
-        },
-        {
-            "id": "MyForm",
-            "cid": "form",
-            "jsClass": "Borrar_Scrum",
-            "snapToGrid": 10,
-            "userConfig": {
-                "title": "Scrum",
-                "width": 400,
-                "height": 250,
-                "padding": 10,
-                "frame": true
-            },
-            "userXType": "Scrum",
-            "cn": [
-                {
-                    "id": "MyCombo",
-                    "cid": "combobox",
-                    "jsClass": "MyCombo",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "valueField": "id",
-                        "displayField": "nombre",
-                        "minChars": 0,
-                        "triggerAction": "all",
-                        "itemId": "cmbProyectos",
-                        "value": "-ext-undefined-",
-                        "emptyText": "cargando proyectos...",
-                        "fieldLabel": "Seleccione",
-                        "anchor": "100%",
-                        "autoRef": "cmbProyectos",
-                        "autoSelect": false
-                    },
-                    "userXType": "mycombo"
-                }
-            ]
         }
     ],
-    "stores": [
-        {
-            "id": "MyStore",
-            "cid": "jsonstore",
-            "jsClass": "MyStore",
-            "snapToGrid": 10,
-            "userConfig": {
-                "storeId": "MyStore"
-            }
-        }
-    ]
+    "stores": []
 }

@@ -13,7 +13,8 @@ class Historia_de_usuario
     /** @Column(type="integer") **/
     public $fk_proyecto;
 	/** @Column(type="integer") **/
-    public $fk_historia;
-	
+    public $fk_sprint;
+	/** @Column(type="integer") **/
+    public $es_backlog;
 }
 ?>

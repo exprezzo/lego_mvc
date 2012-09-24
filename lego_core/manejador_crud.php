@@ -75,6 +75,10 @@ class ManejadorCrud {
 		return $mod;
 	}
 	
+	function beforeNew($mod) {
+		return $mod;
+	}
+	
 	function guardar($params){
 	
 		$mod = $this->getModelObject();
@@ -87,7 +91,7 @@ class ManejadorCrud {
 		
 		if (!empty($mod->id) ){
 			$mod = $em->merge($mod);
-			
+			$mod=$this->beforeNew($mod);
 		}else{
 			
 		}
