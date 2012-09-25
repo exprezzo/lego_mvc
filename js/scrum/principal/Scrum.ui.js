@@ -70,7 +70,9 @@ ScrumUi = Ext.extend(Ext.Panel, {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'Seleccione proyecto:'
+                            value: 'Proyecto',
+                            style: 'text-decoration:underline;font-weight:bold;cursor:pointer;',
+                            ref: '../../lblProyecto'
                         },
                         {
                             xtype: 'spacer',
@@ -103,53 +105,6 @@ ScrumUi = Ext.extend(Ext.Panel, {
                 ]
             }
         ];
-        this.tbar = {
-            xtype: 'toolbar',
-            items: [
-                {
-                    xtype: 'button',
-                    text: 'Guardar',
-                    iconCls: 'btnGuardarIcon_16',
-                    itemId: 'btnGuardar',
-                    arrowAlign: 'bottom',
-                    ref: '../btnGuardar'
-                },
-                {
-                    xtype: 'button',
-                    text: 'Eliminar',
-                    iconCls: 'btnEliminarIcon_16',
-                    itemId: 'btnEliminar',
-                    ref: '../btnEliminar'
-                },
-                {
-                    xtype: 'button',
-                    text: 'Nuevo',
-                    iconCls: 'btnNuevoIcon_16',
-                    itemId: 'btnNuevo',
-                    ref: '../btnNuevo'
-                },
-                {
-                    xtype: 'button',
-                    text: 'Recargar',
-                    iconCls: 'btnRecargarIcon_16',
-                    itemId: 'btnRecargar',
-                    ref: '../btnRecargar'
-                },
-                {
-                    xtype: 'tbseparator'
-                },
-                {
-                    xtype: 'tbfill'
-                },
-                {
-                    xtype: 'button',
-                    text: 'Switch',
-                    iconCls: 'btnSwitchIcon_16',
-                    itemId: 'btnSwitch',
-                    ref: '../btnSwitch'
-                }
-            ]
-        };
         ScrumUi.superclass.initComponent.call(this);
     }
 });

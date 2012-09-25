@@ -13,14 +13,15 @@
 edicionSprint = Ext.extend(edicionSprintUi, {
     initComponent: function() {
         edicionSprint.superclass.initComponent.call(this);		
-		this.txtId.setVisible(false);
+		//this.txtId.setVisible(false);
 		
 		this.controlador='sprints';
 		
-		this.on("afterrender",function(){
+		//this.on("afterrender",function(){
 			Ext.applyIf(this,comportamiento_formulario);		
 			this.activarComportamiento();			
-		},this);
+		//},this);
+		
 		
     },
 	actualizarTitulo:function(	action ){		

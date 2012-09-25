@@ -147,7 +147,9 @@
                                     "jsClass": "MyDisplayField",
                                     "snapToGrid": 10,
                                     "userConfig": {
-                                        "value": "Seleccione proyecto:"
+                                        "value": "Proyecto",
+                                        "autoRef": "lblProyecto",
+                                        "style": "text-decoration:underline;font-weight:bold;cursor:pointer;"
                                     }
                                 },
                                 {

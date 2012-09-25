@@ -13,10 +13,8 @@
 gridProyectos = Ext.extend(gridProyectosUi, {
     initComponent: function() {
         gridProyectos.superclass.initComponent.call(this);
-		
-		
-		this.store=new stoProyectos({
-			url: '/proyectos/listar',
+			
+		this.store=new stoProyectos({			
 			api:{
 				read: '/proyectos/listar',
 				create: '/proyectos/crear',
@@ -25,19 +23,27 @@ gridProyectos = Ext.extend(gridProyectosUi, {
 			},
 			writer:new Ext.data.JsonWriter({
 				encode: true,
-				writeAllFields: true // write all fields, not just those that changed
+				writeAllFields: true 
 			})
 		});
 		this.bottomToolbar.bind(this.store);
 		//----------------------------------
-	//  para que este grid se comporte como un grid del catalogo crud, ejecutamos la siguiente linea
+		//  agrego el comportamiento estandar del grid
 	
 		Ext.apply(this,comportamiento_grid,{
 			xtype_del_form:"frmProyecto"
-		});	
-		
-	//  y asi se activa el comporstamiento
+		});
 		this.activarComportamiento();
+		
+		//¿Que tal así?
+		
+		//ComportamientoGrid.agregarA(this,{config});
+		
+		//Comportamiento_ComboIcon.aplicarA(combo,config);
+		
+		//mejor o que
+		
+		
 	//----------------------------------
 		this.bottomToolbar.doRefresh();
     }

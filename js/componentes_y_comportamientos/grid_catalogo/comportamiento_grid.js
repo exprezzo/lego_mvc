@@ -3,8 +3,16 @@ comportamiento_grid={
 	
 	//xtype_del_form:'panel',
 	//tituloDelForm:'Formulario de creacion / edicion',
+	getTabId:function(){
+		var idReg= (this.idReg != undefined)? this.idReg : 0;				
+		return this.xtype + '_' + idReg;
+	},
 	editParams:function(params){
 		return params;
+	},
+	habilitarBotones:function(){
+	},
+	deshabilitarBotones:function(){
 	},
 	nuevo:function(){	
 		var params={
@@ -48,6 +56,7 @@ comportamiento_grid={
 		if ( !Ext.isEmpty(this.iconCls) ){
 			params.iconCls=this.iconCls;
 		}		
+		
 		this.fireEvent('mostrarTab',params);
 	},
 	eliminar:function(){	//TODO: considerar todos los modelos de seleccion del extjs
@@ -100,6 +109,10 @@ comportamiento_grid={
 		if (this.btnNuevo != undefined) {
 			this.btnNuevo.on('click',this.nuevo,this);			
 		}
+		
+		this.on('activate',function(){
+			this.bottomToolbar.doRefresh();
+		},this);
 		
 		if (this.btnEditar != undefined) {			
 			this.btnEditar.on('click', this.editar,this);

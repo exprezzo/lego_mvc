@@ -17,6 +17,7 @@ class Scrum extends Controlador{
 		
 		return $respuesta;
 	}
+	
 	function initModScrum(){
 		if ( !isset( $_SESSION['MODS'] ) ){
 			$_SESSION['MODS']=array();		
@@ -25,6 +26,7 @@ class Scrum extends Controlador{
 			$_SESSION['MODS']['SCRUM']=array();		
 		}
 	}
+	
 	function getConfig(){
 		$respuesta=array();
 		$respuesta['success']=true;
@@ -42,5 +44,17 @@ class Scrum extends Controlador{
 		return $respuesta;
 	}
 	
+	function getDestinos(){
+		//del proyecto actual, devuelvo una lista con el backlog y todos los sprints, omitiendo el origen de la historia.
+		$es_backlog=true;
+		if ($es_backlog){
+			$query=	"Select * form sprints where fk_proyecto =: fk_proyecto AND es_backlog=true";
+		}else{
+			$query=	"Select * form sprints where fk_proyecto =: fk_proyecto  AND es_backlog=false sprint_id!=:sprint_id";
+		}
+		
+		
+		//$PROYECTO_ID = $_SESSION['MODS']['SCRUM']['PROYECTO_ID']
+	}
 }
 ?>

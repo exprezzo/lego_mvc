@@ -36,9 +36,7 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 	//  y asi se activa el comporstamiento
 		this.activarComportamiento();
 		
-		this.store.on('beforeload',function(store, options){
-			console.log("this");console.log(this);
-			console.log("beforeload options"); console.log(options);
+		this.store.on('beforeload',function(store, options){			
 			options.params.tipo=this.initialConfig.tipo;
 			if (this.initialConfig.tipo=='sprint'){
 				options.params.sprintId=this.initialConfig.idSprint;
@@ -46,6 +44,18 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 		},this);
 	//----------------------------------
 		this.bottomToolbar.doRefresh();
-    }
+	//----------------------------------
+		this.configComboMover();
+    },
+	configComboMover:function(){
+		console.log(this);
+		this.on('afterrender',function(){
+			this.cmbMover.store=new stoProyectos({
+				idProperty:'id',
+				url: '/scrum/getDestinos'			
+			});
+		},this);
+		
+	}
 });
 Ext.reg('gridHistoriadeUsuario', gridHistoriadeUsuario);

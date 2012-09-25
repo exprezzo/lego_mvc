@@ -21,6 +21,9 @@ stoHistoriasDUsuario = Ext.extend(Ext.data.JsonStore, {
                 },
                 {
                     name: 'descripcion'
+                },
+                {
+                    name: 'estimacion'
                 }
             ]
         }, cfg));

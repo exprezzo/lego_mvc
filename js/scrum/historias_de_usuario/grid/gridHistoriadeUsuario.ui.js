@@ -12,29 +12,82 @@
 gridHistoriadeUsuarioUi = Ext.extend(Ext.grid.GridPanel, {
     title: 'Historias de usuario',
     width: 400,
-    height: 250,
+    autoExpandColumn: 'colDescripcion',
     initComponent: function() {
+        this.tbar = {
+            xtype: 'toolbar',
+            items: [
+                {
+                    xtype: 'button',
+                    text: 'Editar',
+                    iconCls: 'btnEditarIcon_16',
+                    itemId: 'btnEditar',
+                    arrowAlign: 'bottom',
+                    ref: '../btnEditar'
+                },
+                {
+                    xtype: 'button',
+                    text: 'Eliminar',
+                    iconCls: 'btnEliminarIcon_16',
+                    itemId: 'btnEliminar',
+                    ref: '../btnEliminar'
+                },
+                {
+                    xtype: 'button',
+                    text: 'Nuevo',
+                    iconCls: 'btnNuevoIcon_16',
+                    itemId: 'btnNuevo',
+                    ref: '../btnNuevo'
+                },
+                {
+                    xtype: 'tbseparator'
+                },
+                {
+                    xtype: 'displayfield',
+                    value: 'Mover A:'
+                },
+                {
+                    xtype: 'combo',
+                    emptyText: 'seleccione destino',
+                    ref: '../cmbMover'
+                },
+                {
+                    xtype: 'button',
+                    text: 'Mover',
+                    iconCls: 'btnMover_16'
+                },
+                {
+                    xtype: 'tbseparator'
+                },
+                {
+                    xtype: 'tbfill'
+                },
+                {
+                    xtype: 'trigger',
+                    triggerClass: 'x-form-search-trigger',
+                    ref: '../txtSearch'
+                }
+            ]
+        };
         this.bbar = {
             xtype: 'paging',
             displayInfo: true
         };
-        this.tbar = {
-            xtype: 'grid16_toolbar'
-        };
         this.columns = [
-            {
-                xtype: 'gridcolumn',
-                header: 'id',
-                dataIndex: 'id',
-                sortable: true,
-                width: 100
-            },
             {
                 xtype: 'gridcolumn',
                 header: 'descripcion',
                 dataIndex: 'descripcion',
                 sortable: true,
-                width: 100
+                width: 100,
+                id: 'colDescripcion'
+            },
+            {
+                xtype: 'gridcolumn',
+                header: 'Estimacion',
+                sortable: true,
+                width: 100,
+                dataIndex: 'estimacion'
             }
         ];
         gridHistoriadeUsuarioUi.superclass.initComponent.call(this);

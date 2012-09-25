@@ -12,8 +12,7 @@
 stoSprints = Ext.extend(Ext.data.JsonStore, {
     constructor: function(cfg) {
         cfg = cfg || {};
-        stoSprints.superclass.constructor.call(this, Ext.apply({
-            storeId: 'MyStore',
+        stoSprints.superclass.constructor.call(this, Ext.apply({            
             root: 'datos',
             fields: [
                 {

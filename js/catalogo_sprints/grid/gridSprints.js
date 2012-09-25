@@ -14,6 +14,7 @@ gridSprints = Ext.extend(gridSprintsUi, {
     initComponent: function() {
         gridSprints.superclass.initComponent.call(this);
 		this.store=new stoProyectos({
+			idProperty:'id',
 			url: '/sprints/listar',
 			api:{
 				read: '/sprints/listar',
@@ -38,6 +39,7 @@ gridSprints = Ext.extend(gridSprintsUi, {
 		this.activarComportamiento();
 	//----------------------------------
 		this.bottomToolbar.doRefresh();
+		
     }
 });
 Ext.reg('gridSprints', gridSprints);

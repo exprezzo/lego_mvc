@@ -13,6 +13,10 @@
 edicionHistoria = Ext.extend(edicionHistoriaUi, {    
 	initComponent: function() {
         edicionHistoria.superclass.initComponent.call(this);
+		this.txtId.setVisible(false);
+		this.txtSprint.setVisible(false);
+		this.txtBacklog.setVisible(false);
+		this.lblProyecto.setVisible(false);
 		this.controlador='historias';
 		
 		this.on("afterrender",function(){
@@ -20,8 +24,9 @@ edicionHistoria = Ext.extend(edicionHistoriaUi, {
 			this.activarComportamiento();			
 		},this);
 		
-		this.on('nuevo',function(){
-			console.log("this nuevo"); console.log(this);
+		
+		
+		this.on('nuevo',function(){			
 			var sprintId=this.initialConfig.masConfig.idSprint;
 			if ( sprintId!=undefined){
 				this.txtSprint.setValue(sprintId);

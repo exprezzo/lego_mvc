@@ -43,8 +43,11 @@ comportamiento_tab_manager={
 	encontrarTab:function(params){
 		
 		for(item in this.items.items){
-			item=this.items.items[item];			
-			if ( item.getTabId != undefined && params.idReg != undefined){				
+			item=this.items.items[item];	
+			
+			if( params.idReg == undefined			)params.idReg=0;
+			
+			if ( item.getTabId != undefined ){				
 				
 				if ( item.getTabId() == params.xtype + '_' + params.idReg ){
 					return item;

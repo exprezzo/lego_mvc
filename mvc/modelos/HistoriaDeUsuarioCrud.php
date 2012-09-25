@@ -10,7 +10,7 @@ require_once 'entidades_de_doctrine/Historia_de_usuario.php';
 require '../lego_core/manejador_crud.php';
 class HistoriaDeUsuarioCrud extends ManejadorCrud{
 	var $modelo="Historia_de_usuario";
-	var $campos=array("id","descripcion", "fk_sprint", "fk_proyecto",'es_backlog');	
+	var $campos=array("id","descripcion", "fk_sprint", "fk_proyecto",'es_backlog','detalles');	
 	
 	function getQueryBusqueda(){
 	
@@ -22,8 +22,7 @@ class HistoriaDeUsuarioCrud extends ManejadorCrud{
 		
 	}
 	function beforeNew($mod) {
-		$mod->fk_proyecto=$_SESSION['MODS']['SCRUM']['PROYECTO_ID'];
-		
+		$mod->fk_proyecto=$_SESSION['MODS']['SCRUM']['PROYECTO_ID'];		
 		return $mod;
 	}
 	

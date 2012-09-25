@@ -90,10 +90,9 @@ class ManejadorCrud {
 		$em=$this->getEm();
 		
 		if (!empty($mod->id) ){
-			$mod = $em->merge($mod);
-			$mod=$this->beforeNew($mod);
+			$mod = $em->merge($mod);			
 		}else{
-			
+			$mod=$this->beforeNew($mod);
 		}
 		 $exito=$em->persist($mod);		  
 		$exito= $em->flush();

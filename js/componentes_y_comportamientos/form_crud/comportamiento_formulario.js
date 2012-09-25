@@ -124,8 +124,8 @@ comportamiento_formulario={
 			}
 		});
 	},
-	getDatos:function(){
-		return this.datos  || this.getForm().getValues();
+	getDatos:function(){			
+		return this.getForm().getValues();
 	},
 	activarComportamiento:function( params ){							
 		if ( this.topToolbar != undefined){
@@ -154,11 +154,26 @@ comportamiento_formulario={
 		
 		this.on('activate',function(){
 			if (this.cargado==undefined){
-				this.cargado=true;
-				//if (this.datos != undefined){
-					this.recargar();					
-				//}
-			}
+			
+			
+				this.cargado=true;																
+				
+				if (this.idReg!=undefined) this.txtId.setValue(this.idReg);
+				this.idReg==undefined;
+				if ( this.esNuevo() ){					
+					this.nuevo();
+				}else{					
+					this.recargar();
+				}
+			}		
 		},this);
+	},
+	esNuevo:function(){
+		var id=this.txtId.getValue();		
+		if (id=='undefined' || id==0){
+			return true;
+		}else{
+			return false;
+		}
 	}
 };

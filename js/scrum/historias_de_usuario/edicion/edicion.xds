@@ -23,7 +23,7 @@
             "userConfig": {
                 "title": "Edicion",
                 "width": 400,
-                "height": 250,
+                "height": "-ext-undefined-",
                 "padding": 10
             },
             "userXType": "edicionHistoria",
@@ -83,8 +83,42 @@
                     "snapToGrid": 10,
                     "userConfig": {
                         "fieldLabel": "Dificultad",
-                        "anchor": "100%",
+                        "anchor": "-ext-undefined-",
                         "name": "dificultad"
+                    }
+                },
+                {
+                    "id": "MyTextField8",
+                    "cid": "textfield",
+                    "jsClass": "MyTextField8",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "fieldLabel": "Proyecto",
+                        "anchor": "100%",
+                        "name": "fk_proyecto",
+                        "autoRef": "lblProyecto"
+                    }
+                },
+                {
+                    "id": "MyTextField6",
+                    "cid": "textfield",
+                    "jsClass": "MyTextField6",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "fieldLabel": "Tiempo estimado",
+                        "anchor": "-ext-undefined-",
+                        "name": "estimado"
+                    }
+                },
+                {
+                    "id": "MyTextField7",
+                    "cid": "textfield",
+                    "jsClass": "MyTextField7",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "fieldLabel": "Estado",
+                        "anchor": "-ext-undefined-",
+                        "name": "estado"
                     }
                 },
                 {
@@ -97,6 +131,18 @@
                         "anchor": "100%",
                         "name": "es_backlog",
                         "autoRef": "txtBacklog"
+                    }
+                },
+                {
+                    "id": "MyTextField5",
+                    "cid": "htmleditor",
+                    "jsClass": "MyTextField5",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "fieldLabel": "Detalles",
+                        "anchor": "100%",
+                        "height": 400,
+                        "name": "detalles"
                     }
                 }
             ]

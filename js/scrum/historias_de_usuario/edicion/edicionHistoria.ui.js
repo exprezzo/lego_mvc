@@ -12,7 +12,6 @@
 edicionHistoriaUi = Ext.extend(Ext.form.FormPanel, {
     title: 'Edicion',
     width: 400,
-    height: 250,
     padding: 10,
     initComponent: function() {
         this.items = [
@@ -40,8 +39,24 @@ edicionHistoriaUi = Ext.extend(Ext.form.FormPanel, {
             {
                 xtype: 'textfield',
                 fieldLabel: 'Dificultad',
-                anchor: '100%',
                 name: 'dificultad'
+            },
+            {
+                xtype: 'textfield',
+                fieldLabel: 'Proyecto',
+                anchor: '100%',
+                name: 'fk_proyecto',
+                ref: 'lblProyecto'
+            },
+            {
+                xtype: 'textfield',
+                fieldLabel: 'Tiempo estimado',
+                name: 'estimado'
+            },
+            {
+                xtype: 'textfield',
+                fieldLabel: 'Estado',
+                name: 'estado'
             },
             {
                 xtype: 'textfield',
@@ -49,6 +64,13 @@ edicionHistoriaUi = Ext.extend(Ext.form.FormPanel, {
                 anchor: '100%',
                 name: 'es_backlog',
                 ref: 'txtBacklog'
+            },
+            {
+                xtype: 'htmleditor',
+                fieldLabel: 'Detalles',
+                anchor: '100%',
+                height: 400,
+                name: 'detalles'
             }
         ];
         this.tbar = {
