@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50508
 File Encoding         : 65001
 
-Date: 2012-09-24 22:27:02
+Date: 2012-09-26 07:29:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -234,7 +234,7 @@ CREATE TABLE `scrum_historias_de_usuario` (
   `fk_sprint` int(11) DEFAULT NULL,
   `detalles` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of scrum_historias_de_usuario
@@ -250,10 +250,15 @@ INSERT INTO `scrum_historias_de_usuario` VALUES ('24', 'Notificar al eliminar el
 INSERT INTO `scrum_historias_de_usuario` VALUES ('26', 'Comportamiento Grid', null, '4', '1', '0', '<br><ul><li>filtrar resultados</li><li><br></li></ul>');
 INSERT INTO `scrum_historias_de_usuario` VALUES ('27', 'Al cambiar de proyecto, refrescar el tab activo', null, null, '1', '0', '');
 INSERT INTO `scrum_historias_de_usuario` VALUES ('28', 'General', null, '1', '1', '0', ' Al hacer click sobre el label proyecto, &nbsp;abrir el catalogo proyecto.');
-INSERT INTO `scrum_historias_de_usuario` VALUES ('29', 'Historias de usuario', null, '1', '1', '0', '');
+INSERT INTO `scrum_historias_de_usuario` VALUES ('29', 'quiero crear Historias de usuario y gestionarlas', null, '1', '1', '0', '<br>quiero que todos puedan crear historias, pero que solo el dueÃ±o de producto pueda agregarlas al backlog y al sprint.<br><br>quiero priorizar las tareas, moviendolas.<br><br>quiero mover las historias entre backlog y srints.<br><br>quiero que las historias realizadas pasen a un historico, a un menu con texto <span style=\"font-weight: bold;\">realizadas</span>.<br><br>quiero que las tareas notifiquen a los participantes del proyecto, de cambios (de estado principalmente), de creacion y de eliminacion.<br>');
 INSERT INTO `scrum_historias_de_usuario` VALUES ('30', 'Comportamiento Formulario', null, '4', '1', '0', 'Limpiar formulario al eliminar, preguntar si desea cerrar');
 INSERT INTO `scrum_historias_de_usuario` VALUES ('31', 'xzcv', null, null, '0', '6', '');
 INSERT INTO `scrum_historias_de_usuario` VALUES ('34', 'saf', null, null, '0', '6', '');
+INSERT INTO `scrum_historias_de_usuario` VALUES ('35', 'selector de proyecto', null, '1', '1', '0', '<br>Refrescar el tab activo al seleccionar proyecto<br><br>autoseleccionar configurable, en caso de no existir un prroyecto seleccionado, todos los modulos lanzan un mensaje de error notificando de la situacion, con opcion de crear y seleccionar un proyecto default<br>');
+INSERT INTO `scrum_historias_de_usuario` VALUES ('36', 'que los usuarios puedan comentar acerca de las historias y tareas', null, '1', '1', '0', '');
+INSERT INTO `scrum_historias_de_usuario` VALUES ('37', 'Implementar roles de Scrum', null, '1', '1', '0', '<br><font color=\"003366\" size=\"6\">Roles de Scrum.</font><br><br><b>DueÃ±o de producto:</b><br><br><b>Arbitro Scrum:</b><br><br><b>equipo de scrum:</b><br><br>');
+INSERT INTO `scrum_historias_de_usuario` VALUES ('38', 'Implementar Reuniones de EstimaciÃ³n', null, '1', '1', '0', '');
+INSERT INTO `scrum_historias_de_usuario` VALUES ('39', 'quiero crear tareas, y gestionarlas', null, '1', '1', '0', '');
 
 -- ----------------------------
 -- Table structure for `scrum_proyectos`
@@ -264,7 +269,7 @@ CREATE TABLE `scrum_proyectos` (
   `nombre` char(255) NOT NULL,
   `descripcion` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of scrum_proyectos
@@ -273,6 +278,7 @@ INSERT INTO `scrum_proyectos` VALUES ('1', 'Scrum', null);
 INSERT INTO `scrum_proyectos` VALUES ('2', 'Lego MVC', null);
 INSERT INTO `scrum_proyectos` VALUES ('3', 'Facturacion', null);
 INSERT INTO `scrum_proyectos` VALUES ('4', 'Coral App', null);
+INSERT INTO `scrum_proyectos` VALUES ('5', 'asd', null);
 
 -- ----------------------------
 -- Table structure for `scrum_sprint`
@@ -336,7 +342,7 @@ CREATE TABLE `sistema_usuarios` (
   `email` char(255) NOT NULL,
   `pass` char(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sistema_usuarios

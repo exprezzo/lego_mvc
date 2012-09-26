@@ -14,7 +14,7 @@ frmProyecto = Ext.extend(frmProyectoUi, {
     initComponent: function() {
         frmProyecto.superclass.initComponent.call(this);
 		
-		this.txtId.setVisible(false);
+		//this.txtId.setVisible(false);
 		
 		this.controlador='proyectos';
 		

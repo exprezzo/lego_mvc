@@ -34,12 +34,13 @@
                         "title": "-ext-undefined-",
                         "region": "north",
                         "width": 100,
-                        "height": 100,
-                        "frame": true,
+                        "height": 45,
+                        "frame": "-ext-undefined-",
                         "collapsible": true,
                         "collapseMode": "mini",
                         "split": true,
-                        "hideCollapseTool": true
+                        "hideCollapseTool": true,
+                        "cls": "x-panel-mc"
                     }
                 },
                 {
@@ -78,7 +79,8 @@
                                     "userConfig": {
                                         "title": "Home",
                                         "bodyStyle": "padding:10px;",
-                                        "autoRef": "pnlHome"
+                                        "autoRef": "pnlHome",
+                                        "cls": ""
                                     }
                                 }
                             ]

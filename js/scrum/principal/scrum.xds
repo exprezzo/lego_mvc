@@ -184,100 +184,6 @@
                     ]
                 },
                 {
-                    "id": "MyToolbar1",
-                    "cid": "toolbar",
-                    "jsClass": "crud16_toolbar",
-                    "dock": "tbar",
-                    "snapToGrid": 10,
-                    "userXType": "mytoolbar",
-                    "cn": [
-                        {
-                            "id": "MyButton1",
-                            "cid": "button",
-                            "jsClass": "MyButton",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "text": "Guardar",
-                                "iconCls": "btnGuardarIcon_16",
-                                "itemId": "btnGuardar",
-                                "autoRef": "btnGuardar",
-                                "scale": "-ext-undefined-",
-                                "arrowAlign": "bottom",
-                                "iconAlign": "-ext-undefined-",
-                                "icon": "-ext-undefined-"
-                            }
-                        },
-                        {
-                            "id": "MyButton2",
-                            "cid": "button",
-                            "jsClass": "MyButton1",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "text": "Eliminar",
-                                "iconCls": "btnEliminarIcon_16",
-                                "itemId": "btnEliminar",
-                                "autoRef": "btnEliminar",
-                                "scale": "-ext-undefined-",
-                                "iconAlign": "-ext-undefined-"
-                            }
-                        },
-                        {
-                            "id": "MyButton3",
-                            "cid": "button",
-                            "jsClass": "MyButton2",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "text": "Nuevo",
-                                "iconCls": "btnNuevoIcon_16",
-                                "itemId": "btnNuevo",
-                                "autoRef": "btnNuevo",
-                                "scale": "-ext-undefined-",
-                                "iconAlign": "-ext-undefined-"
-                            }
-                        },
-                        {
-                            "id": "MyButton4",
-                            "cid": "button",
-                            "jsClass": "MyButton3",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "text": "Recargar",
-                                "iconCls": "btnRecargarIcon_16",
-                                "itemId": "btnRecargar",
-                                "autoRef": "btnRecargar",
-                                "scale": "-ext-undefined-",
-                                "iconAlign": "-ext-undefined-"
-                            }
-                        },
-                        {
-                            "id": "MySeparator",
-                            "cid": "tbseparator",
-                            "jsClass": "MySeparator",
-                            "snapToGrid": 10
-                        },
-                        {
-                            "id": "MyFill1",
-                            "cid": "tbfill",
-                            "jsClass": "MyFill",
-                            "snapToGrid": 10
-                        },
-                        {
-                            "id": "MyButton5",
-                            "cid": "button",
-                            "jsClass": "MyButton4",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "text": "Switch",
-                                "iconCls": "btnSwitchIcon_16",
-                                "itemId": "btnSwitch",
-                                "autoRef": "btnSwitch",
-                                "scale": "-ext-undefined-",
-                                "iconAlign": "-ext-undefined-"
-                            }
-                        }
-                    ]
-                },
-                {
                     "id": "MyTabPanel",
                     "cid": "tabpanel",
                     "jsClass": "MyTabPanel",
@@ -329,7 +235,7 @@
                 "storeId": "stoProyectos",
                 "root": "datos",
                 "url": "/proyectos/listar",
-                "idProperty": "stoProyectos"
+                "idProperty": "-ext-undefined-"
             },
             "cn": [
                 {

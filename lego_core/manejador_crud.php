@@ -151,7 +151,7 @@ class ManejadorCrud {
 	
 	function getConexion(){
 		$classLoader = new ClassLoader('Doctrine', '../terceros/DoctrineORM-2.3.0-RC1/','../mvc/doctrine/','../mvc/doctrine/entities','/mvc/doctrine/entities/','/mvc/doctrine/');
-		$classLoader->register();
+	$classLoader->register();
 		$config = new \Doctrine\DBAL\Configuration();
 		
 		$connectionParams = array(

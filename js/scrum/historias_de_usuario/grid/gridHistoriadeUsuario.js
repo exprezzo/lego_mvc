@@ -52,9 +52,19 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 		this.on('afterrender',function(){
 			this.cmbMover.store=new stoProyectos({
 				idProperty:'id',
-				url: '/scrum/getDestinos'			
+				url: '/historias/getDestinos'
 			});
+			
+			this.cmbMover.store.on('beforeload',function(store, options){
+				options.params.tipo=this.initialConfig.tipo;
+				if (this.initialConfig.tipo=='sprint'){
+					options.params.sprintId=this.initialConfig.idSprint;
+				}
+			},this);
+			
 		},this);
+		
+		
 		
 	}
 });

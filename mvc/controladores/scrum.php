@@ -43,18 +43,30 @@ class Scrum extends Controlador{
 		
 		return $respuesta;
 	}
+	/*
+	getDestinos: nos da las ubicaciones a donde podemos mover nuestra historia de usuario
 	
-	function getDestinos(){
-		//del proyecto actual, devuelvo una lista con el backlog y todos los sprints, omitiendo el origen de la historia.
-		$es_backlog=true;
-		if ($es_backlog){
-			$query=	"Select * form sprints where fk_proyecto =: fk_proyecto AND es_backlog=true";
-		}else{
-			$query=	"Select * form sprints where fk_proyecto =: fk_proyecto  AND es_backlog=false sprint_id!=:sprint_id";
+	params: 
+	
+	esBacklog: booleano
+	sprintId: identificador del sprint de origen
+	
+	*/
+	function getModelObject(){		
+		if ( empty( $_SESSION['MODS']['SCRUM']['PROYECTO_ID'] ) ){
+			$resp=array(
+				'success'=>false,
+				'msg'=>'Scrum: Seleccione un proyecto'
+			);			
+			echo json_encode($resp);exit;			
 		}
 		
+		if ( !isset($this->modObj) ){	
+			$this->modObj = new SprintCrud();	
+		}
 		
-		//$PROYECTO_ID = $_SESSION['MODS']['SCRUM']['PROYECTO_ID']
+		return $this->modObj;
 	}
+	
 }
 ?>

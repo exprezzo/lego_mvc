@@ -17,12 +17,12 @@ main_layoutUi = Ext.extend(Ext.Viewport, {
                 xtype: 'panel',
                 region: 'north',
                 width: 100,
-                height: 100,
-                frame: true,
+                height: 45,
                 collapsible: true,
                 collapseMode: 'mini',
                 split: true,
-                hideCollapseTool: true
+                hideCollapseTool: true,
+                cls: 'x-panel-mc'
             },
             {
                 xtype: 'panel',
@@ -42,6 +42,7 @@ main_layoutUi = Ext.extend(Ext.Viewport, {
                                 xtype: 'panel',
                                 title: 'Home',
                                 bodyStyle: 'padding:10px;',
+                                cls: '',
                                 ref: '../../pnlHome'
                             }
                         ]
@@ -56,6 +57,7 @@ main_layoutUi = Ext.extend(Ext.Viewport, {
                         collapseMode: 'mini',
                         border: false,
                         style: 'border-style: sodli;border-width:0 1px 0 0;',
+                        autoShow: true,
                         items: [
                             {
                                 xtype: 'treepanel',

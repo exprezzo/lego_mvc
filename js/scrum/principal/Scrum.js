@@ -81,6 +81,16 @@ Scrum = Ext.extend(ScrumUi, {
 			}
 		},this);
 		
+		this.lblProyecto.on('render',function(){
+			this.lblProyecto.el.on('click',function(){
+				var params={
+					xtype:'gridProyectos',
+					icon:'/imagenes/Human-O2/16x16/actions/gtk-preferences.png'					
+				}
+				this.tabPanel.mostrarTab(params);	
+			},this);
+		},this);
+		
 		// Para observar el movimiento de los nodos
 		var root=this.arbolGrid.getRootNode();
 		this.observarNodo(root);							

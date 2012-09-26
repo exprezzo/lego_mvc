@@ -16,7 +16,6 @@ stoProyectos = Ext.extend(Ext.data.JsonStore, {
             storeId: 'stoProyectos',
             root: 'datos',
             url: '/proyectos/listar',
-            idProperty: 'stoProyectos',
             fields: [
                 {
                     name: 'id'

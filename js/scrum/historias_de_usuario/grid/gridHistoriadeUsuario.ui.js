@@ -49,12 +49,16 @@ gridHistoriadeUsuarioUi = Ext.extend(Ext.grid.GridPanel, {
                 {
                     xtype: 'combo',
                     emptyText: 'seleccione destino',
+                    displayField: 'nombre',
+                    valueField: 'id',
+                    minChars: 0,
                     ref: '../cmbMover'
                 },
                 {
                     xtype: 'button',
                     text: 'Mover',
-                    iconCls: 'btnMover_16'
+                    iconCls: 'btnMover_16',
+                    ref: '../btnMover'
                 },
                 {
                     xtype: 'tbseparator'
