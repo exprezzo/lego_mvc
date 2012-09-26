@@ -103,7 +103,10 @@
                             "snapToGrid": 10,
                             "userConfig": {
                                 "emptyText": "seleccione destino",
-                                "autoRef": "cmbMover"
+                                "autoRef": "cmbMover",
+                                "displayField": "nombre",
+                                "valueField": "id",
+                                "minChars": 0
                             }
                         },
                         {
@@ -113,7 +116,8 @@
                             "snapToGrid": 10,
                             "userConfig": {
                                 "text": "Mover",
-                                "iconCls": "btnMover_16"
+                                "iconCls": "btnMover_16",
+                                "autoRef": "btnMover"
                             }
                         },
                         {

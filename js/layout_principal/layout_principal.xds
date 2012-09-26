@@ -99,7 +99,8 @@
                                 "split": true,
                                 "collapseMode": "mini",
                                 "border": false,
-                                "style": "border-style: sodli;border-width:0 1px 0 0;"
+                                "style": "border-style: sodli;border-width:0 1px 0 0;",
+                                "autoShow": true
                             },
                             "cn": [
                                 {
