@@ -32,7 +32,7 @@ ScrumUi = Ext.extend(Ext.Panel, {
                     id: 'proyecto',
                     children: [
                         {
-                            text: 'Backlog',
+                            text: 'Pila de producto',
                             draggable: true,
                             leaf: true,
                             id: 'backlog'

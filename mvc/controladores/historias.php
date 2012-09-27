@@ -3,6 +3,53 @@
 require_once '../mvc/modelos/HistoriaDeUsuarioCrud.php';
 
 class Historias extends Controlador{ 
+	
+	function mover(){
+		
+		$idDestino = $_POST['idDestino'];
+		
+		if ($idDestino=='backlog'){
+			$es_backlog=1;
+			$fk_sprint=0;
+		}else{
+			$fk_sprint=$idDestino;
+			$es_backlog=0;
+		}
+		
+		$idHistoria = $_POST['idHistoria'];
+		$fk_proyecto= $_SESSION['MODS']['SCRUM']['PROYECTO_ID'];
+		
+		try{
+			$modelo=$this->getModelObject();
+			$entityManager=$modelo->getEM();
+			$con = $modelo->getConexion();				
+			
+			$sql=	"UPDATE scrum_historias_de_usuario set fk_sprint=:fk_sprint, es_backlog=:es_backlog where fk_proyecto =:fk_proyecto and id=:idHistoria";
+			$sth = $con->prepare($sql);
+			
+			$sth->bindValue(':fk_proyecto',$fk_proyecto,PDO::PARAM_INT);			
+			$sth->bindValue(':fk_sprint',$fk_sprint,PDO::PARAM_INT);			
+			$sth->bindValue(':es_backlog',$es_backlog,PDO::PARAM_INT);			
+			$sth->bindValue(':idHistoria',$idHistoria,PDO::PARAM_INT);			
+			
+			$exito = $sth->execute();
+
+			if ( !$exito ){
+				throw new Exception("Error listando: ".$sql); //TODO: agregar numero de error, crear una exception MiEscepcion
+			}		
+			
+			$res=array(
+				'success'=>true,
+				'msg'=>'Historia movida'
+			);
+			
+			echo json_encode($res);
+			return $res;			
+		}catch(Exception $e){
+			echo $e; exit;
+		}			
+	}
+
 	function getDestinos(){
 		//del proyecto actual, devuelvo una lista con el backlog y todos los sprints, omitiendo el origen de la historia.
 		

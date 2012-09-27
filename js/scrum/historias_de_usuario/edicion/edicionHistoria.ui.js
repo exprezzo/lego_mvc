@@ -13,7 +13,63 @@ edicionHistoriaUi = Ext.extend(Ext.form.FormPanel, {
     title: 'Edicion',
     width: 400,
     padding: 10,
+    autoScroll: true,
     initComponent: function() {
+        this.tbar = {
+            xtype: 'toolbar',
+            items: [
+                {
+                    xtype: 'button',
+                    text: 'Guardar',
+                    iconCls: 'btnGuardarIcon_16',
+                    itemId: 'btnGuardar',
+                    arrowAlign: 'bottom',
+                    ref: '../btnGuardar'
+                },
+                {
+                    xtype: 'button',
+                    text: 'Eliminar',
+                    iconCls: 'btnEliminarIcon_16',
+                    itemId: 'btnEliminar',
+                    ref: '../btnEliminar'
+                },
+                {
+                    xtype: 'button',
+                    text: 'Nuevo',
+                    iconCls: 'btnNuevoIcon_16',
+                    itemId: 'btnNuevo',
+                    ref: '../btnNuevo'
+                },
+                {
+                    xtype: 'button',
+                    text: 'Recargar',
+                    iconCls: 'btnRecargarIcon_16',
+                    itemId: 'btnRecargar',
+                    ref: '../btnRecargar'
+                },
+                {
+                    xtype: 'tbseparator'
+                },
+                {
+                    xtype: 'label',
+                    text: 'Estado:'
+                },
+                {
+                    xtype: 'tbspacer',
+                    width: 10
+                },
+                {
+                    xtype: 'combo'
+                },
+                {
+                    xtype: 'tbspacer',
+                    width: 10
+                },
+                {
+                    xtype: 'tbfill'
+                }
+            ]
+        };
         this.items = [
             {
                 xtype: 'textfield',
@@ -38,8 +94,9 @@ edicionHistoriaUi = Ext.extend(Ext.form.FormPanel, {
             },
             {
                 xtype: 'textfield',
-                fieldLabel: 'Dificultad',
-                name: 'dificultad'
+                fieldLabel: 'Importancia',
+                name: 'importancia',
+                width: 150
             },
             {
                 xtype: 'textfield',
@@ -50,13 +107,21 @@ edicionHistoriaUi = Ext.extend(Ext.form.FormPanel, {
             },
             {
                 xtype: 'textfield',
-                fieldLabel: 'Tiempo estimado',
-                name: 'estimado'
+                fieldLabel: 'Estimación inicial',
+                name: 'estimado',
+                width: 150
+            },
+            {
+                xtype: 'displayfield',
+                value: '<label style="cursor:pointer !important;">puntos de historia</label>',
+                style: 'text-decoration:underline;\ncursor:pointer !important;\ntop:-5px;\nposition:relative;\ntext-align:right;',
+                width: 150
             },
             {
                 xtype: 'textfield',
                 fieldLabel: 'Estado',
-                name: 'estado'
+                name: 'estado',
+                ref: 'txtEstado'
             },
             {
                 xtype: 'textfield',
@@ -67,16 +132,19 @@ edicionHistoriaUi = Ext.extend(Ext.form.FormPanel, {
             },
             {
                 xtype: 'htmleditor',
-                fieldLabel: 'Detalles',
+                fieldLabel: 'Notas',
                 anchor: '100%',
                 height: 400,
                 name: 'detalles'
+            },
+            {
+                xtype: 'textarea',
+                anchor: '100%',
+                fieldLabel: 'Como probarlo',
+                name: 'como_probarlo',
+                height: 200
             }
         ];
-        this.tbar = {
-            ref: 'tbCrud',
-            xtype: 'crud16_toolbar'
-        };
         edicionHistoriaUi.superclass.initComponent.call(this);
     }
 });

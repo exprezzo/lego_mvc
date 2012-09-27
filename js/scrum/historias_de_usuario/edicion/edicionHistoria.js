@@ -16,6 +16,7 @@ edicionHistoria = Ext.extend(edicionHistoriaUi, {
 		this.txtId.setVisible(false);
 		this.txtSprint.setVisible(false);
 		this.txtBacklog.setVisible(false);
+		this.txtEstado.setVisible(false);
 		this.lblProyecto.setVisible(false);
 		this.controlador='historias';
 		
@@ -36,6 +37,8 @@ edicionHistoria = Ext.extend(edicionHistoriaUi, {
 				this.txtBacklog.setValue(1);
 			}
 		},this);
+		
+		
 			
 		
     },

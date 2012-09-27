@@ -48,24 +48,55 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 		this.configComboMover();
     },
 	configComboMover:function(){
-		console.log(this);
+		//console.log(this);
+		
 		this.on('afterrender',function(){
 			this.cmbMover.store=new stoProyectos({
 				idProperty:'id',
 				url: '/historias/getDestinos'
 			});
 			
-			this.cmbMover.store.on('beforeload',function(store, options){
+			this.cmbMover.store.on('beforeload', function(store, options){
 				options.params.tipo=this.initialConfig.tipo;
 				if (this.initialConfig.tipo=='sprint'){
 					options.params.sprintId=this.initialConfig.idSprint;
 				}
-			},this);
-			
+			},this);			
+		},this);		
+		
+		this.btnMover.on('click',function(){
+			this.moverHistoria();
 		},this);
-		
-		
-		
+	},
+	moverHistoria:function(){
+		//alert("moverHistoria");
+		var grid=this.getGrid();
+		var sel=grid.getSelected();
+		//var sel=selMod.getSelection();
+		console.log(sel);
+		if (sel==undefined) return;
+		var params={
+			idHistoria:sel.id,
+			idDestino:this.cmbMover.getValue()
+		} ;
+		Ext.Ajax.request({
+		   url: '/historias/mover',
+		   params: params,
+		   scope:this,
+		   success: function(response, opts){
+			  var result = Ext.decode(response.responseText);
+			  if (result.success===true){
+				this.getGrid().bottomToolbar.doRefresh();
+				if (result.msg)
+					topMsg.setAlert("Historias", result.msg); 
+			  }else{				
+					alert(result.msg); 
+			  }			  
+		   },
+		   failure: function(response, opts) {
+			  //console.log('server-side failure with status code ' + response.status);
+		   }
+		});
 	}
 });
 Ext.reg('gridHistoriadeUsuario', gridHistoriadeUsuario);

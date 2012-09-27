@@ -24,10 +24,124 @@
                 "title": "Edicion",
                 "width": 400,
                 "height": "-ext-undefined-",
-                "padding": 10
+                "padding": 10,
+                "autoScroll": true
             },
             "userXType": "edicionHistoria",
             "cn": [
+                {
+                    "id": "MyToolbar2",
+                    "cid": "toolbar",
+                    "jsClass": "BORRAR_crud16_toolbar",
+                    "dock": "tbar",
+                    "snapToGrid": 10,
+                    "userXType": "crud16_toolbar",
+                    "cn": [
+                        {
+                            "id": "MyButton6",
+                            "cid": "button",
+                            "jsClass": "MyButton",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Guardar",
+                                "iconCls": "btnGuardarIcon_16",
+                                "itemId": "btnGuardar",
+                                "autoRef": "btnGuardar",
+                                "scale": "-ext-undefined-",
+                                "arrowAlign": "bottom",
+                                "iconAlign": "-ext-undefined-",
+                                "icon": "-ext-undefined-"
+                            }
+                        },
+                        {
+                            "id": "MyButton7",
+                            "cid": "button",
+                            "jsClass": "MyButton1",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Eliminar",
+                                "iconCls": "btnEliminarIcon_16",
+                                "itemId": "btnEliminar",
+                                "autoRef": "btnEliminar",
+                                "scale": "-ext-undefined-",
+                                "iconAlign": "-ext-undefined-"
+                            }
+                        },
+                        {
+                            "id": "MyButton8",
+                            "cid": "button",
+                            "jsClass": "MyButton2",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Nuevo",
+                                "iconCls": "btnNuevoIcon_16",
+                                "itemId": "btnNuevo",
+                                "autoRef": "btnNuevo",
+                                "scale": "-ext-undefined-",
+                                "iconAlign": "-ext-undefined-"
+                            }
+                        },
+                        {
+                            "id": "MyButton9",
+                            "cid": "button",
+                            "jsClass": "MyButton3",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Recargar",
+                                "iconCls": "btnRecargarIcon_16",
+                                "itemId": "btnRecargar",
+                                "autoRef": "btnRecargar",
+                                "scale": "-ext-undefined-",
+                                "iconAlign": "-ext-undefined-"
+                            }
+                        },
+                        {
+                            "id": "MySeparator1",
+                            "cid": "tbseparator",
+                            "jsClass": "MySeparator",
+                            "snapToGrid": 10
+                        },
+                        {
+                            "id": "MyLabel",
+                            "cid": "label",
+                            "jsClass": "MyLabel",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Estado:"
+                            }
+                        },
+                        {
+                            "id": "MySpacer1",
+                            "cid": "tbspacer",
+                            "jsClass": "MySpacer",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "width": 10
+                            }
+                        },
+                        {
+                            "id": "MyCombo",
+                            "cid": "combobox",
+                            "jsClass": "MyCombo",
+                            "snapToGrid": 10
+                        },
+                        {
+                            "id": "MySpacer",
+                            "cid": "tbspacer",
+                            "jsClass": "MySpacer",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "width": 10
+                            }
+                        },
+                        {
+                            "id": "MyFill1",
+                            "cid": "tbfill",
+                            "jsClass": "MyFill",
+                            "snapToGrid": 10
+                        }
+                    ]
+                },
                 {
                     "id": "MyTextField",
                     "cid": "textfield",
@@ -53,18 +167,6 @@
                     }
                 },
                 {
-                    "id": "MyUserComponent",
-                    "cid": "usercomponent",
-                    "jsClass": "BORRAR_crud16_toolbar",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "jsClass": "BORRAR_crud16_toolbar",
-                        "userXType": "crud16_toolbar",
-                        "autoRef": "tbCrud"
-                    },
-                    "userComponent": "MyToolbar2"
-                },
-                {
                     "id": "MyTextField1",
                     "cid": "textfield",
                     "jsClass": "MyTextField1",
@@ -82,9 +184,10 @@
                     "jsClass": "MyTextField3",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "fieldLabel": "Dificultad",
+                        "fieldLabel": "Importancia",
                         "anchor": "-ext-undefined-",
-                        "name": "dificultad"
+                        "name": "importancia",
+                        "width": 150
                     }
                 },
                 {
@@ -105,9 +208,24 @@
                     "jsClass": "MyTextField6",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "fieldLabel": "Tiempo estimado",
+                        "fieldLabel": "Estimación inicial",
                         "anchor": "-ext-undefined-",
-                        "name": "estimado"
+                        "name": "estimado",
+                        "width": 150
+                    }
+                },
+                {
+                    "id": "MyDisplayField",
+                    "cid": "displayfield",
+                    "jsClass": "MyDisplayField",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "value": "<label style=\"cursor:pointer !important;\">puntos de historia</label>",
+                        "fieldLabel": "-ext-undefined-",
+                        "anchor": "-ext-undefined-",
+                        "hideLabel": "-ext-undefined-",
+                        "style": "text-decoration:underline;\ncursor:pointer !important;\ntop:-5px;\nposition:relative;\ntext-align:right;",
+                        "width": 150
                     }
                 },
                 {
@@ -118,7 +236,8 @@
                     "userConfig": {
                         "fieldLabel": "Estado",
                         "anchor": "-ext-undefined-",
-                        "name": "estado"
+                        "name": "estado",
+                        "autoRef": "txtEstado"
                     }
                 },
                 {
@@ -139,104 +258,22 @@
                     "jsClass": "MyTextField5",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "fieldLabel": "Detalles",
+                        "fieldLabel": "Notas",
                         "anchor": "100%",
                         "height": 400,
                         "name": "detalles"
                     }
-                }
-            ]
-        },
-        {
-            "id": "MyToolbar2",
-            "cid": "toolbar",
-            "jsClass": "BORRAR_crud16_toolbar",
-            "dock": "tbar",
-            "snapToGrid": 10,
-            "userXType": "crud16_toolbar",
-            "cn": [
+                },
                 {
-                    "id": "MyButton6",
-                    "cid": "button",
-                    "jsClass": "MyButton",
+                    "id": "MyTextArea",
+                    "cid": "textarea",
+                    "jsClass": "MyTextArea",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "text": "Guardar",
-                        "iconCls": "btnGuardarIcon_16",
-                        "itemId": "btnGuardar",
-                        "autoRef": "btnGuardar",
-                        "scale": "-ext-undefined-",
-                        "arrowAlign": "bottom",
-                        "iconAlign": "-ext-undefined-",
-                        "icon": "-ext-undefined-"
-                    }
-                },
-                {
-                    "id": "MyButton7",
-                    "cid": "button",
-                    "jsClass": "MyButton1",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "text": "Eliminar",
-                        "iconCls": "btnEliminarIcon_16",
-                        "itemId": "btnEliminar",
-                        "autoRef": "btnEliminar",
-                        "scale": "-ext-undefined-",
-                        "iconAlign": "-ext-undefined-"
-                    }
-                },
-                {
-                    "id": "MyButton8",
-                    "cid": "button",
-                    "jsClass": "MyButton2",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "text": "Nuevo",
-                        "iconCls": "btnNuevoIcon_16",
-                        "itemId": "btnNuevo",
-                        "autoRef": "btnNuevo",
-                        "scale": "-ext-undefined-",
-                        "iconAlign": "-ext-undefined-"
-                    }
-                },
-                {
-                    "id": "MyButton9",
-                    "cid": "button",
-                    "jsClass": "MyButton3",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "text": "Recargar",
-                        "iconCls": "btnRecargarIcon_16",
-                        "itemId": "btnRecargar",
-                        "autoRef": "btnRecargar",
-                        "scale": "-ext-undefined-",
-                        "iconAlign": "-ext-undefined-"
-                    }
-                },
-                {
-                    "id": "MySeparator1",
-                    "cid": "tbseparator",
-                    "jsClass": "MySeparator",
-                    "snapToGrid": 10
-                },
-                {
-                    "id": "MyFill1",
-                    "cid": "tbfill",
-                    "jsClass": "MyFill",
-                    "snapToGrid": 10
-                },
-                {
-                    "id": "MyButton10",
-                    "cid": "button",
-                    "jsClass": "MyButton4",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "text": "Switch",
-                        "iconCls": "btnSwitchIcon",
-                        "itemId": "btnSwitch",
-                        "autoRef": "btnSwitch",
-                        "scale": "-ext-undefined-",
-                        "iconAlign": "-ext-undefined-"
+                        "anchor": "100%",
+                        "fieldLabel": "Como probarlo",
+                        "name": "como_probarlo",
+                        "height": 200
                     }
                 }
             ]
