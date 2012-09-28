@@ -64,6 +64,18 @@ gridHistoriadeUsuarioUi = Ext.extend(Ext.grid.GridPanel, {
                     xtype: 'tbseparator'
                 },
                 {
+                    xtype: 'button',
+                    iconCls: 'btnDown_16',
+                    itemId: 'btnDown',
+                    ref: '../btnDown'
+                },
+                {
+                    xtype: 'button',
+                    iconCls: 'btnUp_16',
+                    itemId: 'btnUp',
+                    ref: '../btnUp'
+                },
+                {
                     xtype: 'tbfill'
                 },
                 {

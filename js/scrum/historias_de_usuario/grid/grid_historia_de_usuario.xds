@@ -127,6 +127,30 @@
                             "snapToGrid": 10
                         },
                         {
+                            "id": "MyButton4",
+                            "cid": "button",
+                            "jsClass": "MyButton4",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "-ext-undefined-",
+                                "iconCls": "btnDown_16",
+                                "itemId": "btnDown",
+                                "autoRef": "btnDown"
+                            }
+                        },
+                        {
+                            "id": "MyButton5",
+                            "cid": "button",
+                            "jsClass": "MyButton4",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "-ext-undefined-",
+                                "iconCls": "btnUp_16",
+                                "autoRef": "btnUp",
+                                "itemId": "btnUp"
+                            }
+                        },
+                        {
                             "id": "MyFill",
                             "cid": "tbfill",
                             "jsClass": "MyFill",

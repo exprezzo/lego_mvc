@@ -15,12 +15,12 @@ class HistoriaDeUsuarioCrud extends ManejadorCrud{
 	function getQueryBusqueda(){
 	
 		if ($_POST['tipo']=='sprint'){
-			return "SELECT m FROM ".$this->modelo." m WHErE m.descripcion LIKE :query AND  m.fk_proyecto=:fk_proyecto AND m.es_backlog=0 AND m.fk_sprint=:fk_sprint"; 
+			return "SELECT m FROM ".$this->modelo." m WHErE m.descripcion LIKE :query AND  m.fk_proyecto=:fk_proyecto AND m.es_backlog=0 AND m.fk_sprint=:fk_sprint order by m.prioridad DESC"; 
 		}else if ($_POST['tipo']=='backlog'){
-			return "SELECT m FROM ".$this->modelo." m WHErE m.descripcion LIKE :query AND  m.fk_proyecto=:fk_proyecto AND m.es_backlog=1"; 
-		}
-		
+			return "SELECT m FROM ".$this->modelo." m WHErE m.descripcion LIKE :query AND  m.fk_proyecto=:fk_proyecto AND m.es_backlog=1 order by m.prioridad DESC"; 
+		}	
 	}
+	
 	function beforeNew($mod) {
 		$mod->fk_proyecto=$_SESSION['MODS']['SCRUM']['PROYECTO_ID'];		
 		return $mod;
@@ -35,6 +35,93 @@ class HistoriaDeUsuarioCrud extends ManejadorCrud{
 		}
 		
 		return $query;
+	}
+	
+	function moverArriba($idHistoria){
+		$success=false;
+		
+		$aMover=$this->obtener(array('id'=>$idHistoria));
+		
+		
+		$query= "SELECT m FROM ".$this->modelo." m WHErE m.prioridad >:prioridad AND m.fk_sprint=:fk_sprint order by m.prioridad ASC"; 
+		$em=$this->getEM();
+		$query = $em->createQuery($query)
+			->setFirstResult(0)
+			->setMaxResults(1);	
+			
+		$query->setParameter(':prioridad',$aMover->prioridad);
+		$query->setParameter(':fk_sprint',$aMover->fk_sprint);
+		
+		$destino = $query->getResult();
+
+		if ( empty($destino) ){
+			return array("success"=>false,'msg'=>'no existen elementos de mayor prioridad');		
+		}
+		$destino=$destino[0];
+		
+		$prioridadOrigen=$aMover->prioridad;		
+		$prioridadDestino=$destino->prioridad;
+		
+		
+		
+		
+		
+		
+		$destino = $em->merge($destino);		
+		$aMover = $em->merge($aMover);
+		
+		$aMover->prioridad=$prioridadDestino;
+		$destino->prioridad = $prioridadOrigen;
+		
+		$success=$em->flush();
+		
+		//PENDIENTE: ¿Y SI NO SE MOVIO NADA?
+		$success=true;
+		
+		return array("success"=>$success,'msg'=>'En proceso moverArriba');		
+	}
+	
+	function moverAbajo($idHistoria){
+		$success=false;
+		
+		$aMover=$this->obtener(array('id'=>$idHistoria));
+		
+		
+		$query= "SELECT m FROM ".$this->modelo." m WHErE m.prioridad <:prioridad AND m.fk_sprint=:fk_sprint order by m.prioridad DESC"; 
+		$em=$this->getEM();
+		$query = $em->createQuery($query)
+			->setFirstResult(0)
+			->setMaxResults(1);	
+			
+		$query->setParameter(':prioridad',$aMover->prioridad);
+		$query->setParameter(':fk_sprint',$aMover->fk_sprint);
+		
+		$destino = $query->getResult();
+
+		if ( empty($destino) ){
+			return array("success"=>false,'msg'=>'no existen elementos de mayor prioridad');		
+		}
+		$destino=$destino[0];
+		
+		$prioridadOrigen=$aMover->prioridad;		
+		$prioridadDestino=$destino->prioridad;
+		
+		$destino = $em->merge($destino);		
+		$aMover = $em->merge($aMover);
+		
+		$aMover->prioridad=$prioridadDestino;
+		$destino->prioridad = $prioridadOrigen;
+		
+		$success=$em->flush();
+		
+		//PENDIENTE: ¿Y SI NO SE MOVIO NADA?
+		$success=true;
+		
+		return array("success"=>$success,'msg'=>'En proceso moverArriba','movido'=>$aMover->id);		
+	}
+	
+	function mover(){
+		
 	}
 }
 ?>

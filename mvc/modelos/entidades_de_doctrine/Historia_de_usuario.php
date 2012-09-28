@@ -15,6 +15,9 @@ class Historia_de_usuario
 	/** @Column(type="integer") **/
     public $fk_sprint;
 	/** @Column(type="integer") **/
+    public $prioridad;
+	/** @Column(type="integer") **/
+	
     public $es_backlog;	
 	/** @Column(type="string") **/
     public $detalles;	
