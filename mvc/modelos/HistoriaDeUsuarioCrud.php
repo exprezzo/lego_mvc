@@ -7,10 +7,10 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 
 require_once 'entidades_de_doctrine/Historia_de_usuario.php';
-require '../lego_core/manejador_crud.php';
+require_once '../lego_core/manejador_crud.php';
 class HistoriaDeUsuarioCrud extends ManejadorCrud{
 	var $modelo="Historia_de_usuario";
-	var $campos=array("id","descripcion", "fk_sprint", "fk_proyecto",'es_backlog','detalles');	
+	var $campos=array("id","descripcion",'fk_estado', "fk_sprint", "fk_proyecto",'es_backlog','detalles','prioridad');	
 	
 	function getQueryBusqueda(){
 	
@@ -123,5 +123,19 @@ class HistoriaDeUsuarioCrud extends ManejadorCrud{
 	function mover(){
 		
 	}
+	
+
+	function obtener($params){
+		$em = $this->getEM();
+		
+
+		$id=$params['id'];				
+		$modelo = $em->find( $this->modelo, $id );		
+		
+		print_r($modelo->Estado);
+		$nombre=$modelo->Estado->nombre;
+		return $modelo;		
+	}
+	
 }
 ?>

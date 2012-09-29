@@ -1,5 +1,6 @@
 <?php
 
+require_once '../mvc/modelos/EstadosHistoriaCrud.php';
 require_once '../mvc/modelos/HistoriaDeUsuarioCrud.php';
 
 class Historias extends Controlador{ 

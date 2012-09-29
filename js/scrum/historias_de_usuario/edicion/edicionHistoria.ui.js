@@ -59,7 +59,11 @@ edicionHistoriaUi = Ext.extend(Ext.form.FormPanel, {
                     width: 10
                 },
                 {
-                    xtype: 'combo'
+                    xtype: 'combo',
+                    displayField: 'nombre',
+                    valueField: 'id',
+                    minChars: 0,
+                    ref: '../cmbEstado'
                 },
                 {
                     xtype: 'tbspacer',
@@ -94,8 +98,8 @@ edicionHistoriaUi = Ext.extend(Ext.form.FormPanel, {
             },
             {
                 xtype: 'textfield',
-                fieldLabel: 'Importancia',
-                name: 'importancia',
+                fieldLabel: 'Prioridad',
+                name: 'prioridad',
                 width: 150
             },
             {
@@ -120,8 +124,15 @@ edicionHistoriaUi = Ext.extend(Ext.form.FormPanel, {
             {
                 xtype: 'textfield',
                 fieldLabel: 'Estado',
-                name: 'estado',
+                name: 'fk_estado',
                 ref: 'txtEstado'
+            },
+            {
+                xtype: 'textfield',
+                fieldLabel: 'Label',
+                anchor: '100%',
+                name: 'nombreEstado',
+                ref: 'txtNombreEstado'
             },
             {
                 xtype: 'textfield',
