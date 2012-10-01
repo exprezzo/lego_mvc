@@ -79,6 +79,7 @@ class Menus extends Controlador{ //extends Controlador
 	}	*/
 	
 	function listar(){
+		
 		if ( !is_numeric($_POST['node']) ){
 			$padre=$_POST['padreId'];
 		}else{
@@ -86,6 +87,7 @@ class Menus extends Controlador{ //extends Controlador
 		}
 		$modObj= $this->getModelObject();
 		$menus=$modObj->listarMenus($padre);
+					
 		echo json_encode($menus);
 		exit;		
 	}
