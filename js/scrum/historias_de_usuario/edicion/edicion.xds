@@ -123,7 +123,13 @@
                             "id": "MyCombo",
                             "cid": "combobox",
                             "jsClass": "MyCombo",
-                            "snapToGrid": 10
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "displayField": "nombre",
+                                "valueField": "id",
+                                "autoRef": "cmbEstado",
+                                "minChars": 0
+                            }
                         },
                         {
                             "id": "MySpacer",
@@ -184,9 +190,9 @@
                     "jsClass": "MyTextField3",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "fieldLabel": "Importancia",
+                        "fieldLabel": "Prioridad",
                         "anchor": "-ext-undefined-",
-                        "name": "importancia",
+                        "name": "prioridad",
                         "width": 150
                     }
                 },
@@ -236,8 +242,20 @@
                     "userConfig": {
                         "fieldLabel": "Estado",
                         "anchor": "-ext-undefined-",
-                        "name": "estado",
+                        "name": "fk_estado",
                         "autoRef": "txtEstado"
+                    }
+                },
+                {
+                    "id": "MyTextField9",
+                    "cid": "textfield",
+                    "jsClass": "MyTextField9",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "anchor": "100%",
+                        "name": "nombreEstado",
+                        "autoRef": "txtNombreEstado"
                     }
                 },
                 {
@@ -279,5 +297,66 @@
             ]
         }
     ],
-    "stores": []
+    "stores": [
+        {
+            "id": "MyStore",
+            "cid": "jsonstore",
+            "jsClass": "stoEstadoHistoria",
+            "snapToGrid": 10,
+            "userConfig": {
+                "storeId": "-ext-undefined-",
+                "root": "datos",
+                "url": "/estados/listar",
+                "autoLoad": "-ext-undefined-"
+            },
+            "userXType": "stoEstadoHistoria",
+            "cn": [
+                {
+                    "id": "MyField",
+                    "cid": "datafield",
+                    "jsClass": "MyField",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "id"
+                    }
+                },
+                {
+                    "id": "MyField1",
+                    "cid": "datafield",
+                    "jsClass": "MyField1",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "nombre"
+                    }
+                },
+                {
+                    "id": "MyField2",
+                    "cid": "datafield",
+                    "jsClass": "MyField2",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "descripcion"
+                    }
+                },
+                {
+                    "id": "MyField3",
+                    "cid": "datafield",
+                    "jsClass": "MyField3",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "icon"
+                    }
+                },
+                {
+                    "id": "MyField4",
+                    "cid": "datafield",
+                    "jsClass": "MyField4",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "default"
+                    }
+                }
+            ]
+        }
+    ]
 }

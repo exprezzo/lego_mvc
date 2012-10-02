@@ -193,18 +193,7 @@
                         "region": "center",
                         "autoRef": "tabPanel",
                         "itemId": "tabPanel"
-                    },
-                    "cn": [
-                        {
-                            "id": "MyPanel1",
-                            "cid": "panel",
-                            "jsClass": "MyPanel1",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "title": "BackLog"
-                            }
-                        }
-                    ]
+                    }
                 }
             ]
         },

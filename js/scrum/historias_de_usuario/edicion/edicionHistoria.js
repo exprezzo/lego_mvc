@@ -16,7 +16,7 @@ edicionHistoria = Ext.extend(edicionHistoriaUi, {
 		this.txtId.setVisible(false);
 		this.txtSprint.setVisible(false);
 		this.txtBacklog.setVisible(false);
-		this.txtEstado.setVisible(false);
+		//this.txtEstado.setVisible(false);
 		this.lblProyecto.setVisible(false);
 		this.controlador='historias';
 		
@@ -24,9 +24,7 @@ edicionHistoria = Ext.extend(edicionHistoriaUi, {
 			Ext.applyIf(this,comportamiento_formulario);		
 			this.activarComportamiento();			
 		},this);
-		
-		
-		
+				
 		this.on('nuevo',function(){			
 			var sprintId=this.initialConfig.masConfig.idSprint;
 			if ( sprintId!=undefined){
@@ -36,15 +34,42 @@ edicionHistoria = Ext.extend(edicionHistoriaUi, {
 				this.txtSprint.setValue(0);
 				this.txtBacklog.setValue(1);
 			}
+			this.txtEstado.setValue( this.cmbEstado.getvalue() );
+		},this);				
+		
+		this.cmbEstado.store=new stoEstadoHistoria();
+		this.cmbEstado.on('select',function( combo, record, index){
+			this.txtEstado.setValue(record.id);
 		},this);
 		
-		
+		this.cmbEstado.on('cargado',function( combo, record, index){			
+			//No nos confiamos en si el combo ya tiene los datos, por estandar, se carga tambien el valor a mostrar, en este caso, nombreEstado			
+			//Nomenclatura desde el ExtDesigner, name=Cantidad_en_pesos, ref:txt_Cantidad_en_pesos
 			
+			
+			/*
+			this.ligarCombo({
+				id:this.txtEstado,
+				nombre:this.txt_NombreEstado
+			})
+			*/
+			
+			var estado={
+				id:this.txtEstado.getValue(),
+				nombre:this.txt_NombreEstado.getValue()
+			};
+			this.cmbEstado.store.loadData({datos:estado});
+			this.cmbEstado.setValue(estado.id);
+			
+		},this);
 		
+		//,guardado,nuevo
+		this.cmbEstado.store.load();
     },
 	actualizarTitulo:function(	action ){		
 		if (action=="guardado" || action=="edicion")
 			this.setTitle(this.txtDescripcion.getValue() );
 	}
 });
+
 Ext.reg('edicionHistoria', edicionHistoria);

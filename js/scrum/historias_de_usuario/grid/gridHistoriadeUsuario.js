@@ -9,8 +9,36 @@
  * You should implement event handling and custom methods in this
  * class.
  */
-
+ 
 gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {    
+	mostrarOcultarBotones:function(){  //PENDIENTE: encontrar manera de evitar copiar el contenido
+		var sel=this.getSelectionModel();
+			
+		if(sel.getCount()==0){
+		
+				this.btnEditar.setDisabled(true);				
+		
+				
+		
+				this.btnEliminar.setDisabled(true);
+				
+				this.btnUp.setDisabled(true);
+				
+				this.btnDown.setDisabled(true);
+			
+		}else{
+		
+				this.btnEditar.setDisabled(false);				
+				
+				
+					
+				this.btnEliminar.setDisabled(false);
+				
+				this.btnUp.setDisabled(false);
+				
+				this.btnDown.setDisabled(false);
+		}
+	},
 	initComponent: function() {
         gridHistoriadeUsuario.superclass.initComponent.call(this);
 		this.store=new stoHistoriasDUsuario({			
@@ -28,10 +56,8 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 		this.bottomToolbar.bind(this.store);
 		//----------------------------------
 	//  para que este grid se comporte como un grid del catalogo crud, ejecutamos la siguiente linea
-	
-		Ext.apply(this,comportamiento_grid,{
-			xtype_del_form:"edicionHistoria"
-		});	
+		this.xtype_del_form="edicionHistoria";
+		Ext.applyIf(this,comportamiento_grid);	
 		
 	//  y asi se activa el comporstamiento
 		this.activarComportamiento();
@@ -43,13 +69,21 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 			}
 		},this);
 	//----------------------------------
-		this.bottomToolbar.doRefresh();
+		//this.bottomToolbar.doRefresh();
 	//----------------------------------
 		this.configComboMover();
-    },
-	configComboMover:function(){
-		//console.log(this);
 		
+		this.configBotonesMover();
+		
+    },
+	configBotonesMover:function(){
+	
+		this.btnUp.on("click",this.moverArriba,this);
+		this.btnDown.on("click",this.moverAbajo,this);
+		
+	},
+	//Muestra sprints y Backlog , filtra la ubicacion actual	
+	configComboMover:function(){		
 		this.on('afterrender',function(){
 			this.cmbMover.store=new stoProyectos({
 				idProperty:'id',
@@ -65,15 +99,14 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 		},this);		
 		
 		this.btnMover.on('click',function(){
-			this.moverHistoria();
+			this.reubicarHistoria();
 		},this);
 	},
-	moverHistoria:function(){
-		//alert("moverHistoria");
+	reubicarHistoria:function(){ //entre sprints y la pila de producto.
+		
 		var grid=this.getGrid();
 		var sel=grid.getSelected();
-		//var sel=selMod.getSelection();
-		console.log(sel);
+		
 		if (sel==undefined) return;
 		var params={
 			idHistoria:sel.id,
@@ -89,6 +122,42 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 				this.getGrid().bottomToolbar.doRefresh();
 				if (result.msg)
 					topMsg.setAlert("Historias", result.msg); 
+			  }else{				
+					alert(result.msg); 
+			  }			  
+		   },
+		   failure: function(response, opts) {
+			  //console.log('server-side failure with status code ' + response.status);
+		   }
+		});
+	},
+	moverArriba:function(){
+		this.moverHistoria('up');
+	},
+	moverAbajo:function(){
+		this.moverHistoria('down');
+	},
+	moverHistoria:function(direccion){
+		var idHistoria=0;
+		
+		var grid=this.getGrid();
+		var sel=grid.getSelected();
+		if (sel!=undefined) 
+			idHistoria=sel.id;
+			
+		if (idHistoria==0) return false;
+		
+		Ext.Ajax.request({
+		   url: '/historias/mover_historia',
+		   params: {
+				idHistoria:idHistoria,
+				direccion:direccion
+		   },
+		   scope:this,
+		   success: function(response, opts){
+			  var result = Ext.decode(response.responseText);
+			  if (result.success===true){				
+				this.getGrid().bottomToolbar.doRefresh();				
 			  }else{				
 					alert(result.msg); 
 			  }			  

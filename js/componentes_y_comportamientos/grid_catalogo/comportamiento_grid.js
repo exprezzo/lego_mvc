@@ -9,10 +9,28 @@ comportamiento_grid={
 	},
 	editParams:function(params){
 		return params;
-	},
-	habilitarBotones:function(){
-	},
-	deshabilitarBotones:function(){
+	},	
+	mostrarOcultarBotones:function(){  //PENDIENTE: encontrar manera de evitar copiar el contenido
+		var sel=this.getSelectionModel();
+			
+		if(sel.getCount()==0){
+			if (this.btnEditar) //<---TODO: Separa al comportamiento toolbar
+				this.btnEditar.setDisabled(true);				
+			if (this.btnVer != undefined) 
+				this.btnVer.setDisabled(true);
+			
+			if (this.btnEliminar) //<---TODO: Separa al comportamiento toolbar
+				this.btnEliminar.setDisabled(true);
+			
+		}else{
+			if (this.btnEditar) //<---TODO: Separa al comportamiento toolbar
+				this.btnEditar.setDisabled(false);				
+			if (this.btnVer != undefined) 
+				this.btnVer.setDisabled(false);
+			
+			if (this.btnEliminar) //<---TODO: Separa al comportamiento toolbar
+				this.btnEliminar.setDisabled(false);
+		}
 	},
 	nuevo:function(){	
 		var params={
@@ -83,7 +101,7 @@ comportamiento_grid={
 		
 	},
 	activarComportamiento:function(){		
-		if ( this.topToolbar != undefined){
+		/*if ( this.topToolbar != undefined){
 			if (this.topToolbar.btnGuardar)
 				this.btnGuardar = this.topToolbar.btnGuardar;
 			if (this.topToolbar.btnEliminar)
@@ -94,7 +112,7 @@ comportamiento_grid={
 				this.btnNuevo = this.topToolbar.btnNuevo;
 			if (this.topToolbar.btnSwitch)
 				this.btnSwitch = this.topToolbar.btnSwitch;			
-		}
+		}*/
 		
 		if (this.xtype_del_form == undefined){
 			throw new Error("Debe establecer un valor para xtype_del_form");
@@ -125,26 +143,8 @@ comportamiento_grid={
 		}
 		
 		this.on('rowclick',function(e){
-			var sel=this.getSelectionModel();
+			this.mostrarOcultarBotones();
 			
-			if(sel.getCount()==0){
-				if (this.btnEditar) //<---TODO: Separa al comportamiento toolbar
-				this.btnEditar.setDisabled(true);				
-				if (this.btnVer != undefined) {			
-					this.btnVer.setDisabled(true);
-				}
-				if (this.btnEliminar) //<---TODO: Separa al comportamiento toolbar
-				this.btnEliminar.setDisabled(true);
-				
-			}else{
-				if (this.btnEditar) //<---TODO: Separa al comportamiento toolbar
-				this.btnEditar.setDisabled(false);				
-				if (this.btnVer != undefined) {			
-					this.btnVer.setDisabled(false);
-				}
-				if (this.btnEliminar) //<---TODO: Separa al comportamiento toolbar
-				this.btnEliminar.setDisabled(false);
-			}
 		},this);
 		
 		this.on('keypress',function(e){
@@ -167,6 +167,12 @@ comportamiento_grid={
 					return false;
 				}
             });
+		},this);
+		
+		
+		this.store.on('load',function(){
+			this.getGrid().getSelectionModel().selectFirstRow(true);
+			this.mostrarOcultarBotones();			
 		},this);
 		
 		this.store.on('beforeload',function(){			

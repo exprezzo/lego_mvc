@@ -1,10 +1,16 @@
 <?php
 
+require_once '../mvc/modelos/EstadosHistoriaCrud.php';
 require_once '../mvc/modelos/HistoriaDeUsuarioCrud.php';
 
 class Historias extends Controlador{ 
 	
 	function mover(){
+	
+		if ( !isset($_POST['idDestino']) || empty($_POST['idDestino']) ){
+			echo json_encode( array('success'=>false,'msg'=>'debe seleccionar el destino') );
+			return array('success'=>true);
+		}
 		
 		$idDestino = $_POST['idDestino'];
 		
@@ -49,7 +55,34 @@ class Historias extends Controlador{
 			echo $e; exit;
 		}			
 	}
-
+	
+	function mover_historia(){
+			
+		$idHistoria = $_POST['idHistoria'];
+		$direccion = $_POST['direccion'];
+		
+		$success=false;
+		$msg="Todavia no se implementa";
+		$res=array('success'=>$success,'msg'=>$msg,'tipo'=>'exception');
+		$modelo=$this->getModelObject();
+		
+		try{
+			if ($direccion == 'up'){
+				$res=$modelo->moverArriba($idHistoria);
+			}else if ($direccion == 'down'){
+				$res=$modelo->moverAbajo($idHistoria);
+			}
+		}catch(Exception $e){
+			$success=false;
+			$msg=$e->getMessage();
+			$res=array('success'=>$success,'msg'=>$msg,'tipo'=>'exception');
+		}
+		
+		echo json_encode($res);
+		return array('success'=>true);
+	}
+	
+	
 	function getDestinos(){
 		//del proyecto actual, devuelvo una lista con el backlog y todos los sprints, omitiendo el origen de la historia.
 		
@@ -122,15 +155,6 @@ class Historias extends Controlador{
 		return $this->modObj;
 	}
 	
-	/*
-	function getQueryBusqueda(){
-		return "SELECT m,m.descripcion as text FROM ".$this->modelo." m WHErE m.nombre LIKE :query  m.fk_proyecto=:fk_proyecto"; 
-	}
-		
-	public function moditicarQuery($query){
-		$query=$query->setParameter(':fk_proyecto',$_SESSION['MODS']['SCRUM']['PROYECTO_ID']);		
-		return $query;
-	}*/
 	
 }
 ?>

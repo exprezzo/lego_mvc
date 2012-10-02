@@ -96,13 +96,7 @@ ScrumUi = Ext.extend(Ext.Panel, {
                 activeTab: 0,
                 region: 'center',
                 itemId: 'tabPanel',
-                ref: 'tabPanel',
-                items: [
-                    {
-                        xtype: 'panel',
-                        title: 'BackLog'
-                    }
-                ]
+                ref: 'tabPanel'
             }
         ];
         ScrumUi.superclass.initComponent.call(this);

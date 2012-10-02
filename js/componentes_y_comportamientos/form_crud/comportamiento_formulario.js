@@ -25,6 +25,7 @@ comportamiento_formulario={
 					this.getForm().setValues(action.result.data);
 					this.actualizarTitulo('guardado');
 					this.focusItem();
+					this.fireEvent('guardado');
 				}
 				this.el.unmask();
 			},
