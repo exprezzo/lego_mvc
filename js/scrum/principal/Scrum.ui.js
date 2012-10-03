@@ -10,7 +10,7 @@
  */
 
 ScrumUi = Ext.extend(Ext.Panel, {
-    title: 'Historias de usuario y tareas',
+    title: 'Scrum',
     height: 250,
     layout: 'border',
     bodyStyle: '',
@@ -25,6 +25,9 @@ ScrumUi = Ext.extend(Ext.Panel, {
                 collapseMode: 'mini',
                 rootVisible: false,
                 hlDrop: false,
+                bubbleEvents: [
+                    'mostrarTab'
+                ],
                 ref: 'arbolGrid',
                 root: {
                     text: 'Proyecto',

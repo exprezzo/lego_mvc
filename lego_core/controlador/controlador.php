@@ -16,16 +16,16 @@ class Controlador{
 		
 	function procesarPeticion($peticion){
 		$vista= $this->getVista();		
-		return $vista->mostrar($peticion->accion);			
+		return $vista->mostrar($peticion->accion);
 	}
 	
 	function obtener(){
-		$modObj= $this->getModelObject();							
+		$modObj= $this->getModelObject();
 		
 		$params=$this->bindParams();
-		$res = $modObj->obtener( $params );		
-			
-		$success=true;		
+		$res = $modObj->obtener( $params );
+		
+		$success=true;
 		$respuesta= array(
 			'success'=>$success,
 			'data'=>$res,

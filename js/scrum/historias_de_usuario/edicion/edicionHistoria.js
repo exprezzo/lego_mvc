@@ -16,7 +16,8 @@ edicionHistoria = Ext.extend(edicionHistoriaUi, {
 		this.txtId.setVisible(false);
 		this.txtSprint.setVisible(false);
 		this.txtBacklog.setVisible(false);
-		//this.txtEstado.setVisible(false);
+		this.txtEstado.setVisible(false);
+		this.txtNombreEstado.setVisible(false);
 		this.lblProyecto.setVisible(false);
 		this.controlador='historias';
 		
@@ -34,7 +35,7 @@ edicionHistoria = Ext.extend(edicionHistoriaUi, {
 				this.txtSprint.setValue(0);
 				this.txtBacklog.setValue(1);
 			}
-			this.txtEstado.setValue( this.cmbEstado.getvalue() );
+			this.txtEstado.setValue( this.cmbEstado.getValue() );
 		},this);				
 		
 		this.cmbEstado.store=new stoEstadoHistoria();
@@ -42,10 +43,9 @@ edicionHistoria = Ext.extend(edicionHistoriaUi, {
 			this.txtEstado.setValue(record.id);
 		},this);
 		
-		this.cmbEstado.on('cargado',function( combo, record, index){			
+		this.cmbEstado.on('cargado',function( combo, record, index){
 			//No nos confiamos en si el combo ya tiene los datos, por estandar, se carga tambien el valor a mostrar, en este caso, nombreEstado			
 			//Nomenclatura desde el ExtDesigner, name=Cantidad_en_pesos, ref:txt_Cantidad_en_pesos
-			
 			
 			/*
 			this.ligarCombo({
@@ -56,20 +56,37 @@ edicionHistoria = Ext.extend(edicionHistoriaUi, {
 			
 			var estado={
 				id:this.txtEstado.getValue(),
-				nombre:this.txt_NombreEstado.getValue()
+				nombre:this.txtNombreEstado.getValue()
 			};
 			this.cmbEstado.store.loadData({datos:estado});
 			this.cmbEstado.setValue(estado.id);
 			
 		},this);
-		
 		//,guardado,nuevo
 		this.cmbEstado.store.load();
+				
+		this.on('guardado',function(){			
+			this.cargarCombos();
+		},this);
+		
+		this.on('cargado',function(){			
+			this.cargarCombos();
+		},this);
+		
     },
-	actualizarTitulo:function(	action ){		
+	cargarCombos:function(){
+		var estado={
+			id:this.txtEstado.getValue(),
+			nombre:this.txtNombreEstado.getValue()
+		};
+		this.cmbEstado.store.loadData({datos:estado});
+		this.cmbEstado.setValue(estado.id);
+	},
+	actualizarTitulo:function(	action ){
 		if (action=="guardado" || action=="edicion")
 			this.setTitle(this.txtDescripcion.getValue() );
-	}
+	},
+	
 });
 
 Ext.reg('edicionHistoria', edicionHistoria);

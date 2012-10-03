@@ -20,6 +20,8 @@ class EstadosDeHistoria
 	
 	/** @Column(type="string") **/
     public $icon;
+	
+	
 		
 }
 ?>

@@ -34,6 +34,6 @@ class Historia_de_usuario
      * @ManyToOne(targetEntity="EstadosDeHistoria")
      * @JoinColumn(name="fk_estado", referencedColumnName="id")
      **/
-    public $Estado;
+    public $EstadosDeHistoria;
 }
 ?>

@@ -17,9 +17,14 @@ main_layout = Ext.extend(main_layoutUi, {
 		
 		this.configurarComportamientoMenu();
 		
-		Ext.apply(this.tabPanel, comportamiento_tab_manager);
+		Ext.apply(this.tabPanel, comportamiento_tab_manager,{
+		
+		
+		});
 		this.tabPanel.activarComportamiento();	
 
+		
+		
 		if (this.btnRefresh!=undefined){			
 			this.btnRefresh.on('click',function(){
 				this.recargarArbol(this.treeMenus);

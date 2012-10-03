@@ -1,4 +1,4 @@
-comportamiento_formulario={		
+comportamiento_formulario={
 	//controlador:'modelo',
 	getTabId:function(){
 		var id= this.txtId.getValue(); 
@@ -9,7 +9,7 @@ comportamiento_formulario={
 		
 		return id;
 	},
-	focusItem:function(){		
+	focusItem:function(){
 		this.txtId.focus(true);
 	},
 	guardar:function( params ){
@@ -19,7 +19,7 @@ comportamiento_formulario={
 			clientValidation: true,
 			scope:this,
 			url: '/'+ this.controlador + '/guardar',
-			success:function(form, action){								
+			success:function(form, action){
 				if (action.result.success == true){
 					topMsg.setAlert(this.controlador,"La informaci&oacute;n ha sido almacenada");
 					this.getForm().setValues(action.result.data);
@@ -50,8 +50,6 @@ comportamiento_formulario={
 					this.fireEvent("eliminado");
 					this.actualizarTitulo('eliminado');
 				}
-				
-				
 		   },
 		   failure: function(){
 				Ext.Msg.show({

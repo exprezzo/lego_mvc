@@ -21,11 +21,15 @@ class Modelo_PDO implements ICrud{
 /*	===============================================================================
 		ICrud
 	=============================================================================== */	
+	var $tabla='modelo_test';
 	function obtener($params){
 		
 		$id=$params['id'];
 		
-		$sql = 'SELECT * FROM modelo_test WHERE id=:id';		
+		//$sql = 'SELECT * FROM modelo_test WHERE id=:id';		
+		$sql = 'SELECT * FROM '.$this->tabla.' WHERE id=:id';		
+		
+		
 		$con = $this->getConexion();
 		$sth = $con->prepare($sql);		
 		$sth->bindValue(':id',$id);		
@@ -33,7 +37,7 @@ class Modelo_PDO implements ICrud{
 		$modelos = $sth->fetchAll(PDO::FETCH_ASSOC);
 		
 		if ( empty($modelos) ){
-			throw new Exception("El modelo no existe"); //TODO: agregar numero de error, crear una exception MiEscepcion
+			throw new Exception('La informacion buscada no fue encontrada. <br>Consulta:'.$sql.' '.$id); //TODO: agregar numero de error, crear una exception MiEscepcion
 		}
 		
 		if ( sizeof($modelos) > 1 ){
@@ -57,7 +61,8 @@ class Modelo_PDO implements ICrud{
 			$sth->bindValue(":nombre",$nombre,PDO::PARAM_STR);					
 		}else{
 			//	         ACTUALIZAR
-			$sql='UPDATE modelo_test SET nombre= :nombre WHERE id= :id, fecha_de_actualizacion=now()';
+			$sql='UPDATE modelo_test SET nombre= :nombre WHERE i
+			d= :id, fecha_de_actualizacion=now()';
 			$sth = $dbh->prepare($sql);							
 			$sth->bindValue(":id",$id,PDO::PARAM_INT);			
 			$sth->bindValue(":nombre",$nombre,PDO::PARAM_STR);

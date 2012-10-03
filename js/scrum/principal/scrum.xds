@@ -21,7 +21,7 @@
             "jsClass": "Scrum",
             "snapToGrid": 10,
             "userConfig": {
-                "title": "Historias de usuario y tareas",
+                "title": "Scrum",
                 "width": "-ext-undefined-",
                 "height": 250,
                 "layout": "border",

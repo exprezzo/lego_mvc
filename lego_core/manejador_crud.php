@@ -67,11 +67,13 @@ class ManejadorCrud {
 	}
 	
 	function ligarParametros($mod, $parametros){
+		
 		foreach($this->campos as $campo ){
 			if (isset( $parametros[$campo] )){				
 				$mod->$campo = $parametros[$campo];				
 			}			
 		}
+		
 		return $mod;
 	}
 	

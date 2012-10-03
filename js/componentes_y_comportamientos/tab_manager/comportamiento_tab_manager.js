@@ -16,8 +16,7 @@ comportamiento_tab_manager={
 	
 	activarComportamiento:function(){
 			
-		this.on('mostrarTab', function(params){
-			
+		this.on('mostrarTab', function(params){			
 			this.mostrarTab(params);
 			return false;
 		}, this);
@@ -32,7 +31,22 @@ comportamiento_tab_manager={
 	
 	agregarTab:function(params){
 		var config={
-			closable:true
+			closable:true,
+			setTitle: function( title, iconCls ){
+				title=title.substring(0,40)+'...';
+				 this.title = title;
+				 
+				if(this.header && this.headerAsText){
+					this.header.child('span').update(title);
+				}
+				
+				if(iconCls){
+					this.setIconClass(iconCls);
+				}
+				
+				this.fireEvent('titlechange', this, title);
+				return this;
+			}
 		};
 		
 		Ext.apply( config, params );

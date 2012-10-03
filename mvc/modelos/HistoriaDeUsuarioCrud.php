@@ -7,6 +7,8 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 
 require_once 'entidades_de_doctrine/Historia_de_usuario.php';
+require_once 'pdo_modelo_crud.php';
+
 
 require_once '../lego_core/manejador_crud.php';
 class HistoriaDeUsuarioCrud extends ManejadorCrud{
@@ -23,7 +25,7 @@ class HistoriaDeUsuarioCrud extends ManejadorCrud{
 	}
 	
 	function beforeNew($mod) {
-		$mod->fk_proyecto=$_SESSION['MODS']['SCRUM']['PROYECTO_ID'];		
+		$mod->fk_proyecto=$_SESSION['MODS']['SCRUM']['PROYECTO_ID'];				
 		return $mod;
 	}
 	
@@ -133,14 +135,54 @@ class HistoriaDeUsuarioCrud extends ManejadorCrud{
 		$id=$params['id'];				
 		$modelo = $em->find( $this->modelo, $id );
 		
-		
+		if ( !empty($modelo) )
 		if ( !is_null($modelo->fk_estado) ){
-			$em = $this->getEM();		
-			$estado = $em->find( 'EstadosDeHistoria', 2);
-			$modelo->nombreHistoria=$estado->nombre;
+			$mod= new Modelo_PDO();
+			
+			$mod->tabla='scrum_estados_de_historia';
+			$estado	=$mod->obtener(array('id'=>$modelo->fk_estado) );			
+			
+			$modelo->nombreEstado=$estado['nombre'];
 		}
 		
 		return $modelo;
+	}
+	
+	function guardar($params){
+	
+		$mod = $this->getModelObject();
+		
+	
+		$mod = $this->ligarParametros($mod, $params);
+		//Todo, sacarlas del esquema y validarlas de manera automaticaa
+		
+		$em=$this->getEm();
+		
+		if (!empty($mod->id) ){
+			$mod = $em->merge($mod);			
+		}else{
+			$mod=$this->beforeNew($mod);
+		}
+				
+		$exito=$em->persist($mod);		  
+		$exito= $em->flush();
+		
+		$exito=true;
+		if (!$exito){
+			return $exito;
+		}
+		
+		if ( !is_null($mod->fk_estado) ){
+			$modPdo= new Modelo_PDO();
+			
+			$modPdo->tabla='scrum_estados_de_historia';
+			$estado	=$modPdo->obtener(array('id'=>$mod->fk_estado) );			
+			
+			$mod->nombreEstado=$estado['nombre'];
+		}
+		
+		return $mod;		
+		
 	}
 	
 }

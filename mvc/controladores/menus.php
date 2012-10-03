@@ -85,7 +85,9 @@ class Menus extends Controlador{ //extends Controlador
 		}else{
 			$padre=$_POST['node'];
 		}
+		
 		$modObj= $this->getModelObject();
+		
 		$menus=$modObj->listarMenus($padre);
 					
 		echo json_encode($menus);
