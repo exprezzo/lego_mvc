@@ -18,10 +18,26 @@ class HistoriaDeUsuarioCrud extends ManejadorCrud{
 	function getQueryBusqueda(){
 	
 		if ($_POST['tipo']=='sprint'){
-			return "SELECT m FROM ".$this->modelo." m WHErE m.descripcion LIKE :query AND  m.fk_proyecto=:fk_proyecto AND m.es_backlog=0 AND m.fk_sprint=:fk_sprint order by m.prioridad DESC"; 
+			$query= "SELECT m FROM ".$this->modelo." m WHErE m.descripcion LIKE :query AND  m.fk_proyecto=:fk_proyecto AND m.es_backlog=0 AND m.fk_sprint=:fk_sprint "; 
+			
 		}else if ($_POST['tipo']=='backlog'){
-			return "SELECT m FROM ".$this->modelo." m WHErE m.descripcion LIKE :query AND  m.fk_proyecto=:fk_proyecto AND m.es_backlog=1 order by m.prioridad DESC"; 
+			$query="SELECT m FROM ".$this->modelo." m WHErE m.descripcion LIKE :query AND  m.fk_proyecto=:fk_proyecto AND m.es_backlog=1 ";
+			
 		}	
+
+		$estado=0;
+		if ( isset($_POST['estado']) ){
+			if (is_numeric( $_POST['estado']) && $_POST['estado']  !=0 ){
+				$estado=$_POST['estado'];				
+			}
+		}
+		if ($estado!=0){
+		
+			$query = $query." and m.fk_estado=:fk_estado ";
+		}
+		$order="order by m.prioridad DESC";
+			
+		return $query.$order;
 	}
 	
 	function beforeNew($mod) {
@@ -37,6 +53,17 @@ class HistoriaDeUsuarioCrud extends ManejadorCrud{
 			$query=$query->setParameter(':fk_proyecto',$_SESSION['MODS']['SCRUM']['PROYECTO_ID']);		
 		}
 		
+		//------------------------------------------------------------------
+		$estado=0;
+		if ( isset($_POST['estado']) ){
+			if (is_numeric( $_POST['estado']) && $_POST['estado']  !=0 ){
+				$estado=$_POST['estado'];				
+			}
+		}
+		if ($estado!=0){			
+			$query=$query->setParameter(':fk_estado',$estado);					
+		}
+
 		return $query;
 	}
 	

@@ -23,7 +23,7 @@
             "userConfig": {
                 "title": "Historias de usuario",
                 "store": "(none)",
-                "width": 400,
+                "width": "-ext-undefined-",
                 "height": "-ext-undefined-",
                 "autoExpandColumn": "colDescripcion"
             },
@@ -148,6 +148,53 @@
                                 "iconCls": "btnUp_16",
                                 "autoRef": "btnUp",
                                 "itemId": "btnUp"
+                            }
+                        },
+                        {
+                            "id": "MySeparator2",
+                            "cid": "tbseparator",
+                            "jsClass": "MySeparator2",
+                            "snapToGrid": 10
+                        },
+                        {
+                            "id": "MySpacer",
+                            "cid": "tbspacer",
+                            "jsClass": "MySpacer",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "width": 10
+                            }
+                        },
+                        {
+                            "id": "MyDisplayField1",
+                            "cid": "displayfield",
+                            "jsClass": "MyDisplayField1",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "value": "Filtrar por Estado",
+                                "style": "font-weighr:bold;cursor:pointer; text-decoration:underline;"
+                            }
+                        },
+                        {
+                            "id": "MySpacer1",
+                            "cid": "tbspacer",
+                            "jsClass": "MySpacer",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "width": 10
+                            }
+                        },
+                        {
+                            "id": "MyCombo1",
+                            "cid": "combobox",
+                            "jsClass": "MyCombo1",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "autoRef": "cmbEstado",
+                                "valueField": "id",
+                                "displayField": "nombre",
+                                "minChars": 0,
+                                "triggerAction": "all"
                             }
                         },
                         {

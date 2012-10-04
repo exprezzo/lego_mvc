@@ -11,7 +11,6 @@
 
 gridHistoriadeUsuarioUi = Ext.extend(Ext.grid.GridPanel, {
     title: 'Historias de usuario',
-    width: 400,
     autoExpandColumn: 'colDescripcion',
     initComponent: function() {
         this.tbar = {
@@ -74,6 +73,30 @@ gridHistoriadeUsuarioUi = Ext.extend(Ext.grid.GridPanel, {
                     iconCls: 'btnUp_16',
                     itemId: 'btnUp',
                     ref: '../btnUp'
+                },
+                {
+                    xtype: 'tbseparator'
+                },
+                {
+                    xtype: 'tbspacer',
+                    width: 10
+                },
+                {
+                    xtype: 'displayfield',
+                    value: 'Filtrar por Estado',
+                    style: 'font-weighr:bold;cursor:pointer; text-decoration:underline;'
+                },
+                {
+                    xtype: 'tbspacer',
+                    width: 10
+                },
+                {
+                    xtype: 'combo',
+                    valueField: 'id',
+                    displayField: 'nombre',
+                    minChars: 0,
+                    triggerAction: 'all',
+                    ref: '../cmbEstado'
                 },
                 {
                     xtype: 'tbfill'

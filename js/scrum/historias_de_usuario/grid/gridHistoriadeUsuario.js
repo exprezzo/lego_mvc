@@ -73,6 +73,7 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 				var idSeleccionado=( selected != undefined)? selected.id : 0;
 				options.params.idSeleccionado = idSeleccionado;
 			}
+			options.params.estado=this.cmbEstado.getValue();
 		},this);
 		
 		this.store.on('load',function(store, records, options){			
@@ -98,6 +99,15 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 		
 		this.configBotonesMover();		
 		
+		this.configComboEstados();
+	},
+	configComboEstados:function(){
+	
+		this.cmbEstado.store=new stoEstadoHistoria();
+		this.cmbEstado.on('select',function( combo, record, index){
+			// Filtrar la busqueda por el estado seleccionado.
+			this.bottomToolbar.doRefresh();
+		},this);
     },
 	configBotonesMover:function(){
 	
@@ -118,6 +128,7 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 				if (this.initialConfig.tipo=='sprint'){
 					options.params.sprintId=this.initialConfig.idSprint;
 				}
+								
 			},this);			
 		},this);		
 		

@@ -30,10 +30,10 @@ class Historia_de_usuario
 	/** @Column(type="string") **/
     public $detalles;	
 	
-	/**
-     * @ManyToOne(targetEntity="EstadosDeHistoria")
-     * @JoinColumn(name="fk_estado", referencedColumnName="id")
-     **/
-    public $EstadosDeHistoria;
+	// /**
+     // * @ManyToOne(targetEntity="EstadosDeHistoria")
+     // * @JoinColumn(name="fk_estado", referencedColumnName="id")
+     // **/
+    // public $EstadosDeHistoria;
 }
 ?>

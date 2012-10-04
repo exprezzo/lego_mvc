@@ -44,16 +44,8 @@ edicionHistoria = Ext.extend(edicionHistoriaUi, {
 		},this);
 		
 		this.cmbEstado.on('cargado',function( combo, record, index){
-			//No nos confiamos en si el combo ya tiene los datos, por estandar, se carga tambien el valor a mostrar, en este caso, nombreEstado			
-			//Nomenclatura desde el ExtDesigner, name=Cantidad_en_pesos, ref:txt_Cantidad_en_pesos
-			
-			/*
-			this.ligarCombo({
-				id:this.txtEstado,
-				nombre:this.txt_NombreEstado
-			})
-			*/
-			
+		
+			//No nos confiamos en si el combo ya tiene los datos, por estandar, se carga tambien el valor a mostrar, en este caso, nombreEstado											
 			var estado={
 				id:this.txtEstado.getValue(),
 				nombre:this.txtNombreEstado.getValue()
