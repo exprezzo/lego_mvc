@@ -63,17 +63,40 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 		this.activarComportamiento();
 		
 		this.store.on('beforeload',function(store, options){			
-			options.params.tipo=this.initialConfig.tipo;
-			if (this.initialConfig.tipo=='sprint'){
+		//PENDIENTE: Explicar este bloque de codigo
+			options.params.tipo=this.initialConfig.tipo;			
+			if (this.initialConfig.tipo=='sprint'){			
 				options.params.sprintId=this.initialConfig.idSprint;
+				//Obtener el elemento seleccionado
+				var selected=this.getGrid().getSelected();
+				
+				var idSeleccionado=( selected != undefined)? selected.id : 0;
+				options.params.idSeleccionado = idSeleccionado;
 			}
 		},this);
-	//----------------------------------
-		//this.bottomToolbar.doRefresh();
-	//----------------------------------
+		
+		this.store.on('load',function(store, records, options){			
+			
+			if (options.params.idSeleccionado != undefined && options.params.idSeleccionado!=0){
+				var record= store.getById(options.params.idSeleccionado);
+				
+				var index=-1;
+				if (record!=undefined)
+					index= store.indexOf( record );
+				
+				if (index>-1){
+					this.getGrid().getSelectionModel().selectRow(index);
+				}
+					
+					
+			}
+				
+				
+		},this);
+	//----------------------------------		
 		this.configComboMover();
 		
-		this.configBotonesMover();
+		this.configBotonesMover();		
 		
     },
 	configBotonesMover:function(){
@@ -155,9 +178,9 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 		   },
 		   scope:this,
 		   success: function(response, opts){
-			  var result = Ext.decode(response.responseText);
-			  if (result.success===true){				
-				this.getGrid().bottomToolbar.doRefresh();				
+			  var result = Ext.decode(response.responseText);			  
+			  if (result.success===true){												
+				this.getGrid().bottomToolbar.doRefresh();
 			  }else{				
 					alert(result.msg); 
 			  }			  
