@@ -2,6 +2,7 @@
 
 require_once '../mvc/modelos/EstadosHistoriaCrud.php';
 require_once '../mvc/modelos/HistoriaDeUsuarioCrud.php';
+require_once '../mvc/modelos/SprintCrud.php';
 
 class Historias extends Controlador{ 
 	
@@ -86,13 +87,16 @@ class Historias extends Controlador{
 	function getDestinos(){
 		//del proyecto actual, devuelvo una lista con el backlog y todos los sprints, omitiendo el origen de la historia.
 		
-		if ($_POST['tipo']=='backlog'){
+		if ($_POST['idUbicacion']=='backlog'){
+			//Mostrar todos los sprints
 			$es_backlog=true;
-		}else if ($_POST['tipo']=='sprint'){
+		}else if ($_POST['idUbicacion']=='sprints'){
+			//mostrar el backlog y todos los sprints
 			$es_backlog=false;
-			$sprint_id=$_POST['sprintId'];
-		}else{
-			throw new Exception("Error");
+			$sprints=false;	
+		}else if ( is_numeric($_POST['idUbicacion'])){
+			//mostrar el backlog
+			$sprint_id=$_POST['idUbicacion'];
 		}
 		
 		$fk_proyecto = $_SESSION['MODS']['SCRUM']['PROYECTO_ID'];
@@ -132,8 +136,8 @@ class Historias extends Controlador{
 			return $res;
 			
 		
-		}catch(Exception $e){
-			echo $e; exit;
+		}catch(Exception $e){		
+			echo $e->getMessage(); 
 		}
 		
 		//$PROYECTO_ID = $_SESSION['MODS']['SCRUM']['PROYECTO_ID']
@@ -155,6 +159,25 @@ class Historias extends Controlador{
 		return $this->modObj;
 	}
 	
-	
+	function listarUbicaciones(){
+		ob_start();
+		$resp	=array();
+		$resp['success']=true;
+		
+		$resp['datos'] = array(
+			array('id'=>'backlog','nombre'=>'Backlog','seleccionable'=>true),
+			array('id'=>'sprints','nombre'=>'Sprints','seleccionable'=>false)
+		);
+		
+		$this->modObj = new SprintCrud();	
+		$respuesta=$this->listar();
+		
+		$datos=array_merge($resp['datos'], $respuesta['datos']);
+				
+		$resp['datos']=$datos;
+		ob_end_clean();
+		echo json_encode($resp);
+		return $resp;
+	}
 }
 ?>

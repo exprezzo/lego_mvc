@@ -15,32 +15,65 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 		var sel=this.getSelectionModel();
 			
 		if(sel.getCount()==0){
-		
-				this.btnEditar.setDisabled(true);				
-		
-				
-		
-				this.btnEliminar.setDisabled(true);
-				
-				this.btnUp.setDisabled(true);
-				
-				this.btnDown.setDisabled(true);
-			
+			this.btnEditar.setDisabled(true);											
+			this.btnEliminar.setDisabled(true);				
+			this.btnUp.setDisabled(true);				
+			this.btnDown.setDisabled(true);			
 		}else{
-		
-				this.btnEditar.setDisabled(false);				
-				
-				
-					
-				this.btnEliminar.setDisabled(false);
-				
-				this.btnUp.setDisabled(false);
-				
-				this.btnDown.setDisabled(false);
+			this.btnEditar.setDisabled(false);							
+			this.btnEliminar.setDisabled(false);			
+			this.btnUp.setDisabled(false);		
+			this.btnDown.setDisabled(false);
 		}
 	},
+	configurarGrid:function(){
+		this.getGrid().on('rowcontextmenu',function( grid, rowIndex, e ){		
+			var xy = e.getXY();						
+			var record=this.getStore().getAt( rowIndex );			
+			var menu = this.getContextMenu();
+			menu.showAt(xy);
+			menu.idUbicacion=this.cmbUbicaciones.getValue();
+			menu.selected=record.data;
+			e.stopEvent();
+			return false;
+		},this);
+		
+		this.store.on('beforeload',function(store, options){			
+		//PENDIENTE: Explicar este bloque de codigo
+			if (this.initialConfig.tipo == undefined) 
+				this.initialConfig.tipo='backlog';
+			options.params.tipo=this.initialConfig.tipo;			
+			options.params.idUbicacion=this.cmbUbicaciones.getValue();
+			if (this.initialConfig.tipo=='sprint'){			
+				options.params.sprintId=this.initialConfig.idSprint;				
+			}
+			
+			//Para volver a seleccionar el elemento despues de recargar
+			var selected=this.getGrid().getSelected();			
+			var idSeleccionado=( selected != undefined)? selected.id : 0;
+			options.params.idSeleccionado = idSeleccionado;
+			options.params.estado=this.cmbEstado.getValue();
+		},this);
+		
+		this.store.on('load',function(store, records, options){
+			
+			if (options.params.idSeleccionado != undefined && options.params.idSeleccionado!=0){
+				var record= store.getById(options.params.idSeleccionado);				
+				var index=-1;
+				if (record!=undefined)
+					index= store.indexOf( record );
+				
+				if (index>-1){
+					this.getGrid().getSelectionModel().selectRow(index);
+				}				
+			}
+				
+				
+		},this);
+	},
+	
 	initComponent: function() {
-        gridHistoriadeUsuario.superclass.initComponent.call(this);
+        gridHistoriadeUsuario.superclass.initComponent.call(this);						
 		this.store=new stoHistoriasDUsuario({			
 			api:{
 				read: '/Historias/listar',
@@ -57,49 +90,24 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 		//----------------------------------
 	//  para que este grid se comporte como un grid del catalogo crud, ejecutamos la siguiente linea
 		this.xtype_del_form="edicionHistoria";
-		Ext.applyIf(this,comportamiento_grid);	
-		
+		Ext.applyIf(this,comportamiento_grid);			
 	//  y asi se activa el comporstamiento
 		this.activarComportamiento();
-		
-		this.store.on('beforeload',function(store, options){			
-		//PENDIENTE: Explicar este bloque de codigo
-			options.params.tipo=this.initialConfig.tipo;			
-			if (this.initialConfig.tipo=='sprint'){			
-				options.params.sprintId=this.initialConfig.idSprint;
-				//Obtener el elemento seleccionado
-				var selected=this.getGrid().getSelected();
-				
-				var idSeleccionado=( selected != undefined)? selected.id : 0;
-				options.params.idSeleccionado = idSeleccionado;
-			}
-			options.params.estado=this.cmbEstado.getValue();
-		},this);
-		
-		this.store.on('load',function(store, records, options){			
-			
-			if (options.params.idSeleccionado != undefined && options.params.idSeleccionado!=0){
-				var record= store.getById(options.params.idSeleccionado);
-				
-				var index=-1;
-				if (record!=undefined)
-					index= store.indexOf( record );
-				
-				if (index>-1){
-					this.getGrid().getSelectionModel().selectRow(index);
-				}
-					
-					
-			}
-				
-				
-		},this);
+		//----------------------------------
+		this.configurarGrid();				
 	//----------------------------------		
 		this.configComboMover();
 		
 		this.configBotonesMover();		
 		
 		this.configComboEstados();
+				
+	},
+	configComboMover:function(){
+		this.cmbUbicaciones.store=new stoProyectos({
+			idProperty:'id',
+			url: '/historias/listarUbicaciones'
+		});		
 	},
 	configComboEstados:function(){
 	
@@ -115,56 +123,7 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 		this.btnDown.on("click",this.moverAbajo,this);
 		
 	},
-	//Muestra sprints y Backlog , filtra la ubicacion actual	
-	configComboMover:function(){		
-		this.on('afterrender',function(){
-			this.cmbMover.store=new stoProyectos({
-				idProperty:'id',
-				url: '/historias/getDestinos'
-			});
-			
-			this.cmbMover.store.on('beforeload', function(store, options){
-				options.params.tipo=this.initialConfig.tipo;
-				if (this.initialConfig.tipo=='sprint'){
-					options.params.sprintId=this.initialConfig.idSprint;
-				}
-								
-			},this);			
-		},this);		
-		
-		this.btnMover.on('click',function(){
-			this.reubicarHistoria();
-		},this);
-	},
-	reubicarHistoria:function(){ //entre sprints y la pila de producto.
-		
-		var grid=this.getGrid();
-		var sel=grid.getSelected();
-		
-		if (sel==undefined) return;
-		var params={
-			idHistoria:sel.id,
-			idDestino:this.cmbMover.getValue()
-		} ;
-		Ext.Ajax.request({
-		   url: '/historias/mover',
-		   params: params,
-		   scope:this,
-		   success: function(response, opts){
-			  var result = Ext.decode(response.responseText);
-			  if (result.success===true){
-				this.getGrid().bottomToolbar.doRefresh();
-				if (result.msg)
-					topMsg.setAlert("Historias", result.msg); 
-			  }else{				
-					alert(result.msg); 
-			  }			  
-		   },
-		   failure: function(response, opts) {
-			  //console.log('server-side failure with status code ' + response.status);
-		   }
-		});
-	},
+	//Muestra sprints y Backlog , filtra la ubicacion actual		
 	moverArriba:function(){
 		this.moverHistoria('up');
 	},
@@ -192,6 +151,59 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 			  var result = Ext.decode(response.responseText);			  
 			  if (result.success===true){												
 				this.getGrid().bottomToolbar.doRefresh();
+			  }else{				
+					alert(result.msg); 
+			  }			  
+		   },
+		   failure: function(response, opts) {
+			  //console.log('server-side failure with status code ' + response.status);
+		   }
+		});
+	},
+	getContextMenu:function(){
+		if (this.ctxMenu == undefined)
+		this.ctxMenu = new ctxHistoria();
+		this.ctxMenu.on('reubicarHistoria',this.preguntarReubicarHistoria, this);
+		return this.ctxMenu;
+	},
+	preguntarReubicarHistoria:function(historia, destino){
+		//console.log("historia"); console.log(historia);
+		//console.log("destino"); console.log(destino);
+		Ext.Msg.show({
+		   title:'Reubicar?',
+		   msg: 'Desea reubicar la historia?',
+		   buttons: Ext.Msg.YESNO,
+		   scope:this,
+		   fn: function(btn){
+				if (btn=="yes"){
+					this.reubicarHistoria(historia, destino);
+				}
+		   },		   
+		   icon: Ext.MessageBox.QUESTION
+		});
+		
+	},
+	reubicarHistoria:function(historia, destino){ //entre sprints y la pila de producto.		
+		//var grid=this.getGrid();
+		//var sel=grid.getSelected();
+		
+		console.log("historia"); console.log(historia);
+		console.log("destino"); console.log(destino);
+		if (historia==undefined || destino==undefined) return;
+		var params={
+			idHistoria:historia.id,
+			idDestino:destino.id
+		} ;
+		Ext.Ajax.request({
+		   url: '/historias/mover',
+		   params: params,
+		   scope:this,
+		   success: function(response, opts){
+			  var result = Ext.decode(response.responseText);
+			  if (result.success===true){
+				this.getGrid().bottomToolbar.doRefresh();
+				if (result.msg)
+					topMsg.setAlert("Historias", result.msg); 
 			  }else{				
 					alert(result.msg); 
 			  }			  

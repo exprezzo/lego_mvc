@@ -17,14 +17,15 @@ class HistoriaDeUsuarioCrud extends ManejadorCrud{
 	
 	function getQueryBusqueda(){
 	
-		if ($_POST['tipo']=='sprint'){
-			$query= "SELECT m FROM ".$this->modelo." m WHErE m.descripcion LIKE :query AND  m.fk_proyecto=:fk_proyecto AND m.es_backlog=0 AND m.fk_sprint=:fk_sprint "; 
+		if ($_POST['idUbicacion']=='sprints'){
+			$query= "SELECT m FROM ".$this->modelo." m WHErE m.descripcion LIKE :query AND  m.fk_proyecto=:fk_proyecto AND m.es_backlog=0"; 
 			
-		}else if ($_POST['tipo']=='backlog'){
+		}else if ($_POST['idUbicacion']=='backlog'){
 			$query="SELECT m FROM ".$this->modelo." m WHErE m.descripcion LIKE :query AND  m.fk_proyecto=:fk_proyecto AND m.es_backlog=1 ";
 			
-		}	
-
+		}else if ( is_numeric($_POST['idUbicacion']) ){
+			$query="SELECT m FROM ".$this->modelo." m WHErE m.descripcion LIKE :query AND  m.fk_proyecto=:fk_proyecto AND m.es_backlog=0 AND m.fk_sprint=:fk_sprint  ";
+}
 		$estado=0;
 		if ( isset($_POST['estado']) ){
 			if (is_numeric( $_POST['estado']) && $_POST['estado']  !=0 ){
@@ -46,13 +47,20 @@ class HistoriaDeUsuarioCrud extends ManejadorCrud{
 	}
 	
 	public function moditicarQuery($query){
-		if ($_POST['tipo']=='sprint'){			
+	
+		if ($_POST['idUbicacion']=='sprints'){			
 			$query=$query->setParameter(':fk_proyecto',$_SESSION['MODS']['SCRUM']['PROYECTO_ID']);		
-			$query=$query->setParameter(':fk_sprint',$_POST['sprintId']);		
-		}else if ($_POST['tipo']=='backlog'){			
+			//$query=$query->setParameter(':esbacklog',0);		
+		}else if ($_POST['idUbicacion']=='backlog'){			
+	
 			$query=$query->setParameter(':fk_proyecto',$_SESSION['MODS']['SCRUM']['PROYECTO_ID']);		
+		}else if ( is_numeric($_POST['idUbicacion'])){			
+				//echo $_POST['idUbicacion'];
+			$query=$query->setParameter(':fk_proyecto',$_SESSION['MODS']['SCRUM']['PROYECTO_ID']);		
+			$query=$query->setParameter(':fk_sprint',$_POST['idUbicacion']);		
+			
 		}
-		
+		//$query=$query->setParameter(':query',$_POST['query']);		
 		//------------------------------------------------------------------
 		$estado=0;
 		if ( isset($_POST['estado']) ){
@@ -63,7 +71,7 @@ class HistoriaDeUsuarioCrud extends ManejadorCrud{
 		if ($estado!=0){			
 			$query=$query->setParameter(':fk_estado',$estado);					
 		}
-
+		//print_r($query);
 		return $query;
 	}
 	
@@ -73,7 +81,7 @@ class HistoriaDeUsuarioCrud extends ManejadorCrud{
 		$aMover=$this->obtener(array('id'=>$idHistoria));
 		
 		
-		$query= "SELECT m FROM ".$this->modelo." m WHErE m.prioridad >:prioridad AND m.fk_sprint=:fk_sprint order by m.prioridad ASC"; 
+		$query= "SELECT m FROM ".$this->modelo." m WHErE m.prioridad >:prioridad AND m.fk_sprint=:fk_sprint AND  m.fk_proyecto=:fk_proyecto order by m.prioridad ASC"; 
 		$em=$this->getEM();
 		$query = $em->createQuery($query)
 			->setFirstResult(0)
@@ -81,6 +89,7 @@ class HistoriaDeUsuarioCrud extends ManejadorCrud{
 			
 		$query->setParameter(':prioridad',$aMover->prioridad);
 		$query->setParameter(':fk_sprint',$aMover->fk_sprint);
+		$query->setParameter(':fk_proyecto',$aMover->fk_proyecto);
 		
 		$destino = $query->getResult();
 
@@ -91,11 +100,6 @@ class HistoriaDeUsuarioCrud extends ManejadorCrud{
 		
 		$prioridadOrigen=$aMover->prioridad;		
 		$prioridadDestino=$destino->prioridad;
-		
-		
-		
-		
-		
 		
 		$destino = $em->merge($destino);		
 		$aMover = $em->merge($aMover);
@@ -113,18 +117,19 @@ class HistoriaDeUsuarioCrud extends ManejadorCrud{
 	
 	function moverAbajo($idHistoria){
 		$success=false;
-		
+		$msg="";
 		$aMover=$this->obtener(array('id'=>$idHistoria));
 		
 		
-		$query= "SELECT m FROM ".$this->modelo." m WHErE m.prioridad <:prioridad AND m.fk_sprint=:fk_sprint order by m.prioridad DESC"; 
+		$query= "SELECT m FROM ".$this->modelo." m WHErE m.prioridad <:prioridad AND m.fk_sprint=:fk_sprint AND m.fk_proyecto=:fk_proyecto order by m.prioridad DESC"; 
 		$em=$this->getEM();
-		$query = $em->createQuery($query)
-			->setFirstResult(0)
-			->setMaxResults(1);	
-			
+		$query = $em->createQuery($query);
+		//Establecer valores
+		$query->setFirstResult(0);
+		$query->setMaxResults(1);				
 		$query->setParameter(':prioridad',$aMover->prioridad);
 		$query->setParameter(':fk_sprint',$aMover->fk_sprint);
+		$query->setParameter(':fk_proyecto',$aMover->fk_proyecto);
 		
 		$destino = $query->getResult();
 
@@ -147,7 +152,7 @@ class HistoriaDeUsuarioCrud extends ManejadorCrud{
 		//PENDIENTE: ¿Y SI NO SE MOVIO NADA?
 		$success=true;
 		
-		return array("success"=>$success,'msg'=>'En proceso moverArriba','movido'=>$aMover->id);		
+		return array("success"=>$success,'msg'=>$msg,'movido'=>$aMover->id);		
 	}
 	
 	function mover(){

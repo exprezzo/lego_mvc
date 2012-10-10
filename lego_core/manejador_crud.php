@@ -5,9 +5,9 @@ use Doctrine\DBAL\DriverManager;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Pagination\Paginator;
-require '../mvc/doctrine/entities/pendientes.php';
-require '../terceros/DoctrineORM-2.3.0-RC1/Doctrine/Common/ClassLoader.php';
-require '../mvc/doctrine/entities/modelo.php';
+require_once '../mvc/doctrine/entities/pendientes.php';
+require_once '../terceros/DoctrineORM-2.3.0-RC1/Doctrine/Common/ClassLoader.php';
+require_once '../mvc/doctrine/entities/modelo.php';
 
 class ManejadorCrud {
 //  var $modelo="Modelo";

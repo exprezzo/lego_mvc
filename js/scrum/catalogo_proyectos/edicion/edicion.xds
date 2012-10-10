@@ -23,7 +23,7 @@
             "userConfig": {
                 "title": "Edicion",
                 "width": 400,
-                "height": 250,
+                "height": "-ext-undefined-",
                 "padding": 10
             },
             "userXType": "frmProyecto",
@@ -63,6 +63,18 @@
                         "autoRef": "tbCrud"
                     },
                     "userComponent": "MyToolbar2"
+                },
+                {
+                    "id": "MyTextArea",
+                    "cid": "htmleditor",
+                    "jsClass": "MyTextArea",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "anchor": "100%",
+                        "fieldLabel": "Label",
+                        "height": "-ext-undefined-",
+                        "name": "descripcion"
+                    }
                 }
             ]
         },

@@ -11,6 +11,5 @@ require '../lego_core/manejador_crud.php';
 class ProyectoCrud extends ManejadorCrud{
 	var $modelo="Proyecto";
 	var $campos=array('id', 'nombre', 'descripcion' );	
-	
 }
 ?>

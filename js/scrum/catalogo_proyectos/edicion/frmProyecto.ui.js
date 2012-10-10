@@ -12,7 +12,6 @@
 frmProyectoUi = Ext.extend(Ext.form.FormPanel, {
     title: 'Edicion',
     width: 400,
-    height: 250,
     padding: 10,
     initComponent: function() {
         this.items = [
@@ -28,6 +27,12 @@ frmProyectoUi = Ext.extend(Ext.form.FormPanel, {
                 fieldLabel: 'Nombre Publico',
                 name: 'nombre',
                 ref: 'txtNombre'
+            },
+            {
+                xtype: 'htmleditor',
+                anchor: '100%',
+                fieldLabel: 'Label',
+                name: 'descripcion'
             }
         ];
         this.tbar = {

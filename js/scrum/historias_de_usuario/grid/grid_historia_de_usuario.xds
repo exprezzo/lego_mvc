@@ -93,7 +93,7 @@
                             "jsClass": "MyDisplayField",
                             "snapToGrid": 10,
                             "userConfig": {
-                                "value": "Mover A:"
+                                "value": "Ubicacion:"
                             }
                         },
                         {
@@ -103,21 +103,11 @@
                             "snapToGrid": 10,
                             "userConfig": {
                                 "emptyText": "seleccione destino",
-                                "autoRef": "cmbMover",
+                                "autoRef": "cmbUbicaciones",
                                 "displayField": "nombre",
                                 "valueField": "id",
-                                "minChars": 0
-                            }
-                        },
-                        {
-                            "id": "MyButton3",
-                            "cid": "button",
-                            "jsClass": "MyButton3",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "text": "Mover",
-                                "iconCls": "btnMover_16",
-                                "autoRef": "btnMover"
+                                "minChars": 0,
+                                "triggerAction": "all"
                             }
                         },
                         {
@@ -171,7 +161,7 @@
                             "jsClass": "MyDisplayField1",
                             "snapToGrid": 10,
                             "userConfig": {
-                                "value": "Filtrar por Estado",
+                                "value": "Estado",
                                 "style": "font-weighr:bold;cursor:pointer; text-decoration:underline;"
                             }
                         },

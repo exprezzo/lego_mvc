@@ -43,7 +43,7 @@ gridHistoriadeUsuarioUi = Ext.extend(Ext.grid.GridPanel, {
                 },
                 {
                     xtype: 'displayfield',
-                    value: 'Mover A:'
+                    value: 'Ubicacion:'
                 },
                 {
                     xtype: 'combo',
@@ -51,13 +51,8 @@ gridHistoriadeUsuarioUi = Ext.extend(Ext.grid.GridPanel, {
                     displayField: 'nombre',
                     valueField: 'id',
                     minChars: 0,
-                    ref: '../cmbMover'
-                },
-                {
-                    xtype: 'button',
-                    text: 'Mover',
-                    iconCls: 'btnMover_16',
-                    ref: '../btnMover'
+                    triggerAction: 'all',
+                    ref: '../cmbUbicaciones'
                 },
                 {
                     xtype: 'tbseparator'
@@ -83,7 +78,7 @@ gridHistoriadeUsuarioUi = Ext.extend(Ext.grid.GridPanel, {
                 },
                 {
                     xtype: 'displayfield',
-                    value: 'Filtrar por Estado',
+                    value: 'Estado',
                     style: 'font-weighr:bold;cursor:pointer; text-decoration:underline;'
                 },
                 {

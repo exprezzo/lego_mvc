@@ -30,16 +30,16 @@ Scrum = Ext.extend(ScrumUi, {
 							tipo:elNodo.attributes.tipo,
 							idReg:'backlog'
 						}											
-						node.fireEvent('mostrarTab', params);
-						//this.tabPanel.mostrarTab(params);					
+						//node.fireEvent('mostrarTab', params);
+						this.tabPanel.mostrarTab(params);					
 					break;
 					case 'sprints':				
 						var params={
 							xtype:'gridSprints',
 							idReg:'sprints'
 						};
-						node.fireEvent('mostrarTab', params);
-						//this.tabPanel.mostrarTab(params);						
+						//node.fireEvent('mostrarTab', params);
+						this.tabPanel.mostrarTab(params);						
 					break;
 					case 'sprint':
 						var params={
@@ -48,8 +48,8 @@ Scrum = Ext.extend(ScrumUi, {
 							idSprint:elNodo.id,
 							idReg:'sprint_'+elNodo.id							
 						};
-						//this.tabPanel.mostrarTab(params);
-						node.fireEvent('mostrarTab', params);
+						this.tabPanel.mostrarTab(params);
+						//node.fireEvent('mostrarTab', params);
 					break;
 				}			
 			},this);
@@ -123,8 +123,7 @@ Scrum = Ext.extend(ScrumUi, {
 			if ( options.seleccionar==true ) {
 				this.cmbProyectos.setValue( records[0].id );			
 				this.seleccionarProyecto();				
-			}else{
-				console.log(options);
+			}else{				
 				this.cmbProyectos.setValue( Modulos.Scum.idProyecto );
 			}
 			this.cmbProyectos.focus();
