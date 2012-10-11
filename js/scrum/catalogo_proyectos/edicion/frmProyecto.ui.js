@@ -20,6 +20,8 @@ frmProyectoUi = Ext.extend(Ext.form.FormPanel, {
                 fieldLabel: 'Id',
                 anchor: '100%',
                 name: 'id',
+                hidden: true,
+                hideLabel: true,
                 ref: 'txtId'
             },
             {
@@ -31,13 +33,49 @@ frmProyectoUi = Ext.extend(Ext.form.FormPanel, {
             {
                 xtype: 'htmleditor',
                 anchor: '100%',
-                fieldLabel: 'Label',
+                fieldLabel: 'Descripción',
                 name: 'descripcion'
             }
         ];
         this.tbar = {
-            ref: 'tbCrud',
-            xtype: 'crud16_toolbar'
+            xtype: 'toolbar',
+            items: [
+                {
+                    xtype: 'button',
+                    text: 'Guardar',
+                    iconCls: 'btnGuardarIcon_16',
+                    itemId: 'btnGuardar',
+                    arrowAlign: 'bottom',
+                    ref: '../btnGuardar'
+                },
+                {
+                    xtype: 'button',
+                    text: 'Eliminar',
+                    iconCls: 'btnEliminarIcon_16',
+                    itemId: 'btnEliminar',
+                    ref: '../btnEliminar'
+                },
+                {
+                    xtype: 'button',
+                    text: 'Nuevo',
+                    iconCls: 'btnNuevoIcon_16',
+                    itemId: 'btnNuevo',
+                    ref: '../btnNuevo'
+                },
+                {
+                    xtype: 'button',
+                    text: 'Recargar',
+                    iconCls: 'btnRecargarIcon_16',
+                    itemId: 'btnRecargar',
+                    ref: '../btnRecargar'
+                },
+                {
+                    xtype: 'tbseparator'
+                },
+                {
+                    xtype: 'tbfill'
+                }
+            ]
         };
         frmProyectoUi.superclass.initComponent.call(this);
     }

@@ -11,6 +11,7 @@
 
 ScrumUi = Ext.extend(Ext.Panel, {
     title: 'Scrum',
+    width: 838,
     height: 250,
     layout: 'border',
     bodyStyle: '',
@@ -19,15 +20,12 @@ ScrumUi = Ext.extend(Ext.Panel, {
             {
                 xtype: 'treepanel',
                 region: 'west',
-                width: 320,
+                width: 227,
                 border: false,
                 split: true,
                 collapseMode: 'mini',
                 rootVisible: false,
                 hlDrop: false,
-                bubbleEvents: [
-                    'mostrarTab'
-                ],
                 ref: 'arbolGrid',
                 root: {
                     text: 'Proyecto',
@@ -89,6 +87,7 @@ ScrumUi = Ext.extend(Ext.Panel, {
                             triggerAction: 'all',
                             itemId: 'cmbProyectos',
                             emptyText: 'cargando proyectos...',
+                            width: 140,
                             ref: '../../cmbProyectos'
                         }
                     ]

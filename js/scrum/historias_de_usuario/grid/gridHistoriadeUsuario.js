@@ -56,7 +56,7 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 		},this);
 		
 		this.store.on('load',function(store, records, options){
-			
+			if (options.params!=undefined)
 			if (options.params.idSeleccionado != undefined && options.params.idSeleccionado!=0){
 				var record= store.getById(options.params.idSeleccionado);				
 				var index=-1;
@@ -102,12 +102,18 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 		
 		this.configComboEstados();
 				
+		this.configurarComboProyectos();
+		
 	},
 	configComboMover:function(){
 		this.cmbUbicaciones.store=new stoProyectos({
 			idProperty:'id',
 			url: '/historias/listarUbicaciones'
 		});		
+		
+		this.cmbUbicaciones.on("select",function(){
+			this.bottomToolbar.doRefresh();
+		},this);
 	},
 	configComboEstados:function(){
 	
@@ -164,6 +170,12 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 		if (this.ctxMenu == undefined)
 		this.ctxMenu = new ctxHistoria();
 		this.ctxMenu.on('reubicarHistoria',this.preguntarReubicarHistoria, this);
+		
+		
+		this.ctxMenu.cmbMover.store.removeAll();
+		this.ctxMenu.cmbMover.reset();
+		this.ctxMenu.cmbMover.store.load();
+		
 		return this.ctxMenu;
 	},
 	preguntarReubicarHistoria:function(historia, destino){
@@ -212,6 +224,61 @@ gridHistoriadeUsuario = Ext.extend(gridHistoriadeUsuarioUi, {
 			  //console.log('server-side failure with status code ' + response.status);
 		   }
 		});
+	},
+	configurarComboProyectos:function(){
+		this.cmbProyectos.store= new  stoProyectos();		
+		this.cmbProyectos.store.on('load',function(store , records, options){
+			var id_proyecto=this.cmbProyectos.getValue();
+			
+			if ( options.seleccionar==true ) {
+				this.cmbProyectos.setValue( records[0].id );			
+				this.seleccionarProyecto();				
+			}else{				
+				this.cmbProyectos.setValue( Modulos.Scum.idProyecto );
+			}
+			this.cmbProyectos.focus();
+		},this);
+		
+		this.cmbProyectos.on('select',function(){
+			this.seleccionarProyecto();
+		},this);
+	},
+	seleccionarProyecto:function(){
+	
+		var idProyecto=this.cmbProyectos.getValue();
+		
+		Ext.Ajax.request({							//Notifica al servidor del proyecto seleccionado 
+			url: '/scrum/seleccionarProyecto',
+			params:{idProyecto:idProyecto},
+			scope:this,
+			success: function( response, options){
+			
+				var resp=Ext.decode(response.responseText);				
+				if (resp.success==true){
+					topMsg.setAlert(this.controlador,resp.msg);
+					Modulos.Scum.idProyecto = this.cmbProyectos.getValue();
+					this.cmbProyectos.setValue(Modulos.Scum.idProyecto);					
+					this.cmbUbicaciones.store.removeAll();
+					this.cmbUbicaciones.reset();
+					this.cmbUbicaciones.store.load();
+					this.getGrid().store.loadData({datos:{}});
+					this.cmbUbicaciones.setValue('backlog');
+					this.getGrid().bottomToolbar.doRefresh();
+					//this.getGrid().
+					//this.recargarArbol();
+				}else{
+					this.cmbProyectos.setValue(Modulos.Scum.idProyecto);					
+					alert(resp.msg);
+				}
+			
+			},
+		   failure: function(){
+				alert("FALLA: seleccionarProyecto");
+		   }
+		});
+		
+		
+		
 	}
 });
 Ext.reg('gridHistoriadeUsuario', gridHistoriadeUsuario);

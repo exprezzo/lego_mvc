@@ -45,7 +45,7 @@ gridProyectos = Ext.extend(gridProyectosUi, {
 		
 		
 	//----------------------------------
-		this.bottomToolbar.doRefresh();
+//		this.bottomToolbar.doRefresh();
     }
 });
 Ext.reg('gridProyectos', gridProyectos);

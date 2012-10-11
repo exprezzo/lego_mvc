@@ -46,13 +46,11 @@ class HistoriaDeUsuarioCrud extends ManejadorCrud{
 		return $mod;
 	}
 	
-	public function moditicarQuery($query){
-	
-		if ($_POST['idUbicacion']=='sprints'){			
-			$query=$query->setParameter(':fk_proyecto',$_SESSION['MODS']['SCRUM']['PROYECTO_ID']);		
+	public function moditicarQuery($query){	
+		if ($_POST['idUbicacion']=='sprints'){
+			$query=$query->setParameter(':fk_proyecto',$_SESSION['MODS']['SCRUM']['PROYECTO_ID']);
 			//$query=$query->setParameter(':esbacklog',0);		
-		}else if ($_POST['idUbicacion']=='backlog'){			
-	
+		}else if ($_POST['idUbicacion']=='backlog'){				
 			$query=$query->setParameter(':fk_proyecto',$_SESSION['MODS']['SCRUM']['PROYECTO_ID']);		
 		}else if ( is_numeric($_POST['idUbicacion'])){			
 				//echo $_POST['idUbicacion'];

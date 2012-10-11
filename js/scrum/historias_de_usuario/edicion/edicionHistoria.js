@@ -74,6 +74,12 @@ edicionHistoria = Ext.extend(edicionHistoriaUi, {
 		this.cmbEstado.store.loadData({datos:estado});
 		this.cmbEstado.setValue(estado.id);
 	},
+	editParams:function(params){
+		console.log("params");console.log(params);
+		console.log("this");console.log(this);
+		return params;
+	},
+	
 	actualizarTitulo:function(	action ){
 		if (action=="guardado" || action=="edicion")
 			this.setTitle(this.txtDescripcion.getValue() );

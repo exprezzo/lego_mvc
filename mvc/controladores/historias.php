@@ -96,6 +96,7 @@ class Historias extends Controlador{
 			$sprints=false;	
 		}else if ( is_numeric($_POST['idUbicacion'])){
 			//mostrar el backlog
+			$es_backlog=false;
 			$sprint_id=$_POST['idUbicacion'];
 		}
 		

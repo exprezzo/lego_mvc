@@ -88,35 +88,6 @@
                             "snapToGrid": 10
                         },
                         {
-                            "id": "MyDisplayField",
-                            "cid": "displayfield",
-                            "jsClass": "MyDisplayField",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "value": "Ubicacion:"
-                            }
-                        },
-                        {
-                            "id": "MyCombo",
-                            "cid": "combobox",
-                            "jsClass": "MyCombo",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "emptyText": "seleccione destino",
-                                "autoRef": "cmbUbicaciones",
-                                "displayField": "nombre",
-                                "valueField": "id",
-                                "minChars": 0,
-                                "triggerAction": "all"
-                            }
-                        },
-                        {
-                            "id": "MySeparator1",
-                            "cid": "tbseparator",
-                            "jsClass": "MySeparator1",
-                            "snapToGrid": 10
-                        },
-                        {
                             "id": "MyButton4",
                             "cid": "button",
                             "jsClass": "MyButton4",
@@ -144,6 +115,63 @@
                             "id": "MySeparator2",
                             "cid": "tbseparator",
                             "jsClass": "MySeparator2",
+                            "snapToGrid": 10
+                        },
+                        {
+                            "id": "MyFill",
+                            "cid": "tbfill",
+                            "jsClass": "MyFill",
+                            "snapToGrid": 10
+                        },
+                        {
+                            "id": "MyDisplayField2",
+                            "cid": "displayfield",
+                            "jsClass": "MyDisplayField2",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "value": "Proyecto"
+                            }
+                        },
+                        {
+                            "id": "MyCombo2",
+                            "cid": "combobox",
+                            "jsClass": "MyCombo2",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "autoRef": "cmbProyectos",
+                                "displayField": "nombre",
+                                "valueField": "id",
+                                "minChars": 0,
+                                "triggerAction": "all"
+                            }
+                        },
+                        {
+                            "id": "MyDisplayField",
+                            "cid": "displayfield",
+                            "jsClass": "MyDisplayField",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "value": "Ubicacion:"
+                            }
+                        },
+                        {
+                            "id": "MyCombo",
+                            "cid": "combobox",
+                            "jsClass": "MyCombo",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "emptyText": "seleccione ubicacion",
+                                "autoRef": "cmbUbicaciones",
+                                "displayField": "nombre",
+                                "valueField": "id",
+                                "minChars": 0,
+                                "triggerAction": "all"
+                            }
+                        },
+                        {
+                            "id": "MySeparator1",
+                            "cid": "tbseparator",
+                            "jsClass": "MySeparator1",
                             "snapToGrid": 10
                         },
                         {
@@ -188,9 +216,9 @@
                             }
                         },
                         {
-                            "id": "MyFill",
-                            "cid": "tbfill",
-                            "jsClass": "MyFill",
+                            "id": "MySeparator3",
+                            "cid": "tbseparator",
+                            "jsClass": "MySeparator2",
                             "snapToGrid": 10
                         },
                         {

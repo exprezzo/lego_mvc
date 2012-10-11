@@ -38,14 +38,15 @@ ctxHistoria = Ext.extend(Ext.menu.Menu, {
 		this.configComboMover();
     },
 	configComboMover:function(){		
-		
-		if (this.initialConfig.tipo==undefined)
-			this.initialConfig.tipo='backlog';
-		this.on('afterrender',function(){
-			this.cmbMover.store=new stoProyectos({
+		this.cmbMover.store=new stoProyectos({
 				idProperty:'id',
 				url: '/historias/getDestinos'
 			});
+			
+		if (this.initialConfig.tipo==undefined)
+			this.initialConfig.tipo='backlog';
+		this.on('afterrender',function(){
+			
 			
 			this.cmbMover.on("select",function(combo, record, index){
 				this.fireEvent("reubicarHistoria",this.selected, record);

@@ -22,7 +22,7 @@
             "snapToGrid": 10,
             "userConfig": {
                 "title": "Scrum",
-                "width": "-ext-undefined-",
+                "width": 838,
                 "height": 250,
                 "layout": "border",
                 "bodyStyle": ""
@@ -38,7 +38,7 @@
                         "title": "-ext-undefined-",
                         "autoRef": "arbolGrid",
                         "region": "west",
-                        "width": 320,
+                        "width": 227,
                         "border": false,
                         "enableDD": "-ext-undefined-",
                         "split": true,
@@ -175,7 +175,8 @@
                                         "value": "-ext-undefined-",
                                         "emptyText": "cargando proyectos...",
                                         "store": "(none)",
-                                        "autoRef": "cmbProyectos"
+                                        "autoRef": "cmbProyectos",
+                                        "width": 140
                                     },
                                     "userXType": "mycombo"
                                 }

@@ -42,22 +42,6 @@ gridHistoriadeUsuarioUi = Ext.extend(Ext.grid.GridPanel, {
                     xtype: 'tbseparator'
                 },
                 {
-                    xtype: 'displayfield',
-                    value: 'Ubicacion:'
-                },
-                {
-                    xtype: 'combo',
-                    emptyText: 'seleccione destino',
-                    displayField: 'nombre',
-                    valueField: 'id',
-                    minChars: 0,
-                    triggerAction: 'all',
-                    ref: '../cmbUbicaciones'
-                },
-                {
-                    xtype: 'tbseparator'
-                },
-                {
                     xtype: 'button',
                     iconCls: 'btnDown_16',
                     itemId: 'btnDown',
@@ -68,6 +52,37 @@ gridHistoriadeUsuarioUi = Ext.extend(Ext.grid.GridPanel, {
                     iconCls: 'btnUp_16',
                     itemId: 'btnUp',
                     ref: '../btnUp'
+                },
+                {
+                    xtype: 'tbseparator'
+                },
+                {
+                    xtype: 'tbfill'
+                },
+                {
+                    xtype: 'displayfield',
+                    value: 'Proyecto'
+                },
+                {
+                    xtype: 'combo',
+                    displayField: 'nombre',
+                    valueField: 'id',
+                    minChars: 0,
+                    triggerAction: 'all',
+                    ref: '../cmbProyectos'
+                },
+                {
+                    xtype: 'displayfield',
+                    value: 'Ubicacion:'
+                },
+                {
+                    xtype: 'combo',
+                    emptyText: 'seleccione ubicacion',
+                    displayField: 'nombre',
+                    valueField: 'id',
+                    minChars: 0,
+                    triggerAction: 'all',
+                    ref: '../cmbUbicaciones'
                 },
                 {
                     xtype: 'tbseparator'
@@ -94,7 +109,7 @@ gridHistoriadeUsuarioUi = Ext.extend(Ext.grid.GridPanel, {
                     ref: '../cmbEstado'
                 },
                 {
-                    xtype: 'tbfill'
+                    xtype: 'tbseparator'
                 },
                 {
                     xtype: 'trigger',
