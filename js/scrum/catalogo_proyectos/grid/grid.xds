@@ -25,7 +25,7 @@
                 "store": "-ext-undefined-",
                 "width": 400,
                 "height": 250,
-                "autoExpandColumn": "-ext-undefined-"
+                "autoExpandColumn": "colNombre"
             },
             "userXType": "gridProyectos",
             "cn": [
@@ -39,7 +39,8 @@
                         "dataIndex": "nombre",
                         "sortable": true,
                         "resizable": "-ext-undefined-",
-                        "width": 300
+                        "width": 300,
+                        "id": "colNombre"
                     }
                 },
                 {
@@ -54,91 +55,105 @@
                     }
                 },
                 {
-                    "id": "MyUserComponent",
-                    "cid": "usercomponent",
-                    "jsClass": "BORRAR_grid16_toolbar",
+                    "id": "MyColumn1",
+                    "cid": "templatecolumn",
+                    "jsClass": "MyColumn1",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "jsClass": "BORRAR_grid16_toolbar",
-                        "userXType": "grid16_toolbar"
-                    },
-                    "userComponent": "MyToolbar"
-                }
-            ]
-        },
-        {
-            "id": "MyToolbar",
-            "cid": "toolbar",
-            "jsClass": "BORRAR_grid16_toolbar",
-            "dock": "tbar",
-            "snapToGrid": 10,
-            "userXType": "grid16_toolbar",
-            "cn": [
-                {
-                    "id": "MyButton",
-                    "cid": "button",
-                    "jsClass": "MyButton",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "text": "Editar",
-                        "iconCls": "btnEditarIcon_16",
-                        "itemId": "btnEditar",
-                        "autoRef": "btnEditar",
-                        "scale": "-ext-undefined-",
-                        "arrowAlign": "bottom",
-                        "iconAlign": "-ext-undefined-",
-                        "icon": "-ext-undefined-"
+                        "header": "Default",
+                        "sortable": true,
+                        "resizable": "-ext-undefined-",
+                        "width": 100,
+                        "dataIndex": "predeterminado",
+                        "tpl": "<div class=\"estado_{predeterminado}\"></div>"
                     }
                 },
                 {
-                    "id": "MyButton1",
-                    "cid": "button",
-                    "jsClass": "MyButton1",
+                    "id": "MyToolbar",
+                    "cid": "toolbar",
+                    "jsClass": "grid16_toolbar",
+                    "dock": "tbar",
                     "snapToGrid": 10,
-                    "userConfig": {
-                        "text": "Eliminar",
-                        "iconCls": "btnEliminarIcon_16",
-                        "itemId": "btnEliminar",
-                        "autoRef": "btnEliminar",
-                        "scale": "-ext-undefined-",
-                        "iconAlign": "-ext-undefined-"
-                    }
-                },
-                {
-                    "id": "MyButton2",
-                    "cid": "button",
-                    "jsClass": "MyButton2",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "text": "Nuevo",
-                        "iconCls": "btnNuevoIcon_16",
-                        "itemId": "btnNuevo",
-                        "autoRef": "btnNuevo",
-                        "scale": "-ext-undefined-",
-                        "iconAlign": "-ext-undefined-"
-                    }
-                },
-                {
-                    "id": "MySeparator",
-                    "cid": "tbseparator",
-                    "jsClass": "MySeparator",
-                    "snapToGrid": 10
-                },
-                {
-                    "id": "MyFill",
-                    "cid": "tbfill",
-                    "jsClass": "MyFill",
-                    "snapToGrid": 10
-                },
-                {
-                    "id": "MyTriggerField",
-                    "cid": "trigger",
-                    "jsClass": "MyTriggerField",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "triggerClass": "x-form-search-trigger",
-                        "autoRef": "txtSearch"
-                    }
+                    "userXType": "grid16_toolbar",
+                    "cn": [
+                        {
+                            "id": "MyButton",
+                            "cid": "button",
+                            "jsClass": "MyButton",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Editar",
+                                "iconCls": "btnEditarIcon_16",
+                                "itemId": "btnEditar",
+                                "autoRef": "btnEditar",
+                                "scale": "-ext-undefined-",
+                                "arrowAlign": "bottom",
+                                "iconAlign": "-ext-undefined-",
+                                "icon": "-ext-undefined-"
+                            }
+                        },
+                        {
+                            "id": "MyButton1",
+                            "cid": "button",
+                            "jsClass": "MyButton1",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Eliminar",
+                                "iconCls": "btnEliminarIcon_16",
+                                "itemId": "btnEliminar",
+                                "autoRef": "btnEliminar",
+                                "scale": "-ext-undefined-",
+                                "iconAlign": "-ext-undefined-"
+                            }
+                        },
+                        {
+                            "id": "MyButton2",
+                            "cid": "button",
+                            "jsClass": "MyButton2",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Nuevo",
+                                "iconCls": "btnNuevoIcon_16",
+                                "itemId": "btnNuevo",
+                                "autoRef": "btnNuevo",
+                                "scale": "-ext-undefined-",
+                                "iconAlign": "-ext-undefined-"
+                            }
+                        },
+                        {
+                            "id": "MySeparator",
+                            "cid": "tbseparator",
+                            "jsClass": "MySeparator",
+                            "snapToGrid": 10
+                        },
+                        {
+                            "id": "MyButton3",
+                            "cid": "button",
+                            "jsClass": "MyButton3",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Establecer como Default",
+                                "iconCls": "btnDefault",
+                                "autoRef": "btnDefault"
+                            }
+                        },
+                        {
+                            "id": "MyFill",
+                            "cid": "tbfill",
+                            "jsClass": "MyFill",
+                            "snapToGrid": 10
+                        },
+                        {
+                            "id": "MyTriggerField",
+                            "cid": "trigger",
+                            "jsClass": "MyTriggerField",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "triggerClass": "x-form-search-trigger",
+                                "autoRef": "txtSearch"
+                            }
+                        }
+                    ]
                 }
             ]
         }
@@ -150,8 +165,9 @@
             "jsClass": "stoProyecto",
             "snapToGrid": 10,
             "userConfig": {
-                "storeId": "MyStore",
-                "root": "datos"
+                "storeId": "-ext-undefined-",
+                "root": "datos",
+                "url": "/proyectos/listar"
             },
             "cn": [
                 {
@@ -170,6 +186,15 @@
                     "snapToGrid": 10,
                     "userConfig": {
                         "name": "nombre"
+                    }
+                },
+                {
+                    "id": "MyField2",
+                    "cid": "datafield",
+                    "jsClass": "MyField2",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "predeterminado"
                     }
                 }
             ]

@@ -8,7 +8,8 @@
 	background-image:url('../imagenes/new.png');
 }
 .btnRecargarIcon{
-	background-image:url('../imagenes/old_view_refresh.png');
+
+	background-image:url('../imagenes/Human-O2/16x16/actions/new-view-refresh.png');
 }
 .btnSwitchIcon{
 	background-image:url('../imagenes/fatcow/32x32/application_view_list.png');

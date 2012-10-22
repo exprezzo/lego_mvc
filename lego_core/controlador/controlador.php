@@ -58,23 +58,31 @@ class Controlador{
 	}
 	
 	function crear(){}
+	
+	
 	function guardar(){
 		$modObj= $this->getModelObject();		
 		$params = $this->bindParams();
 		
 		$res = $modObj->guardar( $params );		
 
-		$success=true;				
+		$success=true;
 		$respuesta= array(
 			'success'=>$success,
 			'data'=> $res
 		);
-				
+		
+		$respuesta=$this->despuesDeGuardar($respuesta);
+		
 		echo json_encode($respuesta);
 		return $respuesta;
 	}
-	private function bindParams(){
-		
+	
+	function despuesDeGuardar($respuesta){
+		return $respuesta;
+	}
+	
+	private function bindParams(){	
 		return $_REQUEST;		
 	}
 	

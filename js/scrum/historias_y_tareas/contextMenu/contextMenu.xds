@@ -1,0 +1,129 @@
+{
+    "name": "contextMenu.xds",
+    "projectId": "84AC20EE-1CDE-4B3A-9C0A-66E424ED531C",
+    "settings": {
+        "urlPrefix": "http://localhost/",
+        "spacesToIndent": 4,
+        "codeGenFormat": "Class",
+        "extPath": "http://extjs.cachefly.net/ext-3.3.1/",
+        "exportPath": ".",
+        "lineEnding": "CRLF",
+        "instantiateStore": true,
+        "exportXDSFiles": true,
+        "genTimestamps": true
+    },
+    "xdsVersion": "1.1.2",
+    "components": [
+        {
+            "id": "MyToolbar",
+            "cid": "toolbar",
+            "jsClass": "MyToolbar",
+            "snapToGrid": 10,
+            "userConfig": {
+                "width": 400
+            },
+            "cn": [
+                {
+                    "id": "MyButton",
+                    "cid": "button",
+                    "jsClass": "MyButton",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "text": "MyButton"
+                    },
+                    "cn": [
+                        {
+                            "id": "MyMenu",
+                            "cid": "menu",
+                            "jsClass": "MyMenu",
+                            "dock": "menu",
+                            "snapToGrid": 10,
+                            "cn": [
+                                {
+                                    "id": "MyPanel",
+                                    "cid": "panel",
+                                    "jsClass": "MyPanel",
+                                    "snapToGrid": 10,
+                                    "userConfig": {
+                                        "title": "-ext-undefined-",
+                                        "layout": "table",
+                                        "width": 320,
+                                        "unstyled": true,
+                                        "style": "",
+                                        "autoRef": ""
+                                    },
+                                    "cn": [
+                                        {
+                                            "id": "MySpacer",
+                                            "cid": "spacer",
+                                            "jsClass": "MySpacer",
+                                            "snapToGrid": 10,
+                                            "userConfig": {
+                                                "width": 27
+                                            }
+                                        },
+                                        {
+                                            "id": "MyDisplayField",
+                                            "cid": "displayfield",
+                                            "jsClass": "MyDisplayField",
+                                            "snapToGrid": 10,
+                                            "userConfig": {
+                                                "value": "Enviar a: ",
+                                                "width": 66
+                                            }
+                                        },
+                                        {
+                                            "id": "MySpacer1",
+                                            "cid": "spacer",
+                                            "jsClass": "MySpacer1",
+                                            "snapToGrid": 10,
+                                            "userConfig": {
+                                                "width": 5
+                                            }
+                                        },
+                                        {
+                                            "id": "MyCombo",
+                                            "cid": "combobox",
+                                            "jsClass": "MyCombo",
+                                            "snapToGrid": 10,
+                                            "userConfig": {
+                                                "autoRef": "cmbMover",
+                                                "displayField": "nombre",
+                                                "valueField": "id",
+                                                "minChars": 0,
+                                                "triggerAction": "all"
+                                            }
+                                        },
+                                        {
+                                            "id": "MySpacer2",
+                                            "cid": "spacer",
+                                            "jsClass": "MySpacer2",
+                                            "snapToGrid": 10,
+                                            "userConfig": {
+                                                "width": 5,
+                                                "cls": "-ext-undefined-"
+                                            }
+                                        },
+                                        {
+                                            "id": "MyButton1",
+                                            "cid": "button",
+                                            "jsClass": "MyButton1",
+                                            "snapToGrid": 10,
+                                            "userConfig": {
+                                                "text": "-ext-undefined-",
+                                                "flex": 1,
+                                                "iconCls": "btnMover",
+                                                "autoRef": "btnMover"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "stores": []
+}

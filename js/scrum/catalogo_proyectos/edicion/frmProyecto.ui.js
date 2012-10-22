@@ -20,8 +20,6 @@ frmProyectoUi = Ext.extend(Ext.form.FormPanel, {
                 fieldLabel: 'Id',
                 anchor: '100%',
                 name: 'id',
-                hidden: true,
-                hideLabel: true,
                 ref: 'txtId'
             },
             {
@@ -33,8 +31,15 @@ frmProyectoUi = Ext.extend(Ext.form.FormPanel, {
             {
                 xtype: 'htmleditor',
                 anchor: '100%',
-                fieldLabel: 'Descripción',
+                fieldLabel: 'Características',
                 name: 'descripcion'
+            },
+            {
+                xtype: 'textfield',
+                fieldLabel: 'Label',
+                anchor: '100%',
+                name: 'predeterminado',
+                ref: 'txtPredeterminado'
             }
         ];
         this.tbar = {
@@ -65,7 +70,7 @@ frmProyectoUi = Ext.extend(Ext.form.FormPanel, {
                 {
                     xtype: 'button',
                     text: 'Recargar',
-                    iconCls: 'btnRecargarIcon_16',
+                    iconCls: 'btnRecargarIcon',
                     itemId: 'btnRecargar',
                     ref: '../btnRecargar'
                 },
@@ -73,7 +78,13 @@ frmProyectoUi = Ext.extend(Ext.form.FormPanel, {
                     xtype: 'tbseparator'
                 },
                 {
-                    xtype: 'tbfill'
+                    xtype: 'button',
+                    text: 'Establecer como Default',
+                    iconCls: 'btnDefault',
+                    ref: '../btnDefault'
+                },
+                {
+                    xtype: 'tbseparator'
                 }
             ]
         };

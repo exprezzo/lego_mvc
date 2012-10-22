@@ -14,7 +14,7 @@ gridProyectos = Ext.extend(gridProyectosUi, {
     initComponent: function() {
         gridProyectos.superclass.initComponent.call(this);
 			
-		this.store=new stoProyectos({			
+		this.store=new stoProyecto({			
 			api:{
 				read: '/proyectos/listar',
 				create: '/proyectos/crear',
@@ -23,10 +23,11 @@ gridProyectos = Ext.extend(gridProyectosUi, {
 			},
 			writer:new Ext.data.JsonWriter({
 				encode: true,
-				writeAllFields: true 
+				writeAllFields: true
 			})
 		});
-		this.bottomToolbar.bind(this.store);
+		
+		//this.bottomToolbar.bind(this.store);
 		//----------------------------------
 		//  agrego el comportamiento estandar del grid
 	
@@ -35,17 +36,32 @@ gridProyectos = Ext.extend(gridProyectosUi, {
 		});
 		this.activarComportamiento();
 		
-		//¿Que tal así?
+		/* 		¿Que tal así?
 		
-		//ComportamientoGrid.agregarA(this,{config});
+		xtype_del_form : 'frmProyecto'
+		plugins		   : [comportamiento_grid],
 		
-		//Comportamiento_ComboIcon.aplicarA(combo,config);
-		
-		//mejor o que
-		
-		
-	//----------------------------------
-//		this.bottomToolbar.doRefresh();
+		*/				
+		//----------------------------------
+		this.btnDefault.on("click",function(){		
+			var sel = this.getSelected();				
+			if ( sel == undefined) return false;
+			
+			Ext.Ajax.request({
+			   url: '/proyectos/establecerDefault',
+			   params:{proyectoId:sel.id},
+			   scope:this,
+			   success: function(response, opts) {
+				  var obj = Ext.decode(response.responseText);			  
+				  if (obj.success==true){
+					this.bottomToolbar.doRefresh();				
+					topMsg.setAlert("Default","Proyecto Establecido con &eacute;xito");									
+				  }
+			   }		   
+			});
+			
+			
+		},this);
     }
 });
 Ext.reg('gridProyectos', gridProyectos);

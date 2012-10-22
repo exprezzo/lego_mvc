@@ -66,8 +66,8 @@ main_layout = Ext.extend(main_layoutUi, {
 			}
 			Ext.applyIf(params,attribs);
 						
-			var tab=this.tabPanel.add(params);			
-			tab.show();
+			var tab=this.tabPanel.mostrarTab(params);			
+			//tab.show();
 		}
 	}
 });

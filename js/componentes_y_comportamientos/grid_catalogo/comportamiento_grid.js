@@ -171,8 +171,14 @@ comportamiento_grid={
 		
 		
 		this.store.on('load',function(){
-			this.getGrid().getSelectionModel().selectFirstRow(true);
-			this.mostrarOcultarBotones();			
+			var grid= this.getGrid();
+			
+			if (grid!=undefined){
+				var selMod= grid.getSelectionModel();
+				selMod.selectFirstRow(true);
+				this.mostrarOcultarBotones();			
+			}
+			
 		},this);
 		
 		this.store.on('beforeload',function(){			
@@ -181,6 +187,32 @@ comportamiento_grid={
 				query:this.txtSearch.getValue()
 			};			
 		},this);					
+		
+		//--------------------------------------------------------------------------------------------
+		// Mantener la seleccion
+		//--------------------------------------------------------------------------------------------
+		this.store.on('beforeload',function(store, options){										
+			//Para volver a seleccionar el elemento despues de recargar
+			var selected=this.getGrid().getSelected();			
+			var idSeleccionado=( selected != undefined)? selected.id : 0;
+			options.params.idSeleccionado = idSeleccionado;			
+		},this);
+		
+		this.store.on('load',function(store, records, options){
+			if (options.params!=undefined)
+			if (options.params.idSeleccionado != undefined && options.params.idSeleccionado!=0){
+				var record= store.getById(options.params.idSeleccionado);				
+				var index=-1;
+				if (record!=undefined)
+					index= store.indexOf( record );
+				
+				if (index>-1){
+					this.getGrid().getSelectionModel().selectRow(index);
+				}				
+			}				
+		},this);
+		//--------------------------------------------------------------------------------------------
+		
 		
 		this.on("rowdblclick",this.editar,this);
 		

@@ -1,7 +1,61 @@
+/* PENDIENTE */
+.scrum_estado_id_1{
+	height:16px;
+	width:16px;	
+	background-image:url('../imagenes/fatcow/16x16/clock_error.png');
+}
 
+.scrum_estado_id_2{
+	height:16px;
+	width:16px;	
+	
+	background-image:url('../imagenes/fatcow/16x16/wrench_orange.png');	
+}
+
+.scrum_estado_id_3{
+	height:16px;
+	width:16px;		
+	background-image:url('../imagenes/fatcow/16x16/stamp_pattern.png');		
+}
+
+.scrum_estado_id_4{	
+	height:16px;
+	width:16px;	
+	background-image:url('../imagenes/Human-O2/16x16/emblems/emblem-ok.png');		
+}
+
+.scrum_estado_id_5{
+	height:16px;
+	width:16px;	
+	background-image:url('../imagenes/fatcow/16x16/cog.png');
+}
+
+.scrum_estado_id_6{
+	height:16px;
+	width:16px;	
+	background-image:url('../imagenes/Human-O2/16x16/actions/zoom-original.png');
+	
+}
 
 .btnMover{	
 	background-image:url('../imagenes/Human-O2/16x16/actions/edit-redo.png');
+}
+
+.btnUp{	
+	background-image:url('../imagenes/Human-O2/16x16/actions/old-go-up.png');
+}
+.btnDown{	
+	background-image:url('../imagenes/Human-O2/16x16/actions/old-go-down.png');
+}
+
+.btnDefault{
+	background-image:url('../imagenes/Human-O2/16x16/emblems/emblem-ok.png');	
+}
+
+.estado_1{
+	background-image:url('../imagenes/Human-O2/16x16/emblems/emblem-ok.png');	
+	width:16px;
+	height:16px;
 }
 .btnUp_16{	
 	background-image:url('../imagenes/Human-O2/16x16/actions/old-go-up.png');

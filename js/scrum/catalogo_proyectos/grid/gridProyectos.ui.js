@@ -13,6 +13,7 @@ gridProyectosUi = Ext.extend(Ext.grid.GridPanel, {
     title: 'Lista  de proyectos',
     width: 400,
     height: 250,
+    autoExpandColumn: 'colNombre',
     initComponent: function() {
         this.columns = [
             {
@@ -20,7 +21,16 @@ gridProyectosUi = Ext.extend(Ext.grid.GridPanel, {
                 header: 'nombre',
                 dataIndex: 'nombre',
                 sortable: true,
-                width: 300
+                width: 300,
+                id: 'colNombre'
+            },
+            {
+                xtype: 'templatecolumn',
+                header: 'Default',
+                sortable: true,
+                width: 100,
+                dataIndex: 'predeterminado',
+                tpl: '<div class="estado_{predeterminado}"></div>'
             }
         ];
         this.bbar = {
@@ -54,6 +64,12 @@ gridProyectosUi = Ext.extend(Ext.grid.GridPanel, {
                 },
                 {
                     xtype: 'tbseparator'
+                },
+                {
+                    xtype: 'button',
+                    text: 'Establecer como Default',
+                    iconCls: 'btnDefault',
+                    ref: '../btnDefault'
                 },
                 {
                     xtype: 'tbfill'

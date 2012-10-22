@@ -38,8 +38,8 @@
                         "anchor": "100%",
                         "autoRef": "txtId",
                         "name": "id",
-                        "hidden": true,
-                        "hideLabel": true
+                        "hidden": "-ext-undefined-",
+                        "hideLabel": "-ext-undefined-"
                     }
                 },
                 {
@@ -61,7 +61,7 @@
                     "snapToGrid": 10,
                     "userConfig": {
                         "anchor": "100%",
-                        "fieldLabel": "Descripción",
+                        "fieldLabel": "Características",
                         "height": "-ext-undefined-",
                         "name": "descripcion"
                     }
@@ -125,7 +125,7 @@
                             "snapToGrid": 10,
                             "userConfig": {
                                 "text": "Recargar",
-                                "iconCls": "btnRecargarIcon_16",
+                                "iconCls": "btnRecargarIcon",
                                 "itemId": "btnRecargar",
                                 "autoRef": "btnRecargar",
                                 "scale": "-ext-undefined-",
@@ -139,12 +139,37 @@
                             "snapToGrid": 10
                         },
                         {
-                            "id": "MyFill",
-                            "cid": "tbfill",
-                            "jsClass": "MyFill",
+                            "id": "MyButton4",
+                            "cid": "button",
+                            "jsClass": "MyButton4",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Establecer como Default",
+                                "iconCls": "btnDefault",
+                                "autoRef": "btnDefault"
+                            }
+                        },
+                        {
+                            "id": "MySeparator1",
+                            "cid": "tbseparator",
+                            "jsClass": "MySeparator1",
                             "snapToGrid": 10
                         }
                     ]
+                },
+                {
+                    "id": "MyTextField1",
+                    "cid": "textfield",
+                    "jsClass": "MyTextField1",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "anchor": "100%",
+                        "name": "predeterminado",
+                        "hidden": "-ext-undefined-",
+                        "hideLabel": "-ext-undefined-",
+                        "autoRef": "txtPredeterminado"
+                    }
                 }
             ]
         }

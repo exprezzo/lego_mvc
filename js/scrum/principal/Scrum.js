@@ -116,17 +116,11 @@ Scrum = Ext.extend(ScrumUi, {
 		Ext.apply(this.tabPanel,comportamiento_tab_manager);
 		this.tabPanel.activarComportamiento();
 		
-		this.cmbProyectos.store= new  stoProyectos();		
-		this.cmbProyectos.store.on('load',function(store , records, options){
-			var id_proyecto=this.cmbProyectos.getValue();
-			
-			if ( options.seleccionar==true ) {
-				this.cmbProyectos.setValue( records[0].id );			
-				this.seleccionarProyecto();				
-			}else{				
-				this.cmbProyectos.setValue( Modulos.Scum.idProyecto );
-			}
-			this.cmbProyectos.focus();
+		this.cmbProyectos.store= new  stoProyecto();		
+		
+		this.cmbProyectos.initPlugin(cmbScrumProyectoPlugin);		
+		this.cmbProyectos.on('proyectoSeleccionado',function(proyectoId){			
+			this.seleccionarProyecto( proyectoId );
 		},this);
 		
 		this.cmbProyectos.on('select',function(){

@@ -6,6 +6,18 @@ require_once '../mvc/modelos/SprintCrud.php';
 
 class Historias extends Controlador{ 
 	
+	
+	// function listar(){
+		// $modObj= $this->getModelObject();
+		
+		// $params=$this->getFindParams();		
+		
+		// $res = $modObj->listar( $params );				
+		
+		// echo json_encode($res);
+		// return $res;		
+	// }
+	
 	function mover(){
 	
 		if ( !isset($_POST['idDestino']) || empty($_POST['idDestino']) ){

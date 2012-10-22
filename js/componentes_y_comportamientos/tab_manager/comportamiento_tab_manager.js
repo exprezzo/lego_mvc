@@ -11,7 +11,8 @@ comportamiento_tab_manager={
 		if ( tab==false )
 			tab = this.agregarTab(params);
 		
-		tab.show();						
+		tab.show();
+		return tab;
 	},
 	
 	activarComportamiento:function(){
@@ -51,7 +52,7 @@ comportamiento_tab_manager={
 		
 		Ext.apply( config, params );
 		
-		return this.add(config).show();
+		return this.add(config);
 	},
 	
 	encontrarTab:function(params){
@@ -66,6 +67,7 @@ comportamiento_tab_manager={
 				if ( item.getTabId() == params.xtype + '_' + params.idReg ){
 					return item;
 				}
+				
 			}
 		}
 		return false;

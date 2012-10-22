@@ -8,6 +8,11 @@
 	<link rel="stylesheet" type="text/css" href="http://localhost/ext-3.4.0/resources/css/ext-all.css"/>
     <script type="text/javascript" src="http://localhost/ext-3.4.0/adapter/ext/ext-base.js"></script>
     <script type="text/javascript" src="http://localhost/ext-3.4.0/ext-all-debug.js"></script>
+	<!-- =============================================================================================================================================== 
+														Plugins 
+		 ===============================================================================================================================================  -->	
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/plugins/catalogo/CatGridPlugin.js"></script>
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/plugins/catalogo/CatGridFunctions.js"></script>
 	
 	<!-- =============================================================================================================================================== 
 														Comportamientos 
@@ -94,6 +99,10 @@
 	<!-- ===============================================================================================================================================
 													SCRUM
 		 =============================================================================================================================================== -->	
+		 
+		 
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/scrum/plugins/cmbScrumProyectoPlugin.js"></script>	 
+	
 	<link rel="stylesheet" type="text/css" href="<?php echo APP_PATH; ?>css/scrum.css"/>
 	
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/scrum/Config/ScrumMod.ui.js"></script>	 
@@ -104,7 +113,9 @@
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/scrum/principal/Scrum.ui.js"></script>	 
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/scrum/principal/Scrum.js"></script>	 
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/scrum/principal/stoProyectos.js"></script>
-							<!-- **** HISTORIAS DE USUARIO Y TAREAS ** -->				
+	
+	<!-- **** HISTORIAS DE USUARIO Y TAREAS ** -->				
+	
 	<!-- Paginacion -->		
 	
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/scrum/historias_de_usuario/contextMenu/ctxHistoria.js"></script>
@@ -116,7 +127,22 @@
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/scrum/historias_de_usuario/edicion/stoEstadoHistoria.js"></script>		
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/scrum/historias_de_usuario/edicion/edicionHistoria.ui.js"></script>		
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/scrum/historias_de_usuario/edicion/edicionHistoria.js"></script>		
-
+	
+	<!-- **** HISTORIAS DE USUARIO Y TAREAS ** -->				
+	
+	<!-- Paginacion -->		
+	
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/scrum/historias_y_tareas/listado/stoHistoriasYTareas.js"></script>
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/scrum/historias_y_tareas/listado/listado_HistoriasYTareas.ui.js"></script>
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/scrum/historias_y_tareas/listado/listado_HistoriasYTareas.js"></script>
+	
+	<!-- Edicion  
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/scrum/historias_de_usuario/edicion/stoEstadoHistoria.js"></script>		
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/scrum/historias_de_usuario/edicion/edicionHistoria.ui.js"></script>		
+	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/scrum/historias_de_usuario/edicion/edicionHistoria.js"></script>		
+-->
+	
+	
 							<!-- ***** Proyectos **** -->
 	<!-- Edicion  -->
 	<script type="text/javascript" src="<?php echo APP_PATH; ?>js/scrum/catalogo_proyectos/edicion/frmProyecto.ui.js"></script>		

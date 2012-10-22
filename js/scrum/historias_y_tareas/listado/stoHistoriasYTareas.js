@@ -9,12 +9,18 @@
  * Do NOT hand edit this file.
  */
 
-stoHistoriasDUsuario = Ext.extend(Ext.data.JsonStore, {
+stoHistoriasYTareas = Ext.extend(Ext.data.GroupingStore, {
     constructor: function(cfg) {
         cfg = cfg || {};
-        stoHistoriasDUsuario.superclass.constructor.call(this, Ext.apply({
-            storeId: 'MyStore',
-            root: 'datos',
+        stoHistoriasYTareas.superclass.constructor.call(this, Ext.apply({			
+			api:{
+				read: '/Historias/listar',
+				create: '/Historias/crear',
+				update: '/Historias/guardar',
+				destroy: '/Historias/eliminar'
+			},
+			reader : new Ext.data.JsonReader({root: 'datos',
+				idProperty: 'id',
             fields: [
                 {
                     name: 'id'
@@ -37,8 +43,19 @@ stoHistoriasDUsuario = Ext.extend(Ext.data.JsonStore, {
                 {
                     name: 'duracion'
                 }
-            ]
+            ]}),
+			writer:new Ext.data.JsonWriter({
+				encode: true,
+				writeAllFields: true // write all fields, not just those that changed
+			}),
+            storeId: 'stoHistoriasYTareas',
+            root: 'datos',
+			groupField:'descripcion',
+			idProperty:'id'
+			
+    
+			
         }, cfg));
     }
 });
-Ext.reg('stoHistoriasDUsuario', stoHistoriasDUsuario);
+Ext.reg('stoHistoriasYTareas', stoHistoriasYTareas);

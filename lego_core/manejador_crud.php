@@ -94,11 +94,12 @@ class ManejadorCrud {
 		if (!empty($mod->id) ){
 			$mod = $em->merge($mod);			
 		}else{
+			$mod->esNuevo=true;
 			$mod=$this->beforeNew($mod);
 		}
 		 $exito=$em->persist($mod);		  
 		$exito= $em->flush();
-		
+		$mod=$this->afterSave($mod);
 		$exito=true;
 		if (!$exito){
 			return $exito;
@@ -113,6 +114,9 @@ class ManejadorCrud {
 		)		
 		*/
 		
+	}
+	function afterSave($mod){
+		return $mod;
 	}
 	
 	function borrar( $params ){

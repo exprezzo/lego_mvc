@@ -13,17 +13,43 @@
 frmProyecto = Ext.extend(frmProyectoUi, {
     initComponent: function() {
         frmProyecto.superclass.initComponent.call(this);
-		
-		//this.txtId.setVisible(false);
+		this.txtPredeterminado.setVisible(false);
+		this.txtId.setVisible(false);
 		
 		this.controlador='proyectos';
 		
-		this.on("afterrender",function(){
-			Ext.applyIf(this,comportamiento_formulario);		
-			this.activarComportamiento();			
-		},this);
 		
+		Ext.applyIf(this,comportamiento_formulario);		
+		this.activarComportamiento();			
+				
+		this.btnDefault.on('click',this.establecerComoDefault, this);		
     },
+	establecerComoDefault:function(){
+		
+		var id = this.txtId.getValue();
+		
+		if (id==0){
+		
+			this.txtPredeterminado.setValue();
+			
+		}else{
+			Ext.Ajax.request({
+			   url: '/proyectos/establecerDefault',
+			   params:{proyectoId:id},
+			   scope:this,
+			   success: function(response, opts) {
+				  var obj = Ext.decode(response.responseText);			  
+				  if (obj.success==true){					
+					topMsg.setAlert("Default","Proyecto Establecido con &eacute;xito");
+					this.txtPredeterminado.setValue(1);
+				  }
+			   }		   
+			});
+		}
+		
+		
+		
+	},
 	actualizarTitulo:function(	action ){		
 		if (action=="guardado" || action=="edicion")
 			this.setTitle(this.txtNombre.getValue() );

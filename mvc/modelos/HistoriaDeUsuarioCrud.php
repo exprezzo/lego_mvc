@@ -13,7 +13,8 @@ require_once 'pdo_modelo_crud.php';
 require_once '../lego_core/manejador_crud.php';
 class HistoriaDeUsuarioCrud extends ManejadorCrud{
 	var $modelo="Historia_de_usuario";
-	var $campos=array("id","descripcion",'fk_estado', "fk_sprint", "fk_proyecto",'es_backlog','detalles','prioridad');	
+	var $campos=array("id","descripcion",'fk_estado', "fk_sprint", "fk_proyecto",'es_backlog','detalles','prioridad','como_probarlo','estimado','duracion');	
+	
 	
 	function getQueryBusqueda(){
 	
@@ -43,6 +44,7 @@ class HistoriaDeUsuarioCrud extends ManejadorCrud{
 	
 	function beforeNew($mod) {
 		$mod->fk_proyecto=$_SESSION['MODS']['SCRUM']['PROYECTO_ID'];				
+		
 		return $mod;
 	}
 	
@@ -113,6 +115,8 @@ class HistoriaDeUsuarioCrud extends ManejadorCrud{
 		return array("success"=>$success,'msg'=>'En proceso moverArriba');		
 	}
 	
+	
+	
 	function moverAbajo($idHistoria){
 		$success=false;
 		$msg="";
@@ -165,15 +169,24 @@ class HistoriaDeUsuarioCrud extends ManejadorCrud{
 		$id=$params['id'];				
 		$modelo = $em->find( $this->modelo, $id );
 		
-		if ( !empty($modelo) )
-		if ( !is_null($modelo->fk_estado) ){
-			$mod= new Modelo_PDO();
+		if ( !empty($modelo) ){
+			if ( !is_null($modelo->fk_estado) ){
+				$mod= new Modelo_PDO();
+				
+				$mod->tabla='scrum_estados_de_historia';
+				$estado	=$mod->obtener(array('id'=>$modelo->fk_estado) );			
+				
+				$modelo->nombreEstado=$estado['nombre'];
+			}
+		}else{
 			
-			$mod->tabla='scrum_estados_de_historia';
-			$estado	=$mod->obtener(array('id'=>$modelo->fk_estado) );			
-			
-			$modelo->nombreEstado=$estado['nombre'];
+			$modelo = new Historia_de_usuario();
+			$modelo->nombreEstado="Pendiente";
+			$modelo->fk_estado=1;
+			$modelo->descripcion="Nueva Historia";
+			$modelo->fk_proyecto=$_SESSION['MODS']['SCRUM']['PROYECTO_ID'];				
 		}
+		
 		
 		return $modelo;
 	}
