@@ -1,33 +1,31 @@
 {
-    "name": "listado_historias_y_tareas.xds",
-    "projectId": "DFEFEEEF-7E33-4D58-9F72-CE7A3B7177D1",
+    "name": "Edicion_Historias_y_tareas.xds",
+    "projectId": "F4DCEF6B-7D19-4BE5-8FCF-5D3C15B60D0E",
     "settings": {
         "urlPrefix": "http://localhost/",
-        "directAPI": "",
-        "spacesToIndent": "4",
+        "spacesToIndent": 4,
         "codeGenFormat": "Class",
         "extPath": "http://extjs.cachefly.net/ext-3.3.1/",
         "exportPath": ".",
         "lineEnding": "CRLF",
-        "instantiateStore": false,
-        "exportXDSFiles": false,
-        "genTimestamps": false
+        "instantiateStore": true,
+        "exportXDSFiles": true,
+        "genTimestamps": true
     },
     "xdsVersion": "1.1.2",
     "components": [
         {
-            "id": "MyGrid",
-            "cid": "grid",
-            "jsClass": "listado_HistoriasYTareas",
+            "id": "MyPanel",
+            "cid": "panel",
+            "jsClass": "HistoriasYTareas",
             "snapToGrid": 10,
             "userConfig": {
-                "title": "Historias de usuario",
-                "store": "(none)",
+                "title": "My Panel",
                 "width": "-ext-undefined-",
-                "height": "-ext-undefined-",
-                "autoExpandColumn": "colDescripcion"
+                "height": 250,
+                "layout": "fit"
             },
-            "userXType": "listado_historias_y_tareas",
+            "userXType": "historias_y_tareas",
             "cn": [
                 {
                     "id": "MyToolbar",
@@ -88,7 +86,7 @@
                             "snapToGrid": 10
                         },
                         {
-                            "id": "MyButton4",
+                            "id": "MyButton3",
                             "cid": "button",
                             "jsClass": "MyButton4",
                             "snapToGrid": 10,
@@ -100,7 +98,7 @@
                             }
                         },
                         {
-                            "id": "MyButton5",
+                            "id": "MyButton4",
                             "cid": "button",
                             "jsClass": "MyButton4",
                             "snapToGrid": 10,
@@ -112,7 +110,7 @@
                             }
                         },
                         {
-                            "id": "MySeparator2",
+                            "id": "MySeparator1",
                             "cid": "tbseparator",
                             "jsClass": "MySeparator2",
                             "snapToGrid": 10
@@ -124,7 +122,7 @@
                             "snapToGrid": 10
                         },
                         {
-                            "id": "MyDisplayField2",
+                            "id": "MyDisplayField",
                             "cid": "displayfield",
                             "jsClass": "MyDisplayField2",
                             "snapToGrid": 10,
@@ -133,7 +131,7 @@
                             }
                         },
                         {
-                            "id": "MyCombo2",
+                            "id": "MyCombo",
                             "cid": "combobox",
                             "jsClass": "MyCombo2",
                             "snapToGrid": 10,
@@ -146,7 +144,7 @@
                             }
                         },
                         {
-                            "id": "MyDisplayField",
+                            "id": "MyDisplayField1",
                             "cid": "displayfield",
                             "jsClass": "MyDisplayField",
                             "snapToGrid": 10,
@@ -155,7 +153,7 @@
                             }
                         },
                         {
-                            "id": "MyCombo",
+                            "id": "MyCombo1",
                             "cid": "combobox",
                             "jsClass": "MyCombo",
                             "snapToGrid": 10,
@@ -170,7 +168,7 @@
                             }
                         },
                         {
-                            "id": "MySeparator1",
+                            "id": "MySeparator2",
                             "cid": "tbseparator",
                             "jsClass": "MySeparator1",
                             "snapToGrid": 10
@@ -185,7 +183,7 @@
                             }
                         },
                         {
-                            "id": "MyDisplayField1",
+                            "id": "MyDisplayField2",
                             "cid": "displayfield",
                             "jsClass": "MyDisplayField1",
                             "snapToGrid": 10,
@@ -204,7 +202,7 @@
                             }
                         },
                         {
-                            "id": "MyCombo1",
+                            "id": "MyCombo2",
                             "cid": "combobox",
                             "jsClass": "MyCombo1",
                             "snapToGrid": 10,
@@ -236,74 +234,28 @@
                     ]
                 },
                 {
-                    "id": "MyPagingToolbar",
-                    "cid": "pagingtoolbar",
-                    "jsClass": "MyPagingToolbar",
-                    "dock": "bbar",
+                    "id": "MyUserComponent",
+                    "cid": "usercomponent",
+                    "jsClass": "MyPanel1",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "store": "(none)",
-                        "displayInfo": true
-                    }
-                },
-                {
-                    "id": "MyColumn2",
-                    "cid": "templatecolumn",
-                    "jsClass": "MyColumn2",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "header": "E",
-                        "sortable": true,
-                        "resizable": "-ext-undefined-",
-                        "width": 25,
-                        "dataIndex": "fk_estado",
-                        "tpl": "<div class=\"scrum_estado_id_{fk_estado}\" title=\"estado\"></div>",
-                        "align": "center"
-                    }
-                },
-                {
-                    "id": "MyColumn1",
-                    "cid": "gridcolumn",
-                    "jsClass": "MyColumn1",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "header": "descripcion",
-                        "dataIndex": "descripcion",
-                        "sortable": true,
-                        "resizable": "-ext-undefined-",
-                        "width": 100,
-                        "id": "colDescripcion"
-                    }
-                },
-                {
-                    "id": "MyColumn",
-                    "cid": "gridcolumn",
-                    "jsClass": "MyColumn",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "header": "Estimado",
-                        "sortable": true,
-                        "resizable": "-ext-undefined-",
-                        "width": 100,
-                        "dataIndex": "estimado",
-                        "hidden": true
-                    }
-                },
-                {
-                    "id": "MyColumn3",
-                    "cid": "gridcolumn",
-                    "jsClass": "MyColumn3",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "header": "Duracion",
-                        "sortable": true,
-                        "resizable": "-ext-undefined-",
-                        "width": 100,
-                        "dataIndex": "duracion",
-                        "hidden": true
-                    }
+                        "jsClass": "BORRAR_Panel",
+                        "userXType": "tree_historias_y_tareas",
+                        "autoRef": "arbolScrum"
+                    },
+                    "userComponent": "MyPanel1"
                 }
             ]
+        },
+        {
+            "id": "MyPanel1",
+            "cid": "panel",
+            "jsClass": "BORRAR_Panel",
+            "snapToGrid": 10,
+            "userConfig": {
+                "title": "-ext-undefined-"
+            },
+            "userXType": "tree_historias_y_tareas"
         }
     ],
     "stores": []

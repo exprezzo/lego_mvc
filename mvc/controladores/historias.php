@@ -192,5 +192,83 @@ class Historias extends Controlador{
 		echo json_encode($resp);
 		return $resp;
 	}
+	
+	function paginarHistorias(){
+		
+		if ( empty( $_SESSION['MODS']['SCRUM']['PROYECTO_ID'] ) ){
+			$resp=array(
+				'success'=>false,
+				'msg'=>'Scrum: Seleccione un proyecto'
+			);		
+			echo json_encode($resp);exit;			
+		}
+		
+		$idProyecto=$_SESSION['MODS']['SCRUM']['PROYECTO_ID'];
+		
+		$idUbicacion = $_POST['idUbicacion'];
+		
+		$sql='select 			
+			h.id,
+			"historia" as tipo,
+			h.descripcion as text,
+			fk_estado
+		 from scrum_historias_de_usuario h 		
+		where h.fk_proyecto=:fk_proyecto and';
+		
+		$esBacklog=true;
+		$todosSprints=false;
+		
+		if ($idUbicacion=='backlog'){
+			$sql.=' es_backlog=1';
+			$todosSprints=false;
+		}else if ($idUbicacion=='sprints'){
+			$esBacklog=false;
+			$todosSprints=true;
+			$sql.=' es_backlog=0';
+		}else{
+			$esBacklog=false;
+			$todosSprints=false;
+			$sql.=' es_backlog=0 and fk_sprint=:fk_sprint';
+		}
+		
+		$mod=new Modelo_PDO();
+		$con=$mod->getConexion();
+		$sth = $con->prepare($sql);	
+		
+		$sth->bindValue(':fk_proyecto',$idProyecto);		
+		
+		if (!$esBacklog && !$todosSprints){
+			$sth->bindValue(':fk_sprint', $idUbicacion);
+		}
+		
+		$sth->execute();
+		$modelos = $sth->fetchAll(PDO::FETCH_ASSOC);		
+		
+		for($i=0; $i<sizeof($modelos); $i++){
+			
+			$sqlTarea="select 			
+			id ,
+			'tarea' as tipo,
+			true as leaf,
+			descripcion as text,
+			fk_estado
+			from scrum_tareas t
+			where t.fk_historia=".$modelos[$i]['id'];
+			$sth = $con->prepare($sqlTarea);
+			$sth->execute();
+			//echo 'ID: '.$modelos[$i]['id'];
+			//echo $sqlTarea;
+			$tareas = $sth->fetchAll(PDO::FETCH_ASSOC);		
+			$modelos[$i]['children']=$tareas;
+		}
+		
+		$resp=array(
+			'success'=>true,
+			'datos'=>$modelos
+		);
+		echo json_encode($modelos);
+		
+		return $resp;
+	}
 }
 ?>

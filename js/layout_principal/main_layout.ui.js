@@ -67,6 +67,7 @@ main_layoutUi = Ext.extend(Ext.Viewport, {
                                     'click'
                                 ],
                                 cls: 'custom_tree',
+                                autoScroll: true,
                                 ref: '../../treeMenus',
                                 root: {
                                     text: 'Tree Node',

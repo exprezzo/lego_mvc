@@ -14,47 +14,40 @@ stoHistoriasYTareas = Ext.extend(Ext.data.GroupingStore, {
         cfg = cfg || {};
         stoHistoriasYTareas.superclass.constructor.call(this, Ext.apply({			
 			api:{
-				read: '/Historias/listar',
+				read: '/Historias/paginarHistorias',
 				create: '/Historias/crear',
 				update: '/Historias/guardar',
 				destroy: '/Historias/eliminar'
 			},
-			reader : new Ext.data.JsonReader({root: 'datos',
+			reader : new Ext.data.JsonReader({
+				root: 'datos',
 				idProperty: 'id',
-            fields: [
-                {
-                    name: 'id'
-                },
-                {
-                    name: 'descripcion'
-                },
-                {
-                    name: 'estimado'
-                },
-                {
-                    name: 'default'
-                },
-                {
-                    name: 'fk_estado'
-                },
-                {
-                    name: 'desc_estado'
-                },
-                {
-                    name: 'duracion'
-                }
-            ]}),
+				fields: [
+					{
+						name: 'id'
+					},
+					{
+						name: 'idHistoria'
+					},
+					{
+						name: 'historia'
+					},
+					{
+						name: 'idTarea'
+					},
+					{
+						name: 'tarea'
+					},
+					{
+						name: 'estado'
+					}
+				]
+			}),
 			writer:new Ext.data.JsonWriter({
 				encode: true,
 				writeAllFields: true // write all fields, not just those that changed
-			}),
-            storeId: 'stoHistoriasYTareas',
-            root: 'datos',
-			groupField:'descripcion',
-			idProperty:'id'
-			
-    
-			
+			}),            
+			groupField:'historia'			
         }, cfg));
     }
 });

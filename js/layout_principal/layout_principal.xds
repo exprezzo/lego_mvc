@@ -114,7 +114,8 @@
                                         "rootVisible": false,
                                         "autoRef": "treeMenus",
                                         "bubbleEvents": "['click']",
-                                        "cls": "custom_tree"
+                                        "cls": "custom_tree",
+                                        "autoScroll": true
                                     },
                                     "cn": [
                                         {

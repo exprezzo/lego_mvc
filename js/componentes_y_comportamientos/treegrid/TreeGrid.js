@@ -24,20 +24,20 @@ Ext.ux.tree.TreeGrid = Ext.extend(Ext.tree.TreePanel, {
     
     columnsText : 'Columns',
 
-    initComponent : function() {
+    initComponent : function() {		
         if(!this.root) {
-            this.root = new Ext.tree.AsyncTreeNode({text: 'Inicio',id:1});
+            	this.root = new Ext.tree.AsyncTreeNode({text: 'Inicio',id:1});
         }
-        
+         //this.root = new Ext.tree.AsyncTreeNode({text: 'Inicio',id:1});
         // initialize the loader
         var l = this.loader;
-        if(!l){
+        if(!l){			
             l = new Ext.ux.tree.TreeGridLoader({
                 dataUrl: this.dataUrl,
                 requestMethod: this.requestMethod,
                 store: this.store
             });
-        }else if(Ext.isObject(l) && !l.load){
+        }else if(Ext.isObject(l) && !l.load){			
             l = new Ext.ux.tree.TreeGridLoader(l);
         }
         this.loader = l;
