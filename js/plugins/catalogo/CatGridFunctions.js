@@ -7,8 +7,23 @@ var CatGridFunctions={
 	editParams:function(params){
 		return params;
 	},	
+	cofigCrudToolbar:function(cmp){
+		if (cmp.btnNuevo != undefined) {
+			cmp.btnNuevo.on('click',cmp.nuevo,cmp);			
+		}
+		
+		if (cmp.btnEditar != undefined) {			
+			cmp.btnEditar.on('click', cmp.editar,cmp);
+			cmp.btnEditar.setDisabled(cmp);
+		}
+		
+		if (cmp.btnEliminar != undefined) {			
+			cmp.btnEliminar.on('click', cmp.eliminar, cmp);
+			cmp.btnEliminar.setDisabled(true);
+		}
+	},
 	mostrarOcultarBotones:function(){  //PENDIENTE: encontrar manera de evitar copiar el contenido
-		var sel=this.getSelectionModel();
+		var sel=this.getGrid().getSelectionModel();
 			
 		if(sel.getCount()==0){
 			if (this.btnEditar) //<---TODO: Separa al comportamiento toolbar
@@ -68,17 +83,29 @@ var CatGridFunctions={
 			idReg:  selected.id,
 			masConfig:this.initialConfig
 		};
-		if ( !Ext.isEmpty(this.iconCls) ){
+		
+		var resp=this.fireEvent('editParams',{
+			params:params,
+			action:'editar'
+		});
+		
+		var editados = this.editParams(params);		
+		if ( editados!= undefined && editados !=false  ) {
+			params = editados;			
+		}
+		
+		
+		
+		
+		if ( !Ext.isEmpty(this.iconCls) && params.iconCls==undefined){
 			params.iconCls=this.iconCls;
 		}		
 		
 		this.fireEvent('mostrarTab',params);
 	},
 	eliminar:function(){	//TODO: considerar todos los modelos de seleccion del extjs
-		grid=this;
-		var selMod = this.getSelectionModel();
-		var selected= selMod.getSelected();		
-		var selected=selMod.getSelected();
+		grid=this;		
+		var selected=this.getSelected();
 		if (selected == undefined) return false;		
 		// Show a dialog using config options:
 		Ext.Msg.show({

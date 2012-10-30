@@ -1,5 +1,5 @@
 {
-    "name": "edicion_historias_y_tareas.xds",
+    "name": "edicion_tareas.xds",
     "projectId": "D99FE0F1-50F2-4105-AC10-38934D71A2E2",
     "settings": {
         "urlPrefix": "http://localhost/",
@@ -18,7 +18,7 @@
         {
             "id": "MyForm",
             "cid": "form",
-            "jsClass": "edicion_historias_y_tareas",
+            "jsClass": "edicion_tareas",
             "snapToGrid": 10,
             "userConfig": {
                 "title": "-ext-undefined-",
@@ -28,7 +28,7 @@
                 "autoScroll": true,
                 "autoRef": "frmHistoria"
             },
-            "userXType": "edicion_historias_y_tareas",
+            "userXType": "edicion_tareas",
             "cn": [
                 {
                     "id": "MyToolbar",
@@ -148,17 +148,6 @@
                             "cid": "tbfill",
                             "jsClass": "MyFill",
                             "snapToGrid": 10
-                        },
-                        {
-                            "id": "MyButton4",
-                            "cid": "button",
-                            "jsClass": "MyButton4",
-                            "snapToGrid": 10,
-                            "userConfig": {
-                                "text": "Ver Tareas",
-                                "autoRef": "btnVerTareas",
-                                "iconCls": "btnVerTareas"
-                            }
                         }
                     ]
                 },
@@ -180,7 +169,7 @@
                     "jsClass": "MyTextField2",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "fieldLabel": "Historia",
+                        "fieldLabel": "Tarea",
                         "anchor": "100%",
                         "autoRef": "txtDescripcion",
                         "name": "descripcion"
@@ -189,13 +178,13 @@
                 {
                     "id": "MyTextField2",
                     "cid": "textfield",
-                    "jsClass": "MyTextField1",
+                    "jsClass": "MyTextField2",
                     "snapToGrid": 10,
                     "userConfig": {
-                        "fieldLabel": "sprint",
+                        "fieldLabel": "Historia",
                         "anchor": "100%",
-                        "name": "fk_sprint",
-                        "autoRef": "txtSprint"
+                        "name": "fk_historia",
+                        "autoRef": "txtHistoria"
                     }
                 },
                 {
@@ -240,18 +229,6 @@
                     }
                 },
                 {
-                    "id": "MyTextField6",
-                    "cid": "textfield",
-                    "jsClass": "MyTextField8",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "fieldLabel": "Proyecto",
-                        "anchor": "100%",
-                        "name": "fk_proyecto",
-                        "autoRef": "lblProyecto"
-                    }
-                },
-                {
                     "id": "MyTextField7",
                     "cid": "textfield",
                     "jsClass": "MyTextField7",
@@ -273,18 +250,6 @@
                         "anchor": "100%",
                         "name": "nombreEstado",
                         "autoRef": "txtNombreEstado"
-                    }
-                },
-                {
-                    "id": "MyTextField9",
-                    "cid": "textfield",
-                    "jsClass": "MyTextField4",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "fieldLabel": "Backlog?",
-                        "anchor": "100%",
-                        "name": "es_backlog",
-                        "autoRef": "txtBacklog"
                     }
                 },
                 {
@@ -314,66 +279,5 @@
             ]
         }
     ],
-    "stores": [
-        {
-            "id": "MyStore",
-            "cid": "jsonstore",
-            "jsClass": "stoEstadoHistoria",
-            "snapToGrid": 10,
-            "userConfig": {
-                "storeId": "-ext-undefined-",
-                "root": "datos",
-                "url": "/estados/listar",
-                "autoLoad": "-ext-undefined-"
-            },
-            "userXType": "stoEstadoHistoria",
-            "cn": [
-                {
-                    "id": "MyField",
-                    "cid": "datafield",
-                    "jsClass": "MyField",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "name": "id"
-                    }
-                },
-                {
-                    "id": "MyField1",
-                    "cid": "datafield",
-                    "jsClass": "MyField1",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "name": "nombre"
-                    }
-                },
-                {
-                    "id": "MyField2",
-                    "cid": "datafield",
-                    "jsClass": "MyField2",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "name": "descripcion"
-                    }
-                },
-                {
-                    "id": "MyField3",
-                    "cid": "datafield",
-                    "jsClass": "MyField3",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "name": "icon"
-                    }
-                },
-                {
-                    "id": "MyField4",
-                    "cid": "datafield",
-                    "jsClass": "MyField4",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "name": "default"
-                    }
-                }
-            ]
-        }
-    ]
+    "stores": []
 }

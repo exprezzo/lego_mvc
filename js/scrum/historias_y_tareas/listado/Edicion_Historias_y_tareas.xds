@@ -116,6 +116,23 @@
                             "snapToGrid": 10
                         },
                         {
+                            "id": "MyButton7",
+                            "cid": "button",
+                            "jsClass": "MyButton7",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "text": "Nueva Tarea",
+                                "iconCls": "btnNuevaTarea",
+                                "autoRef": "btnNuevaTarea"
+                            }
+                        },
+                        {
+                            "id": "MySeparator4",
+                            "cid": "tbseparator",
+                            "jsClass": "MySeparator4",
+                            "snapToGrid": 10
+                        },
+                        {
                             "id": "MyFill",
                             "cid": "tbfill",
                             "jsClass": "MyFill",
@@ -236,7 +253,7 @@
                 {
                     "id": "MyUserComponent",
                     "cid": "usercomponent",
-                    "jsClass": "MyPanel1",
+                    "jsClass": "BORRAR_Panel",
                     "snapToGrid": 10,
                     "userConfig": {
                         "jsClass": "BORRAR_Panel",

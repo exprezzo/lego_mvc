@@ -12,19 +12,7 @@ CatGridPlugin={
 			this.bottomToolbar.doRefresh();
 		},cmp);
 		
-		if (cmp.btnNuevo != undefined) {
-			cmp.btnNuevo.on('click',cmp.nuevo,cmp);			
-		}
-		
-		if (cmp.btnEditar != undefined) {			
-			cmp.btnEditar.on('click', cmp.editar,cmp);
-			cmp.btnEditar.setDisabled(cmp);
-		}
-		
-		if (cmp.btnEliminar != undefined) {			
-			cmp.btnEliminar.on('click', cmp.eliminar, cmp);
-			cmp.btnEliminar.setDisabled(true);
-		}
+		this.cofigCrudToolbar(cmp);
 		
 		cmp.on('rowclick',function(e){
 			this.mostrarOcultarBotones();			
@@ -65,9 +53,9 @@ CatGridPlugin={
 		
 		cmp.store.on('beforeload',function(){			
 			if (this.txtSearch)
-			this.store.baseParams={
-				query:this.txtSearch.getValue()
-			};			
+			this.store.baseParams = this.store.baseParams || {};
+			this.store.baseParams.query=this.txtSearch.getValue();
+			
 		},cmp);					
 		
 		//--------------------------------------------------------------------------------------------

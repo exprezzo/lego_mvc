@@ -1,7 +1,7 @@
 <?php
 
 require_once '../mvc/modelos/tarea_crud.php';
-require '../mvc/doctrine/entities/tarea.php';
+require '../mvc/modelos/entidades_de_doctrine/tarea.php';
 
 class Tareas extends Controlador{ //extends Controlador
 	
@@ -19,13 +19,13 @@ class Tareas extends Controlador{ //extends Controlador
 		}		
 		return $this->modObj;
 	}	
-	
+	/*
 	function moditicarQuery($query){
 		$query->setParameter('fk_historia');
 		return $query;
 	}
 	function getQueryBusqueda(){
 		return "SELECT m FROM ".$this->modelo." m WHErE m.descripcion LIKE :query order BY m.descripcion ASC"; 
-	}
+	}*/
 }
 ?>

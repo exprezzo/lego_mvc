@@ -12,8 +12,17 @@
  */
 
 HistoriasYTareas = Ext.extend(HistoriasYTareasUi, {
+	xtype_del_form:"edicion_historias_y_tareas",	
+	//plugins:[CatGridPlugin],    	
+	/*editParams:function(){
+		imagenes\Human-O2\128x128\apps
+	},*/
+	
+	
     initComponent: function() {
         HistoriasYTareas.superclass.initComponent.call(this);
+		
+		Ext.applyIf(this, CatGridFunctions);
 		//----------------------------------
 		//this.store=new stoHistoriasYTareas();
 		//----------------------------------
@@ -33,27 +42,69 @@ HistoriasYTareas = Ext.extend(HistoriasYTareasUi, {
 		this.cmbUbicaciones.on("select",function(){
 			this.arbolScrum.actualizar();
 		},this);
+		
+		this.enableBubble("mostrarTab");	
+		
+		this.cofigCrudToolbar(this);			
+		
+		this.btnNuevaTarea.on('click',function(){
+			var sel = this.getSelected();
+			console.log(sel);
+			if (sel==undefined){
+				return false;
+			}
+			
+			if (sel.data.tipo!='historia') return false;
+			
+			this.nuevaTarea(sel.id);
+		},this);
     },
+	getGrid:function(){
+		return this.arbolScrum;
+	},
 	configArbolScrum:function(){
 		this.arbolScrum.cmbProyectos   = this.cmbProyectos;
 		this.arbolScrum.cmbUbicaciones = this.cmbUbicaciones;
 		this.arbolScrum.configArbol();
-	},
-	xtype_del_form:"edicionHistoria",	
-	//plugins:[CatGridPlugin],    	
-	mostrarOcultarBotones:function(){  //PENDIENTE: encontrar manera de evitar copiar el contenido
-		var sel=this.getSelectionModel();
+		
+		this.arbolScrum.on('editarHistoria',function(idHistoria){			
+			this.editarHistoria(idHistoria);
+		},this);
+		
+		this.arbolScrum.on('editarTarea',function(idTarea){			
+			this.editarTarea(idTarea);
+		},this);
+		
+		this.arbolScrum.on('click',function( node, e ){			
+			console.log( node );
+			this.mostrarOcultarBotones();
+			var selMod= this.arbolScrum.getSelectionModel();
+			//console.log();
+			//selMod.selNode= node;
+		},this);
+		
+		var selMod=this.arbolScrum.getSelectionModel();
+		selMod.getCount=function(){
+			if (selMod.selNode==undefined){
+				return 0;
+			}else{
+				return 1;
+			}								
+		}
+		selMod.getSelected=function(){
 			
-		if(sel.getCount()==0){
-			this.btnEditar.setDisabled(true);											
-			this.btnEliminar.setDisabled(true);				
-			this.btnUp.setDisabled(true);				
-			this.btnDown.setDisabled(true);			
+		}
+	},	
+	getSelected: function(){
+		var selMod=this.arbolScrum.getSelectionModel();
+		
+		if (selMod.selNode!=undefined){							
+			return {					
+				id:selMod.selNode.id,
+				data:selMod.selNode.attributes
+			};	
 		}else{
-			this.btnEditar.setDisabled(false);							
-			this.btnEliminar.setDisabled(false);			
-			this.btnUp.setDisabled(false);		
-			this.btnDown.setDisabled(false);
+			return selMod.selNode;
 		}
 	},
 	editParams:function(params){
@@ -64,8 +115,7 @@ HistoriasYTareas = Ext.extend(HistoriasYTareasUi, {
 		}
 		params.masConfig=ubicacion;
 		return params;
-	},
-	
+	},	
 	configurarGrid:function(){
 		this.on('rowcontextmenu',function( grid, rowIndex, e ){		
 			var xy = e.getXY();						
@@ -101,9 +151,7 @@ HistoriasYTareas = Ext.extend(HistoriasYTareasUi, {
 				if (index>-1){
 					this.getSelectionModel().selectRow(index);
 				}				
-			}
-				
-				
+			}							
 		},this);
 	},
 	
@@ -275,7 +323,41 @@ HistoriasYTareas = Ext.extend(HistoriasYTareasUi, {
 		
 		
 		
+	},
+	editarHistoria:function(id){	//TODO: considerar todos los modelos de seleccion del extjs				
+		var params={
+			xtype:	this.xtype_del_form,			
+			idReg:  id
+		};
+		
+		if ( !Ext.isEmpty(this.iconCls) ){
+			params.iconCls=this.iconCls;
+		}		
+		
+		this.fireEvent('mostrarTab',params);
+	},
+	editarTarea:function(id){	//TODO: considerar todos los modelos de seleccion del extjs				
+		var params={
+			xtype:	'edicion_tareas',			
+			idReg:  id
+		};
+		
+		if ( !Ext.isEmpty(this.iconCls) ){
+			params.iconCls=this.iconCls;
+		}		
+		
+		this.fireEvent('mostrarTab',params);
+	},
+	nuevaTarea:function(fk_historia){
+		var params={
+			xtype:	'edicion_tareas',			
+			idReg:  0,
+			fk_historia:fk_historia
+		};		
+		
+		this.fireEvent('mostrarTab',params);
 	}
+	
 	
 });
 Ext.reg('historias_y_tareas', HistoriasYTareas);

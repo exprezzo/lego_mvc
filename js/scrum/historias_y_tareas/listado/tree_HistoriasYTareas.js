@@ -22,19 +22,28 @@ listado_historias_y_tareas =Ext.extend(Ext.ux.tree.TreeGrid, {
 			autoload:false
 		});
 		listado_historias_y_tareas.superclass.initComponent.call(this);			
+		this.on('dblclick',function(node, e){
+			
+			switch(node.attributes.tipo){
+				case 'historia':					
+					this.fireEvent('editarHistoria', node.id);					
+				break;
+				case 'tarea':
+					this.fireEvent('editarTarea', node.id);
+				break;
+			}	
+		},this);
 	},
 	configArbol:function(){
 		this.loader.on('beforeload',function(arbol, nodo){
 			arbol.baseParams.idProyecto=this.cmbProyectos.getValue();
 			arbol.baseParams.idUbicacion=this.cmbUbicaciones.getValue();
-		},this);
-		
+		},this);		
 	},
 	 actualizar:function(){
 		var root=this.getRootNode();
 		var loader=this.loader;
-		loader.load(root);
-	 
-	 }
+		loader.load(root);	 
+	 }	
 });
 Ext.reg('tree_historias_y_tareas', listado_historias_y_tareas);

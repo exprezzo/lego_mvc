@@ -183,7 +183,7 @@ class Historias extends Controlador{
 		);
 		
 		$this->modObj = new SprintCrud();	
-		$respuesta=$this->listar();
+		$respuesta = $this->listar();
 		
 		$datos=array_merge($resp['datos'], $respuesta['datos']);
 				

@@ -24,13 +24,12 @@ class TareaCrud extends ManejadorCrud{
 	function moditicarQuery($query){
 		//Si la peticion es listar, agrego el grupo para filtrar la busqueda
 		global $_Peticion;
-		if ($_Peticion->accion=='listar'){
-			$grupo=$_POST['fk_historia'];			
-			$query->setParameter(':fk_historia',$grupo);
+		if ($_Peticion->accion=='listar'){			
+			$historia=$_POST['fk_historia'];			
+			$query->setParameter(':fk_historia',$historia);
 			return $query;
-		}				
+		}
 	}
-	
 	
 }	
 ?>

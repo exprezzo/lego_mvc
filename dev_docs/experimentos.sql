@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50508
 File Encoding         : 65001
 
-Date: 2012-10-21 20:45:25
+Date: 2012-10-29 20:08:48
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -265,7 +265,7 @@ CREATE TABLE `scrum_historias_de_usuario` (
   PRIMARY KEY (`id`),
   KEY `proyecto` (`fk_proyecto`),
   CONSTRAINT `proyecto` FOREIGN KEY (`fk_proyecto`) REFERENCES `scrum_proyectos` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=123 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of scrum_historias_de_usuario
@@ -294,7 +294,7 @@ INSERT INTO `scrum_historias_de_usuario` VALUES ('111', 'Ver historiass en html'
 INSERT INTO `scrum_historias_de_usuario` VALUES ('112', 'Quiero seleccionar un proyecto y mantener la seleccion entre sesiones', '6', '1', '0', '1', '<br><br>', '4', 'En el grid:\n\n     Se muestra una palomita al lado del proyecto default.\n     Se muestra un boton en el toolbar que establece como default al proyecto de la lista seleccionado.\n\nEn el formulario:\n\n    Hay un boton en el toolbar que sirve para establecer como default al proyecto abrierto.\n    Puede crear un proyecto nuevo establecido como default;\n\n', '0', '0');
 INSERT INTO `scrum_historias_de_usuario` VALUES ('113', 'crear catalogo de estados ordenable, y mostrar en ese orden para todos los combos', '-1', '1', '1', '0', '', '1', '', '0', '0');
 INSERT INTO `scrum_historias_de_usuario` VALUES ('114', 'Gestionar Proyectos', '5', '1', '0', '1', '', '4', 'En el menÃº, GestiÃ³n de proyectos, seleccionar la opciÃ³n proyectos, que abrirÃ¡ el catÃ¡logo proyectos, con la funcionalidad habitual.', null, null);
-INSERT INTO `scrum_historias_de_usuario` VALUES ('117', 'quiero imprimir un reporte de historias y de tareas', '1', '1', '1', '0', '', '1', '', '0', '0');
+INSERT INTO `scrum_historias_de_usuario` VALUES ('117', 'quiero imprimir un reporte de historias y de tareas', '1', '1', '1', '0', '', '4', '', '0', '0');
 INSERT INTO `scrum_historias_de_usuario` VALUES ('118', 'quiero un reporte de los participantes y su actividad', '0', '1', '1', '0', '', '1', '', '0', '0');
 INSERT INTO `scrum_historias_de_usuario` VALUES ('119', 'Editar Menus', '1', '4', '0', '6', '', '1', '', null, null);
 INSERT INTO `scrum_historias_de_usuario` VALUES ('121', 'Estimar la duracion del proyecto y medir la duracion real', '0', '1', '1', '0', 'Usar unidades de tiempo para las mediciones y estimaciones<br><br>â€‹En el grid:<br><ul><li>Mostrar la sumatoria de la estimacion y la duracion.</li></ul>', '1', '', '1', '0');
@@ -360,11 +360,16 @@ CREATE TABLE `scrum_tareas` (
   PRIMARY KEY (`id`),
   KEY `historia` (`fk_historia`),
   CONSTRAINT `historia` FOREIGN KEY (`fk_historia`) REFERENCES `scrum_historias_de_usuario` (`id`) ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of scrum_tareas
 -- ----------------------------
+INSERT INTO `scrum_tareas` VALUES ('1', 'gfjfg', null, '103', null, null, null, null);
+INSERT INTO `scrum_tareas` VALUES ('2', 'b', '0', '114', 'b', '1', null, null);
+INSERT INTO `scrum_tareas` VALUES ('3', 'c', '0', '114', 'c', '1', null, null);
+INSERT INTO `scrum_tareas` VALUES ('4', 'd', '0', '114', 'd', '1', null, null);
+INSERT INTO `scrum_tareas` VALUES ('7', 'e', '0', '114', 'e', '1', null, null);
 
 -- ----------------------------
 -- Table structure for `sistema_menus`
@@ -398,11 +403,11 @@ INSERT INTO `sistema_menus` VALUES ('47', 'Backlog', '23', 'gridHistoriadeUsuari
 INSERT INTO `sistema_menus` VALUES ('48', 'Participantes', '23', '', '/imagenes/fatcow/16x16/user_green.png', null);
 INSERT INTO `sistema_menus` VALUES ('49', 'Kanban', '23', '', '/imagenes/Human-O2/16x16/apps/sticky-notes.png', null);
 INSERT INTO `sistema_menus` VALUES ('50', 'Burn Down', '23', '', '/imagenes/fatcow/16x16/chart_stock.png', null);
-INSERT INTO `sistema_menus` VALUES ('51', 'Tareas', '23', '', '/imagenes/Human-O2/16x16/actions/gtk-preferences.png', null);
+INSERT INTO `sistema_menus` VALUES ('51', 'Tareas', '23', 'grid_tareas', '/imagenes/Human-O2/16x16/actions/gtk-preferences.png', null);
 INSERT INTO `sistema_menus` VALUES ('52', 'Estados', '23', '', '/imagenes/fatcow/16x16/traffic_lights.png', null);
 INSERT INTO `sistema_menus` VALUES ('54', 'Bugs', '23', '', '/imagenes/Human-O2/16x16/apps/bug-buddy.png', null);
 INSERT INTO `sistema_menus` VALUES ('55', 'Equipos', '23', '', '/imagenes/fatcow/16x16/reseller_programm.png', null);
-INSERT INTO `sistema_menus` VALUES ('56', 'Historias y tareas', '23', 'listado_historias_y_tareas', '', null);
+INSERT INTO `sistema_menus` VALUES ('56', 'Historias y tareas', '23', 'historias_y_tareas', '', null);
 
 -- ----------------------------
 -- Table structure for `sistema_usuarios`
