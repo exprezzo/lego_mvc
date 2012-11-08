@@ -11,6 +11,8 @@
  */
 
 gridSprints = Ext.extend(gridSprintsUi, {
+	xtype_del_form:"edicionSprint",
+	plugins:[CatGridPlugin],
     initComponent: function() {
         gridSprints.superclass.initComponent.call(this);
 		this.store=new stoProyectos({
@@ -30,13 +32,13 @@ gridSprints = Ext.extend(gridSprintsUi, {
 		this.bottomToolbar.bind(this.store);
 		//----------------------------------
 	//  para que este grid se comporte como un grid del catalogo crud, ejecutamos la siguiente linea
-	
+	/*
 		Ext.apply(this,comportamiento_grid,{
-			xtype_del_form:"edicionSprint"
+			
 		});	
 		
 	//  y asi se activa el comporstamiento
-		this.activarComportamiento();
+		this.activarComportamiento();*/
 	//----------------------------------
 		this.bottomToolbar.doRefresh();
 		

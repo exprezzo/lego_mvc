@@ -16,10 +16,9 @@ edicion_tareas = Ext.extend(edicion_tareasUi, {
         edicion_tareas.superclass.initComponent.call(this);
 		this.txtId.setVisible(false);
 		this.iconCls=Ext.ux.TDGi.iconMgr.getIcon('/imagenes/Human-O2/16x16/actions/gtk-preferences.png');
-		//this.txtHistoria.setVisible(false);
-		
-		//this.txtEstado.setVisible(false);
-		//this.txtNombreEstado.setVisible(false);
+		this.txtHistoria.setVisible(false);		
+		this.txtEstado.setVisible(false);
+		this.txtNombreEstado.setVisible(false);
 		
 		this.controlador='tareas';
 		
@@ -46,14 +45,13 @@ edicion_tareas = Ext.extend(edicion_tareasUi, {
 		this.on('guardado',function(){			
 			this.cargarCombos();
 		},this);
-		
-		alert('asd');
+				
 		this.on('cargado',function(){	
 			var id=this.txtId.getValue();
 			if (id==''){
 				id=0;
 			}			
-			console.log(this);
+			
 			if (id==0 ){				
 				var fk_historia=this.initialConfig.fk_historia;
 				if ( fk_historia!=undefined){
@@ -61,7 +59,7 @@ edicion_tareas = Ext.extend(edicion_tareasUi, {
 				}
 				
 			}
-			
+			this.cargarCombos();
 		},this);
     },
 	cargarCombos:function(){
@@ -69,6 +67,7 @@ edicion_tareas = Ext.extend(edicion_tareasUi, {
 			id:this.txtEstado.getValue(),
 			nombre:this.txtNombreEstado.getValue()
 		};
+		
 		this.cmbEstado.store.loadData({datos:estado});
 		this.cmbEstado.setValue(estado.id);
 	},	

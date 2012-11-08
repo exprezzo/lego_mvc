@@ -136,13 +136,6 @@ edicion_tareasUi = Ext.extend(Ext.form.FormPanel, {
                 ref: 'txtNombreEstado'
             },
             {
-                xtype: 'textarea',
-                anchor: '100%',
-                fieldLabel: 'Como probarlo',
-                name: 'como_probarlo',
-                height: 200
-            },
-            {
                 xtype: 'htmleditor',
                 fieldLabel: 'Notas',
                 anchor: '100%',

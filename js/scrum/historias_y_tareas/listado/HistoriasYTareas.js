@@ -49,7 +49,7 @@ HistoriasYTareas = Ext.extend(HistoriasYTareasUi, {
 		
 		this.btnNuevaTarea.on('click',function(){
 			var sel = this.getSelected();
-			console.log(sel);
+			
 			if (sel==undefined){
 				return false;
 			}
@@ -76,11 +76,10 @@ HistoriasYTareas = Ext.extend(HistoriasYTareasUi, {
 		},this);
 		
 		this.arbolScrum.on('click',function( node, e ){			
-			console.log( node );
+			
 			this.mostrarOcultarBotones();
 			var selMod= this.arbolScrum.getSelectionModel();
-			//console.log();
-			//selMod.selNode= node;
+			
 		},this);
 		
 		var selMod=this.arbolScrum.getSelectionModel();
@@ -212,9 +211,6 @@ HistoriasYTareas = Ext.extend(HistoriasYTareasUi, {
 			  }else{				
 					alert(result.msg); 
 			  }			  
-		   },
-		   failure: function(response, opts) {
-			  //console.log('server-side failure with status code ' + response.status);
 		   }
 		});
 	},
@@ -231,8 +227,7 @@ HistoriasYTareas = Ext.extend(HistoriasYTareasUi, {
 		return this.ctxMenu;
 	},
 	preguntarReubicarHistoria:function(historia, destino){
-		//console.log("historia"); console.log(historia);
-		//console.log("destino"); console.log(destino);
+		
 		Ext.Msg.show({
 		   title:'Reubicar?',
 		   msg: 'Desea reubicar la historia?',
@@ -267,9 +262,6 @@ HistoriasYTareas = Ext.extend(HistoriasYTareasUi, {
 			  }else{				
 					alert(result.msg); 
 			  }			  
-		   },
-		   failure: function(response, opts) {
-			  //console.log('server-side failure with status code ' + response.status);
 		   }
 		});
 	},

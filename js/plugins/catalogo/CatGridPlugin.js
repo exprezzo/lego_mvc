@@ -12,7 +12,7 @@ CatGridPlugin={
 			this.bottomToolbar.doRefresh();
 		},cmp);
 		
-		this.cofigCrudToolbar(cmp);
+		cmp.cofigCrudToolbar(cmp);
 		
 		cmp.on('rowclick',function(e){
 			this.mostrarOcultarBotones();			

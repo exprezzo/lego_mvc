@@ -28,7 +28,42 @@ gridSprintsUi = Ext.extend(Ext.grid.GridPanel, {
             displayInfo: true
         };
         this.tbar = {
-            xtype: 'grid16_toolbar'
+            xtype: 'toolbar',
+            items: [
+                {
+                    xtype: 'button',
+                    text: 'Editar',
+                    iconCls: 'btnEditarIcon_16',
+                    itemId: 'btnEditar',
+                    arrowAlign: 'bottom',
+                    ref: '../btnEditar'
+                },
+                {
+                    xtype: 'button',
+                    text: 'Eliminar',
+                    iconCls: 'btnEliminarIcon_16',
+                    itemId: 'btnEliminar',
+                    ref: '../btnEliminar'
+                },
+                {
+                    xtype: 'button',
+                    text: 'Nuevo',
+                    iconCls: 'btnNuevoIcon_16',
+                    itemId: 'btnNuevo',
+                    ref: '../btnNuevo'
+                },
+                {
+                    xtype: 'tbseparator'
+                },
+                {
+                    xtype: 'tbfill'
+                },
+                {
+                    xtype: 'trigger',
+                    triggerClass: 'x-form-search-trigger',
+                    ref: '../txtSearch'
+                }
+            ]
         };
         gridSprintsUi.superclass.initComponent.call(this);
     }

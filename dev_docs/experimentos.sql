@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50508
 File Encoding         : 65001
 
-Date: 2012-10-29 20:08:48
+Date: 2012-11-07 22:21:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -265,7 +265,7 @@ CREATE TABLE `scrum_historias_de_usuario` (
   PRIMARY KEY (`id`),
   KEY `proyecto` (`fk_proyecto`),
   CONSTRAINT `proyecto` FOREIGN KEY (`fk_proyecto`) REFERENCES `scrum_proyectos` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=123 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of scrum_historias_de_usuario
@@ -299,6 +299,12 @@ INSERT INTO `scrum_historias_de_usuario` VALUES ('118', 'quiero un reporte de lo
 INSERT INTO `scrum_historias_de_usuario` VALUES ('119', 'Editar Menus', '1', '4', '0', '6', '', '1', '', null, null);
 INSERT INTO `scrum_historias_de_usuario` VALUES ('121', 'Estimar la duracion del proyecto y medir la duracion real', '0', '1', '1', '0', 'Usar unidades de tiempo para las mediciones y estimaciones<br><br>â€‹En el grid:<br><ul><li>Mostrar la sumatoria de la estimacion y la duracion.</li></ul>', '1', '', '1', '0');
 INSERT INTO `scrum_historias_de_usuario` VALUES ('122', 'crear plugin,  labelLinkTab', '1', '4', '1', '0', '', '1', '', '0', '0');
+INSERT INTO `scrum_historias_de_usuario` VALUES ('123', 'Modulo de logeo', '0', '8', '1', '0', '', '1', '', '0', '0');
+INSERT INTO `scrum_historias_de_usuario` VALUES ('124', 'Quiero que los usuarios puedan registrarse en el sitio', '1', '8', '1', '0', 'Redireccionar Â¿Hacia donde? <br>', '1', '', '0', '0');
+INSERT INTO `scrum_historias_de_usuario` VALUES ('125', 'Registrar usuarios importando los datos de facebook', '0', '8', '1', '0', '', '1', '', '0', '0');
+INSERT INTO `scrum_historias_de_usuario` VALUES ('126', 'Crear estructura del sitio', '2', '8', '1', '0', '', '2', '', '0', '0');
+INSERT INTO `scrum_historias_de_usuario` VALUES ('128', 'Recuperacion de datos', '0', '8', '1', '0', '', '1', '', '0', '0');
+INSERT INTO `scrum_historias_de_usuario` VALUES ('132', 'Crear lista de bugs, por proyecto', '0', '1', '1', '0', '', '1', '', '0', '0');
 
 -- ----------------------------
 -- Table structure for `scrum_proyectos`
@@ -310,17 +316,18 @@ CREATE TABLE `scrum_proyectos` (
   `descripcion` text,
   `predeterminado` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of scrum_proyectos
 -- ----------------------------
-INSERT INTO `scrum_proyectos` VALUES ('1', 'Scrum', '<div style=\"text-align: center;\"><font size=\"5\">SCRUM</font><br><br></div><font size=\"4\">Â¿Que es?</font><br><ul><li><font size=\"3\">Es una manera de afrontar los sucesos cotidianos en la creacion del software.</font></li></ul><p><font size=\"4\">Â¿Que beneficion obtengo?</font></p><p><font size=\"4\"><font size=\"3\">Pues depende del papel que desempeÃ±es en el juego, los beneficion generales son:</font><br></font></p><ul><li><font size=\"3\">Creacion de productos que se adaptan a los requisitos cambiantes.</font></li><li><font size=\"3\">Enfoca el esfuerzo del equipo en conseguir los resultados.</font></li><li><font size=\"3\">Toma en cuenta la calidad de vida.</font></li><li><font size=\"3\">Maximiza la retribucion de la inversion.<br></font></li></ul><p><br></p><p><br></p><p><br></p><font size=\"4\">Â¿ Como se juega ?<br><br></font>Se integran los equipos.<br>se nombra un arbitro.<br>se nombra un product owner.<br><br><font style=\"font-family: arial;\" size=\"4\">Conceptos:<br><br></font><b>Historia de usuario</b>: Lo que un usuario haria o quiere hacer en el sistema, en texto simple y cotidiano, por lo general menos de 2 renglones en una hoja de cuaderno. Se sugiere la forma ROL - accion - Resultado. <br><br><ul><li>Ejemplo:&nbsp;</li></ul><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Como miembro del equipo, quiero chatear con el equipo (en grupo e individual) para coordinar las acciones.</p><br><b>Sprint: </b>es un periodo de trabajo con objetivo la creaciÃ³n de un entregale (una demo). <br>Contiene un numero de historias que se planea terminar en ese periodo.<br><br><b>pila de producto </b>(Backlog)<b>:</b> Es el lugar donde estan las historias que no han sido asignadas a un un sprint. Como cuando el proyecto todavia no inicia.<br><br><br><b>dueÃ±o </b>(Product Owner):<br><b>arbitro </b>(Scrum master):<br><b>Equipo</b>:<br><b>Tarea</b>:<br><span style=\"font-weight: bold;\">Kanban:</span><br><span style=\"font-weight: bold;\">Grafica BurnDown:</span><br><br>Idealmente\n las tareas han sido seleccionadas y estimadas pero&nbsp; pueden crearse al \nvuelo teniendo presente que en ese periodo debe producirse un \nentregable.', '1');
+INSERT INTO `scrum_proyectos` VALUES ('1', 'Scrum', '<div style=\"text-align: center;\"><font size=\"5\">SCRUM</font><br><br></div><font size=\"4\">Â¿Que es?</font><br><ul><li><font size=\"3\">Es una manera de afrontar los sucesos cotidianos en la creacion del software.</font></li></ul><p><font size=\"4\">Â¿Que beneficion obtengo?</font></p><p><font size=\"4\"><font size=\"3\">Pues depende del papel que desempeÃ±es en el juego, los beneficion generales son:</font><br></font></p><ul><li><font size=\"3\">Creacion de productos que se adaptan a los requisitos cambiantes.</font></li><li><font size=\"3\">Enfoca el esfuerzo del equipo en conseguir los resultados.</font></li><li><font size=\"3\">Toma en cuenta la calidad de vida.</font></li><li><font size=\"3\">Maximiza la retribucion de la inversion.<br></font></li></ul><p><br></p><p><br></p><p><br></p><font size=\"4\">Â¿ Como se juega ?<br><br></font>Se integran los equipos.<br>se nombra un arbitro.<br>se nombra un product owner.<br><br><font style=\"font-family: arial;\" size=\"4\">Conceptos:<br><br></font><b>Historia de usuario</b>: Lo que un usuario haria o quiere hacer en el sistema, en texto simple y cotidiano, por lo general menos de 2 renglones en una hoja de cuaderno. Se sugiere la forma ROL - accion - Resultado. <br><br><ul><li>Ejemplo:&nbsp;</li></ul><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Como miembro del equipo, quiero chatear con el equipo (en grupo e individual) para coordinar las acciones.</p><br><b>Sprint: </b>es un periodo de trabajo con objetivo la creaciÃ³n de un entregale (una demo). <br>Contiene un numero de historias que se planea terminar en ese periodo.<br><br><b>pila de producto </b>(Backlog)<b>:</b> Es el lugar donde estan las historias que no han sido asignadas a un un sprint. Como cuando el proyecto todavia no inicia.<br><br><br><b>dueÃ±o </b>(Product Owner):<br><b>arbitro </b>(Scrum master):<br><b>Equipo</b>:<br><b>Tarea</b>:<br><span style=\"font-weight: bold;\">Kanban:</span><br><span style=\"font-weight: bold;\">Grafica BurnDown:</span><br><br>Idealmente\n las tareas han sido seleccionadas y estimadas pero&nbsp; pueden crearse al \nvuelo teniendo presente que en ese periodo debe producirse un \nentregable.', '0');
 INSERT INTO `scrum_proyectos` VALUES ('2', 'Lego MVC', null, '0');
 INSERT INTO `scrum_proyectos` VALUES ('3', 'Facturex', 'asf', '0');
 INSERT INTO `scrum_proyectos` VALUES ('4', 'Coral App', '', '0');
 INSERT INTO `scrum_proyectos` VALUES ('6', 'Eduplus', '', '0');
 INSERT INTO `scrum_proyectos` VALUES ('7', 'Atica', '', '0');
+INSERT INTO `scrum_proyectos` VALUES ('8', 'Memez', '', '1');
 
 -- ----------------------------
 -- Table structure for `scrum_sprint`
@@ -331,7 +338,7 @@ CREATE TABLE `scrum_sprint` (
   `nombre` char(255) NOT NULL,
   `fk_proyecto` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of scrum_sprint
@@ -343,6 +350,7 @@ INSERT INTO `scrum_sprint` VALUES ('5', 'C 1', '3');
 INSERT INTO `scrum_sprint` VALUES ('6', 'SPRINT 1', '4');
 INSERT INTO `scrum_sprint` VALUES ('8', 'dfa', '3');
 INSERT INTO `scrum_sprint` VALUES ('9', 'qqqqqqqqqqqq', '3');
+INSERT INTO `scrum_sprint` VALUES ('10', 'asdf', '8');
 
 -- ----------------------------
 -- Table structure for `scrum_tareas`
@@ -360,7 +368,7 @@ CREATE TABLE `scrum_tareas` (
   PRIMARY KEY (`id`),
   KEY `historia` (`fk_historia`),
   CONSTRAINT `historia` FOREIGN KEY (`fk_historia`) REFERENCES `scrum_historias_de_usuario` (`id`) ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of scrum_tareas
@@ -370,6 +378,31 @@ INSERT INTO `scrum_tareas` VALUES ('2', 'b', '0', '114', 'b', '1', null, null);
 INSERT INTO `scrum_tareas` VALUES ('3', 'c', '0', '114', 'c', '1', null, null);
 INSERT INTO `scrum_tareas` VALUES ('4', 'd', '0', '114', 'd', '1', null, null);
 INSERT INTO `scrum_tareas` VALUES ('7', 'e', '0', '114', 'e', '1', null, null);
+INSERT INTO `scrum_tareas` VALUES ('8', 'Logeo de usuarios', null, '123', null, '4', null, null);
+INSERT INTO `scrum_tareas` VALUES ('9', 'Registrar en la base de datos, el userName, email y pasword (encriptado).', null, '124', null, '4', null, null);
+INSERT INTO `scrum_tareas` VALUES ('10', 'crear menus', null, '126', null, '1', null, null);
+INSERT INTO `scrum_tareas` VALUES ('11', 'Usar un captcha para filtrar robots.', null, '124', null, '4', null, null);
+INSERT INTO `scrum_tareas` VALUES ('12', 'Pedir confirmacion de la contraseÃ±a y compararlas en el navegador. mostrando mensaje de error en caso de no coincidir.', null, '124', null, '4', null, null);
+INSERT INTO `scrum_tareas` VALUES ('14', 'Revisar con ajax que el email y username no existan. Mostrar notificacion cuando sea necesario.', null, '124', null, '4', null, null);
+INSERT INTO `scrum_tareas` VALUES ('15', 'Iniciar sesion de manera automatica al terminar el registro', null, '124', null, '4', null, null);
+INSERT INTO `scrum_tareas` VALUES ('16', 'impedir submit cuando hay campos invÃ¡lidos', null, '124', null, '4', null, null);
+INSERT INTO `scrum_tareas` VALUES ('17', 'Impedir submit cuando el captcha esta vacio', null, '124', null, '1', null, null);
+INSERT INTO `scrum_tareas` VALUES ('18', 'Mostrar un captcha despues de N intentos', null, '123', null, '1', null, null);
+INSERT INTO `scrum_tareas` VALUES ('21', 'Logear usando la cuenta de facebook', null, '123', null, '4', null, null);
+INSERT INTO `scrum_tareas` VALUES ('22', 'Recuperar ContraseÃ±a', null, '128', null, '1', null, null);
+INSERT INTO `scrum_tareas` VALUES ('23', 'Recuperar Email', null, '128', null, '1', null, null);
+INSERT INTO `scrum_tareas` VALUES ('24', 'users widget', null, '126', null, '4', null, null);
+INSERT INTO `scrum_tareas` VALUES ('25', 'validar datos del lado del servidor', null, '123', null, '4', null, null);
+INSERT INTO `scrum_tareas` VALUES ('26', 'Validar datos del lado del cliente', null, '123', null, '4', null, null);
+INSERT INTO `scrum_tareas` VALUES ('27', 'bug en combo estado', null, '101', null, '1', null, null);
+INSERT INTO `scrum_tareas` VALUES ('28', 'Los datos deben refrescarse al activar el tab', null, '95', null, '1', null, null);
+INSERT INTO `scrum_tareas` VALUES ('29', 'Agregar boton para refrescar datos', null, '95', null, '1', null, null);
+INSERT INTO `scrum_tareas` VALUES ('30', 'Realizar accion de submit al presionar enter', null, '123', null, '1', null, null);
+INSERT INTO `scrum_tareas` VALUES ('31', 'Traduir todos los mensajes', null, '123', null, '1', null, null);
+INSERT INTO `scrum_tareas` VALUES ('32', 'Cuando el correo ya existe en la base de datos, vincular con la cuenta de facebook', null, '125', null, '1', null, null);
+INSERT INTO `scrum_tareas` VALUES ('33', 'Cuando el username ya existe en la base de datos, vincular con la cuenta de facebook', null, '125', null, '1', null, null);
+INSERT INTO `scrum_tareas` VALUES ('34', 'La primera vez que se logea desde facebook, si los datos del usuario no existen en la base de datos, registrar al usuaro', null, '125', null, '4', null, null);
+INSERT INTO `scrum_tareas` VALUES ('35', 'cuando el usuario cancela el registro desde facebook, cerrar la sesion de facebook', null, '125', null, '1', null, null);
 
 -- ----------------------------
 -- Table structure for `sistema_menus`
@@ -395,11 +428,8 @@ INSERT INTO `sistema_menus` VALUES ('15', 'Sistema: Pendientes', '7', 'gridPendi
 INSERT INTO `sistema_menus` VALUES ('16', 'Menus (cat&aacutelogo)', '7', 'catMenus', '/imagenes/fatcow/16x16/menu.png', null);
 INSERT INTO `sistema_menus` VALUES ('20', 'Bugs', '13', '', 'imagenes/Human-O2/16x16/apps/bug-buddy.png', null);
 INSERT INTO `sistema_menus` VALUES ('23', 'Gestion de Proyectos', '1', '', '', null);
-INSERT INTO `sistema_menus` VALUES ('34', 'Scrum', '23', 'Scrum', '/imagenes/fatcow/16x16/soil_layers.png', null);
 INSERT INTO `sistema_menus` VALUES ('35', 'Proyectos', '23', 'gridProyectos', '/imagenes/fatcow/16x16/small_business.png', null);
-INSERT INTO `sistema_menus` VALUES ('45', 'Historias de Usuario', '23', 'gridHistoriadeUsuario', '/imagenes/Human-O2/16x16/apps/stock_certificate.png', null);
 INSERT INTO `sistema_menus` VALUES ('46', 'Sprints', '23', 'gridSprints', '/imagenes/Human-O2/16x16/apps/rclock.png', null);
-INSERT INTO `sistema_menus` VALUES ('47', 'Backlog', '23', 'gridHistoriadeUsuario', '/imagenes/fatcow/16x16/viewstack.png', null);
 INSERT INTO `sistema_menus` VALUES ('48', 'Participantes', '23', '', '/imagenes/fatcow/16x16/user_green.png', null);
 INSERT INTO `sistema_menus` VALUES ('49', 'Kanban', '23', '', '/imagenes/Human-O2/16x16/apps/sticky-notes.png', null);
 INSERT INTO `sistema_menus` VALUES ('50', 'Burn Down', '23', '', '/imagenes/fatcow/16x16/chart_stock.png', null);
@@ -407,7 +437,7 @@ INSERT INTO `sistema_menus` VALUES ('51', 'Tareas', '23', 'grid_tareas', '/image
 INSERT INTO `sistema_menus` VALUES ('52', 'Estados', '23', '', '/imagenes/fatcow/16x16/traffic_lights.png', null);
 INSERT INTO `sistema_menus` VALUES ('54', 'Bugs', '23', '', '/imagenes/Human-O2/16x16/apps/bug-buddy.png', null);
 INSERT INTO `sistema_menus` VALUES ('55', 'Equipos', '23', '', '/imagenes/fatcow/16x16/reseller_programm.png', null);
-INSERT INTO `sistema_menus` VALUES ('56', 'Historias y tareas', '23', 'historias_y_tareas', '', null);
+INSERT INTO `sistema_menus` VALUES ('56', 'Historias de usuario', '23', 'historias_y_tareas', '/imagenes/Human-O2/16x16/apps/stock_certificate.png', null);
 
 -- ----------------------------
 -- Table structure for `sistema_usuarios`

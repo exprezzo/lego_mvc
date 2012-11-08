@@ -101,7 +101,7 @@ comportamiento_formulario={
 	},
 	recargar:function(){
 		var params=this.getDatos();
-		this.el.mask();
+		this.el.mask();		
 		this.getForm().load({
 			params:params,			
 			url: '/'+ this.controlador + '/obtener',			
@@ -113,12 +113,14 @@ comportamiento_formulario={
 					var msg= ( Ext.isEmpty(action.result.msg) )? "Informaci&oacuten obtenida" : action.result.msg;
 					topMsg.setAlert(this.controlador, msg);
 					this.actualizarTitulo('edicion');		
-
+					
 					this.fireEvent('cargado');
 					this.focusItem();
 				}
 			},
-			failure:function(){
+			failure:function(asd){
+				console.log('failure');
+				console.log(asd);
 				this.el.unmask();
 			}
 		});

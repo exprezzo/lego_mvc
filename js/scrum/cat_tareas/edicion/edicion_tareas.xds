@@ -253,18 +253,6 @@
                     }
                 },
                 {
-                    "id": "MyTextArea",
-                    "cid": "textarea",
-                    "jsClass": "MyTextArea",
-                    "snapToGrid": 10,
-                    "userConfig": {
-                        "anchor": "100%",
-                        "fieldLabel": "Como probarlo",
-                        "name": "como_probarlo",
-                        "height": 200
-                    }
-                },
-                {
                     "id": "MyHtmlEditor",
                     "cid": "htmleditor",
                     "jsClass": "MyTextField5",
