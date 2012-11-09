@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50508
 File Encoding         : 65001
 
-Date: 2012-11-07 22:21:25
+Date: 2012-11-09 07:20:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -265,7 +265,7 @@ CREATE TABLE `scrum_historias_de_usuario` (
   PRIMARY KEY (`id`),
   KEY `proyecto` (`fk_proyecto`),
   CONSTRAINT `proyecto` FOREIGN KEY (`fk_proyecto`) REFERENCES `scrum_proyectos` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of scrum_historias_de_usuario
