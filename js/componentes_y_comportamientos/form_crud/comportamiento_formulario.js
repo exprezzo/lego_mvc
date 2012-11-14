@@ -14,7 +14,7 @@ comportamiento_formulario={
 	},
 	guardar:function( params ){
 		this.el.mask();
-		
+		this.fireEvent('antesDeGuardar');
 		this.getForm().submit({
 			clientValidation: true,
 			scope:this,
@@ -26,6 +26,8 @@ comportamiento_formulario={
 					this.actualizarTitulo('guardado');
 					this.focusItem();
 					this.fireEvent('guardado');
+				}else{
+					this.fireEvent('errorAlGuardar');
 				}
 				this.el.unmask();
 			},
@@ -101,18 +103,18 @@ comportamiento_formulario={
 	},
 	recargar:function(){
 		var params=this.getDatos();
-		this.el.mask();		
+		this.el.mask();
 		this.getForm().load({
-			params:params,			
-			url: '/'+ this.controlador + '/obtener',			
+			params:params,
+			url: '/'+ this.controlador + '/obtener',
 			scope:this,
-			success:function(form, action){				
-				this.el.unmask();					
-				if (action.result.success == true){				
+			success:function(form, action){
+				this.el.unmask();
+				if (action.result.success == true){
 					
 					var msg= ( Ext.isEmpty(action.result.msg) )? "Informaci&oacuten obtenida" : action.result.msg;
 					topMsg.setAlert(this.controlador, msg);
-					this.actualizarTitulo('edicion');		
+					this.actualizarTitulo('edicion');
 					
 					this.fireEvent('cargado');
 					this.focusItem();

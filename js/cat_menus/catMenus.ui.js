@@ -11,7 +11,7 @@
 
 catMenusUi = Ext.extend(Ext.Panel, {
     title: 'Catalogo de Menus',
-    height: 250,
+    height: 458,
     layout: 'border',
     bodyStyle: '',
     initComponent: function() {
@@ -59,6 +59,7 @@ catMenusUi = Ext.extend(Ext.Panel, {
                         fieldLabel: 'Id',
                         anchor: '100%',
                         name: 'id',
+                        disabled: true,
                         ref: '../txtId'
                     },
                     {
@@ -85,6 +86,13 @@ catMenusUi = Ext.extend(Ext.Panel, {
                         anchor: '100%',
                         name: 'padre',
                         ref: '../txtPadre'
+                    },
+                    {
+                        xtype: 'textfield',
+                        fieldLabel: 'UUID',
+                        anchor: '100%',
+                        disabled: true,
+                        name: 'UUID'
                     }
                 ]
             }

@@ -23,7 +23,7 @@
             "userConfig": {
                 "title": "Catalogo de Menus",
                 "width": "-ext-undefined-",
-                "height": 250,
+                "height": 458,
                 "layout": "border",
                 "bodyStyle": ""
             },
@@ -116,7 +116,8 @@
                                 "anchor": "100%",
                                 "autoRef": "txtId",
                                 "name": "id",
-                                "hidden": "-ext-undefined-"
+                                "hidden": "-ext-undefined-",
+                                "disabled": true
                             }
                         },
                         {
@@ -162,6 +163,18 @@
                                 "anchor": "100%",
                                 "name": "padre",
                                 "autoRef": "txtPadre"
+                            }
+                        },
+                        {
+                            "id": "MyTextField5",
+                            "cid": "textfield",
+                            "jsClass": "MyTextField5",
+                            "snapToGrid": 10,
+                            "userConfig": {
+                                "fieldLabel": "UUID",
+                                "anchor": "100%",
+                                "disabled": true,
+                                "name": "UUID"
                             }
                         }
                     ]
@@ -275,5 +288,62 @@
             "userXType": "TreeGridMenu"
         }
     ],
-    "stores": []
+    "stores": [
+        {
+            "id": "MyStore",
+            "cid": "jsonstore",
+            "jsClass": "MyStore",
+            "snapToGrid": 10,
+            "userConfig": {
+                "storeId": "MyStore"
+            },
+            "cn": [
+                {
+                    "id": "MyField",
+                    "cid": "datafield",
+                    "jsClass": "MyField",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "field"
+                    }
+                },
+                {
+                    "id": "MyField1",
+                    "cid": "datafield",
+                    "jsClass": "MyField1",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "field"
+                    }
+                },
+                {
+                    "id": "MyField2",
+                    "cid": "datafield",
+                    "jsClass": "MyField2",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "field"
+                    }
+                },
+                {
+                    "id": "MyField3",
+                    "cid": "datafield",
+                    "jsClass": "MyField3",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "field"
+                    }
+                },
+                {
+                    "id": "MyField4",
+                    "cid": "datafield",
+                    "jsClass": "MyField4",
+                    "snapToGrid": 10,
+                    "userConfig": {
+                        "name": "field"
+                    }
+                }
+            ]
+        }
+    ]
 }

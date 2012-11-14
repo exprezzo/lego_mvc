@@ -17,8 +17,20 @@ catMenus = Ext.extend(catMenusUi, {
     initComponent: function() {
         catMenus.superclass.initComponent.call(this);
 		
-		this.txtId.setVisible(false);
-		this.txtPadre.setVisible(false);
+		//this.txtId.setVisible(false);
+		//this.txtPadre.setVisible(false);
+		
+		this.on('antesDeGuardar', function(){
+			this.txtId.setDisabled(false);
+		},this);
+		
+		this.on('guardado', function(){
+			this.txtId.setDisabled(true);
+		},this);
+		
+		this.on('errorAlGuardar', function(){
+			this.txtId.setDisabled(true);
+		},this);
 		
 		this.treeMenus.on('click',function(node, e){			
 			if (node.attributes != undefined){
@@ -70,13 +82,14 @@ catMenus = Ext.extend(catMenusUi, {
 			this.txtPadre.setValue(0);
 		}else{
 			this.txtPadre.setValue(node.attributes.id);
-		}
-		
-		
+		}				
 	},
 	getForm:function(){
 		return this.frmEdicion.getForm();
-	}
+	},
+	focusItem:function(){
+		//this.txtId.focus(true);
+	},
 	
 });
 Ext.reg('catMenus', catMenus);
